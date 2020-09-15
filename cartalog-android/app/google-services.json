@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "97117921513",
+    "firebase_url": "https://cartalog-mgdn.firebaseio.com",
+    "project_id": "cartalog-mgdn",
+    "storage_bucket": "cartalog-mgdn.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97117921513:android:ca5ceb8f930013c3ee1078",
+        "android_client_info": {
+          "package_name": "com.oldmgdn.boost"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "97117921513-uegtvorq36p42ud91381qg6qp6f32j0b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.oldmgdn.boost",
+            "certificate_hash": "4cb2b1ed5b5514a7a399e877c8fc76da73a0d82a"
+          }
+        },
+        {
+          "client_id": "97117921513-79rhshn7lhk8jft7detn1ul7cu8todfu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClryIG3sZJ0qHgsUTScHCkrKuaAtkJRkg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "97117921513-79rhshn7lhk8jft7detn1ul7cu8todfu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

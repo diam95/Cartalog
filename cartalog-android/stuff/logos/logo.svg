@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2018 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="841mm" height="594mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 8410 5940"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str1 {stroke:white;stroke-width:15.875;stroke-miterlimit:2.61313}
+    .str2 {stroke:white;stroke-width:23.812;stroke-miterlimit:2.61313}
+    .str0 {stroke:white;stroke-width:21.167;stroke-miterlimit:2.61313}
+    .fil2 {fill:none}
+    .fil1 {fill:#4A60AB}
+    .fil0 {fill:url(#id0)}
+   ]]>
+  </style>
+  <linearGradient id="id0" gradientUnits="userSpaceOnUse" x1="5221.708" y1="2290.971" x2="4927.514" y2="2003.331">
+   <stop offset="0" style="stop-opacity:1; stop-color:#B039A6"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#8E88E3"/>
+  </linearGradient>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <rect class="fil0" x="4868.902" y="1941.442" width="411.418" height="411.418" rx="205.709" ry="203.404"/>
+  <circle class="fil1 str0" transform="matrix(4.68589 4.68589 -4.68589 4.68589 5231.21 1990.73)" r="8.732"/>
+  <circle class="fil1 str1" transform="matrix(1.63187 1.63187 -1.63187 1.63187 5231.21 1990.73)" r="8.732"/>
+  <path class="fil1 str2" d="M5151.944 1996.971l74.569 74.569c13.849,13.849 13.849,36.514 0,50.363l-64.741 64.74 -124.931 -124.931 64.741 -64.741c13.849,-13.848 36.513,-13.848 50.362,0z"/>
+  <line class="fil2 str2" x1="5195.647" y1="2156.005" x2="5116.938" y2= "2077.296" />
+  <line class="fil2 str2" x1="5070.716" y1="2031.074" x2="5098.202" y2= "2058.56" />
+  <path class="fil1 str2" d="M5072.253 2102.329l46.868 46.869 -171.343 171.343 1.994 -10.173c1.838,-12.784 -0.538,-23.748 -7.74,-30.95 -7.201,-7.201 -18.166,-9.577 -30.949,-7.739l-9.794 1.614 170.964 -170.964z"/>
+  <circle class="fil1 str0" transform="matrix(4.93205 4.93205 -4.93205 4.93205 4919.65 2302.31)" r="8.732"/>
+  <path class="fil2 str1" d="M4924.712 2324.366c3.931,-0.914 7.67,-2.9 10.734,-5.964 8.727,-8.726 8.727,-22.871 0,-31.597 -8.726,-8.727 -22.871,-8.727 -31.597,0 -8.726,8.726 -8.726,22.871 0,31.597 2.814,2.814 6.196,4.725 9.775,5.722"/>
+  <line class="fil2 str2" x1="5121.101" y1="2204.409" x2="4999.281" y2= "2119.11" />
+  <line class="fil2 str2" x1="5088.484" y1="2238.963" x2="4966.664" y2= "2153.664" />
+  <line class="fil2 str2" x1="5053.878" y1="2271.638" x2="4932.058" y2= "2186.338" />
+ </g>
+</svg>

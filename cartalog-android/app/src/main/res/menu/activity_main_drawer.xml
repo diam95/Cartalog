@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group
+        android:id="@+id/menu_activity_main_drawer_actions"
+        android:checkableBehavior="single">
+        <item
+            android:icon="@drawable/ic_notification"
+            android:title="@string/push"
+            app:actionLayout="@layout/widget_switch" />
+        <item
+            android:id="@+id/nav_parts"
+            android:icon="@drawable/ic_search"
+            android:title="@string/find_part" />
+        <item
+            android:id="@+id/nav_service"
+            android:icon="@drawable/ic_cog"
+            android:title="@string/find_service" />
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_autoparts"
+            android:icon="@drawable/ic_shock_absorber"
+            android:title="@string/autoparts" />
+        <item
+            android:id="@+id/nav_car_service"
+            android:icon="@drawable/ic_check"
+            android:title="@string/car_service" />
+        <item
+            android:id="@+id/nav_carWash"
+            android:icon="@drawable/ic_shower"
+            android:title="@string/find_car_wash" />
+        <item
+            android:id="@+id/nav_tires"
+            android:icon="@drawable/ic_flat_tire"
+            android:title="@string/find_tyre_service" />
+        <item
+            android:id="@+id/nav_oil"
+            android:icon="@drawable/ic_oil"
+            android:title="@string/change_oil" />
+        <item
+            android:id="@+id/nav_alignment"
+            android:icon="@drawable/ic_alignment"
+            android:title="@string/alignment" />
+        <item
+            android:id="@+id/nav_insurance"
+            android:icon="@drawable/ic_insurance"
+            android:title="@string/insurance" />
+    </group>
+
+    <group
+        android:id="@+id/feedback_group"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_feedback"
+            android:icon="@drawable/ic_feedback_black_24dp"
+            android:title="@string/contactUS" />
+    </group>
+
+</menu>

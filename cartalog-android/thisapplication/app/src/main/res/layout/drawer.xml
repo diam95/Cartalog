@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_shops"
+            android:icon="@drawable/ic_car_parts"
+            android:title="Автомагазины" />
+
+        <item
+            android:id="@+id/nav_service"
+            android:icon="@drawable/ic_car_service"
+            android:title="Автосервисы" />
+
+        <item
+            android:id="@+id/nav_gas"
+            android:icon="@drawable/ic_gas"
+            android:title="Заправки" />
+
+        <item
+            android:id="@+id/nav_wheels"
+            android:icon="@drawable/ic_wheel"
+            android:title="Шиномонтаж" />
+
+        <item
+            android:id="@+id/nav_car_wash"
+            android:icon="@drawable/ic_car_wash"
+            android:title="Автомойки" />
+
+        <item
+            android:id="@+id/nav_insurance"
+            android:icon="@drawable/ic_contract"
+            android:title="Автострахование" />
+    </group>
+
+</menu>

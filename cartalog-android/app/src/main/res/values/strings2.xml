@@ -1,0 +1,4156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="Acura">
+        <item>CL</item>
+        <item>CSX</item>
+        <item>EL</item>
+        <item>ILX</item>
+        <item>Integra</item>
+        <item>Legend</item>
+        <item>MDX</item>
+        <item>NSX</item>
+        <item>RDX</item>
+        <item>RL</item>
+        <item>RLX</item>
+        <item>RSX</item>
+        <item>TL</item>
+        <item>TSX</item>
+        <item>Vigor</item>
+        <item>ZDX</item>
+    </string-array>
+
+    <string-array name="AlfaRomeo">
+        <item>145</item>
+        <item>146</item>
+        <item>147</item>
+        <item>155</item>
+        <item>156</item>
+        <item>159</item>
+        <item>164</item>
+        <item>166</item>
+        <item>33</item>
+        <item>4C</item>
+        <item>75</item>
+        <item>8C</item>
+        <item>Brera</item>
+        <item>GT</item>
+        <item>GTV</item>
+        <item>Giulia</item>
+        <item>Giulietta</item>
+        <item>MiTo</item>
+        <item>Spider</item>
+        <item>Stelvio</item>
+    </string-array>
+
+    <string-array name="Alpina">
+        <item>B10</item>
+        <item>B11</item>
+        <item>B12</item>
+        <item>B3</item>
+        <item>B4</item>
+        <item>B5</item>
+        <item>B6</item>
+        <item>B7</item>
+        <item>B8</item>
+        <item>B9</item>
+        <item>C1</item>
+        <item>C2</item>
+        <item>D10</item>
+        <item>D3</item>
+        <item>D4</item>
+        <item>D5</item>
+        <item>Roadster</item>
+        <item>XD3</item>
+    </string-array>
+
+    <string-array name="Asia">
+        <item>Rocsta</item>
+    </string-array>
+
+    <string-array name="AstonMartin">
+        <item>AR1</item>
+        <item>Cygnet</item>
+        <item>DB11</item>
+        <item>DB7</item>
+        <item>DB9</item>
+        <item>DBS</item>
+        <item>Lagonda</item>
+        <item>One-77</item>
+        <item>Rapide</item>
+        <item>V8</item>
+        <item>Vanquish Volante</item>
+        <item>Vanquish</item>
+        <item>Vantage</item>
+        <item>Virage</item>
+        <item>Zagato</item>
+    </string-array>
+
+    <string-array name="Audi">
+        <item>100</item>
+        <item>200</item>
+        <item>80</item>
+        <item>90</item>
+        <item>A1</item>
+        <item>A2</item>
+        <item>A3</item>
+        <item>A4 allroad quattro</item>
+        <item>A4</item>
+        <item>A5</item>
+        <item>A6 allroad quattro</item>
+        <item>A7</item>
+        <item>A8</item>
+        <item>Cabriolet</item>
+        <item>Coupe</item>
+        <item>Q2</item>
+        <item>Q3 Sportback</item>
+        <item>Q3</item>
+        <item>Q5</item>
+        <item>Q7</item>
+        <item>Q8</item>
+        <item>Quattro</item>
+        <item>R8</item>
+        <item>RS Q3 Sportback</item>
+        <item>RS Q3</item>
+        <item>RS3</item>
+        <item>RS4</item>
+        <item>RS5</item>
+        <item>RS6</item>
+        <item>RS7</item>
+        <item>S2</item>
+        <item>S3</item>
+        <item>S4</item>
+        <item>S5</item>
+        <item>S6</item>
+        <item>S7</item>
+        <item>S8</item>
+        <item>SQ5</item>
+        <item>SQ7</item>
+        <item>TT RS</item>
+        <item>TT</item>
+        <item>TTS</item>
+        <item>V8</item>
+        <item>e-tron</item>
+    </string-array>
+
+    <string-array name="BMW">
+        <item>1-Series</item>
+        <item>2-Series Active Tourer</item>
+        <item>2-Series Gran Tourer</item>
+        <item>2-Series</item>
+        <item>3-series Gran Turismo</item>
+        <item>3-series</item>
+        <item>4-series</item>
+        <item>5-series Gran Turismo</item>
+        <item>5-series</item>
+        <item>6-series Gran Turismo</item>
+        <item>6-series</item>
+        <item>7-series</item>
+        <item>8-series</item>
+        <item>M2</item>
+        <item>M3</item>
+        <item>M4</item>
+        <item>M5</item>
+        <item>M6</item>
+        <item>M8</item>
+        <item>X1</item>
+        <item>X2</item>
+        <item>X3</item>
+        <item>X4</item>
+        <item>X5</item>
+        <item>X6</item>
+        <item>X7</item>
+        <item>Z1</item>
+        <item>Z3</item>
+        <item>Z4</item>
+        <item>Z8</item>
+        <item>i3</item>
+        <item>i8</item>
+    </string-array>
+
+    <string-array name="BYD">
+        <item>F0</item>
+        <item>F3</item>
+        <item>F5</item>
+        <item>F6</item>
+        <item>F7</item>
+        <item>F8</item>
+        <item>Flyer</item>
+        <item>G3</item>
+        <item>G6</item>
+        <item>M6</item>
+        <item>Qin</item>
+        <item>Qinchuan Alto</item>
+        <item>S6</item>
+        <item>S7</item>
+        <item>e6</item>
+    </string-array>
+
+    <string-array name="Bentley">
+        <item>Arnage</item>
+        <item>Azure</item>
+        <item>Bentayga</item>
+        <item>Bentley</item>
+        <item>Brooklands</item>
+        <item>Continental GT</item>
+        <item>Continental</item>
+        <item>Eight</item>
+        <item>Flying Spur</item>
+        <item>Mulsanne</item>
+        <item>Turbo R</item>
+    </string-array>
+
+    <string-array name="Brilliance">
+        <item>A1</item>
+        <item>H230</item>
+        <item>H530</item>
+        <item>M1</item>
+        <item>M2</item>
+        <item>M3</item>
+        <item>V3</item>
+        <item>V5</item>
+    </string-array>
+
+    <string-array name="Bugatti">
+        <item>Chiron</item>
+        <item>Veyron</item>
+    </string-array>
+
+    <string-array name="Buick">
+        <item>Century</item>
+        <item>Enclave</item>
+        <item>Encore</item>
+        <item>LaCrosse</item>
+        <item>LeSabre</item>
+        <item>Lucerne</item>
+        <item>Park Avenue</item>
+        <item>Rainier</item>
+        <item>Regal</item>
+        <item>Rendezvous</item>
+        <item>Riviera</item>
+        <item>Roadmaster</item>
+        <item>Skylark</item>
+        <item>Terraza</item>
+    </string-array>
+
+    <string-array name="Cadillac">
+        <item>ATS</item>
+        <item>BLS</item>
+        <item>Brougham</item>
+        <item>CT6</item>
+        <item>CTS</item>
+        <item>Catera</item>
+        <item>DTS</item>
+        <item>DeVille</item>
+        <item>ELR</item>
+        <item>Eldorado</item>
+        <item>Escalade</item>
+        <item>Fleetwood</item>
+        <item>SRX</item>
+        <item>STS</item>
+        <item>Seville</item>
+        <item>XLR</item>
+        <item>XT5</item>
+        <item>XT6</item>
+        <item>XTS</item>
+    </string-array>
+
+    <string-array name="Changan">
+        <item>CS35 Plus</item>
+        <item>CS35</item>
+        <item>CS75</item>
+        <item>Eado</item>
+        <item>Raeton</item>
+    </string-array>
+
+    <string-array name="Chery">
+        <item>A11</item>
+        <item>A5</item>
+        <item>Amulet A15</item>
+        <item>Arrizo 7</item>
+        <item>Bonus 3-A19</item>
+        <item>Bonus A13</item>
+        <item>Chery</item>
+        <item>CrossEastar B14</item>
+        <item>Eastar B11</item>
+        <item>Fora A21</item>
+        <item>indiS S18D</item>
+        <item>Karry</item>
+        <item>Kimo A1</item>
+        <item>M11</item>
+        <item>Oriental Son B11</item>
+        <item>QQ6 S21</item>
+        <item>Sweet QQ</item>
+        <item>Tiggo 2</item>
+        <item>Tiggo 3</item>
+        <item>Tiggo 4</item>
+        <item>Tiggo 5</item>
+        <item>Tiggo 7</item>
+        <item>Tiggo T11</item>
+        <item>V5</item>
+        <item>Very A13</item>
+    </string-array>
+
+    <string-array name="Chevrolet">
+        <item>Alero</item>
+        <item>Astro</item>
+        <item>Avalanche</item>
+        <item>Aveo</item>
+        <item>Blazer</item>
+        <item>Bolt</item>
+        <item>Camaro</item>
+        <item>Caprice</item>
+        <item>Captiva</item>
+        <item>Cavalier</item>
+        <item>Celebrity</item>
+        <item>Cobalt</item>
+        <item>Colorado</item>
+        <item>Corsica</item>
+        <item>Corvette</item>
+        <item>Cruze</item>
+        <item>El Camino</item>
+        <item>Epica</item>
+        <item>Equinox</item>
+        <item>Evanda</item>
+        <item>Express</item>
+        <item>HHR</item>
+        <item>Impala</item>
+        <item>Lacetti</item>
+        <item>Lanos</item>
+        <item>Lumina</item>
+        <item>MW</item>
+        <item>Malibu</item>
+        <item>Metro</item>
+        <item>Monte Carlo</item>
+        <item>Niva</item>
+        <item>Nubira</item>
+        <item>Orlando</item>
+        <item>Rezzo</item>
+        <item>S10</item>
+        <item>SSR</item>
+        <item>Silverado</item>
+        <item>Sonic</item>
+        <item>Spark</item>
+        <item>Spin</item>
+        <item>Starcraft</item>
+        <item>Suburban</item>
+        <item>Tacuma</item>
+        <item>Tahoe</item>
+        <item>Tracker</item>
+        <item>TrailBlazer</item>
+        <item>Traverse</item>
+        <item>Trax</item>
+        <item>Uplander</item>
+        <item>Venture</item>
+        <item>Viva</item>
+        <item>Volt</item>
+        <item>Yukon</item>
+    </string-array>
+
+    <string-array name="Chrysler">
+        <item>200</item>
+        <item>300C</item>
+        <item>300M</item>
+        <item>Chrysler</item>
+        <item>Cirrus</item>
+        <item>Concorde</item>
+        <item>Crossfire</item>
+        <item>Daytona</item>
+        <item>Grand Voyager</item>
+        <item>Intrepid</item>
+        <item>LHS</item>
+        <item>Le Baron</item>
+        <item>Neon</item>
+        <item>New Yorker</item>
+        <item>PT Cruiser</item>
+        <item>Pacifica</item>
+        <item>Prowler</item>
+        <item>Saratoga</item>
+        <item>Sebring</item>
+        <item>Stratus</item>
+        <item>Town Country</item>
+        <item>Vision</item>
+        <item>Voyager</item>
+    </string-array>
+
+    <string-array name="Citroen">
+        <item>2CV</item>
+        <item>AX</item>
+        <item>BX</item>
+        <item>Berlingo</item>
+        <item>C-Crosser</item>
+        <item>C-Elysee</item>
+        <item>C-Zero</item>
+        <item>C15</item>
+        <item>C1</item>
+        <item>C2</item>
+        <item>C3 Aircross</item>
+        <item>C3 Picasso</item>
+        <item>C3</item>
+        <item>C4 Spacetourer</item>
+        <item>C5 </item>
+        <item>C5 Aircross</item>
+        <item>C6</item>
+        <item>C8</item>
+        <item>Citroen</item>
+        <item>DS3</item>
+        <item>DS4</item>
+        <item>DS5</item>
+        <item>DS7</item>
+        <item>Evasion</item>
+        <item>Grand C4 Picasso</item>
+        <item>Grand C4 Spacetourer</item>
+        <item>Jumpy</item>
+        <item>Nemo</item>
+        <item>Saxo</item>
+        <item>Spacetourer</item>
+        <item>Visa</item>
+        <item>XM</item>
+        <item>Xantia</item>
+        <item>Xsara Picasso</item>
+        <item>Xsara</item>
+        <item>ZX</item>
+    </string-array>
+
+    <string-array name="DWHower">
+        <item>H3</item>
+        <item>H5</item>
+    </string-array>
+
+    <string-array name="Dacia">
+        <item>Dokker</item>
+        <item>Duster</item>
+        <item>Lodgy</item>
+        <item>Logan MCV</item>
+        <item>Logan Pick-Up</item>
+        <item>Logan VAN</item>
+        <item>Logan</item>
+        <item>Sandero</item>
+        <item>Solenza</item>
+        <item>Supernova</item>
+    </string-array>
+
+    <string-array name="Daewoo">
+        <item>Alpheon</item>
+        <item>Aranos</item>
+        <item>Assol</item>
+        <item>Cielo</item>
+        <item>Condor</item>
+        <item>Damas</item>
+        <item>Espero</item>
+        <item>Evanda</item>
+        <item>G2X</item>
+        <item>Gentra</item>
+        <item>Kalos</item>
+        <item>Korando</item>
+        <item>Lacetti</item>
+        <item>Lanos</item>
+        <item>LeMans</item>
+        <item>Leganza</item>
+        <item>Magnus</item>
+        <item>Matiz</item>
+        <item>Nexia</item>
+        <item>Nubira</item>
+        <item>Prince</item>
+        <item>Racer</item>
+        <item>Sens</item>
+        <item>Tacuma</item>
+        <item>Tico</item>
+        <item>Tosca</item>
+        <item>Winstorm</item>
+    </string-array>
+
+    <string-array name="Daihatsu">
+        <item>Altis</item>
+        <item>Applause</item>
+        <item>Atrai7</item>
+        <item>Atrai</item>
+        <item>Be-go</item>
+        <item>Bee</item>
+        <item>Boon Luminas</item>
+        <item>Boon</item>
+        <item>Cast</item>
+        <item>Charade Centro</item>
+        <item>Charade De Tomaso</item>a
+        <item>Charade Social</item>
+        <item>Charade</item>
+        <item>Coo</item>
+        <item>Coopen</item>
+        <item>Cuore</item>
+        <item>Delta</item>
+        <item>Domino</item>
+        <item>Esse</item>
+        <item>Extol</item>
+        <item>Feroza</item>
+        <item>Gran Max</item>
+        <item>Gran Move</item>
+        <item>Hijet Caddie</item>
+        <item>Hijet</item>
+        <item>Leeza</item>
+        <item>Materia</item>
+        <item>Max</item>
+        <item>Mebius</item>
+        <item>Midget II</item>
+        <item>Midget</item>
+        <item>Mira Cocoa</item>
+        <item>Mira Gino 1000</item>
+        <item>Mira Gino</item>
+        <item>Mira Moderno</item>
+        <item>Mira Tocot</item>
+        <item>Mira e:S</item>
+        <item>Mira</item>
+        <item>Move Canbus</item>
+        <item>Move Conte</item>
+        <item>Move Latte</item>
+        <item>Move</item>
+        <item>Naked</item>
+        <item>Opti</item>
+        <item>Pyzar</item>
+        <item>Rocky</item>
+        <item>Rugger</item>
+        <item>Sirion</item>
+        <item>Sonica</item>
+        <item>Sportrak</item>
+        <item>Storia</item>
+        <item>Taft</item>
+        <item>Tanto Exe</item>
+        <item>Tanto</item>
+        <item>Terios Kid</item>
+        <item>Terios Lucia</item>
+        <item>Terios</item>
+        <item>Thor</item>
+        <item>Trevis</item>
+        <item>Wake</item>
+        <item>Xenia</item>
+        <item>YRV</item>
+    </string-array>
+
+    <string-array name="Daimler">
+        <item>Daimler</item>
+        <item>Super Eight</item>
+        <item>V8</item>
+    </string-array>
+
+    <string-array name="Datsun">
+        <item>Datsun</item>
+        <item>Go</item>
+        <item>mi-Do</item>
+        <item>on-Do</item>
+    </string-array>
+
+    <string-array name="DeLorean">
+        <item>DMC-12</item>
+    </string-array>
+
+    <string-array name="Derways">
+        <item>Aurora</item>
+        <item>Cowboy</item>
+        <item>Land Crown</item>
+        <item>Lifan</item>
+        <item>Plutus</item>
+        <item>Shuttle</item>
+    </string-array>
+
+    <string-array name="Dodge">
+        <item>024</item>
+        <item>100 "Commando"</item>
+        <item>330</item>
+        <item>400</item>
+        <item>440</item>
+        <item>50 Series</item>
+        <item>500</item>
+        <item>51</item>
+        <item>600</item>
+        <item>A100</item>
+        <item>Aries</item>
+        <item>Aspen</item>
+        <item>Atos</item>
+        <item>Avenger</item>
+        <item>B Series</item>
+        <item>Brisa</item>
+        <item>C Series</item>
+        <item>Caliber</item>
+        <item>Caravan</item>
+        <item>Challenger</item>
+        <item>Charger Daytona</item>
+        <item>Charger</item>
+        <item>Cirrus</item>
+        <item>Colt Vista</item>
+        <item>Colt</item>
+        <item>Conquest</item>
+        <item>Coronet</item>
+        <item>Custom 880</item>
+        <item>D Series</item>
+        <item>D-500</item>
+        <item>Dakota</item>
+        <item>Dart</item>
+        <item>Daytona</item>
+        <item>Demon</item>
+        <item>Diplomat</item>
+        <item>Dodge</item>
+        <item>Durango</item>
+        <item>Dynasty</item>
+        <item>Grand Caravan</item>
+        <item>Husky</item>
+        <item>Intrepid</item>
+        <item>Journey</item>
+        <item>Kingsway</item>
+        <item>LCF Series</item>
+        <item>La Femme</item>
+        <item>Lancer</item>
+        <item>Little Red Wagon</item>
+        <item>M37</item>
+        <item>M4S</item>
+        <item>Magnum</item>
+        <item>Matador</item>
+        <item>Meadowbrook</item>
+        <item>Mini Ram</item>
+        <item>Mirada</item>
+        <item>Monaco</item>
+        <item>Neon</item>
+        <item>Nitro</item>
+        <item>Omni 024</item>
+        <item>Omni Charger</item>
+        <item>Omni</item>
+        <item>Phoenix</item>
+        <item>Polara</item>
+        <item>Power Wagon</item>
+        <item>Raider</item>
+        <item>Ram SRT-10</item>
+        <item>Ram Van</item>
+        <item>Ram</item>
+        <item>Ramcharger</item>
+        <item>Rampage</item>
+        <item>Royal</item>
+        <item>SE</item>
+        <item>SRT-4</item>
+        <item>SX</item>
+        <item>Shadow</item>
+        <item>Shelby Charger</item>
+        <item>Spirit</item>
+        <item>Sprinter</item>
+        <item>St. Regis</item>
+        <item>Stealth</item>
+        <item>Stratus</item>
+        <item>Super Bee</item>
+        <item>Town Panel and Town Wagon</item>
+        <item>Viper GTS-R</item>
+        <item>Viper</item>
+        <item>Warlock</item>
+    </string-array>
+
+    <string-array name="Dongfeng">
+        <item>580</item>
+        <item>AX4</item>
+        <item>AX7</item>
+        <item>H30 Cross</item>
+        <item>Rich</item>
+        <item>S30</item>
+    </string-array>
+
+    <string-array name="Eagle">
+        <item>Eagle</item>
+        <item>Medallion</item>
+        <item>Optima</item>
+        <item>Premier</item>
+        <item>Summit</item>
+        <item>Talon</item>
+        <item>Vision</item>
+        <item>Vista</item>
+    </string-array>
+
+    <string-array name="FAW">
+        <item>Besturn B30</item>
+        <item>Besturn B50</item>
+        <item>Besturn B70</item>
+        <item>Besturn X40</item>
+        <item>Besturn X80</item>
+        <item>CargoVan</item>
+        <item>Jinn</item>
+        <item>Landmark</item>
+        <item>Oley</item>
+        <item>V2</item>
+        <item>V5</item>
+        <item>Vita</item>
+    </string-array>
+
+    <string-array name="Ferrari">
+        <item>125 S</item>
+        <item>125</item>
+        <item>159 S</item>
+        <item>166 Inter</item>
+        <item>166 S</item>
+        <item>166</item>
+        <item>195 Inter</item>
+        <item>195 S</item>
+        <item>208 GT4</item>
+        <item>212 Export</item>
+        <item>212 Inter</item>
+        <item>250 GT Drogo</item>
+        <item>250 GTO</item>
+        <item>250 TR 61 Spyder Fantuzzi</item>
+        <item>250</item>
+        <item>275</item>
+        <item>288 GTO</item>
+        <item>308 GT4</item>
+        <item>308 GTB/GTS</item>
+        <item>308 GTS</item>
+        <item>312P</item>
+        <item>312PB</item>
+        <item>328 GTB</item>
+        <item>328 GTS</item>
+        <item>328</item>
+        <item>330</item>
+        <item>333 SP</item>
+        <item>340</item>
+        <item>348</item>
+        <item>360 GTC</item>
+        <item>360</item>
+        <item>365 GT4 2+2</item>
+        <item>365 GT4 BB</item>
+        <item>365 GTC/4</item>
+        <item>365</item>
+        <item>400</item>
+        <item>412</item>
+        <item>456</item>
+        <item>458 Italia</item>
+        <item>458 Speciale</item>
+        <item>458 Spider</item>
+        <item>488 GTB</item>
+        <item>488 Pista</item>
+        <item>488 S Pider</item>
+        <item>512</item>
+        <item>512BB</item>
+        <item>550 Barchetta</item>
+        <item>575M Maranello</item>
+        <item>599 GTB Fiorano</item>
+        <item>599 GTO</item>
+        <item>612 Scaglietti</item>
+        <item>625</item>
+        <item>637</item>
+        <item>812 GTS</item>
+        <item>812 Superfast</item>
+        <item>America</item>
+        <item>Ascari</item>
+        <item>Berlinetta Boxer</item>
+        <item>Berlinetta</item>
+        <item>California</item>
+        <item>Daytona</item>
+        <item>Dino</item>
+        <item>Enzo Ferrari</item>
+        <item>F12 Berlinetta</item>
+        <item>F12 TDF</item>
+        <item>F355</item>
+        <item>F40</item>
+        <item>F430 Challenge</item>
+        <item>F430</item>
+        <item>F50 GT</item>
+        <item>F50</item>
+        <item>F70</item>
+        <item>F8 Spider</item>
+        <item>F8 Tributo</item>
+        <item>FF</item>
+        <item>FX</item>
+        <item>FXX</item>
+        <item>Ferrari</item>
+        <item>GG50</item>
+        <item>GT4</item>
+        <item>GTC4Lusso</item>
+        <item>LaFerrari</item>
+        <item>Portofino</item>
+        <item>SF90 Stradale</item>
+        <item>Superamerica</item>
+        <item>Testarossa</item>
+    </string-array>
+
+    <string-array name="Fiat">
+        <item>1-series</item>
+        <item>124 Sport Spider</item>
+        <item>127</item>
+        <item>500</item>
+        <item>500L</item>
+        <item>500X</item>
+        <item>Albea</item>
+        <item>Argenta</item>
+        <item>Barchetta</item>
+        <item>Brava</item>
+        <item>Bravo</item>
+        <item>Campagnola</item>
+        <item>Cinquecento</item>
+        <item>Coupé</item>
+        <item>Croma</item>
+        <item>Daily</item>
+        <item>Dino</item>
+        <item>Doblò</item>
+        <item>Ducato</item>
+        <item>Duna</item>
+        <item>Elba</item>
+        <item>Fiorino</item>
+        <item>Freemont</item>
+        <item>Fullback</item>
+        <item>Grande Punto</item>
+        <item>Idea</item>
+        <item>Linea</item>
+        <item>Marea</item>
+        <item>Mefistofele</item>
+        <item>Multipla</item>
+        <item>Oggi</item>
+        <item>Palio</item>
+        <item>Panda Hydrogen</item>
+        <item>Panda</item>
+        <item>Panorama</item>
+        <item>Phyllis</item>
+        <item>Punto</item>
+        <item>Regata</item>
+        <item>Ritmo</item>
+        <item>S74</item>
+        <item>Scudo</item>
+        <item>Sedici</item>
+        <item>Seicento</item>
+        <item>Siena</item>
+        <item>Stilo</item>
+        <item>Strada</item>
+        <item>Supermirafiori</item>
+        <item>Tempra</item>
+        <item>Tipo</item>
+        <item>Turbina</item>
+        <item>Twelve</item>
+        <item>Ulysse</item>
+        <item>Uno</item>
+        <item>X1/9</item>
+        <item>X1</item>
+        <item>Zero</item>
+    </string-array>
+
+    <string-array name="Fisker">
+        <item>Karma</item>
+    </string-array>
+
+    <string-array name="Ford">
+        <item>Aerostar</item>
+        <item>B-MAX</item>
+        <item>Bantam</item>
+        <item>Bronco</item>
+        <item>C-MAX</item>
+        <item>Capri</item>
+        <item>Contour</item>
+        <item>Cougar</item>
+        <item>Crown Victoria</item>
+        <item>EXP</item>
+        <item>EcoSport</item>
+        <item>Econoline</item>
+        <item>Edge</item>
+        <item>Escape</item>
+        <item>Escort</item>
+        <item>Everest</item>
+        <item>Excursion</item>
+        <item>Expedition</item>
+        <item>Explorer</item>
+        <item>F-150</item>
+        <item>F-250</item>
+        <item>F-350</item>
+        <item>F-450</item>
+        <item>FZodiac</item>
+        <item>Fairlane</item>
+        <item>Falcon</item>
+        <item>Festiva</item>
+        <item>Fiesta</item>
+        <item>Figo</item>
+        <item>Five Hundred</item>
+        <item>Flex</item>
+        <item>Focus RS</item>
+        <item>Focus ST</item>
+        <item>Focus</item>
+        <item>Ford</item>
+        <item>Freda</item>
+        <item>Freestar</item>
+        <item>Freestyle</item>
+        <item>Fusion</item>
+        <item>Futura</item>
+        <item>GT40</item>
+        <item>GT</item>
+        <item>GTX1</item>
+        <item>Galaxy</item>
+        <item>Gran Torino</item>
+        <item>Granada</item>
+        <item>Grand C-MAX</item>
+        <item>Ikon</item>
+        <item>Ixion</item>
+        <item>Ka</item>
+        <item>Kuga</item>
+        <item>Köln</item>
+        <item>LTD Crown Victoria</item>
+        <item>LTD II</item>
+        <item>LTD</item>
+        <item>Landau</item>
+        <item>Laser</item>
+        <item>Linha</item>
+        <item>Mainline Coupe Utility</item>
+        <item>Mainline</item>
+        <item>Marauder</item>
+        <item>Maverick</item>
+        <item>Meteor</item>
+        <item>Mondeo Metrostar</item>
+        <item>Mondeo</item>
+        <item>Mustang</item>
+        <item>Orion</item>
+        <item>Pampa</item>
+        <item>Parklane</item>
+        <item>Pilot</item>
+        <item>Pinto</item>
+        <item>Popular</item>
+        <item>Prefect</item>
+        <item>Probe</item>
+        <item>Pronto</item>
+        <item>Pulsar</item>
+        <item>Puma</item>
+        <item>RS200</item>
+        <item>Ranch Wagon</item>
+        <item>Ranchero</item>
+        <item>Ranger</item>
+        <item>Rheinland</item>
+        <item>Roadster</item>
+        <item>S-MAX</item>
+        <item>Scorpio</item>
+        <item>Sedan Delivery</item>
+        <item>Shelby</item>
+        <item>Sierra</item>
+        <item>Skyliner</item>
+        <item>Special</item>
+        <item>SportKa</item>
+        <item>Squire</item>
+        <item>Squire</item>
+        <item>Standard</item>
+        <item>Starliner</item>
+        <item>StreetKa</item>
+        <item>Sunliner</item>
+        <item>Super Deluxe</item>
+        <item>Taunus</item>
+        <item>Taurus</item>
+        <item>Telstar</item>
+        <item>Tempo</item>
+        <item>Ten-Ten</item>
+        <item>Ten</item>
+        <item>Thunderbird</item>
+        <item>Torino</item>
+        <item>Tourneo</item>
+        <item>Vedette</item>
+        <item>Verona</item>
+        <item>Versailles</item>
+        <item>Victoria</item>
+        <item>Windstar</item>
+        <item>XL</item>
+        <item>Zephyr</item>
+    </string-array>
+
+    <string-array name="Foton">
+        <item>Alpha</item>
+        <item>Sauvana</item>
+        <item>Tunland</item>
+        <item>View</item>
+    </string-array>
+
+    <string-array name="GAC">
+        <item>GA3S</item>
+        <item>GS5S</item>
+        <item>GS8</item>
+    </string-array>
+
+    <string-array name="GMC">
+        <item>Acadia</item>
+        <item>Canyon</item>
+        <item>Envoy</item>
+        <item>GMC</item>
+        <item>Jimmy</item>
+        <item>Safari</item>
+        <item>Savana</item>
+        <item>Sierra</item>
+        <item>Sonoma</item>
+        <item>Suburban</item>
+        <item>Terrain</item>
+        <item>Typhoon</item>
+        <item>Vandura</item>
+        <item>Yukon</item>
+    </string-array>
+
+    <string-array name="Geely">
+        <item>Atlas</item>
+        <item>CK</item>
+        <item>Emgrand EC7</item>
+        <item>Emgrand EC8</item>
+        <item>Emgrand GT</item>
+        <item>Emgrand X7</item>
+        <item>FC</item>
+        <item>GC6</item>
+        <item>GE11</item>
+        <item>GE</item>
+        <item>GS</item>
+        <item>Geely</item>
+        <item>MK Cross</item>
+        <item>MK</item>
+        <item>Otaka</item>
+        <item>SX11</item>
+        <item>Vision</item>
+    </string-array>
+
+    <string-array name="Genesis">
+        <item>G70</item>
+        <item>G80</item>
+        <item>G90</item>
+    </string-array>
+
+    <string-array name="Geo">
+        <item>Geo</item>
+        <item>Shtorm</item>
+        <item>Tracker</item>
+    </string-array>
+
+    <string-array name="GreatWall">
+        <item>Coolbear</item>
+        <item>Deer</item>
+        <item>Florid</item>
+        <item>Great Wall</item>
+        <item>Hover H3</item>
+        <item>Hover H5</item>
+        <item>Hover H6</item>
+        <item>Hover M2</item>
+        <item>Hover M4</item>
+        <item>Hover</item>
+        <item>Pegasus</item>
+        <item>Peri</item>
+        <item>Safe</item>
+        <item>Sailor</item>
+        <item>Sing</item>
+        <item>Voleex c30</item>
+        <item>Wingle</item>
+    </string-array>
+
+    <string-array name="Hafei">
+        <item>Brio</item>
+        <item>Princip</item>
+        <item>Sigma</item>
+        <item>Simbo</item>
+    </string-array>
+
+    <string-array name="Haima">
+        <item>2</item>
+        <item>3</item>
+        <item>7</item>
+        <item>Family</item>
+        <item>Freema</item>
+        <item>M3</item>
+    </string-array>
+
+    <string-array name="Haval">
+        <item>F7</item>
+        <item>H2</item>
+        <item>H6</item>
+        <item>H6 Coupe</item>
+        <item>H7</item>
+        <item>H8</item>
+        <item>H9</item>
+    </string-array>
+
+    <string-array name="Hawtai">
+        <item>A25</item>
+        <item>B21</item>
+        <item>Boliger</item>
+        <item>Laville</item>
+    </string-array>
+
+    <string-array name="Honda">
+        <item>1300</item>
+        <item>Accord Inspire</item>
+        <item>Accord</item>
+        <item>Acty</item>
+        <item>Airwave</item>
+        <item>Ascot Innova</item>
+        <item>Ascot</item>
+        <item>Avancier</item>
+        <item>Ballade</item>
+        <item>Beat</item>
+        <item>Brio</item>
+        <item>CR-V</item>
+        <item>CR-X del Sol</item>
+        <item>CR-X</item>
+        <item>CR-Z</item>
+        <item>Capa</item>
+        <item>Caren</item>
+        <item>City</item>
+        <item>Civic Ferio</item>
+        <item>Civic Hybrid</item>
+        <item>Civic Shuttle</item>
+        <item>Civic Type R</item>
+        <item>Civic</item>
+        <item>Clarity</item>
+        <item>Concerto</item>
+        <item>Crossroad</item>
+        <item>Crosstour</item>
+        <item>Domani</item>
+        <item>EV Plus</item>
+        <item>Edix</item>
+        <item>Element</item>
+        <item>Elysion</item>
+        <item>FCX</item>
+        <item>FR-V</item>
+        <item>Fit Aria</item>
+        <item>Fit Shuttle</item>
+        <item>Fit</item>
+        <item>Freed +</item>
+        <item>Freed Spike</item>
+        <item>Freed</item>
+        <item>Grace</item>
+        <item>Grande Mark II</item>
+        <item>HR-V</item>
+        <item>Horison</item>
+        <item>Insight</item>
+        <item>Inspire</item>
+        <item>Integra SJ</item>
+        <item>Integra</item>
+        <item>Jade</item>
+        <item>Jazz</item>
+        <item>L700#L800</item>
+        <item>L700</item>
+        <item>Lagreat</item>
+        <item>Legend</item>
+        <item>Life Dunk</item>
+        <item>Life</item>
+        <item>Logo</item>
+        <item>MDX</item>
+        <item>Mobilio Spike</item>
+        <item>Mobilio</item>
+        <item>N-BOX +</item>
+        <item>N-BOX Slash</item>
+        <item>N-BOX</item>
+        <item>N-ONE</item>
+        <item>N-VAN</item>
+        <item>N-WGN</item>
+        <item>N360</item>
+        <item>N500</item>
+        <item>NSX</item>
+        <item>Odyssey</item>
+        <item>Orthia</item>
+        <item>Partner</item>
+        <item>Passport</item>
+        <item>Pilot</item>
+        <item>Prelude</item>
+        <item>Quint</item>
+        <item>Quintet</item>
+        <item>Rafaga</item>
+        <item>Ridgeline</item>
+        <item>S2000</item>
+        <item>S500</item>
+        <item>S660</item>
+        <item>S800</item>
+        <item>SMX</item>
+        <item>Saber</item>
+        <item>Shuttle</item>
+        <item>StepWGN</item>
+        <item>Stream</item>
+        <item>Street</item>
+        <item>T360</item>
+        <item>TN-Acty</item>
+        <item>TN360</item>
+        <item>Thats</item>
+        <item>Today</item>
+        <item>Torneo</item>
+        <item>Type R</item>
+        <item>Vamos Hobio</item>
+        <item>Vamos</item>
+        <item>Vezel</item>
+        <item>Vigor</item>
+        <item>Z</item>
+        <item>Zest</item>
+    </string-array>
+
+    <string-array name="Hummer">
+        <item>Hummer H1</item>
+        <item>Hummer H2</item>
+        <item>Hummer H3</item>
+        <item>Hummer Hummer</item>
+    </string-array>
+
+    <string-array name="Hyundai">
+        <item>Accent</item>
+        <item>Aero City</item>
+        <item>Aero Town</item>
+        <item>Aero</item>
+        <item>Atos Prime</item>
+        <item>Atos</item>
+        <item>Avante</item>
+        <item>Azera</item>
+        <item>Blue-Will</item>
+        <item>BlueOn</item>
+        <item>Centennial</item>
+        <item>Chorus</item>
+        <item>Click</item>
+        <item>Clix</item>
+        <item>County</item>
+        <item>Coupe</item>
+        <item>Creta</item>
+        <item>Dynasty</item>
+        <item>Elantra HD</item>
+        <item>Elantra</item>
+        <item>Eon</item>
+        <item>Equus</item>
+        <item>Excel</item>
+        <item>FB</item>
+        <item>Galloper</item>
+        <item>Genesis Coupe</item>
+        <item>Genesis</item>
+        <item>Getz</item>
+        <item>Global 900</item>
+        <item>Grace</item>
+        <item>Grand Santa Fe</item>
+        <item>Grand Starex</item>
+        <item>Grandeur</item>
+        <item>H1</item>
+        <item>Kona</item>
+        <item>Lantra</item>
+        <item>Lavita</item>
+        <item>Libero</item>
+        <item>Marcia</item>
+        <item>Matrix</item>
+        <item>Maxcruze</item>
+        <item>NF</item>
+        <item>Palisade</item>
+        <item>Pony</item>
+        <item>S Co</item>
+        <item>S Coupe</item>
+        <item>Santa Fe</item>
+        <item>Santamo</item>
+        <item>Solaris</item>
+        <item>Sonata</item>
+        <item>Starex</item>
+        <item>Stellar</item>
+        <item>Super Truck Medium</item>
+        <item>Super Truck</item>
+        <item>Tager</item>
+        <item>Terracan</item>
+        <item>Tiburon</item>
+        <item>Trago</item>
+        <item>Trajet</item>
+        <item>Tucson</item>
+        <item>Tuscani</item>
+        <item>Universe</item>
+        <item>Veloster</item>
+        <item>Veracruz</item>
+        <item>Verna</item>
+        <item>XG</item>
+        <item>i10</item>
+        <item>i20</item>
+        <item>i30</item>
+        <item>i40</item>
+        <item>i800</item>
+        <item>ix20</item>
+        <item>ix35</item>
+        <item>ix55</item>
+        <item>loniq</item>
+    </string-array>
+
+    <string-array name="Infiniti">
+        <item>Essence</item>
+        <item>EX</item>
+        <item>EX25</item>
+        <item>EX30d</item>
+        <item>EX35</item>
+        <item>EX37</item>
+        <item>FX</item>
+        <item>FX30d</item>
+        <item>FX35</item>
+        <item>FX37</item>
+        <item>FX45</item>
+        <item>FX50</item>
+        <item>G</item>
+        <item>G20</item>
+        <item>G25</item>
+        <item>G35</item>
+        <item>G37</item>
+        <item>I</item>
+        <item>I30</item>
+        <item>I35</item>
+        <item>J30</item>
+        <item>JX35</item>
+        <item>Kuraza</item>
+        <item>M25</item>
+        <item>M35</item>
+        <item>M35Hybrid</item>
+        <item>M37</item>
+        <item>M45</item>
+        <item>M56</item>
+        <item>Q30</item>
+        <item>Q45</item>
+        <item>Q50</item>
+        <item>Q60</item>
+        <item>Q70</item>
+        <item>QX30</item>
+        <item>QX4</item>
+        <item>QX50</item>
+        <item>QX56</item>
+        <item>QX60</item>
+        <item>QX70</item>
+        <item>QX80</item>
+    </string-array>
+
+    <string-array name="Irankhordo">
+        <item>Dena</item>
+        <item>Runna</item>
+        <item>Samand</item>
+        <item>Sarir</item>
+        <item>Soren</item>
+    </string-array>
+
+    <string-array name="Isuzu">
+        <item>117 Coupe</item>
+        <item>Amigo</item>
+        <item>Ascender</item>
+        <item>Aska</item>
+        <item>Axiom</item>
+        <item>Bellett</item>
+        <item>Bighorn</item>
+        <item>Como</item>
+        <item>D-Max</item>
+        <item>Fargo Filly</item>
+        <item>Fargo</item>
+        <item>Filly</item>
+        <item>Florian</item>
+        <item>Gemini</item>
+        <item>I-Mark</item>
+        <item>Impulse</item>
+        <item>MU</item>
+        <item>Midi</item>
+        <item>Oasis</item>
+        <item>Pa Nero</item>
+        <item>Panther</item>
+        <item>Piazza</item>
+        <item>Rodeo</item>
+        <item>Stylus</item>
+        <item>TF</item>
+        <item>Trooper</item>
+        <item>VehiCROSS</item>
+        <item>i-280/i-350</item>
+        <item>Wizard</item>
+    </string-array>
+
+    <string-array name="JAC">
+        <item>J2</item>
+        <item>J3</item>
+        <item>J5</item>
+        <item>J6</item>
+        <item>J7</item>
+        <item>S1</item>
+        <item>S3</item>
+        <item>S5</item>
+        <item>T6</item>
+    </string-array>
+
+    <string-array name="Jaguar">
+        <item>Daimler</item>
+        <item>E-Pace</item>
+        <item>F-Pace</item>
+        <item>F-Type</item>
+        <item>D-Type</item>
+        <item>E-Type</item>
+        <item>I-Pace</item>
+        <item>Jaguar</item>
+        <item>S-type</item>
+        <item>Sovereign</item>
+        <item>XF</item>
+        <item>X-Type</item>
+        <item>XE</item>
+        <item>XF</item>
+        <item>XJ</item>
+        <item>XJS</item>
+        <item>XK</item>
+    </string-array>
+
+    <string-array name="Jeep">
+        <item>CJ</item>
+        <item>Cherokee SJ</item>
+        <item>Cherokee XJ</item>
+        <item>Cherokee</item>
+        <item>Comanche</item>
+        <item>Commander</item>
+        <item>Commando</item>
+        <item>Compass</item>
+        <item>DJ</item>
+        <item>FJ</item>
+        <item>Forward Control</item>
+        <item>Gladiator</item>
+        <item>Grand Cherokee</item>
+        <item>Hurricane</item>
+        <item>J8</item>
+        <item>Jeep</item>
+        <item>Liberty</item>
+        <item>Patriot</item>
+        <item>Renegade</item>
+        <item>Trailhawk</item>
+        <item>Wagoneer</item>
+        <item>Wrangler</item>
+    </string-array>
+
+    <string-array name="Kia">
+        <item>Amanti</item>
+        <item>Avella</item>
+        <item>Bongo</item>
+        <item>Borrego</item>
+        <item>Brisa</item>
+        <item>Cadenza</item>
+        <item>Carens</item>
+        <item>Carnival</item>
+        <item>Carstar</item>
+        <item>Ceed</item>
+        <item>Cerato Koup</item>
+        <item>Cerato</item>
+        <item>Clarus</item>
+        <item>Combi</item>
+        <item>Concord</item>
+        <item>Credos</item>
+        <item>Desta</item>
+        <item>Elan</item>
+        <item>Enterprise</item>
+        <item>Forte</item>
+        <item>Granbird</item>
+        <item>Grand Carnival</item>
+        <item>Joice</item>
+        <item>K3</item>
+        <item>K5</item>
+        <item>K7</item>
+        <item>K900</item>
+        <item>K9</item>
+        <item>Lotze</item>
+        <item>Magentis</item>
+        <item>Mentor</item>
+        <item>Mohave</item>
+        <item>Morning</item>
+        <item>Morning</item>
+        <item>Niro</item>
+        <item>Opirus</item>
+        <item>Opitima Regal</item>
+        <item>Opitima</item>
+        <item>Picanto</item>
+        <item>Potentia</item>
+        <item>Pregio</item>
+        <item>Pride</item>
+        <item>ProCeed</item>
+        <item>Qianlima</item>
+        <item>Quoris</item>
+        <item>Ray</item>
+        <item>Regal</item>
+        <item>Retona</item>
+        <item>Rio X-Line</item>
+        <item>Rio</item>
+        <item>Rondo</item>
+        <item>Sedona</item>
+        <item>Seltos</item>
+        <item>Sephia</item>
+        <item>Shuma</item>
+        <item>Sorento</item>
+        <item>Soul</item>
+        <item>Spectra</item>
+        <item>Sportage</item>
+        <item>Stinger</item>
+        <item>Tam</item>
+        <item>Telluride</item>
+        <item>Towner</item>
+        <item>Venga</item>
+        <item>Visto</item>
+        <item>X-Trek</item>
+        <item>Xceed</item>
+    </string-array>
+
+    <string-array name="Koenigsegg">
+        <item>Agera R</item>
+        <item>Agera</item>
+        <item>CC</item>
+        <item>CC8S</item>
+        <item>CCGT</item>
+        <item>CCR</item>
+        <item>CCX</item>
+        <item>CCXR</item>
+        <item>Trevita</item>
+    </string-array>
+
+    <string-array name="Lamborghini">
+        <item>350GT</item>
+        <item>400GT</item>
+        <item>Aventador</item>
+        <item>Countach</item>
+        <item>Diablo</item>
+        <item>Espada</item>
+        <item>Gallardo</item>
+        <item>Huracan</item>
+        <item>Islero</item>
+        <item>Jalpa</item>
+        <item>Jarama</item>
+        <item>LM002</item>
+        <item>Lamborghini</item>
+        <item>Miura</item>
+        <item>Murcielago</item>
+        <item>Reventon</item>
+        <item>Silhouette</item>
+        <item>Urraco</item>
+        <item>Urus</item>
+    </string-array>
+
+    <string-array name="Lancia">
+        <item>037</item>
+        <item>2000</item>
+        <item>3 RO</item>
+        <item>A112</item>
+        <item>Alfa-12HP</item>
+        <item>Appia</item>
+        <item>Aprilia</item>
+        <item>Ardea</item>
+        <item>Artena</item>
+        <item>Astura</item>
+        <item>Augusta</item>
+        <item>Aurelia</item>
+        <item>Beta-15/20HP</item>
+        <item>Beta</item>
+        <item>D24</item>
+        <item>Dedra</item>
+        <item>Delta</item>
+        <item>Dikappa</item>
+        <item>Dilambda</item>
+        <item>ECV</item>
+        <item>Epsilon</item>
+        <item>Flavia</item>
+        <item>Fulvia Dunja</item>
+        <item>Fulvia</item>
+        <item>Gamma-20HP</item>
+        <item>Gamma</item>
+        <item>IZM</item>
+        <item>Kappa</item>
+        <item>LC1</item>
+        <item>LC2</item>
+        <item>Lambda</item>
+        <item>Lancia</item>
+        <item>Lybra</item>
+        <item>Megagamma</item>
+        <item>Montecarlo</item>
+        <item>Musa</item>
+        <item>Phedra</item>
+        <item>Prisma</item>
+        <item>Sibilo</item>
+        <item>Stratos HF</item>
+        <item>Thema</item>
+        <item>Thesis</item>
+        <item>Trevi</item>
+        <item>Trikappa</item>
+        <item>Y10</item>
+        <item>Ypsilon</item>
+        <item>Zagato</item>
+        <item>Zeta</item>
+    </string-array>
+
+    <string-array name="Landrover">
+        <item>Defender</item>
+        <item>Discovery Sport</item>
+        <item>Discovery</item>
+        <item>Freelander</item>
+        <item>LR3</item>
+        <item>LR4</item>
+        <item>Land Rover</item>
+        <item>Llama</item>
+        <item>Perentie</item>
+        <item>Range Rover Classic</item>
+        <item>Range Rover Evoque</item>
+        <item>Range Rover Sport</item>
+        <item>Range Rover</item>
+        <item>Range Stormer</item>
+        <item>Ranger Special Operations Vehicle</item>
+        <item>Series I</item>
+        <item>Series II</item>
+        <item>Series III</item>
+        <item>Wolf</item>
+    </string-array>
+
+    <string-array name="Lexus">
+        <item>CT200h</item>
+        <item>ES200</item>
+        <item>ES250</item>
+        <item>ES300</item>
+        <item>ES300h</item>
+        <item>ES330</item>
+        <item>ES350</item>
+        <item>GS F</item>
+        <item>GS200t</item>
+        <item>GS250</item>
+        <item>GS300</item>
+        <item>GS300h</item>
+        <item>GS350</item>
+        <item>GS400</item>
+        <item>GS430</item>
+        <item>GS450h</item>
+        <item>GS460</item>
+        <item>GX460</item>
+        <item>GX470</item>
+        <item>HS250h</item>
+        <item>IS F</item>
+        <item>IS200</item>
+        <item>IS200d</item>
+        <item>IS200t</item>
+        <item>IS220d</item>
+        <item>IS250</item>
+        <item>IS250C</item>
+        <item>IS300</item>
+        <item>IS300h</item>
+        <item>IS350</item>
+        <item>IS350C</item>
+        <item>LC500</item>
+        <item>LC500h</item>
+        <item>LFA</item>
+        <item>LM300h</item>
+        <item>LM350</item>
+        <item>LS350</item>
+        <item>LS400</item>
+        <item>LS430</item>
+        <item>LS460</item>
+        <item>LS460L</item>
+        <item>LS500</item>
+        <item>LS500h</item>
+        <item>LS600h</item>
+        <item>LS600hL</item>
+        <item>LX450</item>
+        <item>LX450d</item>
+        <item>LX470</item>
+        <item>LX570</item>
+        <item>NX200</item>
+        <item>NX200t</item>
+        <item>NX300</item>
+        <item>NX300h</item>
+        <item>RC F</item>
+        <item>RC200t</item>
+        <item>RC300</item>
+        <item>RC300h</item>
+        <item>RC350</item>
+        <item>RX200t</item>
+        <item>RX270</item>
+        <item>RX300</item>
+        <item>RX330</item>
+        <item>RX350</item>
+        <item>RX350L</item>
+        <item>RX400h</item>
+        <item>RX450h</item>
+        <item>RX450hL</item>
+        <item>SC300</item>
+        <item>SC400</item>
+        <item>SC430</item>
+        <item>UX200</item>
+        <item>UX250h</item>
+    </string-array>
+
+    <string-array name="Lifan">
+        <item>Breez</item>
+        <item>Cebrium</item>
+        <item>Celliya</item>
+        <item>Lifan</item>
+        <item>Murman</item>
+        <item>Myway</item>
+        <item>Smily</item>
+        <item>Solano</item>
+        <item>X50</item>
+        <item>X60</item>
+        <item>X70</item>
+    </string-array>
+
+    <string-array name="Lincoln">
+        <item>47hp</item>
+        <item>Aviator</item>
+        <item>Blackwood</item>
+        <item>C</item>
+        <item>Capri</item>
+        <item>Continental</item>
+        <item>Cosmopolitan</item>
+        <item>Custom</item>
+        <item>Futura</item>
+        <item>H-series</item>
+        <item>K-series</item>
+        <item>L-series</item>
+        <item>LS</item>
+        <item>Lido</item>
+        <item>Lincoln</item>
+        <item>MK9</item>
+        <item>MKC</item>
+        <item>MKS</item>
+        <item>MKT</item>
+        <item>MKX</item>
+        <item>MKZ</item>
+        <item>Mark LT</item>
+        <item>Mark VII</item>
+        <item>Mark VIII</item>
+        <item>Mark series</item>
+        <item>Nautilus</item>
+        <item>Navicross</item>
+        <item>Navigator</item>
+        <item>Phaeton</item>
+        <item>Premiere</item>
+        <item>SS-100-X</item>
+        <item>Sport</item>
+        <item>Touring car</item>
+        <item>Town Car</item>
+        <item>Versailles</item>
+        <item>Zephyr V-12</item>
+        <item>Zephyr</item>
+    </string-array>
+
+    <string-array name="Lotus">
+        <item>Carlton</item>
+        <item>Cortina</item>
+        <item>Eclat</item>
+        <item>Elan</item>
+        <item>Eleven</item>
+        <item>Elise GT1</item>
+        <item>Elite</item>
+        <item>Esprit</item>
+        <item>Europa S</item>
+        <item>Europa</item>
+        <item>Evora</item>
+        <item>Excel</item>
+        <item>Exige</item>
+        <item>Lotus</item>
+        <item>M250</item>
+        <item>Seven</item>
+        <item>Super 7</item>
+    </string-array>
+
+    <string-array name="Luxgen">
+        <item>5 sedan</item>
+        <item>7 Mpv</item>
+        <item>7 SUV</item>
+    </string-array>
+
+    <string-array name="Marussia">
+        <item>B1</item>
+        <item>B2</item>
+    </string-array>
+
+    <string-array name="Maserati">
+        <item>3200 GT</item>
+        <item>Barchetta</item>
+        <item>Bora</item>
+        <item>Coupe</item>
+        <item>Ghibli</item>
+        <item>Gran Sport</item>
+        <item>GranCabrio</item>
+        <item>GranTurismo</item>
+        <item>Levante</item>
+        <item>Maserati</item>
+        <item>MC12</item>
+        <item>Quattroporte</item>
+        <item>Spyder</item>
+    </string-array>
+
+    <string-array name="Maybach">
+        <item>57</item>
+        <item>62</item>
+        <item>Maybach</item>
+    </string-array>
+
+    <string-array name="Mazda">
+        <item>121</item>
+        <item>323</item>
+        <item>323C</item>
+        <item>323F</item>
+        <item>626</item>
+        <item>929</item>
+        <item>AZ-Offroad</item>
+        <item>AZ-Wagon</item>
+        <item>Atenza</item>
+        <item>Autozam AZ-1</item>
+        <item>Autozam AZ-3</item>
+        <item>Autozam Clef</item>
+        <item>Autozam Revue</item>
+        <item>Axela</item>
+        <item>B-Series</item>
+        <item>BT-50</item>
+        <item>Biante</item>
+        <item>Bongo Brawny</item>
+        <item>Bongo Friendee</item>
+        <item>Bongo</item>
+        <item>CX-30</item>
+        <item>CX-3</item>
+        <item>CX-4</item>
+        <item>CX-5</item>
+        <item>CX-7</item>
+        <item>CX-8</item>
+        <item>CX-9</item>
+        <item>Capella</item>
+        <item>Carol</item>
+        <item>Cronos</item>
+        <item>Demio</item>
+        <item>Efini MS-6</item>
+        <item>Efini MS-8</item>
+        <item>Efini MS-9</item>
+        <item>Efini mpv</item>
+        <item>Etude</item>
+        <item>Eunos 100</item>
+        <item>Eunos 300</item>
+        <item>Eunos 500</item>
+        <item>Eunos 800</item>
+        <item>Eunos Cargo</item>
+        <item>Eunos Cosmo</item>
+        <item>Eunos Presso</item>
+        <item>Eunos Roadster</item>
+        <item>Familia S-Wagon</item>
+        <item>Familia</item>
+        <item>Flair Crossover</item>
+        <item>Flair</item>
+        <item>Flairwagon</item>
+        <item>Lantis</item>
+        <item>Laputa</item>
+        <item>Luce</item>
+        <item>MPV</item>
+        <item>MX-3</item>
+        <item>MX-5</item>
+        <item>MX-6</item>
+        <item>Maillenia</item>
+        <item>Mazda2</item>
+        <item>Mazda3 MPS</item>
+        <item>Mazda5</item>
+        <item>Mazda6 MPS</item>
+        <item>Mazda6</item>
+        <item>Navajo</item>
+        <item>Persona</item>
+        <item>Premacy</item>
+        <item>Protege5</item>
+        <item>Protege</item>
+        <item>R100</item>
+        <item>R360</item>
+        <item>RX-5</item>
+        <item>RX-7</item>
+        <item>RX-8</item>
+        <item>Revue</item>
+        <item>Roadster</item>
+        <item>Scrum</item>
+        <item>Sentia</item>
+        <item>Spiano</item>
+        <item>Tribute</item>
+        <item>Verisa</item>
+        <item>Xedos 6</item>
+        <item>Xedos 9</item>
+    </string-array>
+
+    <string-array name="McLaren">
+        <item>12C</item>
+        <item>650S</item>
+        <item>F1</item>
+        <item>P1</item>
+    </string-array>
+
+    <string-array name="Mercedesbenz">
+        <item>180</item>
+        <item>190</item>
+        <item>220</item>
+        <item>220SE</item>
+        <item>230</item>
+        <item>240D</item>
+        <item>250</item>
+        <item>260 D</item>
+        <item>260</item>
+        <item>280</item>
+        <item>290</item>
+        <item>300</item>
+        <item>300SEL 6.3</item>
+        <item>300SL</item>
+        <item>380</item>
+        <item>400</item>
+        <item>450SEL 6.9</item>
+        <item>500 K</item>
+        <item>500</item>
+        <item>600</item>
+        <item>770</item>
+        <item>A-Class</item>
+        <item>AMG GT</item>
+        <item>B-Class</item>
+        <item>C-Class</item>
+        <item>CL-Class</item>
+        <item>CLA-Class</item>
+        <item>CLC-Class</item>
+        <item>CLK-Class</item>
+        <item>CLS-Class</item>
+        <item>Citan</item>
+        <item>E-Class</item>
+        <item>EQV</item>
+        <item>Fintail</item>
+        <item>G-Class</item>
+        <item>GL-Class</item>
+        <item>GLA-Class</item>
+        <item>GLB-Class</item>
+        <item>GLC Coupe</item>
+        <item>GLC</item>
+        <item>GLE Coupe</item>
+        <item>GLE</item>
+        <item>GLK-Class</item>
+        <item>GLK-Class</item>
+        <item>GLs-Class</item>
+        <item>M-Class</item>
+        <item>Mercedes</item>
+        <item>Ponton</item>
+        <item>R-Class</item>
+        <item>Renntech</item>
+        <item>S-Class</item>
+        <item>SL-Class AMG</item>
+        <item>SLC-Class</item>
+        <item>SLK-Class</item>
+        <item>SLK</item>
+        <item>SLR McLaren</item>
+        <item>SLS AMG</item>
+        <item>SSK</item>
+        <item>V-Class</item>
+        <item>Vaneo</item>
+        <item>Viano</item>
+        <item>Vito</item>
+        <item>X-Class</item>
+    </string-array>
+
+    <string-array name="Mercury">
+        <item>Bobcat</item>
+        <item>Brougham</item>
+        <item>Capri</item>
+        <item>Colony Park</item>
+        <item>Comet</item>
+        <item>Commuter</item>
+        <item>Cougar</item>
+        <item>Custom</item>
+        <item>Cyclone</item>
+        <item>Eight</item>
+        <item>Grand Marquis</item>
+        <item>LN7</item>
+        <item>Lynx</item>
+        <item>MKS</item>
+        <item>Marauder</item>
+        <item>Mariner</item>
+        <item>Marquis</item>
+        <item>Medalist</item>
+        <item>Mercury</item>
+        <item>Meteor</item>
+        <item>Milan</item>
+        <item>Monarch</item>
+        <item>Montclair</item>
+        <item>Montego</item>
+        <item>Monterey</item>
+        <item>Mountaineer</item>
+        <item>Mystique</item>
+        <item>Park Lane</item>
+        <item>S-33</item>
+        <item>S-55</item>
+        <item>Sable</item>
+        <item>Topaz</item>
+        <item>Tracer</item>
+        <item>Turnpike Cruiser</item>
+        <item>Villager</item>
+        <item>Voyager</item>
+        <item>Zephyr</item>
+    </string-array>
+
+    <string-array name="Mini">
+        <item>Beachcomber</item>
+        <item>Cabrio</item>
+        <item>Clubman</item>
+        <item>Convertible</item>
+        <item>Cooper</item>
+        <item>Countryman</item>
+        <item>Coupe</item>
+        <item>Hatch</item>
+        <item>Moke</item>
+        <item>Original</item>
+        <item>Paceman</item>
+        <item>Roadster</item>
+    </string-array>
+
+    <string-array name="Mitsubishi">
+        <item>3000GT</item>
+        <item>360</item>
+        <item>380</item>
+        <item>500</item>
+        <item>ASX</item>
+        <item>Adventure</item>
+        <item>Airtrek</item>
+        <item>Aspire</item>
+        <item>Attrage</item>
+        <item>Bravo</item>
+        <item>Carisma</item>
+        <item>Celeste</item>
+        <item>Challenger</item>
+        <item>Champ</item>
+        <item>Chariot Grandis</item>
+        <item>Chariot</item>
+        <item>Colt Plus</item>
+        <item>Colt</item>
+        <item>Cordia</item>
+        <item>Debonair</item>
+        <item>Delica</item>
+        <item>Diamante</item>
+        <item>Dignity</item>
+        <item>Dingo</item>
+        <item>Dion</item>
+        <item>Eclipse Cross</item>
+        <item>Eclipse</item>
+        <item>Emeraude</item>
+        <item>Endeavor</item>
+        <item>Eterna</item>
+        <item>Expo LRV</item>
+        <item>Expo</item>
+        <item>FTO</item>
+        <item>Forte</item>
+        <item>Freeca</item>
+        <item>Fuzion</item>
+        <item>G-Wagon</item>
+        <item>GTO</item>
+        <item>Galant FTO</item>
+        <item>Galant Fortis</item>
+        <item>Galant GTO</item>
+        <item>Galant Lambda</item>
+        <item>Galant VR-4</item>
+        <item>Galant</item>
+        <item>Go</item>
+        <item>Grandis</item>
+        <item>Grunder</item>
+        <item>Henry J</item>
+        <item>Jeep</item>
+        <item>Jolie</item>
+        <item>Kuda</item>
+        <item>L100</item>
+        <item>L200</item>
+        <item>L300</item>
+        <item>Lancer Celeste</item>
+        <item>Lancer Evolution</item>
+        <item>Lancer WRC</item>
+        <item>Lancer</item>
+        <item>Legnum</item>
+        <item>Leo</item>
+        <item>Lettuce</item>
+        <item>Libero</item>
+        <item>Magna Wagon</item>
+        <item>Magnum</item>
+        <item>Maven</item>
+        <item>Mighty Max</item>
+        <item>Minica Toppo</item>
+        <item>Minica</item>
+        <item>Minicab</item>
+        <item>Mirage Dingo</item>
+        <item>Mirage</item>
+        <item>Mizushima</item>
+        <item>Model A</item>
+        <item>Montero Sport</item>
+        <item>Montero iO</item>
+        <item>Montero</item>
+        <item>Nativa</item>
+        <item>Nimbus</item>
+        <item>Outlander Sport</item>
+        <item>Outlander</item>
+        <item>Pajero Junior</item>
+        <item>Pajero Mini</item>
+        <item>Pajero Pinin</item>
+        <item>Pajero Sport</item>
+        <item>Pajero TR4</item>
+        <item>Pajero iO</item>
+        <item>Pajero</item>
+        <item>Pinin</item>
+        <item>Pistachio</item>
+        <item>Precis</item>
+        <item>Proudia</item>
+        <item>RVR</item>
+        <item>Racing Lancer</item>
+        <item>Raider</item>
+        <item>Rosa</item>
+        <item>Sapporo</item>
+        <item>Savrin</item>
+        <item>Scorpion</item>
+        <item>Shogun Pinin</item>
+        <item>Shogun Sport</item>
+        <item>Shogun</item>
+        <item>Sigma</item>
+        <item>Space Gear</item>
+        <item>Space Runner</item>
+        <item>Space Star</item>
+        <item>Space Wagon</item>
+        <item>Sportero</item>
+        <item>Starion</item>
+        <item>Storm</item>
+        <item>Strada</item>
+        <item>Toppo BJ Wide</item>
+        <item>Toppo BJ</item>
+        <item>Toppo</item>
+        <item>Town Bee</item>
+        <item>Town Box Wide</item>
+        <item>Town Box</item>
+        <item>Towny</item>
+        <item>Tredia</item>
+        <item>Triton</item>
+        <item>Type 73 Light Truck</item>
+        <item>V3000</item>
+        <item>Verada</item>
+        <item>Warrior</item>
+        <item>Zinger</item>
+        <item>eK Active</item>
+        <item>eK Classy</item>
+        <item>eK Custom</item>
+        <item>eK Space</item>
+        <item>eK Sport</item>
+        <item>eK Wagon</item>
+        <item>i-MiEV</item>
+        <item>i</item>
+    </string-array>
+
+    <string-array name="Mitsuoka">
+        <item>Classic Type-F</item>
+        <item>Galue Limousine S50</item>
+        <item>Galue-I</item>
+        <item>Galue-II</item>
+        <item>Galue-III</item>
+        <item>Galue204</item>
+        <item>Galue</item>
+        <item>Himiko</item>
+        <item>Le-Seyde</item>
+        <item>Like</item>
+        <item>MC-1</item>
+        <item>Micro Car</item>
+        <item>Nouera</item>
+        <item>Orochi</item>
+        <item>Ray</item>
+        <item>Rock Star</item>
+        <item>Ryoga</item>
+        <item>Ryugi</item>
+        <item>TD 2000</item>
+        <item>Viewt</item>
+        <item>Yuga</item>
+        <item>Zero 1</item>
+    </string-array>
+
+    <string-array name="Nissan">
+        <item>100NX</item>
+        <item>180 Truck</item>
+        <item>180SX</item>
+        <item>200SX</item>
+        <item>240SX</item>
+        <item>300C</item>
+        <item>300ZX</item>
+        <item>350Z</item>
+        <item>370Z</item>
+        <item>380 Truck</item>
+        <item>480 Truck</item>
+        <item>580 Truck</item>
+        <item>680 Truck</item>
+        <item>681 Truck</item>
+        <item>80 Truck</item>
+        <item>AD</item>
+        <item>Almera Classic</item>
+        <item>Almera</item>
+        <item>Altima</item>
+        <item>Armada</item>
+        <item>Atlas</item>
+        <item>Auster</item>
+        <item>Avenir Salut</item>
+        <item>Avenir</item>
+        <item>Bassara</item>
+        <item>Be-1</item>
+        <item>Bluebird Maxima</item>
+        <item>Bluebird Sylphy</item>
+        <item>Bluebird</item>
+        <item>C80</item>
+        <item>Caball</item>
+        <item>Cablight</item>
+        <item>Cabstar</item>
+        <item>Caravan Elgrand</item>
+        <item>Caravan</item>
+        <item>Cedric Cima</item>
+        <item>Cedric</item>
+        <item>Cefiro</item>
+        <item>Cherry</item>
+        <item>Cima</item>
+        <item>Clipper</item>
+        <item>Crew</item>
+        <item>Cube</item>
+        <item>DAYZ Roox</item>
+        <item>DAYZ</item>
+        <item>Datsun</item>
+        <item>Dualis</item>
+        <item>Elgrand</item>
+        <item>Exa</item>
+        <item>Expert</item>
+        <item>Fairlady Z</item>
+        <item>Figaro</item>
+        <item>Frontier</item>
+        <item>Fuga</item>
+        <item>GT-R</item>
+        <item>GTP ZX-Turbo</item>
+        <item>Gazelle</item>
+        <item>Gloria Cima</item>
+        <item>Gloria</item>
+        <item>Grand Livina</item>
+        <item>Hardbody Truck</item>
+        <item>Homy Elgrand</item>
+        <item>Homy</item>
+        <item>Hypermini</item>
+        <item>Interstar</item>
+        <item>Juke</item>
+        <item>Junior</item>
+        <item>King Cab</item>
+        <item>Kix</item>
+        <item>Kubistar</item>
+        <item>Lafesta</item>
+        <item>Langley</item>
+        <item>Largo</item>
+        <item>Latio</item>
+        <item>Laurel Spirit</item>
+        <item>Laurel</item>
+        <item>Leaf</item>
+        <item>Leopard</item>
+        <item>Liberta Villa</item>
+        <item>Liberty</item>
+        <item>Livina</item>
+        <item>Lucino</item>
+        <item>March Box</item>
+        <item>March</item>
+        <item>Maxima</item>
+        <item>Micra C+C</item>
+        <item>Micra</item>
+        <item>Mistral</item>
+        <item>Moco</item>
+        <item>Murano</item>
+        <item>NP300</item>
+        <item>NP300</item>
+        <item>NV100 Clipper</item>
+        <item>NV150 AD</item>
+        <item>NV200</item>
+        <item>NV350 Caravan</item>
+        <item>NV400</item>
+        <item>NX-Coupe</item>
+        <item>NX</item>
+        <item>Navara</item>
+        <item>Note</item>
+        <item>Otti</item>
+        <item>Pao</item>
+        <item>Pathfinder</item>
+        <item>Patrol</item>
+        <item>Pino</item>
+        <item>Pintara</item>
+        <item>Pixo</item>
+        <item>Platina</item>
+        <item>Prairie Joy</item>
+        <item>Prairie</item>
+        <item>Presage</item>
+        <item>Presea</item>
+        <item>President</item>
+        <item>Primastar</item>
+        <item>Primera Camino</item>
+        <item>Primera</item>
+        <item>Prince Royal</item>
+        <item>Pulsar</item>
+        <item>Qashkai+2</item>
+        <item>Qashkai</item>
+        <item>Quest</item>
+        <item>R380</item>
+        <item>R381</item>
+        <item>R382</item>
+        <item>R383</item>
+        <item>R390 GT1</item>
+        <item>R391</item>
+        <item>R88C</item>
+        <item>R89C</item>
+        <item>R90C</item>
+        <item>Rasheen</item>
+        <item>Rnessa</item>
+        <item>Rogue</item>
+        <item>Roox</item>
+        <item>S-Cargo</item>
+        <item>Safari</item>
+        <item>Saurus Jr.</item>
+        <item>Sentra</item>
+        <item>Serena</item>
+        <item>Silvia 180SX</item>
+        <item>Silvia 200SX</item>
+        <item>Silvia 200SX</item>
+        <item>Silvia 240SX</item>
+        <item>Silvia</item>
+        <item>Skyline Crossover</item>
+        <item>Skyline GT-R</item>
+        <item>Skyline</item>
+        <item>Stagea</item>
+        <item>Stanza</item>
+        <item>Sunny California</item>
+        <item>Sunny RZ-1</item>
+        <item>Sunny</item>
+        <item>Sylphy</item>
+        <item>Teana</item>
+        <item>Terranaut</item>
+        <item>Terrano II</item>
+        <item>Terrano Regulus</item>
+        <item>Terrano</item>
+        <item>Tiida Latio</item>
+        <item>Tiida</item>
+        <item>Tino</item>
+        <item>Titan</item>
+        <item>Tsuru</item>
+        <item>Type 30</item>
+        <item>Type 50</item>
+        <item>Type 53</item>
+        <item>Type 70</item>
+        <item>Urvan</item>
+        <item>Van C22</item>
+        <item>Vanette Serena</item>
+        <item>Vanette</item>
+        <item>Versa</item>
+        <item>Wingroad</item>
+        <item>Winner</item>
+        <item>X-Trail</item>
+        <item>Xterra</item>
+        <item>e-NV200</item>
+    </string-array>
+
+    <string-array name="Oldsmobile">
+        <item>442</item>
+        <item>88</item>
+        <item>98</item>
+        <item>Achieva</item>
+        <item>Alero</item>
+        <item>Aurora</item>
+        <item>Bravada</item>
+        <item>Cruiser</item>
+        <item>Curved Dash</item>
+        <item>Custom Cruiser</item>
+        <item>Cutlass Calais</item>
+        <item>Cutlass Ciera</item>
+        <item>Cutlass Cruiser</item>
+        <item>Cutlass Supreme</item>
+        <item>Cutlass</item>
+        <item>Firenza</item>
+        <item>Hurst/Olds</item>
+        <item>Intrigue</item>
+        <item>Jetstar I</item>
+        <item>Oldsmobile</item>
+        <item>Omega</item>
+        <item>Regency</item>
+        <item>Royale</item>
+        <item>Series 60</item>
+        <item>Series 70</item>
+        <item>Silhouette</item>
+        <item>Starfire</item>
+        <item>Toronado</item>
+        <item>Touring Sedan</item>
+        <item>Vista Cruiser</item>
+    </string-array>
+
+    <string-array name="Opel">
+        <item>Adam</item>
+        <item>Admiral</item>
+        <item>Agila</item>
+        <item>Ampera</item>
+        <item>Antara</item>
+        <item>Arena</item>
+        <item>Ascona</item>
+        <item>Astra Family</item>
+        <item>Astra GTC</item>
+        <item>Astra</item>
+        <item>Calibra</item>
+        <item>Campo</item>
+        <item>Caravan</item>
+        <item>Cascada</item>
+        <item>City</item>
+        <item>Combo</item>
+        <item>Commodore</item>
+        <item>Corsa</item>
+        <item>Crossland X</item>
+        <item>Diplomat</item>
+        <item>Frontera</item>
+        <item>GT</item>
+        <item>Grandland X</item>
+        <item>Insignia</item>
+        <item>Kadett</item>
+        <item>Karl</item>
+        <item>Manta</item>
+        <item>Meriva</item>
+        <item>Mokka</item>
+        <item>Monterey</item>
+        <item>Monza</item>
+        <item>Movano</item>
+        <item>Olympia</item>
+        <item>Omega</item>
+        <item>Opel</item>
+        <item>Rekord</item>
+        <item>Senator</item>
+        <item>Signum</item>
+        <item>Sintra</item>
+        <item>Speedster</item>
+        <item>Super six</item>
+        <item>Tigra</item>
+        <item>Vectra</item>
+        <item>Vita</item>
+        <item>Vivaro</item>
+        <item>Zafira Life</item>
+        <item>Zafira</item>
+    </string-array>
+
+    <string-array name="Pagani">
+        <item>Huayra</item>
+        <item>Zonda</item>
+    </string-array>
+
+    <string-array name="Peugeot">
+        <item>1007</item>
+        <item>104</item>
+        <item>106</item>
+        <item>107</item>
+        <item>108</item>
+        <item>2008</item>
+        <item>201</item>
+        <item>202</item>
+        <item>203</item>
+        <item>204</item>
+        <item>205</item>
+        <item>206</item>
+        <item>207</item>
+        <item>208</item>
+        <item>208</item>
+        <item>3008</item>
+        <item>301</item>
+        <item>302</item>
+        <item>304</item>
+        <item>305</item>
+        <item>306</item>
+        <item>307 cc Hybrid HDi</item>
+        <item>307</item>
+        <item>308 RC Z</item>
+        <item>308</item>
+        <item>309</item>
+        <item>4002</item>
+        <item>4007</item>
+        <item>4008</item>
+        <item>401</item>
+        <item>402</item>
+        <item>403</item>
+        <item>404</item>
+        <item>405</item>
+        <item>406</item>
+        <item>407</item>
+        <item>408</item>
+        <item>5008</item>
+        <item>504</item>
+        <item>505</item>
+        <item>508</item>
+        <item>6000</item>
+        <item>601</item>
+        <item>604</item>
+        <item>605</item>
+        <item>607 Feline</item>
+        <item>607</item>
+        <item>806 Runabout</item>
+        <item>806</item>
+        <item>807</item>
+        <item>905</item>
+        <item>907 RC</item>
+        <item>907</item>
+        <item>908 RC</item>
+        <item>908</item>
+        <item>BB1</item>
+        <item>Bipper</item>
+        <item>Boxer</item>
+        <item>City Toyz</item>
+        <item>D3 and D4</item>
+        <item>D3 and D4</item>
+        <item>D3</item>
+        <item>D4</item>
+        <item>EX1 Concept</item>
+        <item>Expert</item>
+        <item>Flux</item>
+        <item>Hoggar</item>
+        <item>Hoggar</item>
+        <item>J5</item>
+        <item>J7</item>
+        <item>J9</item>
+        <item>J9</item>
+        <item>JN Mini</item>
+        <item>Oxia</item>
+        <item>P4</item>
+        <item>Pars</item>
+        <item>Partner Origin</item>
+        <item>Partner Tepee</item>
+        <item>Partner</item>
+        <item>Peugeot</item>
+        <item>Proxima</item>
+        <item>Quark</item>
+        <item>Quasar</item>
+        <item>RC</item>
+        <item>RCZ</item>
+        <item>RCZ</item>
+        <item>SR1</item>
+        <item>Toscana</item>
+        <item>Touareg</item>
+        <item>Traveller</item>
+        <item>Tulip</item>
+        <item>Type 15</item>
+        <item>VLV</item>
+        <item>iOn</item>
+    </string-array>
+
+    <string-array name="Plymouth">
+        <item>Acclaim</item>
+        <item>Arrow</item>
+        <item>Barracuda</item>
+        <item>Belvedere</item>
+        <item>Breeze</item>
+        <item>Business</item>
+        <item>Cambridge</item>
+        <item>Caravelle</item>
+        <item>Champ</item>
+        <item>Colt</item>
+        <item>Commercial Car</item>
+        <item>Concord</item>
+        <item>Conquest</item>
+        <item>Cranbrook</item>
+        <item>Cricket</item>
+        <item>Deluxe</item>
+        <item>Duster</item>
+        <item>Fury</item>
+        <item>GTX</item>
+        <item>Gran Fury</item>
+        <item>Grand Voyager</item>
+        <item>Horizon</item>
+        <item>Laser</item>
+        <item>Model 30U</item>
+        <item>Model PA</item>
+        <item>Model Q</item>
+        <item>Model U</item>
+        <item>Neon</item>
+        <item>New Finer</item>
+        <item>Plaza</item>
+        <item>Plymouth</item>
+        <item>Prowler</item>
+        <item>Reliant</item>
+        <item>Road Runner</item>
+        <item>Roadking</item>
+        <item>Sapporo</item>
+        <item>Satellite</item>
+        <item>Savoy</item>
+        <item>Scamp</item>
+        <item>Six</item>
+        <item>Special Six</item>
+        <item>Standard</item>
+        <item>Suburban</item>
+        <item>Sundance</item>
+        <item>Superbird</item>
+        <item>TC3</item>
+        <item>Trailduster</item>
+        <item>Turismo</item>
+        <item>VIP</item>
+        <item>Valiant</item>
+        <item>Volaré</item>
+        <item>Voyager</item>
+    </string-array>
+
+    <string-array name="Pontiac">
+        <item>2000 Sunbird</item>
+        <item>2000</item>
+        <item>6000</item>
+        <item>Acadian</item>
+        <item>Astre</item>
+        <item>Aztek</item>
+        <item>Bonneville</item>
+        <item>Catalina</item>
+        <item>Chieftain</item>
+        <item>Custom S</item>
+        <item>De-Lux</item>
+        <item>Executive</item>
+        <item>Fiero</item>
+        <item>Firebird</item>
+        <item>Firefly</item>
+        <item>G3</item>
+        <item>G4</item>
+        <item>G5</item>
+        <item>G6</item>
+        <item>G8</item>
+        <item>GTO</item>
+        <item>Grand Am</item>
+        <item>Grand Prix</item>
+        <item>Grand Safari</item>
+        <item>Grand Ville</item>
+        <item>Grande Parisienne</item>
+        <item>J2000</item>
+        <item>Laurentian</item>
+        <item>LeMans</item>
+        <item>Matiz G2</item>
+        <item>Matiz</item>
+        <item>Montana SV6</item>
+        <item>Montana</item>
+        <item>Parisienne</item>
+        <item>Pathfinder</item>
+        <item>Phoenix</item>
+        <item>Pontiac</item>
+        <item>Pursuit</item>
+        <item>Safari</item>
+        <item>Series 25</item>
+        <item>Series 28</item>
+        <item>Silver Streak</item>
+        <item>Solstice</item>
+        <item>Star Chief Executive</item>
+        <item>Star Chief</item>
+        <item>Strato-Chief</item>
+        <item>Streamliner</item>
+        <item>Sunbird</item>
+        <item>Sunburst</item>
+        <item>Sunfire</item>
+        <item>Sunrunner</item>
+        <item>Super Chief</item>
+        <item>T1000</item>
+        <item>Tempest</item>
+        <item>Torpedo</item>
+        <item>Torrent</item>
+        <item>Trans Am</item>
+        <item>Trans Sport</item>
+        <item>Ventura II</item>
+        <item>Ventura</item>
+        <item>Vibe</item>
+        <item>Wave</item>
+    </string-array>
+
+    <string-array name="Porsche">
+        <item>911</item>
+        <item>918 RSR</item>
+        <item>918 Spyder</item>
+        <item>918 Spyder</item>
+        <item>918</item>
+        <item>924</item>
+        <item>928</item>
+        <item>944</item>
+        <item>956</item>
+        <item>968</item>
+        <item>Boxster</item>
+        <item>C88</item>
+        <item>Carrera GT</item>
+        <item>Carrera</item>
+        <item>Cayenne Сoupe</item>
+        <item>Cayenne</item>
+        <item>Cayman R</item>
+        <item>Cayman</item>
+        <item>LMP2000</item>
+        <item>Macan</item>
+        <item>Panamera</item>
+        <item>Taycan</item>
+    </string-array>
+
+    <string-array name="Proton">
+        <item>Arena</item>
+        <item>EMAS</item>
+        <item>Exora</item>
+        <item>Gen-2</item>
+        <item>Inspira</item>
+        <item>Iswara</item>
+        <item>Juara</item>
+        <item>P3–21A</item>
+        <item>Perdana</item>
+        <item>Persona</item>
+        <item>Proton</item>
+        <item>Putra</item>
+        <item>Saga</item>
+        <item>Satria Neo</item>
+        <item>Satria R3</item>
+        <item>Satria</item>
+        <item>Savvy</item>
+        <item>Tiara</item>
+        <item>Waja</item>
+        <item>Wira</item>
+    </string-array>
+
+    <string-array name="Ravon">
+        <item>Gentra</item>
+        <item>Matiz</item>
+        <item>Nexia R3</item>
+        <item>R2</item>
+        <item>R4</item>
+    </string-array>
+
+    <string-array name="Renault">
+        <item>11</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>25</item>
+        <item>Arkana</item>
+        <item>Avantime</item>
+        <item>Clio</item>
+        <item>Dokker Stepway</item>
+        <item>Dokker</item>
+        <item>Duster</item>
+        <item>Espace</item>
+        <item>Express</item>
+        <item>Fluence Z.E.</item>
+        <item>Fluence</item>
+        <item>Grand Scenic</item>
+        <item>KWID</item>
+        <item>Kadjar</item>
+        <item>Kangoo Z.E.</item>
+        <item>Kangoo</item>
+        <item>Kaptur</item>
+        <item>Koleos</item>
+        <item>Laguna</item>
+        <item>Latitude</item>
+        <item>Lodgy</item>
+        <item>Logan Stepway</item>
+        <item>Logan</item>
+        <item>Medallion</item>
+        <item>Megane</item>
+        <item>Modus</item>
+        <item>R19</item>
+        <item>R5</item>
+        <item>R9</item>
+        <item>Rapid</item>
+        <item>Renault</item>
+        <item>Rodeo</item>
+        <item>Safrane</item>
+        <item>Sandero Stepway</item>
+        <item>Sandero</item>
+        <item>Scenic</item>
+        <item>Sport Spider</item>
+        <item>Symbol</item>
+        <item>Talisman</item>
+        <item>Thalia</item>
+        <item>Trafic</item>
+        <item>Twingo</item>
+        <item>Twizy</item>
+        <item>Vel Satis</item>
+        <item>Wind</item>
+        <item>ZOE</item>
+    </string-array>
+
+    <string-array name="RenaultSamsung">
+        <item>QM3</item>
+        <item>QM5</item>
+        <item>SM3</item>
+        <item>SM5</item>
+        <item>SM7</item>
+    </string-array>
+
+    <string-array name="RollsRoyce">
+        <item>Corniche</item>
+        <item>Cullinan</item>
+        <item>Dawn</item>
+        <item>Flying Spur</item>
+        <item>Ghost</item>
+        <item>Park Ward</item>
+        <item>Phantom Drophead</item>
+        <item>Phantom</item>
+        <item>Rolls-Royce</item>
+        <item>Silver Seraph</item>
+        <item>Silver Spirit</item>
+        <item>Silver Spur</item>
+        <item>Wraith</item>
+    </string-array>
+
+    <string-array name="Rover">
+        <item>14</item>
+        <item>200</item>
+        <item>25</item>
+        <item>400</item>
+        <item>45</item>
+        <item>600</item>
+        <item>75</item>
+        <item>800</item>
+        <item>Maestro</item>
+        <item>Mayfair</item>
+        <item>MGF</item>
+        <item>Mini</item>
+        <item>Montego</item>
+        <item>Rover</item>
+        <item>Streetwise</item>
+    </string-array>
+
+    <string-array name="SEAT">
+        <item>Alhambra</item>
+        <item>Altea</item>
+        <item>Arona</item>
+        <item>Arosa</item>
+        <item>Ateca</item>
+        <item>Cordoba</item>
+        <item>Exeo</item>
+        <item>Ibiza</item>
+        <item>Leon</item>
+        <item>Marbella</item>
+        <item>Mii</item>
+        <item>Ronda</item>
+        <item>Seat</item>
+        <item>Terra</item>
+        <item>Toledo</item>
+    </string-array>
+
+    <string-array name="Saab">
+        <item>9–2X</item>
+        <item>9–3</item>
+        <item>9–3X</item>
+        <item>9–4X</item>
+        <item>9–5</item>
+        <item>9–7X</item>
+        <item>900</item>
+        <item>9000</item>
+        <item>99</item>
+        <item>Saab</item>
+    </string-array>
+
+    <string-array name="Saturn">
+        <item>Ion</item>
+        <item>L-Series</item>
+        <item>L200</item>
+        <item>Relay</item>
+        <item>S-Series</item>
+        <item>Saturn</item>
+        <item>Sky</item>
+        <item>SL1</item>
+        <item>SL2</item>
+        <item>Vue</item>
+    </string-array>
+
+    <string-array name="Scion">
+        <item>FR-S</item>
+        <item>iA</item>
+        <item>iM</item>
+        <item>iQ</item>
+        <item>tC</item>
+        <item>xA</item>
+        <item>xB</item>
+        <item>xD</item>
+    </string-array>
+
+    <string-array name="Skoda">
+        <item>Citigo</item>
+        <item>Fabia</item>
+        <item>Favorit</item>
+        <item>Felicia</item>
+        <item>Forman</item>
+        <item>Karoq</item>
+        <item>Kodiaq</item>
+        <item>Octavia</item>
+        <item>Praktik</item>
+        <item>Rapid</item>
+        <item>Roomster</item>
+        <item>Scala</item>
+        <item>Skoda</item>
+        <item>Superb</item>
+        <item>Yeti</item>
+    </string-array>
+
+    <string-array name="Smart">
+        <item>City</item>
+        <item>Crossblade</item>
+        <item>K</item>
+        <item>Roadster</item>
+        <item>Forfour</item>
+        <item>Fortwo</item>
+        <item>Fortwo ED</item>
+    </string-array>
+
+    <string-array name="SsangYong">
+        <item>Actyon Sports</item>
+        <item>Actyon</item>
+        <item>Chairman</item>
+        <item>Istana</item>
+        <item>Korando Family</item>
+        <item>Korando Sports</item>
+        <item>Korando Turismo</item>
+        <item>Korando</item>
+        <item>Kyron</item>
+        <item>Musso Sports</item>
+        <item>Musso</item>
+        <item>Nomad</item>
+        <item>Rexton</item>
+        <item>Rodius</item>
+        <item>SsangYong</item>
+        <item>Stavic</item>
+        <item>Tivoli XLV</item>
+        <item>Tivoli</item>
+        <item>WZ</item>
+    </string-array>
+
+    <string-array name="Subaru">
+        <item>1300</item>
+        <item>1600</item>
+        <item>1800</item>
+        <item>Alcyone</item>
+        <item>Ascent</item>
+        <item>B9 Tribeca</item>
+        <item>BRZ</item>
+        <item>Baja</item>
+        <item>Bistro</item>
+        <item>Brat</item>
+        <item>Chiffon</item>
+        <item>Crosstrek</item>
+        <item>Dex</item>
+        <item>Dias Wagon</item>
+        <item>Domingo</item>
+        <item>Exiga Crossover 7</item>
+        <item>Exiga</item>
+        <item>Forester</item>
+        <item>Impreza WRX STI</item>
+        <item>Impreza WRX</item>
+        <item>Impreza XV</item>
+        <item>Impreza</item>
+        <item>Justy</item>
+        <item>Legacy B4</item>
+        <item>Legacy Lancaster</item>
+        <item>Legacy</item>
+        <item>Leone</item>
+        <item>Levorg</item>
+        <item>Libero</item>
+        <item>Lucra</item>
+        <item>Outback</item>
+        <item>Pleo Nesta</item>
+        <item>Pleo Plus</item>
+        <item>Pleo</item>
+        <item>R1</item>
+        <item>R2</item>
+        <item>Rex</item>
+        <item>SVX</item>
+        <item>Sambar</item>
+        <item>Stella</item>
+        <item>Traviq</item>
+        <item>Trezia</item>
+        <item>Tribeca</item>
+        <item>Vivio</item>
+        <item>XT</item>
+        <item>XV</item>
+    </string-array>
+
+    <string-array name="Suzuki">
+        <item>APV</item>
+        <item>Aerio</item>
+        <item>Alto Lapin</item>
+        <item>Alto</item>
+        <item>Baleno</item>
+        <item>Calerio</item>
+        <item>Cappuccino</item>
+        <item>Cara</item>
+        <item>Carry Van</item>
+        <item>Cervo</item>
+        <item>Cultus Crescent</item>
+        <item>Cultus</item>
+        <item>Equator</item>
+        <item>Escudo</item>
+        <item>Esteem</item>
+        <item>Every</item>
+        <item>Forenza</item>
+        <item>Fronte</item>
+        <item>Fronte</item>
+        <item>Grand Escudo</item>
+        <item>Grand Vitara XL-7</item>
+        <item>Grand Vitara</item>
+        <item>Hustler</item>
+        <item>Ignis</item>
+        <item>Jimny Sierra</item>
+        <item>Jimny Wide</item>
+        <item>Jimny</item>
+        <item>Join</item>
+        <item>Joy Pop</item>
+        <item>Kei</item>
+        <item>Kizashi</item>
+        <item>Landy</item>
+        <item>Lapin</item>
+        <item>Liana</item>
+        <item>MR Wagon</item>
+        <item>Mehran</item>
+        <item>MightyBoy</item>
+        <item>Palette</item>
+        <item>SX4 Crossover</item>
+        <item>SX4 Sport</item>
+        <item>SX4</item>
+        <item>Samurai</item>
+        <item>Sidekick</item>
+        <item>Solio</item>
+        <item>Spacia</item>
+        <item>Swift</item>
+        <item>Twin</item>
+        <item>Verona</item>
+        <item>Vitara</item>
+        <item>Wagon R Plus</item>
+        <item>Wagon R Solio</item>
+        <item>Wagon R Wide</item>
+        <item>Wagon R</item>
+        <item>Works</item>
+        <item>X-90</item>
+        <item>XL7</item>
+        <item>Xbee</item>
+    </string-array>
+
+    <string-array name="Tesla">
+        <item>Model 3</item>
+        <item>Model S</item>
+        <item>Model X</item>
+        <item>Model Y</item>
+        <item>Roadster</item>
+    </string-array>
+
+    <string-array name="Tianye">
+        <item>Admiral</item>
+        <item>Tianye</item>
+    </string-array>
+
+    <string-array name="Toyota">
+        <item>1000</item>
+        <item>2000GT</item>
+        <item>4Runner</item>
+        <item>AA</item>
+        <item>AB</item>
+        <item>AC</item>
+        <item>AE86 Sprinter Trueno</item>
+        <item>AE</item>
+        <item>Allex</item>
+        <item>Allion</item>
+        <item>Alphard</item>
+        <item>Altezza</item>
+        <item>Aqua</item>
+        <item>Aristo</item>
+        <item>Aurion</item>
+        <item>Auris</item>
+        <item>Avalon</item>
+        <item>Avanza</item>
+        <item>Avensis Verso</item>
+        <item>Avensis</item>
+        <item>Aygo</item>
+        <item>BA</item>
+        <item>BX</item>
+        <item>Belta</item>
+        <item>Blade</item>
+        <item>Blizzard</item>
+        <item>Brevis</item>
+        <item>C-HR</item>
+        <item>Caldina</item>
+        <item>Cami</item>
+        <item>Camry Gracia</item>
+        <item>Camry Prominent</item>
+        <item>Camry Solara</item>
+        <item>Camry</item>
+        <item>Carina E</item>
+        <item>Carina ED</item>
+        <item>Carina II</item>
+        <item>Carina</item>
+        <item>Carri</item>
+        <item>Cavalier</item>
+        <item>Celica</item>
+        <item>Celsior</item>
+        <item>Century</item>
+        <item>Chaser</item>
+        <item>Classic</item>
+        <item>Coaster</item>
+        <item>Comfort</item>
+        <item>Condor</item>
+        <item>Corolla</item>
+        <item>Corolla Axio</item>
+        <item>Corolla Ceres</item>
+        <item>Corolla FX</item>
+        <item>Corolla Fielder</item>
+        <item>Corolla II</item>
+        <item>Corolla Levin</item>
+        <item>Corolla Rumion</item>
+        <item>Corolla Runx</item>
+        <item>Corolla Spacio</item>
+        <item>Corolla Verso</item>
+        <item>Corona EXiV</item>
+        <item>Corona Premio</item>
+        <item>Corona SF</item>
+        <item>Corona</item>
+        <item>Corsa</item>
+        <item>Cressida</item>
+        <item>Cresta</item>
+        <item>Crown Majesta</item>
+        <item>Crown</item>
+        <item>Curren</item>
+        <item>Cynos</item>
+        <item>Deliboy</item>
+        <item>Duet</item>
+        <item>Duet</item>
+        <item>Dyna</item>
+        <item>Echo</item>
+        <item>Esquire</item>
+        <item>Estima Emina</item>
+        <item>Estima Lucida</item>
+        <item>Estima</item>
+        <item>Etios</item>
+        <item>FJ Cruiser</item>
+        <item>FT-86</item>
+        <item>Fortuner</item>
+        <item>Fun Cargo</item>
+        <item>Funcargo</item>
+        <item>G1</item>
+        <item>GA</item>
+        <item>GB</item>
+        <item>GT-86</item>
+        <item>Gaia</item>
+        <item>Grand Hiace</item>
+        <item>Granvia</item>
+        <item>Harrier</item>
+        <item>Heavy Duty Truck</item>
+        <item>HiClass</item>
+        <item>Hiace Regius</item>
+        <item>Hiace</item>
+        <item>Highlander</item>
+        <item>Hilux Pick Up</item>
+        <item>Hilux Surf</item>
+        <item>Innova</item>
+        <item>Ipsum</item>
+        <item>Isis</item>
+        <item>Ist</item>
+        <item>JPN TAXI</item>
+        <item>KB</item>
+        <item>KC</item>
+        <item>KCY</item>
+        <item>Kijang</item>
+        <item>Kingdom</item>
+        <item>Kluger V</item>
+        <item>Land Cruiser Cygnus</item>
+        <item>Land Cruiser Prado</item>
+        <item>Land Cruiser</item>
+        <item>Lexcen</item>
+        <item>LiteAce Noah</item>
+        <item>LiteAce</item>
+        <item>MR-S</item>
+        <item>MR2</item>
+        <item>Mark 2</item>
+        <item>Mark II Blit Qualis</item>
+        <item>Mark II Blit</item>
+        <item>Mark X ZiO</item>
+        <item>Mark X</item>
+        <item>Master Ace Surf</item>
+        <item>Masterline</item>
+        <item>Matrix</item>
+        <item>Mega Cruiser</item>
+        <item>MiniAce</item>
+        <item>Mirai</item>
+        <item>Model F</item>
+        <item>Nadia</item>
+        <item>Noah</item>
+        <item>Opa</item>
+        <item>Origin</item>
+        <item>Paseo</item>
+        <item>Passo Sette</item>
+        <item>Passo</item>
+        <item>Pickup</item>
+        <item>Picnic</item>
+        <item>Pixis Epoch</item>
+        <item>Pixis Joy</item>
+        <item>Pixis Mega</item>
+        <item>Pixis Space</item>
+        <item>Pixis Van</item>
+        <item>Platz</item>
+        <item>Porte</item>
+        <item>Premio</item>
+        <item>Previa</item>
+        <item>Prius C</item>
+        <item>Prius PHV</item>
+        <item>Prius Prime</item>
+        <item>Prius a</item>
+        <item>Prius v</item>
+        <item>Prius</item>
+        <item>Proace</item>
+        <item>Probox</item>
+        <item>Progres</item>
+        <item>Pronard</item>
+        <item>Publica</item>
+        <item>RAV4 EV</item>
+        <item>RAV4</item>
+        <item>RH</item>
+        <item>RK</item>
+        <item>RR</item>
+        <item>Ractis</item>
+        <item>Raum</item>
+        <item>Regius Ace</item>
+        <item>Regius</item>
+        <item>Revo</item>
+        <item>Roomy</item>
+        <item>Rush</item>
+        <item>SA</item>
+        <item>SB</item>
+        <item>SD</item>
+        <item>SF</item>
+        <item>SG</item>
+        <item>SKB</item>
+        <item>Sai</item>
+        <item>Scepter</item>
+        <item>Sequoia</item>
+        <item>Sera</item>
+        <item>Sienna</item>
+        <item>Sienta</item>
+        <item>Soarer</item>
+        <item>Sofia</item>
+        <item>Solara</item>
+        <item>Soluna</item>
+        <item>Space Cruiser</item>
+        <item>Spade</item>
+        <item>Sparky</item>
+        <item>Sports 800</item>
+        <item>Sprinter Carib</item>
+        <item>Sprinter Marino</item>
+        <item>Sprinter Trueno</item>
+        <item>Sprinter</item>
+        <item>Stallion</item>
+        <item>Starlet</item>
+        <item>Stout</item>
+        <item>Succeed</item>
+        <item>Supra</item>
+        <item>T100</item>
+        <item>Tacoma</item>
+        <item>Tamaraw FX</item>
+        <item>Tank</item>
+        <item>Tarago</item>
+        <item>Tazz</item>
+        <item>Tercel</item>
+        <item>Tiara</item>
+        <item>Touring Hiace</item>
+        <item>Town Ace Noah</item>
+        <item>Town Ace</item>
+        <item>ToyoAce</item>
+        <item>Trailer T10</item>
+        <item>Tundra</item>
+        <item>Urban Cruiser</item>
+        <item>VM180 Zagato</item>
+        <item>Van</item>
+        <item>Vanguard</item>
+        <item>Vellfire</item>
+        <item>Venza</item>
+        <item>Verossa</item>
+        <item>Verso-s</item>
+        <item>Verso</item>
+        <item>Vienta</item>
+        <item>Vios</item>
+        <item>Vista Ardeo</item>
+        <item>Vista</item>
+        <item>Vitz</item>
+        <item>Voltz</item>
+        <item>Voxy</item>
+        <item>WISH</item>
+        <item>WiLL Cypha</item>
+        <item>WiLL VS</item>
+        <item>WiLL Vi</item>
+        <item>Windom</item>
+        <item>Yaris Verso</item>
+        <item>Yaris</item>
+        <item>Zelas</item>
+        <item>bB</item>
+        <item>iQ</item>
+    </string-array>
+
+    <string-array name="Volkswagen">
+        <item>1500/1600</item>
+        <item>181</item>
+        <item>411</item>
+        <item>412</item>
+        <item>Amarok</item>
+        <item>Arteon</item>
+        <item>Atlas</item>
+        <item>Beetle</item>
+        <item>Bora</item>
+        <item>Caddy</item>
+        <item>California</item>
+        <item>Caravelle</item>
+        <item>Corrado</item>
+        <item>Country</item>
+        <item>Derby</item>
+        <item>Eos</item>
+        <item>Fox</item>
+        <item>Golf GTD</item>
+        <item>Golf GTI</item>
+        <item>Golf Plus</item>
+        <item>Golf R</item>
+        <item>Golf</item>
+        <item>ID.3</item>
+        <item>Jetta</item>
+        <item>Kaefer</item>
+        <item>Lupo</item>
+        <item>Multivan</item>
+        <item>Parati</item>
+        <item>Passat CC</item>
+        <item>Passat</item>
+        <item>Phaeton</item>
+        <item>Pointer</item>
+        <item>Polo</item>
+        <item>Quantum</item>
+        <item>Routan</item>
+        <item>Santana</item>
+        <item>Saveiro</item>
+        <item>Schwimmwagen</item>
+        <item>Scirocco R</item>
+        <item>Scirocco</item>
+        <item>Sharan</item>
+        <item>T-Cross</item>
+        <item>T-Roc</item>
+        <item>Taro</item>
+        <item>Teramont</item>
+        <item>Tharu</item>
+        <item>Tiguan</item>
+        <item>Touareg</item>
+        <item>Touran</item>
+        <item>Transporter</item>
+        <item>Vento</item>
+        <item>XL1</item>
+        <item>up!</item>
+    </string-array>
+
+    <string-array name="Volvo">
+        <item>240</item>
+        <item>260</item>
+        <item>340</item>
+        <item>360</item>
+        <item>440</item>
+        <item>460</item>
+        <item>480</item>
+        <item>66</item>
+        <item>740</item>
+        <item>760</item>
+        <item>780</item>
+        <item>850</item>
+        <item>940</item>
+        <item>960</item>
+        <item>Amazon</item>
+        <item>C202</item>
+        <item>C3-series</item>
+        <item>C30</item>
+        <item>C40</item>
+        <item>C70</item>
+        <item>C70</item>
+        <item>Duett</item>
+        <item>P1800</item>
+        <item>P1900</item>
+        <item>PV 36 Carioca</item>
+        <item>PV 60</item>
+        <item>PV444 544</item>
+        <item>PV51</item>
+        <item>PV650 Series</item>
+        <item>PV800 Series</item>
+        <item>S40</item>
+        <item>S60</item>
+        <item>S70</item>
+        <item>S80</item>
+        <item>S90</item>
+        <item>T5</item>
+        <item>TR670 Series</item>
+        <item>V40</item>
+        <item>V50</item>
+        <item>V60</item>
+        <item>V70</item>
+        <item>V90</item>
+        <item>Volvo</item>
+        <item>XC40</item>
+        <item>XC60</item>
+        <item>XC70</item>
+        <item>XC90</item>
+        <item>ÖV 4</item>
+    </string-array>
+
+    <string-array name="Vortex">
+        <item>Corda</item>
+        <item>Estina</item>
+        <item>Tingo</item>
+    </string-array>
+
+    <string-array name="Wiesmann">
+        <item>GT</item>
+        <item>Roadster</item>
+    </string-array>
+
+    <string-array name="XinKai">
+        <item>Eagle Prince</item>
+        <item>HNK</item>
+        <item>Pickup X3</item>
+        <item>Sea Lion</item>
+        <item>SR-V</item>
+        <item>SUV X3</item>
+        <item>Xin Kai</item>
+    </string-array>
+
+    <string-array name="ZX">
+        <item>Admiral</item>
+        <item>Chanling</item>
+        <item>GrandTiger</item>
+        <item>Landmark</item>
+    </string-array>
+
+    <string-array name="Zotye">
+        <item>Coupa</item>
+        <item>Nomade</item>
+        <item>T600</item>
+        <item>Z100</item>
+        <item>Z300</item>
+    </string-array>
+
+    <string-array name="Aurus">
+        <item>Арсенал</item>
+        <item>Комендант</item>
+        <item>Сенат</item>
+    </string-array>
+
+    <string-array name="Gaz">
+        <item>12 3ИМ</item>
+        <item>21 Волга</item>
+        <item>22 Волга</item>
+        <item>2217</item>
+        <item>24 Волга</item>
+        <item>3102 Волга</item>
+        <item>31029 Волга</item>
+        <item>3110 Волга</item>
+        <item>31105 Волга</item>
+        <item>3111 Волга</item>
+        <item>67</item>
+        <item>69</item>
+        <item>Волга Сайбер</item>
+        <item>М1</item>
+        <item>Победа</item>
+        <item>Чайка</item>
+    </string-array>
+
+    <string-array name="ZAZ">
+        <item>Вида</item>
+        <item>Дана</item>
+        <item>3А3</item>
+        <item>3апорожец</item>
+        <item>Ланос</item>
+        <item>Пикап</item>
+        <item>Сенс</item>
+        <item>Славута</item>
+        <item>Таврия</item>
+        <item>Форца</item>
+        <item>Шанс</item>
+    </string-array>
+
+    <string-array name="Izh">
+        <item>2125 Комби</item>
+        <item>2126 Ода</item>
+        <item>2126 Фабула</item>
+        <item>2715</item>
+        <item>2717</item>
+        <item>ИЖ</item>
+    </string-array>
+
+    <string-array name="Lada">
+        <item>110</item>
+        <item>1111 Ока</item>
+        <item>111</item>
+        <item>112</item>
+        <item>1300</item>
+        <item>1500</item>
+        <item>2020 Надежда</item>
+        <item>2101</item>
+        <item>2102</item>
+        <item>2103</item>
+        <item>2104</item>
+        <item>2105</item>
+        <item>2106</item>
+        <item>2107</item>
+        <item>2108</item>
+        <item>21099</item>
+        <item>2109</item>
+        <item>2110</item>
+        <item>2111</item>
+        <item>2112</item>
+        <item>2113 Самара</item>
+        <item>2114 Самара</item>
+        <item>2115 Самара</item>
+        <item>4х4 2121 Нива</item>
+        <item>4х4 2131 Нива</item>
+        <item>4х4 Бронто</item>
+        <item>4х4 Урбан</item>
+        <item>EL LADA</item>
+        <item>Веста Кросс</item>
+        <item>Веста Спорт</item>
+        <item>Веста</item>
+        <item>Гранта Кросс</item>
+        <item>Гранта Спорт</item>
+        <item>Гранта</item>
+        <item>Калина Кросс</item>
+        <item>Калина Спорт</item>
+        <item>Калина</item>
+        <item>Ларгус Кросс</item>
+        <item>Ларгус</item>
+        <item>Нива Пикап</item>
+        <item>Приора</item>
+        <item>Х-рей Кросс</item>
+        <item>Х-рей</item>
+    </string-array>
+
+    <string-array name="Luaz">
+        <item>ЛуА3</item>
+    </string-array>
+
+    <string-array name="Moskvich">
+        <item>2136</item>
+        <item>2137</item>
+        <item>2138</item>
+        <item>2140</item>
+        <item>2141</item>
+        <item>2142</item>
+        <item>2335</item>
+        <item>400</item>
+        <item>401</item>
+        <item>402</item>
+        <item>403</item>
+        <item>407</item>
+        <item>408</item>
+        <item>410</item>
+        <item>411</item>
+        <item>412</item>
+        <item>423</item>
+        <item>424</item>
+        <item>426</item>
+        <item>427</item>
+    </string-array>
+
+    <string-array name="Tagaz">
+        <item>Aquila</item>
+        <item>Bera</item>
+        <item>Роад Партнер</item>
+        <item>C10</item>
+        <item>C190</item>
+        <item>C30</item>
+        <item>ТагА3</item>
+        <item>Тагер</item>
+        <item>Тинго</item>
+        <item>Эстина</item>
+    </string-array>
+
+    <string-array name="Uaz">
+        <item>3151</item>
+        <item>3153</item>
+        <item>3159</item>
+        <item>469</item>
+        <item>Буханка</item>
+        <item>Патриот</item>
+        <item>Пикап</item>
+        <item>Симбир</item>
+        <item>Хантер</item>
+    </string-array>
+
+    <string-array name="manufacturers">
+        <item>Ford</item>
+        <item>Honda</item>
+        <item>Hyundai</item>
+        <item>Kia</item>
+        <item>Mazda</item>
+        <item>Mitsubishi</item>
+        <item>Nissan</item>
+        <item>Subaru</item>
+        <item>Toyota</item>
+        <item>Лада</item>
+        <item>Acura</item>
+        <item>Alfa Romeo</item>
+        <item>Alpina</item>
+        <item>Asia</item>
+        <item>Aston Martin</item>
+        <item>Audi</item>
+        <item>BMW</item>
+        <item>BYD</item>
+        <item>Bentley</item>
+        <item>Brilliance</item>
+        <item>Bugatti</item>
+        <item>Buick</item>
+        <item>Cadillac</item>
+        <item>Changan</item>
+        <item>Chery</item>
+        <item>Chevrolet</item>
+        <item>Chrysler</item>
+        <item>Citroen</item>
+        <item>DW Hower</item>
+        <item>Dacia</item>
+        <item>Daewoo</item>
+        <item>Daihatsu</item>
+        <item>Daimler</item>
+        <item>Datsun</item>
+        <item>DeLorean</item>
+        <item>Derways</item>
+        <item>Dodge</item>
+        <item>Dongfeng</item>
+        <item>Eagle</item>
+        <item>FAW</item>
+        <item>Ferrari</item>
+        <item>Fiat</item>
+        <item>Fisker</item>
+        <item>Ford</item>
+        <item>Foton</item>
+        <item>GAC</item>
+        <item>GMC</item>
+        <item>Geely</item>
+        <item>Genesis</item>
+        <item>Geo</item>
+        <item>Great Wall</item>
+        <item>Hafei</item>
+        <item>Haima</item>
+        <item>Haval</item>
+        <item>Hawtai</item>
+        <item>Honda</item>
+        <item>Hummer</item>
+        <item>Hyundai</item>
+        <item>Infiniti</item>
+        <item>Iran Khordo</item>
+        <item>Isuzu</item>
+        <item>JAC</item>
+        <item>Jaguar</item>
+        <item>Jeep</item>
+        <item>Kia</item>
+        <item>Koenigsegg</item>
+        <item>Lamborghini</item>
+        <item>Lancia</item>
+        <item>Land Rover</item>
+        <item>Lexus</item>
+        <item>Lifan</item>
+        <item>Lincoln</item>
+        <item>Lotus</item>
+        <item>Luxgen</item>
+        <item>Marussia</item>
+        <item>Maserati</item>
+        <item>Maybach</item>
+        <item>Mazda</item>
+        <item>McLaren</item>
+        <item>Mercedes-Benz</item>
+        <item>Mercury</item>
+        <item>Mini</item>
+        <item>Mitsubishi</item>
+        <item>Mitsuoka</item>
+        <item>Nissan</item>
+        <item>Oldsmobile</item>
+        <item>Opel</item>
+        <item>Pagani</item>
+        <item>Peugeot</item>
+        <item>Plymouth</item>
+        <item>Pontiac</item>
+        <item>Porsche</item>
+        <item>Proton</item>
+        <item>Ravon</item>
+        <item>Renault Samsung</item>
+        <item>Renault</item>
+        <item>Rolls-Royce</item>
+        <item>Rover</item>
+        <item>SEAT</item>
+        <item>Saab</item>
+        <item>Saturn</item>
+        <item>Scion</item>
+        <item>Skoda</item>
+        <item>Smart</item>
+        <item>SsangYong</item>
+        <item>Subaru</item>
+        <item>Suzuki</item>
+        <item>Tesla</item>
+        <item>Tianye</item>
+        <item>Toyota</item>
+        <item>Volkswagen</item>
+        <item>Volvo</item>
+        <item>Vortex</item>
+        <item>Wiesmann</item>
+        <item>Xin Kai</item>
+        <item>ZX</item>
+        <item>Zotye</item>
+        <item>Аурус</item>
+        <item>ГАЗ</item>
+        <item>ЗАЗ</item>
+        <item>ИЖ</item>
+        <item>Лада</item>
+        <item>Луаз</item>
+        <item>Москвич</item>
+        <item>ТагАЗ</item>
+        <item>УАЗ</item>
+
+    </string-array>
+
+    <string-array name="manufacturers1">
+        <item>Acura</item>
+        <item>Alfa Romeo</item>
+        <item>Alpina</item>
+        <item>Asia</item>
+        <item>Aston Martin</item>
+        <item>Audi</item>
+        <item>BMW</item>
+        <item>BYD</item>
+        <item>Bentley</item>
+        <item>Brilliance</item>
+        <item>Bugatti</item>
+        <item>Buick</item>
+        <item>Cadillac</item>
+        <item>Changan</item>
+        <item>Chery</item>
+        <item>Chevrolet</item>
+        <item>Chrysler</item>
+        <item>Citroen</item>
+        <item>DW Hower</item>
+        <item>Dacia</item>
+        <item>Daewoo</item>
+        <item>Daihatsu</item>
+        <item>Daimler</item>
+        <item>Datsun</item>
+        <item>DeLorean</item>
+        <item>Derways</item>
+        <item>Dodge</item>
+        <item>Dongfeng</item>
+        <item>Eagle</item>
+        <item>FAW</item>
+        <item>Ferrari</item>
+        <item>Fiat</item>
+        <item>Fisker</item>
+        <item>Ford</item>
+        <item>Foton</item>
+        <item>GAC</item>
+        <item>GMC</item>
+        <item>Geely</item>
+        <item>Genesis</item>
+        <item>Geo</item>
+        <item>Great Wall</item>
+        <item>Hafei</item>
+        <item>Haima</item>
+        <item>Haval</item>
+        <item>Hawtai</item>
+        <item>Honda</item>
+        <item>Hummer</item>
+        <item>Hyundai</item>
+        <item>Infiniti</item>
+        <item>Iran Khordo</item>
+        <item>Isuzu</item>
+        <item>JAC</item>
+        <item>Jaguar</item>
+        <item>Jeep</item>
+        <item>Kia</item>
+        <item>Koenigsegg</item>
+        <item>Lamborghini</item>
+        <item>Lancia</item>
+        <item>Land Rover</item>
+        <item>Lexus</item>
+        <item>Lifan</item>
+        <item>Lincoln</item>
+        <item>Lotus</item>
+        <item>Luxgen</item>
+        <item>Marussia</item>
+        <item>Maserati</item>
+        <item>Maybach</item>
+        <item>Mazda</item>
+        <item>McLaren</item>
+        <item>Mercedes-Benz</item>
+        <item>Mercury</item>
+        <item>Mini</item>
+        <item>Mitsubishi</item>
+        <item>Mitsuoka</item>
+        <item>Nissan</item>
+        <item>Oldsmobile</item>
+        <item>Opel</item>
+        <item>Pagani</item>
+        <item>Peugeot</item>
+        <item>Plymouth</item>
+        <item>Pontiac</item>
+        <item>Porsche</item>
+        <item>Proton</item>
+        <item>Ravon</item>
+        <item>Renault Samsung</item>
+        <item>Renault</item>
+        <item>Rolls-Royce</item>
+        <item>Rover</item>
+        <item>SEAT</item>
+        <item>Saab</item>
+        <item>Saturn</item>
+        <item>Scion</item>
+        <item>Skoda</item>
+        <item>Smart</item>
+        <item>SsangYong</item>
+        <item>Subaru</item>
+        <item>Suzuki</item>
+        <item>Tesla</item>
+        <item>Tianye</item>
+        <item>Toyota</item>
+        <item>Volkswagen</item>
+        <item>Volvo</item>
+        <item>Vortex</item>
+        <item>Wiesmann</item>
+        <item>Xin Kai</item>
+        <item>ZX</item>
+        <item>Zotye</item>
+        <item>Аурус</item>
+        <item>ГАЗ</item>
+        <item>ЗАЗ</item>
+        <item>ИЖ</item>
+        <item>Лада</item>
+        <item>Луаз</item>
+        <item>Москвич</item>
+        <item>ТагАЗ</item>
+        <item>УАЗ</item>
+    </string-array>
+
+    <string-array name="manufacturerIDS">
+        <item>Ford</item>
+        <item>Honda</item>
+        <item>Hyundai</item>
+        <item>Kia</item>
+        <item>Mazda</item>
+        <item>Mitsubishi</item>
+        <item>Nissan</item>
+        <item>Subaru</item>
+        <item>Toyota</item>
+        <item>Lada</item>
+        <item>Acura</item>
+        <item>AlfaRomeo</item>
+        <item>Alpina</item>
+        <item>Asia</item>
+        <item>AstonMartin</item>
+        <item>Audi</item>
+        <item>BMW</item>
+        <item>BYD</item>
+        <item>Bentley</item>
+        <item>Brilliance</item>
+        <item>Bugatti</item>
+        <item>Buick</item>
+        <item>Cadillac</item>
+        <item>Changan</item>
+        <item>Chery</item>
+        <item>Chevrolet</item>
+        <item>Chrysler</item>
+        <item>Citroen</item>
+        <item>DWHower</item>
+        <item>Dacia</item>
+        <item>Daewoo</item>
+        <item>Daihatsu</item>
+        <item>Daimler</item>
+        <item>Datsun</item>
+        <item>DeLorean</item>
+        <item>Derways</item>
+        <item>Dodge</item>
+        <item>Dongfeng</item>
+        <item>Eagle</item>
+        <item>FAW</item>
+        <item>Ferrari</item>
+        <item>Fiat</item>
+        <item>Fisker</item>
+        <item>Ford</item>
+        <item>Foton</item>
+        <item>GAC</item>
+        <item>GMC</item>
+        <item>Geely</item>
+        <item>Genesis</item>
+        <item>Geo</item>
+        <item>GreatWall</item>
+        <item>Hafei</item>
+        <item>Haima</item>
+        <item>Haval</item>
+        <item>Hawtai</item>
+        <item>Honda</item>
+        <item>Hummer</item>
+        <item>Hyundai</item>
+        <item>Infiniti</item>
+        <item>IranKhordo</item>
+        <item>Isuzu</item>
+        <item>JAC</item>
+        <item>Jaguar</item>
+        <item>Jeep</item>
+        <item>Kia</item>
+        <item>Koenigsegg</item>
+        <item>Lamborghini</item>
+        <item>Lancia</item>
+        <item>LandRover</item>
+        <item>Lexus</item>
+        <item>Lifan</item>
+        <item>Lincoln</item>
+        <item>Lotus</item>
+        <item>Luxgen</item>
+        <item>Marussia</item>
+        <item>Maserati</item>
+        <item>Maybach</item>
+        <item>Mazda</item>
+        <item>McLaren</item>
+        <item>MercedesBenz</item>
+        <item>Mercury</item>
+        <item>Mini</item>
+        <item>Mitsubishi</item>
+        <item>Mitsuoka</item>
+        <item>Nissan</item>
+        <item>Oldsmobile</item>
+        <item>Opel</item>
+        <item>Pagani</item>
+        <item>Peugeot</item>
+        <item>Plymouth</item>
+        <item>Pontiac</item>
+        <item>Porsche</item>
+        <item>Proton</item>
+        <item>Ravon</item>
+        <item>Renault</item>
+        <item>RenaultSamsung</item>
+        <item>RollsRoyce</item>
+        <item>Rover</item>
+        <item>SEAT</item>
+        <item>Saab</item>
+        <item>Saturn</item>
+        <item>Scion</item>
+        <item>Skoda</item>
+        <item>Smart</item>
+        <item>SsangYong</item>
+        <item>Subaru</item>
+        <item>Suzuki</item>
+        <item>Tesla</item>
+        <item>Tianye</item>
+        <item>Toyota</item>
+        <item>Volkswagen</item>
+        <item>Volvo</item>
+        <item>Vortex</item>
+        <item>Wiesmann</item>
+        <item>XinKai</item>
+        <item>ZX</item>
+        <item>Zotye</item>
+        <item>aurus</item>
+        <item>gaz</item>
+        <item>ZAZ</item>
+        <item>izh</item>
+        <item>lada</item>
+        <item>luaz</item>
+        <item>moskvich</item>
+        <item>tagaz</item>
+        <item>uaz</item>
+    </string-array>
+
+    <string-array name="letters2">
+        <item>♥</item>
+        <item>♥</item>
+        <item>♥</item>
+        <item>♥</item>
+        <item>♥</item>
+        <item>♥</item>
+        <item>♥</item>
+        <item>♥</item>
+        <item>♥</item>
+        <item>♥</item>
+        <item>A</item>
+        <item>A</item>
+        <item>A</item>
+        <item>A</item>
+        <item>A</item>
+        <item>A</item>
+        <item>B</item>
+        <item>B</item>
+        <item>B</item>
+        <item>B</item>
+        <item>B</item>
+        <item>B</item>
+        <item>C</item>
+        <item>C</item>
+        <item>C</item>
+        <item>C</item>
+        <item>C</item>
+        <item>C</item>
+        <item>D</item>
+        <item>D</item>
+        <item>D</item>
+        <item>D</item>
+        <item>D</item>
+        <item>D</item>
+        <item>D</item>
+        <item>D</item>
+        <item>D</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>F</item>
+        <item>F</item>
+        <item>F</item>
+        <item>F</item>
+        <item>F</item>
+        <item>G</item>
+        <item>G</item>
+        <item>G</item>
+        <item>G</item>
+        <item>G</item>
+        <item>G</item>
+        <item>H</item>
+        <item>H</item>
+        <item>H</item>
+        <item>H</item>
+        <item>H</item>
+        <item>H</item>
+        <item>H</item>
+        <item>I</item>
+        <item>I</item>
+        <item>I</item>
+        <item>J</item>
+        <item>J</item>
+        <item>J</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+        <item>L</item>
+        <item>L</item>
+        <item>L</item>
+        <item>L</item>
+        <item>L</item>
+        <item>L</item>
+        <item>L</item>
+        <item>M</item>
+        <item>M</item>
+        <item>M</item>
+        <item>M</item>
+        <item>M</item>
+        <item>M</item>
+        <item>M</item>
+        <item>M</item>
+        <item>M</item>
+        <item>M</item>
+        <item>N</item>
+        <item>O</item>
+        <item>O</item>
+        <item>Р</item>
+        <item>Р</item>
+        <item>Р</item>
+        <item>Р</item>
+        <item>Р</item>
+        <item>Р</item>
+        <item>R</item>
+        <item>R</item>
+        <item>R</item>
+        <item>R</item>
+        <item>R</item>
+        <item>S</item>
+        <item>R</item>
+        <item>R</item>
+        <item>R</item>
+        <item>R</item>
+        <item>R</item>
+        <item>R</item>
+        <item>R</item>
+        <item>R</item>
+        <item>T</item>
+        <item>T</item>
+        <item>T</item>
+        <item>V</item>
+        <item>V</item>
+        <item>V</item>
+        <item>W</item>
+        <item>X</item>
+        <item>Z</item>
+        <item>Z</item>
+        <item>A</item>
+        <item>Г</item>
+        <item>3</item>
+        <item>И</item>
+        <item>Л</item>
+        <item>Л</item>
+        <item>М</item>
+        <item>Т</item>
+        <item>У</item>
+
+    </string-array>
+
+    <string-array name="letters">
+        <item>♥</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>A</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>B</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>C</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>D</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>E</item>
+        <item>F</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>G</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>H</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>I</item>
+        <item></item>
+        <item></item>
+        <item>J</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>K</item>
+        <item>L</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>M</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>N</item>
+        <item>O</item>
+        <item></item>
+        <item>Р</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>R</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>S</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>T</item>
+        <item></item>
+        <item></item>
+        <item>V</item>
+        <item></item>
+        <item></item>
+        <item>W</item>
+        <item>X</item>
+        <item>Z</item>
+        <item></item>
+        <item>A</item>
+        <item>Г</item>
+        <item>3</item>
+        <item>И</item>
+        <item>Л</item>
+        <item></item>
+        <item>М</item>
+        <item>Т</item>
+        <item>У</item>
+    </string-array>
+</resources>

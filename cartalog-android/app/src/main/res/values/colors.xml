@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#7090CC</color>
+    <color name="colorPrimaryDark">#5B75A5</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="light_light_red_transparent">#A6FF3352</color>
+    <color name="light_light_red">#D82D2D</color>
+    <color name="light_light_green">#E4F7EB</color>
+
+    <color name="color_log_in">#94019c8f</color>
+    <color name="color_sign_up">#93303f9f</color>
+
+
+    <color name="color_logo_log_in">#b4faf5</color>
+    <color name="color_logo_sign_up">#bbc4fd</color>
+
+    <color name="color_label">#ededed</color>
+    <color name="white_transparent">#fafafa</color>
+    <color name="transparent">#00FAFAFA</color>
+
+    <color name="color_input_hint">#FFF</color>
+    <color name="color_text_highlight">#fafafa</color>
+    <color name="color_text">#FFF</color>
+    <color name="warning">#D3FC41</color>
+    <color name="white">#FFF</color>
+    <color name="mtrl_textinput_default_box_stroke_color">#3E61A2</color>
+
+
+    <color name="colorAppBar">#668ACA</color>
+    <color name="colorAppBar_light">#5980C7</color>
+    <color name="colorAppBar_light2">#D9E6FF</color>
+    <color name="colorRecyclerView_light">#489999</color>
+    <color name="colorAppBar_dark">#6082BE</color>
+    <color name="colorAppBar_dark2">#29477C</color>
+    <color name="light_blue">#7088FF</color>
+    <color name="black">#000</color>
+    <color name="black2">#313131</color>
+    <color name="light_grey">#fdfdfd</color>
+    <color name="light_grey2">#F0F0F0</color>
+    <color name="light_grey3">#E4DBDBDB</color>
+    <color name="dark_grey">#5B5B79</color>
+    <color name="dark_grey2">#40454E</color>
+    <color name="grey">#727272</color>
+    <color name="grey2">#AAAAAA</color>
+    <color name="fab_1">#6861E8</color>
+    <color name="gradient1">#7EA5EC</color>
+    <color name="gradient2">#739DE7</color>
+    <color name="fab_2">#E89261</color>
+    <color name="green">#45A25F</color>
+    <color name="light_green">#A3F0BF</color>
+
+    <color name="letters">#D12D25</color>
+
+    <color name="color_dark_blue">#2A3D63</color>
+
+    <color name="background_color">#caeaf9</color>
+    <color name="gradient3">#5467D1</color>
+    <color name="gradient4">#6676CF</color>
+    <color name="aue">#552966</color>
+    <color name="black_transparent">#4D000000</color>
+</resources>
