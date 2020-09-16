@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>97117921513-nkv0oi26juu3cjogl1t4g8hrfv17hdap.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.97117921513-nkv0oi26juu3cjogl1t4g8hrfv17hdap</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>97117921513-bbj0n1156152ig386hcc2ife0uk75l3c.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBykDH4P1_YKpKY7lJeBU81UXl-jby1sd4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>97117921513</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.boost.cartalog</string>
+	<key>PROJECT_ID</key>
+	<string>cartalog-mgdn</string>
+	<key>STORAGE_BUCKET</key>
+	<string>cartalog-mgdn.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:97117921513:ios:c4116f8e11cd5943ee1078</string>
+	<key>DATABASE_URL</key>
+	<string>https://cartalog-mgdn.firebaseio.com</string>
+</dict>
+</plist>
