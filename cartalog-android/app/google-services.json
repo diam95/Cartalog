@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "97117921513-7greuqcitgfo8ffqsfkv89g9pit2nbqm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.oldmgdn.boost",
+            "certificate_hash": "7366aadf2a7dbc761b1084602d2106da0a1d7776"
+          }
+        },
+        {
           "client_id": "97117921513-bbj0n1156152ig386hcc2ife0uk75l3c.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -37,7 +45,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAWguXOGkvLlOTY0Vo1txFM9WG0Ebs5iiw"
+          "current_key": "AIzaSyClryIG3sZJ0qHgsUTScHCkrKuaAtkJRkg"
         }
       ],
       "services": {

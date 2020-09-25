@@ -2,7 +2,7 @@
     <string name="app_name">Cartalog</string>
     <string name="phone_number">Номер телефона</string>
     <string name="enter_code">Введите СМС код</string>
-    <string name="registration">РЕГИСТРАЦИЯ</string>
+    <string name="registration">Введите свой номер телефона для регистрации в приложении!</string>
     <string name="plus_seven">+7</string>
     <string name="ok">OK</string>
     <string name="wait_code">Дождитесь СМС с кодом регистрации</string>
@@ -118,5 +118,9 @@
     <string name="updateApp">Обновите приложение</string>
     <string name="try_again">Проверьте ваше интернет соединение и попробуйте снова!</string>
     <string name="adv">Реклама</string>
+    <string name="cartalog">CARTALOG</string>
+    <string name="Error">Ошибка, попробуйте снова</string>
+    <string name="pressOk">Нажмите ОК</string>
+    <string name="getSmsCode">Получить код по СМС</string>
 
 </resources>

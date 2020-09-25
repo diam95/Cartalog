@@ -47,6 +47,7 @@ import com.google.firebase.iid.InstanceIdResult;
 import com.instacart.library.truetime.TrueTime;
 import com.oldmgdn.boost.DigestActivity.DigestActivity;
 import com.oldmgdn.boost.FeedbackActivity.FeedbackActivity;
+import com.oldmgdn.boost.IntroActivity.IntroActivity;
 import com.oldmgdn.boost.LoginActivity.LoginActivity;
 import com.oldmgdn.boost.MainActivity.Adapters.AppBarLayoutRecyclerViewAdapter;
 import com.oldmgdn.boost.MainActivity.Adapters.RequestRecyclerViewAdapter;
@@ -125,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             } else {
 
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                Intent intent = new Intent(MainActivity.this, IntroActivity.class);
                 startActivity(intent);
                 this.finish();
             }

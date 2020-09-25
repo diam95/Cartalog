@@ -73,6 +73,7 @@ export default function DialogNewMessage(props) {
             newAppMessage: 1,
             newWebMessage: 0,
             time: time.format("HH:mm"),
+            timestamp: firebase.database.ServerValue.TIMESTAMP,
             userID: userID,
             vendorID: vendorID,
             viewType: 0,

@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.github.paolorotolo.appintro.AppIntro;
-import com.oldmgdn.boost.MainActivity.MainActivity;
+import com.oldmgdn.boost.LoginActivity.LoginActivity;
 import com.oldmgdn.boost.R;
 
 public class IntroActivity extends AppIntro {
@@ -33,7 +33,7 @@ public class IntroActivity extends AppIntro {
     public void onSkipPressed(Fragment currentFragment) {
         super.onSkipPressed(currentFragment);
 
-        Intent intent = new Intent(IntroActivity.this, MainActivity.class);
+        Intent intent = new Intent(IntroActivity.this, LoginActivity.class);
         startActivity(intent);
         IntroActivity.this.finish();
 
@@ -43,7 +43,7 @@ public class IntroActivity extends AppIntro {
     public void onDonePressed(Fragment currentFragment) {
         super.onDonePressed(currentFragment);
 
-        Intent intent = new Intent(IntroActivity.this, MainActivity.class);
+        Intent intent = new Intent(IntroActivity.this, LoginActivity.class);
         startActivity(intent);
         IntroActivity.this.finish();
 

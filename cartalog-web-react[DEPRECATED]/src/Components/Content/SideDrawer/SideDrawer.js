@@ -107,14 +107,6 @@ export default function SideDrawer (props) {
                     <ListItemIcon className={classes.icon}><InboxIcon/></ListItemIcon>
                     <ListItemText primary={`Обратная связь`}/>
                 </ListItem>
-                <ListItem selected={clickedMenuItemIndex === 3} button onClick={
-                    () => {
-                        firebase.auth().signOut();
-                    }
-                }>
-                    <ListItemIcon className={classes.icon}><InboxIcon/></ListItemIcon>
-                    <ListItemText primary={`Обратная связь`}/>
-                </ListItem>
             </List>
         </div>
     )
