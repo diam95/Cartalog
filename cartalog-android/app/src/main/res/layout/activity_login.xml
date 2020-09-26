@@ -16,19 +16,20 @@
 
         <View
             android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_height="250dp"
             android:background="@drawable/ic_top"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_height="250dp"
             android:background="@drawable/ic_bot"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <LinearLayout
+            android:layout_marginBottom="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -92,18 +93,40 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/activity_login_MaterialButton"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginTop="8dp"
-                android:padding="15dp"
-                android:text="@string/getSmsCode"
-                android:visibility="visible"
-                android:backgroundTint="@color/zhihu_primary_dark"
-                />
+                android:layout_height="wrap_content">
+
+                <androidx.core.widget.ContentLoadingProgressBar
+                    android:elevation="5dp"
+                    android:id="@+id/loginActivityCircularProgress"
+                    android:theme="@style/ContentLoadingProgress2"
+                    style="?android:attr/progressBarStyleSmall"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/activity_login_MaterialButton"
+                    app:layout_constraintEnd_toEndOf="@+id/activity_login_MaterialButton"
+                    app:layout_constraintStart_toStartOf="@+id/activity_login_MaterialButton"
+                    app:layout_constraintTop_toTopOf="@+id/activity_login_MaterialButton" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/activity_login_MaterialButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginTop="8dp"
+                    android:padding="15dp"
+                    android:text="@string/getSmsCode"
+                    android:visibility="visible"
+                    android:backgroundTint="@color/zhihu_primary_dark"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

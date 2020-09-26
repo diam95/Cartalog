@@ -1,11 +1,11 @@
 package com.oldmgdn.boost.FeedbackActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -76,7 +76,9 @@ public class FeedbackActivity extends AppCompatActivity {
                     dbRef.setValue(feedbackObject).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            Toast.makeText(FeedbackActivity.this, "Спасибо за обратную связь!", Toast.LENGTH_SHORT).show();
+
+                            Intent intent=new Intent();
+                            setResult(3,intent);
                             FeedbackActivity.this.finish();
                         }
                     });

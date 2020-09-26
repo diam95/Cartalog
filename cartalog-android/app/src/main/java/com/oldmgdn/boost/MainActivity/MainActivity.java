@@ -22,6 +22,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.GravityCompat;
 import androidx.core.widget.ContentLoadingProgressBar;
@@ -34,6 +35,7 @@ import com.github.clans.fab.FloatingActionMenu;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -41,6 +43,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
@@ -66,7 +69,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private static final Integer VERSION = 1119;
+    private static final Integer VERSION = 1120;
     private RecyclerView advRecyclerView;
     private FloatingActionButton fab_part;
     private FloatingActionButton fab_service;
@@ -81,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private FirebaseUser user;
     private Switch notificationSwitch;
     private SharedPreferences sharedPref;
+    private CoordinatorLayout coordLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -199,6 +203,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
     }
+
     private void checkCity() {
 
         uid = user.getUid();
@@ -264,6 +269,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         user = mAuth.getCurrentUser();
 
         return user != null;
+
     }
 
     private void initUI() {
@@ -277,6 +283,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout = findViewById(R.id.activity_main_DrawerLayout);
         notificationSwitch = findViewById(R.id.notification_switch);
         sharedPref = getApplicationContext().getSharedPreferences("notificationStatus", Context.MODE_PRIVATE);
+
+        coordLayout = findViewById(R.id.mainActivityCoordinatorLayout);
 
         notificationSwitchTint();
 
@@ -524,8 +532,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent.putExtra("newRequest", 1);
                 intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 floatingActionMenu.close(true);
-
-                startActivity(intent);
+                startActivityForResult(intent, 2);
             }
         });
 
@@ -539,8 +546,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent2.putExtra("newRequest", 1);
                 intent2.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 floatingActionMenu.close(true);
-
-                startActivity(intent2);
+                startActivityForResult(intent2, 2);
 
             }
         });
@@ -581,6 +587,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = findViewById(R.id.NavigationView);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     @Override
@@ -596,15 +603,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent.putExtra("type", "autoparts");
                 intent.putExtra("newRequest", 1);
                 intent.putExtra("city", city);
-                startActivity(intent);
+                startActivityForResult(intent, 2);
                 break;
             case R.id.nav_service:
                 Intent intent2 = new Intent(MainActivity.this, RequestActivity.class);
                 intent2.putExtra("type", "autoservice");
                 intent2.putExtra("newRequest", 1);
                 intent2.putExtra("city", city);
-                startActivity(intent2);
-                break;
+                startActivityForResult(intent2, 2);
+            break;
             case R.id.nav_autoparts:
                 Intent intentt = new Intent(MainActivity.this, DigestActivity.class);
                 intentt.putExtra("type", "autoparts");
@@ -650,8 +657,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_feedback:
                 Intent intent8 = new Intent(MainActivity.this, FeedbackActivity.class);
                 intent8.putExtra("city", city);
-                startActivity(intent8);
-                break;
+                startActivityForResult(intent8, 3);
+            break;
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
@@ -663,6 +670,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         String userID = user.getUid();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
         reference.child("users").child(userID).child("messagingToken").setValue(token);
+        reference.child("users").child(userID).child("lastOnline").setValue(ServerValue.TIMESTAMP);
+        reference.child("users").child(userID).child("client").setValue("android");
+
     }
 
     private void initFCM() {
@@ -690,6 +700,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         final NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
         return networkInfo != null && networkInfo.isConnected();
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode==2)
+        {
+            Snackbar.make(coordLayout,"Заявка успешно добавлена. Подбираем для вас лучшее предложение!",Snackbar.LENGTH_LONG).show();
+        }
+
+        if(requestCode==3)
+        {
+            Snackbar.make(coordLayout,"Благодарим за обратную связь!",Snackbar.LENGTH_LONG).show();
+        }
+
+    }
+
+    public void showDeletedSnackbar() {
+
+        Snackbar.make(coordLayout,"Заявка удалена",Snackbar.LENGTH_LONG).show();
+
+    }
+
 }
 
 

@@ -11,7 +11,7 @@ android {
         minSdkVersion 23
         targetSdkVersion 29
         versionCode 19
-        versionName "1.1.19"
+        versionName "1.1.20"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -68,6 +68,5 @@ dependencies {
     implementation 'androidx.palette:palette:1.0.0'
 
     implementation 'com.google.android.play:core:1.6.5'
-
 
 }

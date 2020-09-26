@@ -1,10 +1,5 @@
 package com.oldmgdn.boost.RequestActivity;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,21 +11,26 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.oldmgdn.boost.ChooseCarActivity.ChooseCarActivity;
-import com.oldmgdn.boost.ChooseCarActivity.ChooseCarModelActivity;
-import com.oldmgdn.boost.Objects.RequestObject;
-import com.oldmgdn.boost.R;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.oldmgdn.boost.ChooseCarActivity.ChooseCarActivity;
+import com.oldmgdn.boost.ChooseCarActivity.ChooseCarModelActivity;
+import com.oldmgdn.boost.Objects.RequestObject;
+import com.oldmgdn.boost.R;
 import com.oldmgdn.boost.RequestInfoActivity.RequestInfoActivity;
 
 import java.util.Date;
@@ -76,6 +76,7 @@ public class RequestActivity extends AppCompatActivity {
         layout_year = findViewById(R.id.activity_request_auto_year_input);
         layout_description = findViewById(R.id.activity_request_describe_part_input);
         TextView label = findViewById(R.id.activity_request_label);
+
 
         button_back = findViewById(R.id.activity_request_back_button);
         button_ok = findViewById(R.id.activity_request_ok_button);
@@ -293,9 +294,6 @@ public class RequestActivity extends AppCompatActivity {
 
                     if (everythingIsOk()) {
 
-
-                        System.out.println("everythingIsOk");
-
                         final String city = getIntent().getStringExtra("city");
 
                         final FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
@@ -317,7 +315,10 @@ public class RequestActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
 
+                                    Intent intent=new Intent();
+                                    setResult(2,intent);
                                     RequestActivity.this.finish();
+
                                 }
                             });
 
@@ -340,8 +341,6 @@ public class RequestActivity extends AppCompatActivity {
                                             RequestActivity.this.finish();
 
                                         } else {
-
-                                            System.out.println("dialog");
 
                                             AlertDialog.Builder builder1 = new AlertDialog.Builder(RequestActivity.this);
                                             builder1.setMessage(R.string.changesApplied);

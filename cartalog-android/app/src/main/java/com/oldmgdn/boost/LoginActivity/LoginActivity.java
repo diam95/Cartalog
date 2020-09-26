@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.view.inputmethod.InputMethodManager;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.widget.ContentLoadingProgressBar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -20,7 +23,6 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.FirebaseException;
-import com.google.firebase.FirebaseTooManyRequestsException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
@@ -41,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private String phoneNumber, mVerificationId;
     private CoordinatorLayout coordinatorLayout;
+    private ContentLoadingProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +58,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initializeUI() {
+
         getSupportActionBar().hide();
+
         mAuth = FirebaseAuth.getInstance();
+
+        progressBar = findViewById(R.id.loginActivityCircularProgress);
+        progressBar.setVisibility(View.INVISIBLE);
+
         activity_login_MaterialButton = findViewById(R.id.activity_login_MaterialButton);
 
         coordinatorLayout = findViewById(R.id.loginActivityCoordinatorLayout);
@@ -73,11 +82,14 @@ public class LoginActivity extends AppCompatActivity {
 
                 Snackbar.make(coordinatorLayout, R.string.Error, Snackbar.LENGTH_LONG).show();
 
-                if (e instanceof FirebaseAuthInvalidCredentialsException) {
-
-                } else if (e instanceof FirebaseTooManyRequestsException) {
-
-                }
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        activity_login_TextInputEditText1.setText("+7");
+                        activity_login_TextInputEditText1.setSelection(2);
+                        LoginActivity.this.recreate();
+                    }
+                }, 3000);
 
             }
 
@@ -85,6 +97,27 @@ public class LoginActivity extends AppCompatActivity {
             public void onCodeSent(String verificationId,
                                    PhoneAuthProvider.ForceResendingToken token) {
                 mVerificationId = verificationId;
+
+                progressBar.setVisibility(View.INVISIBLE);
+
+                activity_login_TextInputEditText1.setText("");
+                activity_login_TextInputLayout1.setHint("Введите код из СМС");
+                activity_login_MaterialButton.setText("Отправить код из СМС");
+
+                Snackbar.make(coordinatorLayout, R.string.enter_code, Snackbar.LENGTH_LONG).show();
+
+                activity_login_MaterialButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        activity_login_MaterialButton.setText("");
+                        progressBar.setVisibility(View.VISIBLE);
+
+                        verifyPhoneNumberWithCode(mVerificationId,activity_login_TextInputEditText1.getText().toString());
+
+                    }
+                });
+
             }
         };
 
@@ -102,11 +135,17 @@ public class LoginActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
                 if (activity_login_TextInputEditText1.getText().length() == 12) {
+
                     hideKeyboardFrom(LoginActivity.this, activity_login_TextInputEditText1);
                     phoneNumber = activity_login_TextInputEditText1.getText().toString();
-                    activity_login_MaterialButton.setVisibility(View.VISIBLE);
 
-                    Snackbar.make(coordinatorLayout, R.string.pressOk, Snackbar.LENGTH_LONG).show();
+                }
+
+                if(activity_login_TextInputLayout1.getHint().toString().equals("Введите код из СМС")){
+
+                    if(activity_login_TextInputEditText1.getText().length() == 6){
+                        hideKeyboardFrom(LoginActivity.this, activity_login_TextInputEditText1);
+                    }
 
                 }
 
@@ -123,7 +162,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private void setOnClickListeners() {
 
-        if (activity_login_TextInputLayout1.getVisibility() == View.VISIBLE) {
+        if (activity_login_MaterialButton.getText().toString().equals(getString(R.string.getSmsCode))) {
+
             activity_login_MaterialButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -136,15 +176,23 @@ public class LoginActivity extends AppCompatActivity {
                             LoginActivity.this,
                             mCallbacks);
 
-                    activity_login_TextInputEditText1.setText("");
-                    activity_login_TextInputEditText1.setHint("Введите код из СМС");
+                    progressBar.show();
+                    activity_login_MaterialButton.setText("");
 
                 }
+
             });
-        } else {
-            PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, activity_login_TextInputEditText1.getText().toString());
-            signInWithPhoneAuthCredential(credential);
+
         }
+
+    }
+
+    private void verifyPhoneNumberWithCode(String verificationId, String code) {
+        // [START verify_with_code]
+        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
+        // [END verify_with_code]
+        signInWithPhoneAuthCredential(credential);
+
     }
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
@@ -157,6 +205,15 @@ public class LoginActivity extends AppCompatActivity {
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
                             LoginActivity.this.finish();
+
+                        } else {
+
+                            // Sign in failed, display a message and update the UI
+                            if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
+
+                                Snackbar.make(coordinatorLayout,"Вы ввели неверный код",Snackbar.LENGTH_LONG).show();
+
+                            }
 
                         }
                     }

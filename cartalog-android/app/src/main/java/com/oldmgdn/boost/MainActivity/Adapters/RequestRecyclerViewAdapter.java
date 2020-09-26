@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.oldmgdn.boost.MainActivity.MainActivity;
 import com.oldmgdn.boost.R;
 import com.oldmgdn.boost.Objects.RequestObject;
 import com.oldmgdn.boost.RequestActivity.RequestActivity;
@@ -150,13 +151,12 @@ public class RequestRecyclerViewAdapter extends RecyclerView.Adapter<RequestRecy
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
 
-
                         FirebaseDatabase db = FirebaseDatabase.getInstance();
                         DatabaseReference dbRef = db.getReference("requests").child(city).child(requestObject.type).child(requestObject.key);
-                        DatabaseReference dbRef2 = db.getReference("messages").child(city).child(requestObject.type).child(requestObject.key);
 
                         dbRef.removeValue();
-                        dbRef2.removeValue();
+
+                        ((MainActivity) mContext).showDeletedSnackbar();
 
                         return false;
                     }
