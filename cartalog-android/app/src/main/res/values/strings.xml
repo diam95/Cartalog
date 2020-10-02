@@ -95,16 +95,14 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title1">Добро пожаловать в Cartalog!</string>
-    <string name="description1">Данная презентация ознакомит Вас с основными возможностями приложения</string>
-    <string name="title2">Поиск запчастей и автосервисов</string>
-    <string name="description2">Создавайте заявки на поиск запчастей и ремонт</string>
-    <string name="title3">Создайте заявку</string>
-    <string name="description3">Выберите свой автомобиль и опишите необходимую запчасть</string>
-    <string name="title4">Получайте ответы</string>
-    <string name="description4">Магазины ответят на вашу заявку. Выберите лучшее предложение</string>
-    <string name="description5">Воспользуйтесь чатом, если у Вас есть дополнительные вопросы</string>
-    <string name="description6">Посмотрите адрес, номер телефона и часы работы магазина</string>
+    <string name="title1">Начните искать запчасти для вашего автомобиля по-новому...</string>
+    <string name="description1">Больше не нужно ездить по всему городу в поисках нужной детали!</string>
+    <string name="title2">Любые автозапчасти в наличии и под заказ</string>
+    <string name="description2">Доставка самолетом и морем в кратчайшие сроки и по самым выгодным ценам!</string>
+    <string name="title3">Запишитесь на ремонт!</string>
+    <string name="description3">Опишите поломку, автосервисы свяжутся с Вами. Обсудите детали во встроенном чате! </string>
+    <string name="title4">Экономьте свое время и деньги!</string>
+    <string name="description4">Доверьте ремонт и подбор запчастей для вашего авто профессионалам</string>
     <string name="changesApplied">Вы вносите изменения в заявку. Все полученные ответы будут удалены.</string>
     <string name="default_notification_channel_id">1</string>
     <string name="close">Закрыть приложение?</string>
@@ -119,8 +117,13 @@
     <string name="try_again">Проверьте ваше интернет соединение и попробуйте снова!</string>
     <string name="adv">Реклама</string>
     <string name="cartalog">CARTALOG</string>
+    <string name="cartalog1">CARTALOG!</string>
     <string name="Error">Ошибка, попробуйте снова</string>
     <string name="pressOk">Нажмите ОК</string>
     <string name="getSmsCode">Получить код по СМС</string>
+    <string name="welcome">Добро пожаловать в</string>
+    <string name="registration1">Регистрация</string>
+    <string name="registration2">Зарегистрироваться!</string>
+    <string name="enter_phone_number">Для регистрации в приложении введите ваш номер телефона</string>
 
 </resources>

@@ -286,7 +286,7 @@ export default function DialogChat(props) {
                         fullWidth={true}>
                     <div className={classes.dialogTitle}>
                         <div className={classes.container}>
-                            <p className={classes.title}>{request.make} {request.model}, {request.year}</p>
+                            <p className={classes.title}>{request.make} {request.model}, {request.year} {request.VIN}</p>
                             <span className={classes.description}>{request.description}</span>
                             <IconButton onClick={handleClose} aria-label="close" className={classes.iconButtonClose}>
                                 <CloseIcon/>

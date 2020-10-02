@@ -4,131 +4,130 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/white"
     android:focusableInTouchMode="true"
     tools:context=".LoginActivity.LoginActivity"
     android:id="@+id/loginActivityCoordinatorLayout"
     >
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <View
-            android:layout_width="300dp"
-            android:layout_height="250dp"
-            android:background="@drawable/ic_top"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:layout_width="300dp"
-            android:layout_height="250dp"
-            android:background="@drawable/ic_bot"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <LinearLayout
-            android:layout_marginBottom="30dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/titleLinearLayout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/activity_login_ImageView"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/logo2" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:orientation="vertical">
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/welcomeImageView"
+                >
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="@string/cartalog"
-                        android:textColor="@color/white"
-                        android:textSize="40sp"
+                        android:text="@string/welcome"
+                        android:textColor="@color/color_dark_blue"
+                        android:textSize="22sp"
+                        android:textStyle="normal"
+                        android:textAlignment="center"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:text="@string/cartalog1"
+                        android:textColor="@color/color_dark_blue"
+                        android:textSize="44sp"
                         android:textStyle="bold" />
+
                 </LinearLayout>
 
-            </LinearLayout>
+            <ImageView
+                android:id="@+id/welcomeImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:src="@drawable/welcome"
+                app:layout_constraintTop_toBottomOf="@id/titleLinearLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/inputsLayout" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/activity_login_TextInputLayout1"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            <LinearLayout
+                android:id="@+id/inputsLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="40dp"
-                android:textColorHint="@color/white"
-                app:boxStrokeColor="@color/white"
-                app:hintEnabled="true">
+                android:orientation="vertical"
+                android:layout_marginBottom="?actionBarSize"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/welcomeImageView">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/activity_login_TextInputEditText1"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/activity_login_TextInputLayout1"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:digits="0123456789+"
-                    android:hint="@string/phone_number"
-                    android:inputType="phone"
-                    android:text="@string/plus_seven"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white" />
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="25dp"
+                    android:textColorHint="@color/color_dark_blue"
+                    app:boxStrokeColor="@color/colorAppBar_light"
+                    app:hintEnabled="true">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/activity_login_TextInputEditText1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="0123456789+"
+                        android:hint="@string/phone_number"
+                        android:inputType="phone"
+                        android:text="@string/plus_seven"
+                        android:textColor="@color/black2"
+                        android:textColorHint="@color/black2" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <androidx.core.widget.ContentLoadingProgressBar
-                    android:elevation="5dp"
-                    android:id="@+id/loginActivityCircularProgress"
-                    android:theme="@style/ContentLoadingProgress2"
-                    style="?android:attr/progressBarStyleSmall"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/activity_login_MaterialButton"
-                    app:layout_constraintEnd_toEndOf="@+id/activity_login_MaterialButton"
-                    app:layout_constraintStart_toStartOf="@+id/activity_login_MaterialButton"
-                    app:layout_constraintTop_toTopOf="@+id/activity_login_MaterialButton" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/activity_login_MaterialButton"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginRight="40dp"
-                    android:layout_marginTop="8dp"
-                    android:padding="15dp"
-                    android:text="@string/getSmsCode"
-                    android:visibility="visible"
-                    android:backgroundTint="@color/zhihu_primary_dark"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    />
+                    android:layout_height="wrap_content">
+
+                    <androidx.core.widget.ContentLoadingProgressBar
+                        android:id="@+id/loginActivityCircularProgress"
+                        style="?android:attr/progressBarStyleSmall"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:elevation="5dp"
+                        android:theme="@style/ContentLoadingProgress2"
+                        app:layout_constraintBottom_toBottomOf="@+id/activity_login_MaterialButton"
+                        app:layout_constraintEnd_toEndOf="@+id/activity_login_MaterialButton"
+                        app:layout_constraintStart_toStartOf="@+id/activity_login_MaterialButton"
+                        app:layout_constraintTop_toTopOf="@+id/activity_login_MaterialButton" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/activity_login_MaterialButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="25dp"
+                        android:backgroundTint="@color/color_dark_blue2"
+                        android:padding="15dp"
+                        android:text="@string/registration1"
+                        android:textColor="@color/white"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+            </LinearLayout>
 
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

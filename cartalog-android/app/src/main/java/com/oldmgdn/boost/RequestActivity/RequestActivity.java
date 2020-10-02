@@ -316,6 +316,7 @@ public class RequestActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
 
                                     Intent intent=new Intent();
+                                    intent.putExtra("isNewRequest",true);
                                     setResult(2,intent);
                                     RequestActivity.this.finish();
 
@@ -365,8 +366,10 @@ public class RequestActivity extends AppCompatActivity {
                                                                     requestRef.child("timestamp").setValue(-timestamp).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                                         @Override
                                                                         public void onComplete(@NonNull Task<Void> task) {
-                                                                            setResult(1);
-                                                                            finish();
+                                                                            Intent intent=new Intent();
+                                                                            intent.putExtra("isNewRequest",true);
+                                                                            setResult(2,intent);
+                                                                            RequestActivity.this.finish();
                                                                         }
                                                                     });
                                                                 }

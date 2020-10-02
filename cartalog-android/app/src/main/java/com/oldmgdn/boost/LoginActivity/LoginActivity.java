@@ -28,7 +28,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
-import com.oldmgdn.boost.MainActivity.MainActivity;
+import com.oldmgdn.boost.IntroActivity.IntroActivity;
 import com.oldmgdn.boost.R;
 
 import java.util.concurrent.TimeUnit;
@@ -53,8 +53,6 @@ public class LoginActivity extends AppCompatActivity {
         initializeUI();
         setOnClickListeners();
 
-        Snackbar.make(coordinatorLayout, R.string.registration, Snackbar.LENGTH_LONG).show();
-
     }
 
     private void initializeUI() {
@@ -62,6 +60,8 @@ public class LoginActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         mAuth = FirebaseAuth.getInstance();
+
+        phoneNumber="";
 
         progressBar = findViewById(R.id.loginActivityCircularProgress);
         progressBar.setVisibility(View.INVISIBLE);
@@ -80,7 +80,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onVerificationFailed(FirebaseException e) {
 
-                Snackbar.make(coordinatorLayout, R.string.Error, Snackbar.LENGTH_LONG).show();
+                Snackbar.make(coordinatorLayout, R.string.Error, Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(getColor(R.color.dark_grey2)).setTextColor(getColor(R.color.white)).show();
 
                 new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                     @Override
@@ -104,7 +105,8 @@ public class LoginActivity extends AppCompatActivity {
                 activity_login_TextInputLayout1.setHint("Введите код из СМС");
                 activity_login_MaterialButton.setText("Отправить код из СМС");
 
-                Snackbar.make(coordinatorLayout, R.string.enter_code, Snackbar.LENGTH_LONG).show();
+                Snackbar.make(coordinatorLayout, R.string.enter_code, Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(getColor(R.color.dark_grey2)).setTextColor(getColor(R.color.white)).show();
 
                 activity_login_MaterialButton.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -113,14 +115,13 @@ public class LoginActivity extends AppCompatActivity {
                         activity_login_MaterialButton.setText("");
                         progressBar.setVisibility(View.VISIBLE);
 
-                        verifyPhoneNumberWithCode(mVerificationId,activity_login_TextInputEditText1.getText().toString());
+                        verifyPhoneNumberWithCode(mVerificationId, activity_login_TextInputEditText1.getText().toString());
 
                     }
                 });
 
             }
         };
-
 
         activity_login_TextInputLayout1 = findViewById(R.id.activity_login_TextInputLayout1);
         activity_login_TextInputEditText1 = findViewById(R.id.activity_login_TextInputEditText1);
@@ -141,9 +142,9 @@ public class LoginActivity extends AppCompatActivity {
 
                 }
 
-                if(activity_login_TextInputLayout1.getHint().toString().equals("Введите код из СМС")){
+                if (activity_login_TextInputLayout1.getHint().toString().equals("Введите код из СМС")) {
 
-                    if(activity_login_TextInputEditText1.getText().length() == 6){
+                    if (activity_login_TextInputEditText1.getText().length() == 6) {
                         hideKeyboardFrom(LoginActivity.this, activity_login_TextInputEditText1);
                     }
 
@@ -157,27 +158,50 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        coordinatorLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hideKeyboardFrom(LoginActivity.this, activity_login_TextInputEditText1);
+            }
+        });
 
     }
 
     private void setOnClickListeners() {
 
-        if (activity_login_MaterialButton.getText().toString().equals(getString(R.string.getSmsCode))) {
+        if (activity_login_MaterialButton.getText().toString().equals(getString(R.string.registration1))) {
 
             activity_login_MaterialButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                    Snackbar.make(coordinatorLayout, R.string.wait_code, Snackbar.LENGTH_LONG).show();
+                    if (phoneNumber.length() == 12) {
 
-                    PhoneAuthProvider.getInstance().verifyPhoneNumber(phoneNumber,
-                            60,
-                            TimeUnit.SECONDS,
-                            LoginActivity.this,
-                            mCallbacks);
+                        Snackbar.make(coordinatorLayout, R.string.wait_code, Snackbar.LENGTH_LONG)
+                                .setBackgroundTint(getColor(R.color.dark_grey2)).setTextColor(getColor(R.color.white)).show();
 
-                    progressBar.show();
-                    activity_login_MaterialButton.setText("");
+                        PhoneAuthProvider.getInstance().verifyPhoneNumber(phoneNumber,
+                                60,
+                                TimeUnit.SECONDS,
+                                LoginActivity.this,
+                                mCallbacks);
+
+                        progressBar.show();
+                        activity_login_MaterialButton.setText("");
+
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                LoginActivity.this.recreate();
+                            }
+                        }, 45000);
+
+                    } else {
+
+                        Snackbar.make(coordinatorLayout, R.string.enter_phone_number, Snackbar.LENGTH_LONG)
+                                .setBackgroundTint(getColor(R.color.dark_grey2)).setTextColor(getColor(R.color.white)).show();
+
+                    }
 
                 }
 
@@ -202,7 +226,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
 
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, IntroActivity.class);
                             startActivity(intent);
                             LoginActivity.this.finish();
 
@@ -211,7 +235,8 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in failed, display a message and update the UI
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
 
-                                Snackbar.make(coordinatorLayout,"Вы ввели неверный код",Snackbar.LENGTH_LONG).show();
+                                Snackbar.make(coordinatorLayout, "Вы ввели неверный код", Snackbar.LENGTH_LONG)
+                                        .setBackgroundTint(getColor(R.color.dark_grey2)).setTextColor(getColor(R.color.white)).show();
 
                             }
 

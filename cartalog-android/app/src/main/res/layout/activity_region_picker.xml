@@ -8,6 +8,25 @@
     android:focusableInTouchMode="true"
     tools:context=".LoginActivity.LoginActivity">
 
+    <LinearLayout
+        android:id="@+id/appppbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorAppBar">
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_city"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+
     <androidx.core.widget.ContentLoadingProgressBar
         android:id="@+id/activity_region_picker_ContentLoading"
         style="?android:attr/progressBarStyleLarge"
@@ -22,12 +41,12 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appppbar"
         tools:layout_editor_absoluteX="10dp">
 
         <androidx.recyclerview.widget.RecyclerView

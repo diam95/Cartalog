@@ -78,6 +78,7 @@ public class FeedbackActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
 
                             Intent intent=new Intent();
+                            intent.putExtra("feedBackSend",true);
                             setResult(3,intent);
                             FeedbackActivity.this.finish();
                         }

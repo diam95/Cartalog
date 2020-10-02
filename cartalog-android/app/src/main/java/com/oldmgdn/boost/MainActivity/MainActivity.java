@@ -50,7 +50,6 @@ import com.google.firebase.iid.InstanceIdResult;
 import com.instacart.library.truetime.TrueTime;
 import com.oldmgdn.boost.DigestActivity.DigestActivity;
 import com.oldmgdn.boost.FeedbackActivity.FeedbackActivity;
-import com.oldmgdn.boost.IntroActivity.IntroActivity;
 import com.oldmgdn.boost.LoginActivity.LoginActivity;
 import com.oldmgdn.boost.MainActivity.Adapters.AppBarLayoutRecyclerViewAdapter;
 import com.oldmgdn.boost.MainActivity.Adapters.RequestRecyclerViewAdapter;
@@ -69,18 +68,16 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private static final Integer VERSION = 1120;
-    private RecyclerView advRecyclerView;
+    private static final Integer VERSION = 1130;
     private FloatingActionButton fab_part;
     private FloatingActionButton fab_service;
-    private RecyclerView requestsRecyclerView;
     private ContentLoadingProgressBar progressBar;
     private DrawerLayout drawerLayout;
     private ImageButton drawerButon, profileButton;
     private ImageView newRequestImageView;
     private LinearLayoutManager requestsRecyclerViewLinearLayoutManager;
     private List<RequestObject> requestsList;
-    private String city, uid;
+    private String city;
     private FirebaseUser user;
     private Switch notificationSwitch;
     private SharedPreferences sharedPref;
@@ -130,9 +127,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             } else {
 
-                Intent intent = new Intent(MainActivity.this, IntroActivity.class);
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
                 this.finish();
+
             }
 
         } else {
@@ -179,11 +177,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                if (dataSnapshot.exists()){
+                if (dataSnapshot.exists()) {
 
                     int version = Integer.parseInt(dataSnapshot.getValue().toString());
 
-                    if (version != VERSION){
+                    if (version != VERSION) {
 
                         Toast.makeText(MainActivity.this, getResources().getString(R.string.updateApp), Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -206,7 +204,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void checkCity() {
 
-        uid = user.getUid();
+        String uid = user.getUid();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference dbRef = database.getReference("users").child(uid).child("city");
@@ -215,10 +213,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 if (dataSnapshot.exists()) {
+
                     city = dataSnapshot.getValue().toString();
                     initUI();
                     setOnclickListeners();
                     initFCM();
+                    notificationSwitchTint();
+
                 } else {
 
                     Intent intent = new Intent(MainActivity.this, RegionPicker.class);
@@ -274,6 +275,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void initUI() {
 
+        notificationSwitch = findViewById(R.id.notification_switch);
         newRequestImageView = findViewById(R.id.activity_main_newRequest_ImageView);
         fab_part = findViewById(R.id.activity_main_FAM_FAB_parts);
         fab_service = findViewById(R.id.activity_main_FAM_FAB_service);
@@ -281,12 +283,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         progressBar = findViewById(R.id.activity_main_ContentLoadingProgressBar);
         drawerButon = findViewById(R.id.activity_main_menu_ImageButton);
         drawerLayout = findViewById(R.id.activity_main_DrawerLayout);
-        notificationSwitch = findViewById(R.id.notification_switch);
         sharedPref = getApplicationContext().getSharedPreferences("notificationStatus", Context.MODE_PRIVATE);
 
         coordLayout = findViewById(R.id.mainActivityCoordinatorLayout);
-
-        notificationSwitchTint();
 
         advRecyclerView();
         requestsRecyclerView();
@@ -321,6 +320,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         notificationSwitch.setChecked(isOn);
 
+        notificationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putBoolean(getString(R.string.notifications_on), isChecked);
+                editor.apply();
+
+            }
+        });
+
 
     }
 
@@ -330,7 +340,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         final AppBarLayoutRecyclerViewAdapter advRecyclerViewAdapter = new AppBarLayoutRecyclerViewAdapter(ads, this);
         LinearLayoutManager advRecyclerViewLinearLayoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
-        advRecyclerView = findViewById(R.id.activity_main_AppBarLayout_RecyclerView);
+        RecyclerView advRecyclerView = findViewById(R.id.activity_main_AppBarLayout_RecyclerView);
         advRecyclerView.setHasFixedSize(true);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -378,7 +388,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         final RequestRecyclerViewAdapter requestRecyclerViewAdapter = new RequestRecyclerViewAdapter(requestsList, this, city);
         requestsRecyclerViewLinearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
-        requestsRecyclerView = findViewById(R.id.activity_main_request_RecyclerView);
+        RecyclerView requestsRecyclerView = findViewById(R.id.activity_main_request_RecyclerView);
         requestsRecyclerView.setHasFixedSize(true);
         requestsRecyclerViewLinearLayoutManager.setReverseLayout(true);
         requestsRecyclerViewLinearLayoutManager.setStackFromEnd(true);
@@ -440,6 +450,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             if (requestsList.size() == 0) {
                                 newRequestImageView.setVisibility(View.VISIBLE);
                             }
+
                         }
                     }
 
@@ -569,17 +580,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        notificationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putBoolean(getString(R.string.notifications_on), isChecked);
-                editor.apply();
-
-            }
-        });
-
         setNavigationViewListener();
     }
 
@@ -611,7 +611,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent2.putExtra("newRequest", 1);
                 intent2.putExtra("city", city);
                 startActivityForResult(intent2, 2);
-            break;
+                break;
             case R.id.nav_autoparts:
                 Intent intentt = new Intent(MainActivity.this, DigestActivity.class);
                 intentt.putExtra("type", "autoparts");
@@ -658,7 +658,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent intent8 = new Intent(MainActivity.this, FeedbackActivity.class);
                 intent8.putExtra("city", city);
                 startActivityForResult(intent8, 3);
-            break;
+                break;
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
@@ -705,21 +705,36 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode==2)
-        {
-            Snackbar.make(coordLayout,"Заявка успешно добавлена. Подбираем для вас лучшее предложение!",Snackbar.LENGTH_LONG).show();
+        if (requestCode == 2) {
+
+            if(data != null) {
+
+                if (data.getBooleanExtra("isNewRequest",false)){
+                    Snackbar.make(coordLayout, "Заявка успешно добавлена. Подбираем для вас лучшее предложение!", Snackbar.LENGTH_LONG)
+                            .setBackgroundTint(getColor(R.color.dark_grey2)).setTextColor(getColor(R.color.white)).show();
+                }
+            }
+
         }
 
-        if(requestCode==3)
-        {
-            Snackbar.make(coordLayout,"Благодарим за обратную связь!",Snackbar.LENGTH_LONG).show();
+        if (requestCode == 3) {
+
+            if(data != null) {
+
+                if (data.getBooleanExtra("feedBackSend",false)){
+                    Snackbar.make(coordLayout, "Благодарим за обратную связь!", Snackbar.LENGTH_LONG)
+                            .setBackgroundTint(getColor(R.color.dark_grey2)).setTextColor(getColor(R.color.white)).show();
+                }
+            }
+
         }
 
     }
 
     public void showDeletedSnackbar() {
 
-        Snackbar.make(coordLayout,"Заявка удалена",Snackbar.LENGTH_LONG).show();
+        Snackbar.make(coordLayout, "Заявка удалена", Snackbar.LENGTH_LONG)
+                .setBackgroundTint(getColor(R.color.dark_grey2)).setTextColor(getColor(R.color.white)).show();
 
     }
 
