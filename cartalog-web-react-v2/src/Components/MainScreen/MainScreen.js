@@ -1,15 +1,10 @@
 import React, {useEffect, useState} from "react";
 import MainScreenView from "./MainScreenView";
-import * as firebase from "firebase";
 import {useHistory} from "react-router-dom"
-import data from "../../data";
 
 const MainScreen = (props) => {
 
     const partnerData = props.partnerData
-    const citiesArray = props.citiesArray
-    const selectedCity = props.selectedCity
-    const setSelectedCity = props.setSelectedCity
     const requestsDataset = props.requestsDataset
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -29,9 +24,6 @@ const MainScreen = (props) => {
 
     return (
         <MainScreenView isLoggedIn={isLoggedIn}
-                        citiesArray={citiesArray}
-                        selectedCity={selectedCity}
-                        setSelectedCity={setSelectedCity}
                         requestsDataset={requestsDataset}
                         partnerData={partnerData}
         />

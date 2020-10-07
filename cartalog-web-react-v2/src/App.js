@@ -8,18 +8,14 @@ import {
 import MainScreen from "./Components/MainScreen/MainScreen";
 import LoginScreen from "./Components/LoginScreen/LoginScreen";
 import firebase from "firebase/app";
+import RequestScreen from "./Components/RequestScreen/RequestScreen";
 
 const App = () => {
 
     const [partnerData, setPartnerData] = useState({});
-
-    const [selectedCity, setSelectedCity] = useState(10);
-    const [citiesArray, setCitiesArray] = useState([]);
-
     const [requestsDataset, setRequestsDataset] = useState([]);
 
     console.log(partnerData);
-    console.log(requestsDataset);
 
     //AUTH STATE
     useEffect(() => {
@@ -30,24 +26,6 @@ const App = () => {
 
             if (user) {
                 setPartnerData({partnerID: uid})
-            }
-
-        })
-
-    }, [])
-
-    //SET AVAILABLE CITIES LIST
-    useEffect(() => {
-
-        const citiesRef = firebase.database().ref('cities')
-
-        citiesRef.once("value", snap => {
-
-
-        }).then(r => {
-
-            if (r.exists()) {
-                setCitiesArray(Object.values(r.val()))
             }
 
         })
@@ -66,7 +44,13 @@ const App = () => {
             }).then(r => {
 
                 if (r.exists()) {
-                    setPartnerData(r.val())
+
+                    const data = r.val()
+                    const partnerID = partnerData.partnerID
+                    data.info = {...data.info, partnerID}
+
+                    setPartnerData(data)
+
                 }
 
             })
@@ -83,12 +67,12 @@ const App = () => {
             const partnerType = partnerData.info.type
             const city = partnerData.info.city
 
-            const requestsRef = firebase.database().ref('requests').child(city).child(partnerType).orderByChild('timestamp').limitToFirst(20)
+            const requestsRef = firebase.database().ref('requests').child(city).child(partnerType).orderByChild('timestamp').limitToFirst(10)
             requestsRef.once('value', snap => {
 
-            }).then(r=>{
+            }).then(r => {
 
-                if(r.exists()){
+                if (r.exists()) {
 
                     const requestsArray = Object.values(r.val()).reverse()
                     setRequestsDataset(requestsArray)
@@ -108,13 +92,14 @@ const App = () => {
                     <LoginScreen partnerData={partnerData}/>
                 </Route>
 
-                <Route path="/">
-                    <MainScreen citiesArray={citiesArray}
-                                selectedCity={selectedCity}
-                                setSelectedCity={setSelectedCity}
-                                requestsDataset={requestsDataset}
+                <Route exact path="/">
+                    <MainScreen requestsDataset={requestsDataset}
                                 partnerData={partnerData}
                     />
+                </Route>
+
+                <Route path="/request/">
+                    <RequestScreen partnerData={partnerData}/>
                 </Route>
 
             </Switch>

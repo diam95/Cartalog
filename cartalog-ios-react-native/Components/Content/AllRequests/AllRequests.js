@@ -147,7 +147,9 @@ const AllRequests = (props) => {
     const myRequests = () => {
 
         if (requestsDataset.length > 0) {
-            const allRequests = requestsDataset.map(request => <Request key={request.key} request={request}/>);
+            const allRequests = requestsDataset.map(request =>
+                <Request key={request.key} request={request}/>
+                );
             return allRequests;
         } else {
 

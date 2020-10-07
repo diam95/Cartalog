@@ -30,7 +30,7 @@ const Content = (props) => {
 
             } else {
 
-                //props.navigation.navigate('Login');
+                props.navigation.navigate('Login');
 
             }
 
@@ -40,7 +40,7 @@ const Content = (props) => {
     const menu = <Menu navigator={navigator} userID={userID}/>;
 
     return (
-        <View style={{width: '100%', height: '100%', backgroundColor: '#3b559b'}}>
+        <View style={{width: '100%', height: '100%'}}>
 
             <SideMenu menu={menu} isOpen={drawerIsOpen} onChange={() => {
                 setDrawerIsOpen(!drawerIsOpen);

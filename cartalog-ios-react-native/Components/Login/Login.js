@@ -1,77 +1,118 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {StyleSheet, Text, View, Keyboard, Alert, TextInput, TouchableOpacity} from 'react-native';
+import {
+    StyleSheet,
+    Text,
+    View,
+    Keyboard,
+    Alert,
+    TextInput,
+    TouchableOpacity,
+    Image,
+    KeyboardAvoidingView,
+} from 'react-native';
 import {ActivityIndicator, Button, IconButton} from 'react-native-paper';
 import auth from '@react-native-firebase/auth';
-import Video from 'react-native-video';
 import {useNavigation} from '@react-navigation/core';
+import welcomeImg from '../../Assets/Images/welcome.png';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import TouchableRipple from 'react-native-paper/src/components/TouchableRipple/index';
 
 const styles = StyleSheet.create({
-    background: {
-        backgroundColor: 'black',
-    },
-    backgroundVideo: {
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-    },
+
     root: {
         width: '100%',
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'flex-end',
-        zIndex: 10,
+        alignItems: 'center',
+        justifyContent: 'space-around',
+        backgroundColor: 'white',
     },
     inputCard: {
-        height: '50%',
-        marginBottom: 30,
-        borderColor: 'white',
-        marginHorizontal: 30,
-    },
-    title: {
-        position: 'absolute',
-        top: '25%',
         width: '100%',
-        textAlign: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
+    inputContainer: {
+        width: '85%',
+        height: 56,
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderRadius: 5,
+        borderColor: '#1d316e',
+    },
+    inputContainerFocus: {
+        width: '85%',
+        height: 56,
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderStyle: 'solid',
+        borderWidth: 2,
+        borderRadius: 5,
+        borderColor: '#3b81b7',
+    },
+    welcomeImg: {
+        width: '100%',
+        resizeMode: 'contain',
+    },
+    titleContainer: {
+        width: '100%',
     },
     titleText: {
         textAlign: 'center',
-        color: 'white',
+        fontSize: 46,
         fontWeight: 'bold',
-        fontSize: 30,
+        color: '#1d316e',
     },
-    subtitleText: {
+    subTitleText: {
+        fontSize: 24,
         textAlign: 'center',
-        color: 'white',
-        fontSize: 16,
-    },
-    inputContainer: {
-        display: 'flex',
-        flexDirection: 'row',
-        height: 60,
-        width: '100%',
-        alignItems: 'center',
-        borderRadius: 35,
-        borderWidth: 1,
-        borderColor: 'white',
-    },
-    input: {
-        height: 50,
-        width: '100%',
-        fontSize: 20,
-        color: 'white',
+        color: '#1d316e',
     },
     button: {
-        borderRadius: 35,
-        padding: 10,
+        marginTop: 10,
+        width: '85%',
+        height: 56,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#1d316e',
+        marginBottom: 25,
     },
+    buttonText: {
+        fontSize: 16,
+        fontWeight: '500',
+    },
+    inputText: {
+        width: '100%',
+        fontSize: 18,
+        fontWeight: '500',
+        marginLeft: 15,
+    },
+    hintContainer: {
+        position: 'absolute',
+        top: -15,
+        left: 10,
+        padding: 5,
+        backgroundColor: 'white',
+    },
+    hintText: {
+        color: '#1d316e',
+        fontSize: 14,
+    },
+
 });
 
 const Login = () => {
 
-    const [phoneNumber, setPhoneNumber] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('+7');
+    const [inputFocus, setInputFocus] = useState(false);
     const [verificationCode, setVerificationCode] = useState('');
     const [buttonText, setButtonText] = useState('Получить СМС код');
     const [confirmation, setConfirmation] = useState(null);
@@ -142,8 +183,9 @@ const Login = () => {
                     }, 3500);
 
                 } else {
-                    Alert.alert('Ошибка', 'Неверный номер');
+                    Alert.alert('Введите номер телефона');
                     setAnimating(false);
+                    inputRef.current.focus();
                 }
 
                 break;
@@ -174,6 +216,16 @@ const Login = () => {
 
     };
 
+    const getInputStyle = () => {
+
+        if (inputFocus) {
+            return styles.inputContainerFocus;
+        } else {
+            return styles.inputContainer;
+        }
+
+    };
+
     const textInputs = () => {
 
         switch (buttonText) {
@@ -181,26 +233,26 @@ const Login = () => {
             case 'Получить СМС код':
                 return (
 
-                    <View style={styles.inputContainer}>
-                        <View style={{margin: 0, paddingTop: 5, paddingLeft: 5}}>
-                            <IconButton icon="phone"
-                                        color={'white'}
-                                        size={36}/>
-                        </View>
+                    <View style={getInputStyle()}>
 
                         <TextInput
                             allowFontScaling={false}
                             ref={inputRef}
-                            style={styles.input}
-                            placeholder='Номер телефона'
-                            placeholderTextColor={'white'}
+                            style={styles.inputText}
+                            placeholder='+7'
+                            placeholderTextColor={'grey'}
                             value={phoneNumber}
                             keyboardType={'phone-pad'}
                             onFocus={() => {
-                                setPhoneNumber('+7');
+                                setInputFocus(true);
                             }}
                             onChangeText={text => onChangePhoneNumber(text)}
                         />
+
+                        <View style={styles.hintContainer}>
+                            <Text style={styles.hintText}>Номер телефона</Text>
+                        </View>
+
                     </View>
 
                 );
@@ -208,23 +260,26 @@ const Login = () => {
             case 'Отправить СМС код':
 
                 return (
-                    <View style={styles.inputContainer}>
-                        <View style={{margin: 0, paddingTop: 5, paddingLeft: 5}}>
-                            <IconButton icon="safe"
-                                        color={'white'}
-                                        size={36}/>
-                        </View>
+                    <View style={getInputStyle()}>
 
                         <TextInput
                             ref={inputRef}
-                            style={styles.input}
+                            style={styles.inputText}
                             placeholder='Код из СМС'
                             placeholderTextColor={'white'}
                             value={verificationCode}
                             keyboardType={'number-pad'}
                             mode={'outlined'}
+                            textContentType={'phone-number'}
+                            onFocus={() => {
+                                setInputFocus(true);
+                            }}
                             onChangeText={text => onChangeVerificationeCode(text)}
                         />
+
+                        <View style={styles.hintContainer}>
+                            <Text style={styles.hintText}>Код из СМС</Text>
+                        </View>
 
                     </View>
                 );
@@ -241,7 +296,7 @@ const Login = () => {
             );
         } else {
             return (
-                <Text style={styles.appbarTitle}>{buttonText}</Text>
+                <Text style={styles.buttonText}>{buttonText}</Text>
             );
         }
 
@@ -250,52 +305,44 @@ const Login = () => {
 
     return (
 
-        <View style={{width: '100%', height: '100%', backgroundColor: '#3b559b'}}>
+        <SafeAreaView style={styles.root}>
 
-                <Video
-                    source={require('../../Assets/Videos/video-background.mp4')}
-                    style={styles.backgroundVideo}
-                    muted={true}
-                    repeat={true}
-                    resizeMode={'cover'}
-                    rate={1.0}
-                    ignoreSilentSwitch={'obey'}
-                />
+            <KeyboardAvoidingView behavior="position" enabled>
 
-                <View style={styles.title}>
-                    <Text style={styles.titleText}>CARTALOG</Text>
-                    <Text style={styles.subtitleText}>Р Е Г И С Т Р А Ц И Я</Text>
-                </View>
+                <TouchableOpacity onPress={()=>{inputRef.current.blur()}}>
 
-                <TouchableOpacity style={styles.root} onPress={() => {
-                    inputRef.current.blur();
-                }} activeOpacity={1}>
-                    <View style={styles.inputCard}>
+                    <View style={styles.titleContainer}>
+                        <Text style={styles.subTitleText}>Добро пожаловать в</Text>
+                        <Text style={styles.titleText}>CARTALOG</Text>
+                    </View>
+
+                    <Image source={welcomeImg} style={styles.welcomeImg}/>
+
+                    <TouchableOpacity style={styles.inputCard} onPress={() => {
+                        inputRef.current.blur();
+                    }} activeOpacity={1}>
+
 
                         {textInputs()}
 
-                        <View style={{
-                            width: '100%',
-                            height: 60,
-                            marginTop: 10,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'center',
-                        }}>
-                            <Button
-                                style={styles.button}
-                                mode="contained"
-                                color={'purple'}
-                                onPress={() => handleLoginButtonPress()}
-                            >
-                                {buttonContent()}
-                            </Button>
-                        </View>
+                        <Button
+                            style={styles.button}
+                            mode="contained"
+                            color={'purple'}
+                            onPress={() => handleLoginButtonPress()}
+                        >
+                            {buttonContent()}
+                        </Button>
 
-                    </View>
+
+                    </TouchableOpacity>
+
                 </TouchableOpacity>
 
-        </View>
+            </KeyboardAvoidingView>
+
+        </SafeAreaView>
+
     );
 
 };

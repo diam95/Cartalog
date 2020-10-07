@@ -4,14 +4,14 @@ import MaterialTable from "material-table";
 import * as moment from "moment";
 import 'moment/locale/ru';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
 
     root: {
         width: "100%",
     },
     tableContainer: {
         width: "100%",
-        marginTop: 18
+        marginTop: theme.spacing(2)
     },
     theBlueDot: {
         width: 8,
@@ -35,6 +35,9 @@ const TheTableView = (props) => {
 
     const requestsDataset = props.requestsDataset
     const partnerData = props.partnerData
+
+    const location = props.location;
+    const history = props.history;
 
     const classes = useStyles()
 
@@ -99,17 +102,39 @@ const TheTableView = (props) => {
 
     };
 
+    const renderTableTitle = () => {
+
+        if (location.pathname === "/") {
+            return ("Все заявки")
+        } else {
+            return ("Мои ответы")
+        }
+
+    }
+
+    const handleRowClick = (rowID) => {
+
+        const requestKey = requestsDataset[rowID].key
+
+        history.push("/request/" + requestKey)
+
+    }
+
     return (
 
         <div className={classes.root}>
 
             <div className={classes.tableContainer}>
                 <MaterialTable
-                    title="Demo Title"
+                    isLoading={requestsDataset.length === 0}
+                    title={renderTableTitle()}
                     columns={[
                         {
+                            width: "auto",
                             field: 'isNew',
                             cellStyle: {
+                                width: 20,
+                                maxWidth: 20,
                                 paddingLeft: 15,
                                 paddingRight: 0,
                                 margin: 0,
@@ -131,8 +156,8 @@ const TheTableView = (props) => {
                                 paddingBottom: 8,
                                 paddingRight: 0,
                                 paddingLeft: 15,
-                                "&:hover":{
-                                    backgroundColor:"red !important"
+                                "&:hover": {
+                                    backgroundColor: "red !important"
                                 }
                             },
                         },
@@ -237,6 +262,9 @@ const TheTableView = (props) => {
                         sorting: false,
                     }}
                     data={requestsDataset}
+                    onRowClick={(event, rowData) => {
+                        handleRowClick(rowData.tableData.id);
+                    }}
                 />
             </div>
 

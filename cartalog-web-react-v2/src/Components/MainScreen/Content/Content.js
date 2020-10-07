@@ -1,21 +1,19 @@
 import React from "react";
 import ContentView from "./ContentView";
-import MainScreen from "../MainScreen";
+import {useHistory, useLocation} from "react-router-dom";
 
 const Content = (props) => {
 
-    const citiesArray = props.citiesArray
-    const selectedCity = props.selectedCity
-    const setSelectedCity = props.setSelectedCity
     const requestsDataset = props.requestsDataset
     const partnerData = props.partnerData
+    const location = useLocation()
+    const history = useHistory()
 
     return(
-        <ContentView citiesArray={citiesArray}
-                     selectedCity={selectedCity}
-                     setSelectedCity={setSelectedCity}
-                     requestsDataset={requestsDataset}
+        <ContentView requestsDataset={requestsDataset}
                      partnerData={partnerData}
+                     history={history}
+                     location={location}
         />
     )
 

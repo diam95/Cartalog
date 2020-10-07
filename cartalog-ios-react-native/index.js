@@ -166,7 +166,8 @@ export default function Main() {
                     const data = {
                         messagingToken: token,
                         city: 'magadan',
-                        userID: userID,
+                        lastOnline:database.ServerValue.TIMESTAMP,
+                        client:"IOS"
                     };
 
                     dbRef.set(data);

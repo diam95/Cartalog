@@ -1,57 +1,60 @@
 import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
-import TopAppBar from "./TopAppBar/TopAppBar";
+import TopAppBar from "../../TopAppBar/TopAppBar";
 import Grid from "@material-ui/core/Grid";
-import SideBar from "./SideBar/SideBar";
+import SideBar from "../../SideBar/SideBar";
 import TheTable from "./TheTable/TheTable";
-import MainScreen from "../MainScreen";
-const useStyles = makeStyles(()=>({
 
-    root:{
+const useStyles = makeStyles(() => ({
+
+    root: {
+        width: "100%",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "flex-start",
+        backgroundColor: "#cee4ee"
+    },
+    sidebarContainer:{
         width:"100%",
-        minHeight:"100vh",
         display:"flex",
-        flexDirection:"column",
-        alignItems:"center",
-        justifyContent:"flex-start"
+        justifyContent:"flex-end"
     }
 
 }))
 
 const ContentView = (props) => {
 
-    const citiesArray = props.citiesArray
-    const selectedCity = props.selectedCity
-    const setSelectedCity = props.setSelectedCity
     const requestsDataset = props.requestsDataset
     const partnerData = props.partnerData
 
     const classes = useStyles()
 
-    return(
+    return (
 
         <div className={classes.root}>
 
-            <TopAppBar citiesArray={citiesArray}
-                       selectedCity={selectedCity}
-                       setSelectedCity={setSelectedCity}
-                       partnerData={partnerData}
-            />
+            <TopAppBar/>
 
-            <Grid container>
+            <Grid container spacing={0}>
 
-                <Grid item lg={2}>
-                    <SideBar/>
+                <Grid item lg={3}>
+                    <div className={classes.sidebarContainer}>
+                        <SideBar/>
+                    </div>
                 </Grid>
 
-                <Grid item lg={8}>
+                <Grid item lg={6}>
+
                     <TheTable requestsDataset={requestsDataset}
                               partnerData={partnerData}
                     />
+
                 </Grid>
 
-                <Grid item lg={2}>
-                    Right Side Bar
+                <Grid item lg={3}>
+
                 </Grid>
 
             </Grid>

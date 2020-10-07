@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
     root: {
         width: '100%',
         height: '100%',
-        backgroundColor: 'black'
     },
     toolbar: {
         display: 'flex',
@@ -21,7 +20,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 60,
         zIndex: 1,
-        backgroundColor: 'rgba(0,0,0,0.42)',
+        backgroundColor: '#3367c4',
         alignItems: 'center',
     },
     indicator: {
@@ -53,13 +52,14 @@ const ImageComponent = (props) => {
     };
 
     return (
-        <View style={{width:'100%', height:'100%', backgroundColor:'#3b559b'}}>
+        <View style={{width:'100%', height:'100%'}}>
             <SafeAreaView>
                 <View style={styles.root}>
                     <View style={styles.toolbar}>
                         <IconButton size={30} icon={'close'} color={'white'} onPress={() => {
                             handleBackPress();
                         }}/>
+                        <Text style={{fontSize:22,color:"white",fontWeight:"500"}}>Изображение</Text>
                         <IconButton size={30} icon={'download'} color={'white'} onPress={() => {
                             handleDownloadPress();
                         }}/>

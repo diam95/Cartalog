@@ -4,12 +4,11 @@ import {Button} from 'react-native-paper';
 import Toolbar from '../Toolbar/Toolbar';
 import {useNavigation} from '@react-navigation/core';
 import AllOffers from './AllOffers/AllOffers';
-import database from '@react-native-firebase/database';
 
 const styles = StyleSheet.create({
 
     infoCard: {
-        backgroundColor: '#558cee',
+        backgroundColor: '#3367c4',
         marginHorizontal: 10,
         marginTop: 10,
         minHeight: 100,
@@ -33,7 +32,7 @@ const styles = StyleSheet.create({
         color: 'white',
     },
     editButton: {
-        marginTop: 10,
+        marginTop: 10
     },
 
 });
@@ -50,7 +49,7 @@ const RequestInfo = (props) => {
     };
 
     return (
-        <View style={{width: '100%', height: '100%', backgroundColor: '#3b559b'}}>
+        <View style={{width: '100%', height: '100%'}}>
 
             <SafeAreaView>
 

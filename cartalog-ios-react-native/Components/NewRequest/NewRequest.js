@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         padding: 5,
         margin: 10  ,
         textAlign: 'center',
-        backgroundColor: '#558cee',
+        backgroundColor: '#3367c4',
     },
     buttonText: {
         color: 'white',
@@ -194,7 +194,7 @@ const NewRequest = (props) => {
     };
 
     return (
-        <View style={{width: '100%', height: '100%', backgroundColor: '#3b559b'}}>
+        <View style={{width: '100%', height: '100%'}}>
             <SafeAreaView>
                 <View style={{backgroundColor: 'white', width: '100%', height: '100%'}}>
                     <Toolbar title={type}/>

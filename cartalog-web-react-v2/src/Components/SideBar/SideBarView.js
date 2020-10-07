@@ -7,18 +7,19 @@ import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from '@material-ui/icons/Inbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 
-const useStyles = makeStyles(()=>({
+const useStyles = makeStyles((theme)=>({
 
     root:{
-        width:"100%",
+        width:"50%",
         display:"flex",
         flexDirection:"column",
         alignItems:"center",
-        justifyContent:"flex-start"
+        justifyContent:"flex-start",
+        marginRight:theme.spacing(2)
     },
     navContainer:{
-        width:"90%",
-        marginTop:10
+        width:"100%",
+        marginTop:theme.spacing(1)
     }
 
 }))
@@ -33,7 +34,7 @@ const SideBarView = () => {
 
             <div className={classes.navContainer}>
                 <List>
-                    <ListItem button selected={true}>
+                    <ListItem button>
                         <ListItemIcon>
                             <InboxIcon />
                         </ListItemIcon>
