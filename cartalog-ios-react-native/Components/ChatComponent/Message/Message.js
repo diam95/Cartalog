@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
     },
     root: {
-        backgroundColor: '#eaf5e9',
+        backgroundColor: 'white',
         marginHorizontal: 10,
         marginTop: 10,
         borderRadius: 15,

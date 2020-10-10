@@ -8,14 +8,11 @@ import {
 import MainScreen from "./Components/MainScreen/MainScreen";
 import LoginScreen from "./Components/LoginScreen/LoginScreen";
 import firebase from "firebase/app";
-import RequestScreen from "./Components/RequestScreen/RequestScreen";
 
 const App = () => {
 
     const [partnerData, setPartnerData] = useState({});
     const [requestsDataset, setRequestsDataset] = useState([]);
-
-    console.log(partnerData);
 
     //AUTH STATE
     useEffect(() => {
@@ -48,12 +45,49 @@ const App = () => {
                     const data = r.val()
                     const partnerID = partnerData.partnerID
                     data.info = {...data.info, partnerID}
-
                     setPartnerData(data)
 
                 }
 
             })
+
+        } else if (partnerData.info) {
+
+            if (partnerData.info.partnerID) {
+
+                console.log(partnerData);
+
+                const answeredRequestsKeysArray = Object.keys(partnerData.answeredRequests)
+
+                const index = answeredRequestsKeysArray.length - 1
+                const last = answeredRequestsKeysArray[index]
+
+                const answeredRequestsRef = firebase.database().ref('partners2').child(partnerData.info.partnerID).child("answeredRequests")
+                answeredRequestsRef.orderByKey().startAt(last).on('value', snap => {
+
+                    if (snap.exists()) {
+
+                        const requestID = Object.keys(snap.val())[0]
+
+                        if (last !== requestID) {
+
+                            console.log(snap.val())
+
+                            const newAnswer = snap.val()
+                            const temp = [...partnerData]
+                            temp.answeredRequests = {...temp.answeredRequests, newAnswer}
+
+                            setPartnerData(temp)
+
+                        }
+
+                    }
+
+                })
+
+                return answeredRequestsRef.off('value')
+
+            }
 
         }
 
@@ -64,47 +98,95 @@ const App = () => {
 
         if (partnerData.info) {
 
+            let requestsArray = []
+
             const partnerType = partnerData.info.type
             const city = partnerData.info.city
+            const requestsRef = firebase.database().ref('requests').child(city).child(partnerType).orderByChild('timestamp')
 
-            const requestsRef = firebase.database().ref('requests').child(city).child(partnerType).orderByChild('timestamp').limitToFirst(10)
-            requestsRef.once('value', snap => {
+            const handleNewRequests = () => {
 
-            }).then(r => {
+                const startAt = requestsArray[0].timestamp - 1
 
-                if (r.exists()) {
+                console.log(startAt)
 
-                    const requestsArray = Object.values(r.val()).reverse()
+                requestsRef.endAt(startAt).on('child_added', snap => {
+
+                    console.log(snap.val());
+
+                    if (snap.exists()) {
+                        requestsArray.unshift(snap.val())
+                        setRequestsDataset([...requestsArray])
+                    }
+
+                })
+
+            }
+
+            const handleRemovedRequests = () => {
+
+                requestsRef.on('child_removed', snap => {
+
+                    const removedRequest = snap.val()
+
+                    const requestKey = removedRequest.key
+
+                    requestsArray.forEach((item,ind) => {
+
+                        if (item.key === requestKey){
+
+                            requestsArray.splice(ind,1)
+                            setRequestsDataset([...requestsArray])
+
+                        }
+
+                    })
+
+                })
+
+            }
+
+            requestsRef.limitToFirst(10).once('value', snap => {
+
+                if (snap.exists()) {
+
+                    requestsArray = Object.values(snap.val()).reverse()
                     setRequestsDataset(requestsArray)
+
                 }
 
+            }).then(r => {
+                handleNewRequests()
+                handleRemovedRequests()
             })
+
+            return () => {
+                requestsRef.off('child_added')
+                requestsRef.off('child_removed')
+            }
 
         }
 
-    }, [partnerData])
+    }, [partnerData.info])
 
     return (
         <Router>
+
             <Switch>
 
                 <Route path="/login">
                     <LoginScreen partnerData={partnerData}/>
                 </Route>
 
-                <Route exact path="/">
+                <Route path="/">
                     <MainScreen requestsDataset={requestsDataset}
                                 partnerData={partnerData}
                     />
                 </Route>
 
-                <Route path="/request/">
-                    <RequestScreen partnerData={partnerData}/>
-                </Route>
-
             </Switch>
-        </Router>
 
+        </Router>
     );
 }
 

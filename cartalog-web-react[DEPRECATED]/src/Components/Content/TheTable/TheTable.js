@@ -103,7 +103,6 @@ function TheTable(props) {
     //LOAD UPDATES AND HANDLE REMOVED REQUESTS
     useEffect(() => {
 
-
         if (requestsDataset.length > 0) {
 
             const city = vendorData.city;

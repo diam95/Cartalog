@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor:"white"
+        backgroundColor: '#e3e3e3',
     },
     inputContainer: {
         width: '100%',
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     requestInfo: {
         width: '100%',
         height: 60,
-        backgroundColor: '#e8eefd',
+        backgroundColor: 'white',
         padding: 5,
         display: 'flex',
         flexDirection: 'column',
@@ -319,13 +319,13 @@ const ChatComponent = (props) => {
 
     return (
 
-        <View style={{width: '100%', height: '100%'}}>
+        <View style={{width: '100%', height: '100%', backgroundColor: '#3b559b'}}>
 
             <SafeAreaView>
 
                 <KeyboardAvoidingView behavior="position" enabled>
 
-                    <View style={styles.root}>
+                    <ImageBackground source={require('../../Assets/Images/backgroundxxhdpi.png')} style={styles.root}>
 
                         <Toolbar title={appBarTitle} vendorID={vendorID} vendorName={vendorName} type={type}/>
 
@@ -367,7 +367,7 @@ const ChatComponent = (props) => {
                         </View>
 
 
-                    </View>
+                    </ImageBackground>
 
                 </KeyboardAvoidingView>
 

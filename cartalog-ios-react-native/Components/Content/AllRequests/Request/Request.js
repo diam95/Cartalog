@@ -61,10 +61,10 @@ const Request = (props) => {
     const renderAvatar = () => {
 
         if (request.type === 'autoparts') {
-            return (<Avatar.Icon style={{backgroundColor: '#3367c4'}} color={'white'} size={48} icon="magnify"/>
+            return (<Avatar.Icon style={{backgroundColor: '#558cee'}} color={'white'} size={48} icon="magnify"/>
             );
         } else {
-            return (<Avatar.Icon style={{backgroundColor: '#3367c4'}} color={'white'}  size={48} icon="cogs"/>
+            return (<Avatar.Icon style={{backgroundColor: '#558cee'}} color={'white'}  size={48} icon="cogs"/>
             );
         }
 

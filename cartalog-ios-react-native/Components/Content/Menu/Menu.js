@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         height: 56,
-        backgroundColor: '#3367c4',
+        backgroundColor: '#558cee',
         alignItems: 'center',
     },
     headerText: {
@@ -45,6 +45,8 @@ const styles = StyleSheet.create({
 });
 
 const Menu = (props) => {
+
+        const [switchValue, setSwitchValue] = useState(true);
 
         const navigation = useNavigation();
 

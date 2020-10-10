@@ -135,7 +135,7 @@ const OfferCard = (props) => {
 
                 <View style={styles.root}>
 
-                    <Avatar.Icon style={{backgroundColor: '#3367c4'}} color={'white'}  size={48} icon="map-marker"/>
+                    <Avatar.Icon style={{backgroundColor: '#558cee'}} color={'white'}  size={48} icon="map-marker"/>
 
                     {body()}
 

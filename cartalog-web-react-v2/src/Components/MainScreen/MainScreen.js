@@ -1,31 +1,55 @@
 import React, {useEffect, useState} from "react";
 import MainScreenView from "./MainScreenView";
-import {useHistory} from "react-router-dom"
+import {useHistory, useLocation} from "react-router-dom"
+import firebase from "firebase";
 
 const MainScreen = (props) => {
 
     const partnerData = props.partnerData
     const requestsDataset = props.requestsDataset
 
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [request, setRequest] = useState({});
 
     const history = useHistory()
+    const location = useLocation()
+
+    useEffect(() => {
+
+        const locationArr = location.pathname.split("/")
+
+        if (locationArr[1]==="request"){
+
+            const requestKey = locationArr[2]
+
+            const dbRef = firebase.database().ref(`requests/magadan/autoparts/${requestKey}`)
+            dbRef.once('value', snap => {
+
+            }).then(r =>{
+
+                if (r.exists()){
+                    setRequest(r.val())
+                }
+
+            })
+
+        }
+
+
+    }, [location])
 
     //CHECK AUTH STATE
     useEffect(() => {
 
         if (Object.values(partnerData).length === 0) {
             history.push("/login")
-        } else (
-            setIsLoggedIn(true)
-        )
+        }
 
     }, [partnerData, history])
 
     return (
-        <MainScreenView isLoggedIn={isLoggedIn}
-                        requestsDataset={requestsDataset}
+        <MainScreenView requestsDataset={requestsDataset}
                         partnerData={partnerData}
+                        request={request}
         />
     )
 

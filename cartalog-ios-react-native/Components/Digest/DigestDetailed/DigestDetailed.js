@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import {View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Linking} from 'react-native';
 import MapView from 'react-native-maps';
 import {Marker} from 'react-native-maps';
@@ -62,8 +62,6 @@ const DigestDetailed = (props) => {
     const partner = props.route.params.partner;
     const navigation = useNavigation();
 
-    const [open,setOpen] = useState(false)
-
     const handleBackPress = () => {
 
         navigation.goBack();
@@ -112,46 +110,38 @@ const DigestDetailed = (props) => {
     };
 
     const sheetRenderContent = () => {
+        return (
+            <View style={styles.sheetContent}>
 
-        if(open){
-            return (
-                <View style={styles.sheetContent}>
+                <TouchableOpacity onPress={() => {
+                    Linking.openURL(`tel:${partner.tel}`);
+                }} style={{display: 'flex', flexDirection: 'row', alignItems: 'center', marginStart: 15}}>
+                    <IconButton icon={'phone'} size={30} style={{margin: 0}}/>
+                    <Text allowFontScaling={false} style={{fontSize: 20, fontWeight: 'bold'}}>{partner.tel}</Text>
+                </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() => {
-                        Linking.openURL(`tel:${partner.tel}`);
-                    }} style={{display: 'flex', flexDirection: 'row', alignItems: 'center', marginStart: 15}}>
-                        <IconButton icon={'phone'} size={30} style={{margin: 0}}/>
-                        <Text allowFontScaling={false} style={{fontSize: 20, fontWeight: 'bold'}}>{partner.tel}</Text>
-                    </TouchableOpacity>
+                <View style={{display: 'flex', flexDirection: 'row', marginStart: 15}}>
 
-                    <View style={{display: 'flex', flexDirection: 'row', marginStart: 15}}>
+                    <IconButton icon={'timer'} size={30} style={{margin: 0}}/>
 
-                        <IconButton icon={'timer'} size={30} style={{margin: 0}}/>
-
-                        <View style={{display: 'flex', flexDirection: 'column', marginTop: 10}}>
-                            <Text allowFontScaling={false} style={{fontSize: 20, fontWeight: 'bold'}}>ПН {partner.mon}</Text>
-                            <Text allowFontScaling={false} style={{fontSize: 20, fontWeight: 'bold'}}>ВТ {partner.tue}</Text>
-                            <Text allowFontScaling={false} style={{fontSize: 20, fontWeight: 'bold'}}>СР {partner.wed}</Text>
-                            <Text allowFontScaling={false} style={{fontSize: 20, fontWeight: 'bold'}}>ЧТ {partner.thu}</Text>
-                            <Text allowFontScaling={false} style={{fontSize: 20, fontWeight: 'bold'}}>ПТ {partner.fri}</Text>
-                            <Text allowFontScaling={false} style={{fontSize: 20, fontWeight: 'bold'}}>СБ {partner.sat}</Text>
-                            <Text allowFontScaling={false} style={{fontSize: 20, fontWeight: 'bold'}}>ВС {partner.sun}</Text>
-                        </View>
-
+                    <View style={{display: 'flex', flexDirection: 'column', marginTop: 10}}>
+                        <Text allowFontScaling={false} style={{fontSize: 20, fontWeight: 'bold'}}>ПН {partner.mon}</Text>
+                        <Text allowFontScaling={false} style={{fontSize: 20, fontWeight: 'bold'}}>ВТ {partner.tue}</Text>
+                        <Text allowFontScaling={false} style={{fontSize: 20, fontWeight: 'bold'}}>СР {partner.wed}</Text>
+                        <Text allowFontScaling={false} style={{fontSize: 20, fontWeight: 'bold'}}>ЧТ {partner.thu}</Text>
+                        <Text allowFontScaling={false} style={{fontSize: 20, fontWeight: 'bold'}}>ПТ {partner.fri}</Text>
+                        <Text allowFontScaling={false} style={{fontSize: 20, fontWeight: 'bold'}}>СБ {partner.sat}</Text>
+                        <Text allowFontScaling={false} style={{fontSize: 20, fontWeight: 'bold'}}>ВС {partner.sun}</Text>
                     </View>
 
                 </View>
-            );
-        } else {
-            return (
-                <View></View>
-            )
-        }
 
+            </View>
+        );
     };
 
     return (
-        <View style={{width: '100%', height: '100%'}}>
+        <View style={{width: '100%', height: '100%', backgroundColor: '#3b559b'}}>
 
             <SafeAreaView>
                 <View>
@@ -159,7 +149,7 @@ const DigestDetailed = (props) => {
                     <IconButton
                         style={styles.backButton}
                         size={36}
-                        color={"black"}
+                        color={'white'}
                         icon={'close'}
                         onPress={() => {
                             handleBackPress();
@@ -191,8 +181,6 @@ const DigestDetailed = (props) => {
                         <BottomSheet
                             snapPoints={[310, 80, 80]}
                             initialSnap={1}
-                            onOpenStart={()=>{setOpen(true)}}
-                            onCloseEnd={()=>{setOpen(false)}}
                             renderContent={() => sheetRenderContent()}
                             renderHeader={() => sheetRenderHeader()}
                         />

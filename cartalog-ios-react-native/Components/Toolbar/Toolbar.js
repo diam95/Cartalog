@@ -8,7 +8,7 @@ import database from '@react-native-firebase/database';
 const styles = StyleSheet.create({
     appbar: {
         display: 'flex',
-        backgroundColor: '#3367c4',
+        backgroundColor: '#558cee',
         width: '100%',
         justifyContent: 'center',
     },
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     },
     appbarTitle: {
         color: 'white',
-        fontSize: 22,
+        fontSize: 24,
         fontWeight: '500',
     },
 });

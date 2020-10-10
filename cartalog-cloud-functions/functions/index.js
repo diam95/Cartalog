@@ -147,14 +147,14 @@ exports.sendNewNotification = functions.database
                         vendorID: vendorID,
                     },
                     notification: {
-                         title: requestObject.make + ` ` + requestObject.model + `. ` + requestObject.description,
-                         body: message
+                        title: requestObject.make + ` ` + requestObject.model + `. ` + requestObject.description,
+                        body: message
                     }
                 };
 
                 admin.messaging().sendToDevice(snapshot.val(), payload, {
-                    contentAvailable:true,
-                    priority:"high"
+                    contentAvailable: true,
+                    priority: "high"
                 })
 
             }, (errorObject) => {
@@ -162,6 +162,16 @@ exports.sendNewNotification = functions.database
             });
 
         }
+
+    });
+
+exports.addNewAnsweredRequest = functions.database
+    .ref(`messages/{city}/{requestType}/{requestKey}/{vendorID}`)
+    .onCreate((snapshot, context) => {
+
+        const answeredRequestsRef = admin.database().ref(`partners2/${context.params.vendorID}/answeredRequests/${context.params.requestKey}`)
+
+        return answeredRequestsRef.set(0)
 
     });
 
@@ -207,6 +217,9 @@ exports.requestDeleted = functions.database
 
 
         });
+
+        const deletedRequestsRef = admin.database().ref(`deletedRequests/${context.params.city}/${context.params.type}/${context.params.requestKey}`)
+        allPromises.push(deletedRequestsRef.set(snapshot.val()))
 
         return Promise.all(allPromises);
 
@@ -255,3 +268,13 @@ exports.countAnsweredRequests2 = functions.database
         return Promise.all(allPromises);
 
     });
+
+exports.getPhoneNumber = functions.https.onCall((data, context) => {
+
+    return admin.auth().getUser(data.userID)
+        .then(userRecord => {
+            const phoneNumber = userRecord.phoneNumber;
+            return {phoneNumber: phoneNumber}
+        })
+
+});

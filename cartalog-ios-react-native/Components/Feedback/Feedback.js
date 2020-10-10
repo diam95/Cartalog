@@ -91,7 +91,7 @@ const Feedback = (props) => {
 
     return (
 
-        <View style={{width: '100%', height: '100%'}}>
+        <View style={{width: '100%', height: '100%', backgroundColor: '#3b559b'}}>
 
             <SafeAreaView>
 
