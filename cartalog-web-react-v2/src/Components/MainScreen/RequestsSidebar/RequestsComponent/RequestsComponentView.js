@@ -16,8 +16,6 @@ const RequestsComponentView = (props) => {
     const requestsDataset = props.requestsDataset
     const partnerData = props.partnerData
 
-    console.log(partnerData);
-
     const classes = useStyles()
 
     const renderRequests = () => {

@@ -112,8 +112,6 @@ const App = () => {
 
                 requestsRef.endAt(startAt).on('child_added', snap => {
 
-                    console.log(snap.val());
-
                     if (snap.exists()) {
                         requestsArray.unshift(snap.val())
                         setRequestsDataset([...requestsArray])

@@ -1,6 +1,5 @@
 import React from "react";
 import {makeStyles} from "@material-ui/core";
-import moment from "moment";
 
 const useStyles = makeStyles(theme => ({
 
@@ -32,9 +31,8 @@ const useStyles = makeStyles(theme => ({
         paddingLeft: theme.spacing(2),
         paddingRight: theme.spacing(2),
         wordWrap: `break-word`,
-        background: `linear-gradient(135deg, rgba(70,111,207,1) 0%, rgba(59,99,194,1) 100%)`,
-        borderRadius: 25,
-        boxShadow: "1px 1px 7px #9c9c9c"
+        background: `white`,
+        borderRadius: 15,
     },
     chatBubble2: {
         display: "flex",
@@ -50,38 +48,37 @@ const useStyles = makeStyles(theme => ({
         paddingLeft: theme.spacing(2),
         paddingRight: theme.spacing(2),
         wordWrap: `break-word`,
-        background: `linear-gradient(135deg, rgba(35,159,109,1) 0%, rgba(30,145,98,1) 100%)`,
-        borderRadius: 25,
-        boxShadow: "1px 1px 7px #9c9c9c"
+        background: "#a0e8a5",
+        borderRadius: 15
     },
     chatText: {
-        fontSize: 17,
+        fontSize: 18,
         fontWeight: 400,
         margin: `0 0 2`,
         paddingTop: 0,
-        color: "white"
+        color: "black"
     },
     chatImage: {
         display: `block`,
-        borderRadius: 25,
-        maxHeight:400,
+        borderRadius: 15,
+        maxHeight: 400,
         objectFit: `contain`,
         marginLeft: theme.spacing(2),
         marginRight: theme.spacing(2),
         marginTop: theme.spacing(1),
-        boxShadow: "0px 0px 0px 3px #b9b9b9"
+        boxShadow: "0px 0px 0px 3px #fff"
     },
     clientMessage: {
         maxWidth: "70%",
         textAlign: `right`
     },
     timeText: {
-        color: "grey",
+        color: "#dedede",
         fontWeight: 500,
         fontSize: 14,
         marginLeft: theme.spacing(3),
         marginRight: theme.spacing(3),
-        marginTop: 5,
+        marginTop: 2,
         marginBottom: theme.spacing(1)
     }
 
@@ -97,43 +94,21 @@ const ChatMessage = (props) => {
 
         const renderTime = (timestamp) => {
 
-            if (timestamp<0){
+            if (timestamp < 0) {
 
-                const today = new Date().toLocaleDateString("ru")
-                const date = new Date(-timestamp).toLocaleDateString("ru")
+                const date = new Date(-timestamp).toLocaleDateString("ru").slice(0, -2)
                 const time = new Date(-timestamp).toLocaleTimeString("ru").slice(0, -3)
 
-                if (today === date) {
-
-                    return time
-
-                } else {
-
-                    const relativeTime = moment(-timestamp).startOf('days').fromNow();
-                    return relativeTime + " " + time
-
-                }
+                return time + " " + date
 
             } else {
 
-                const today = new Date().toLocaleDateString("ru")
-                const date = new Date(timestamp).toLocaleDateString("ru")
+                const date = new Date(timestamp).toLocaleDateString("ru").slice(0, -2)
                 const time = new Date(timestamp).toLocaleTimeString("ru").slice(0, -3)
 
-                if (today === date) {
-
-                    return time
-
-                } else {
-
-                    const relativeTime = moment(timestamp).startOf('days').fromNow();
-                    return relativeTime + " " + time
-
-                }
+                return time + " " + date
 
             }
-
-
 
         }
 

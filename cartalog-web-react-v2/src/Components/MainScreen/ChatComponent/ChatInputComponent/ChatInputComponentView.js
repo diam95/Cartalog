@@ -5,14 +5,20 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";
 import SendIcon from '@material-ui/icons/Send';
 import AttachFileIcon from '@material-ui/icons/AttachFile';
+import {Divider} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
 
     root: {
         height: 48,
-        background:"white"
+        background: "white",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center"
     },
     paperContent: {
+        width:"100%",
         height: 48,
         display: "flex",
         flexDirection: "column",
@@ -37,49 +43,53 @@ const ChatInputComponentView = (props) => {
 
         <div className={classes.root}>
 
-                <div className={classes.paperContent}>
+            <Divider orientation={"vertical"}/>
 
-                    <TextField autoComplete={"off"}
-                               value={messageInput}
-                               autoFocus={false}
-                               id="standard-basic"
-                               placeholder={"Введите сообщение..."}
-                               fullWidth
-                               multiline={true}
-                               margin={"none"}
-                               onChange={e => {
-                                   handleInputChange(e)
-                               }}
-                               InputProps={{
-                                   style: {
-                                       paddingBottom: 15
-                                   },
-                                   startAdornment:
-                                       <InputAdornment position="start">
-                                           <div style={{width: 5}}/>
-                                       </InputAdornment>,
-                                   endAdornment:
-                                       <InputAdornment position="end">
-                                           <input
-                                               accept="image/*"
-                                               className={classes.inputNone}
-                                               id="contained-button-file"
-                                               multiple
-                                               type="file"
-                                               onChange={handleAttach}
-                                           />
-                                           <label htmlFor="contained-button-file">
-                                               <IconButton>
-                                                   <AttachFileIcon/>
-                                               </IconButton>
-                                           </label>
-                                           <IconButton onClick={handleSendMessage}>
-                                               <SendIcon/>
+            <div className={classes.paperContent}>
+
+                <TextField autoComplete={"off"}
+                           value={messageInput}
+                           autoFocus={false}
+                           id="standard-basic"
+                           placeholder={"Введите сообщение..."}
+                           fullWidth
+                           multiline={true}
+                           margin={"none"}
+                           onChange={e => {
+                               handleInputChange(e)
+                           }}
+                           InputProps={{
+                               style: {
+                                   paddingBottom: 15
+                               },
+                               startAdornment:
+                                   <InputAdornment position="start">
+                                       <div style={{width: 5}}/>
+                                   </InputAdornment>,
+                               endAdornment:
+                                   <InputAdornment position="end">
+                                       <input
+                                           accept="image/*"
+                                           className={classes.inputNone}
+                                           id="contained-button-file"
+                                           multiple
+                                           type="file"
+                                           onChange={handleAttach}
+                                       />
+                                       <label htmlFor="contained-button-file">
+                                           <IconButton>
+                                               <AttachFileIcon/>
                                            </IconButton>
-                                       </InputAdornment>
-                               }}/>
+                                       </label>
+                                       <IconButton onClick={handleSendMessage}>
+                                           <SendIcon/>
+                                       </IconButton>
+                                   </InputAdornment>
+                           }}/>
 
-                </div>
+            </div>
+
+            <Divider orientation={"vertical"}/>
 
         </div>
 

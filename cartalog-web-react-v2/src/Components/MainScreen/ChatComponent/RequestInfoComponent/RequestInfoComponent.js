@@ -1,10 +1,12 @@
 import React from "react";
 import RequestInfoComponentView from "./RequestInfoComponentView";
 
-const RequestInfoComponent = () => {
+const RequestInfoComponent = (props) => {
+
+    const request = props.request
 
     return(
-        <RequestInfoComponentView/>
+        <RequestInfoComponentView request={request}/>
     )
 
 }

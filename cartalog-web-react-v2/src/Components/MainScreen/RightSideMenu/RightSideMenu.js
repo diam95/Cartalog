@@ -4,9 +4,12 @@ import RightSideMenuView from "./RightSideMenuView";
 const RightSideMenu = (props) => {
 
     const request = props.request
+    const partnerData = props.partnerData
 
     return(
-        <RightSideMenuView request={request}/>
+        <RightSideMenuView request={request}
+                           partnerData={partnerData}
+        />
     )
 
 }

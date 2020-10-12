@@ -8,7 +8,7 @@ const MainScreen = (props) => {
     const partnerData = props.partnerData
     const requestsDataset = props.requestsDataset
 
-    const [request, setRequest] = useState({});
+    const [request, setRequest] = useState(undefined);
 
     const history = useHistory()
     const location = useLocation()

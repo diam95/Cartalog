@@ -5,14 +5,17 @@ import Grid from "@material-ui/core/Grid";
 import RequestsSidebar from "./RequestsSidebar/RequestsSidebar";
 import ChatComponent from "./ChatComponent/ChatComponent";
 import RightSideMenu from "./RightSideMenu/RightSideMenu";
+import bckgrImg from "../../assets/backgr.jpg"
 
 const useStyles = makeStyles(() => ({
 
     root: {
         width: "100%",
         minHeight: "100vh",
-        backgroundColor: "#cee4ee",
-        overflow:"hidden"
+        background: `url(${bckgrImg})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        overflow: "hidden"
     }
 
 }))
@@ -43,17 +46,24 @@ const MainScreenView = (props) => {
 
                 <Grid item lg={6}>
 
-                    <ChatComponent requestsDataset={requestsDataset}
-                                   partnerData={partnerData}
-                                   request={request}
-                    />
+                    {request
+                        ? <ChatComponent requestsDataset={requestsDataset}
+                                         partnerData={partnerData}
+                                         request={request}
+                        />
+                        : <div/>
+                    }
 
                 </Grid>
 
                 <Grid item lg={3}>
 
-                    <RightSideMenu request={request}
-                    />
+                    {request
+                        ? <RightSideMenu request={request}
+                                         partnerData={partnerData}
+                        />
+                        : <div/>
+                    }
 
                 </Grid>
 

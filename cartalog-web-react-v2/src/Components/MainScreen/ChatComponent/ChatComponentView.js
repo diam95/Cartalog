@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         width: "100%",
         height: `calc( 100vh - 36px)`,
-        background: "#bfd4bf"
+
     },
     messagesContainer: {
         height:`calc( 100vh - 36px - 56px - 48px )`,
@@ -64,7 +64,7 @@ const ChatComponentView = (props) => {
 
         <div className={classes.root}>
 
-            <RequestInfoComponent/>
+            <RequestInfoComponent request={request}/>
 
             <div className={classes.messagesContainer}>
                 {renderMessages()}
