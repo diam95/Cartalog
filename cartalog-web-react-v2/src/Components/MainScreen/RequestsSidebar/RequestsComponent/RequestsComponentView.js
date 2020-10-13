@@ -6,7 +6,9 @@ const useStyles = makeStyles((theme) => ({
 
     root: {
         width: "100%",
-        height: `calc(100vh - 36px - 56px)`
+        height: `calc(100vh - 36px - 56px)`,
+        overflowX:"hidden",
+        overflowY:"auto"
     }
 
 }))
@@ -15,6 +17,8 @@ const RequestsComponentView = (props) => {
 
     const requestsDataset = props.requestsDataset
     const partnerData = props.partnerData
+    const setClickedRequestInd = props.setClickedRequestInd
+    const clickedRequestInd = props.clickedRequestInd
 
     const classes = useStyles()
 
@@ -23,9 +27,14 @@ const RequestsComponentView = (props) => {
 
         if (requestsDataset.length > 0) {
 
-            return requestsDataset.map(request => {
+            return requestsDataset.map((request,id) => {
 
-                return <RequestItem request={request} partnerData={partnerData}/>
+                return <RequestItem request={request}
+                                    partnerData={partnerData}
+                                    id={id}
+                                    clickedRequestInd={clickedRequestInd}
+                                    setClickedRequestInd={setClickedRequestInd}
+                />
 
             })
 

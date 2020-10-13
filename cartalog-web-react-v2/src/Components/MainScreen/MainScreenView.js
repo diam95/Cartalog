@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
         background: `url(${bckgrImg})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        overflow: "hidden"
+        overflow:"hidden"
     }
 
 }))

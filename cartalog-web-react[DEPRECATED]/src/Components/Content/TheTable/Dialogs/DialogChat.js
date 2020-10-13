@@ -11,7 +11,6 @@ import * as firebase from "firebase";
 import * as moment from "moment";
 import MessagesList from "./MessagesList/MessagesList";
 
-
 const useStyles = makeStyles(theme => ({
 
     dialogChat: {
@@ -79,7 +78,6 @@ const useStyles = makeStyles(theme => ({
     },
 
 }));
-
 
 export default function DialogChat(props) {
 
@@ -337,7 +335,6 @@ export default function DialogChat(props) {
 
         }
     };
-
 
     return (
         <div>

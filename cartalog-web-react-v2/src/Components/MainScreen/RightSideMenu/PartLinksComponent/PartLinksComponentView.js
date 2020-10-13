@@ -13,12 +13,14 @@ const useStyles = makeStyles((theme) => createStyles({
         marginTop: theme.spacing(2),
         background: "white",
     },
+    contentContainer: {
+    },
     plusIcon: {
         "&:hover": {
             color: "green"
         },
         color: "#808080",
-        marginRight:theme.spacing(1)
+        marginRight: theme.spacing(1)
     },
     linksContainer: {
         width: "100%",
@@ -27,11 +29,10 @@ const useStyles = makeStyles((theme) => createStyles({
         alignItems: "center",
         justifyContent: "center"
     },
-    nothingInHere:{
-        fontWeight:500,
-        padding:theme.spacing(3)
+    nothingInHere: {
+        fontWeight: 500,
+        padding: theme.spacing(3)
     }
-
 
 }))
 
@@ -41,8 +42,13 @@ const PartLinksComponentView = (props) => {
     const linkInput = props.linkInput
     const handleAddLink = props.handleAddLink
     const handleInputChange = props.handleInputChange
+    const handleRemoveLink = props.handleRemoveLink
+    const partnerData = props.partnerData
+    const request = props.request
 
     const classes = useStyles()
+
+
 
     const renderLinks = () => {
 
@@ -52,6 +58,9 @@ const PartLinksComponentView = (props) => {
 
                 return <PartLinkItem item={item}
                                      id={id}
+                                     handleRemoveLink={handleRemoveLink}
+                                     request={request}
+                                     partnerData={partnerData}
                 />
 
             })
@@ -66,7 +75,9 @@ const PartLinksComponentView = (props) => {
 
         <div className={classes.root}>
 
-            <Input id="outlined-basic"
+            <div className={classes.contentContainer}>
+
+                <Input id="outlined-basic"
                        placeholder={"Ссылка"}
                        value={linkInput}
                        fullWidth={true}
@@ -87,22 +98,23 @@ const PartLinksComponentView = (props) => {
                            </InputAdornment>
                        }
                        inputProps={{
-                           style:{
-                               paddingTop:24,
-                               paddingBottom:24,
-                               paddingLeft:16,
-                               paddingRight:16
+                           style: {
+                               paddingTop: 24,
+                               paddingBottom: 24,
+                               paddingLeft: 16,
+                               paddingRight: 16
                            }
                        }}
 
-            />
+                />
 
-            <div className={classes.linksContainer}>
+                <div className={classes.linksContainer}>
 
-                {renderLinks()}
+                    {renderLinks()}
+
+                </div>
 
             </div>
-
 
         </div>
 

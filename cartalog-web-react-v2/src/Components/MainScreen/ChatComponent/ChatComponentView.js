@@ -1,31 +1,32 @@
-import React from "react";
-import {makeStyles} from "@material-ui/core/styles";
+import React, {useEffect, useRef} from "react";
+import {createStyles, makeStyles} from "@material-ui/core/styles";
 import ChatMessage from "./ChatMessage";
 import ChatInputComponent from "./ChatInputComponent/ChatInputComponent";
 import RequestInfoComponent from "./RequestInfoComponent/RequestInfoComponent";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => createStyles({
 
     root: {
         width: "100%",
         height: `calc( 100vh - 36px)`,
-
+    },
+    messagesContainerRoot: {
+        height: `calc( 100vh - 36px - 56px - 48px )`,
+        width: "100%"
     },
     messagesContainer: {
-        height:`calc( 100vh - 36px - 56px - 48px )`,
         width: "100%",
-        overflowY: "auto",
-        overflowX: "hidden",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-end"
+        height: `calc( 100vh - 36px - 56px - 48px )`,
+        overflowY:"auto"
     },
     newChat: {
         width: "100%",
         height: "100%",
         display: "flex",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        color: "white",
+        fontWeight: 500
     }
 
 }))
@@ -38,6 +39,17 @@ const ChatComponentView = (props) => {
     const newOffer = props.newOffer
     const partnerData = props.partnerData
     const request = props.request
+
+    const messagesEndRef = useRef(null);
+    const scrollToBottom = () => {
+        messagesEndRef.current.scrollIntoView({behavior: "smooth"});
+    };
+
+    useEffect(() => {
+
+        scrollToBottom();
+
+    });
 
     const renderMessages = () => {
 
@@ -66,13 +78,17 @@ const ChatComponentView = (props) => {
 
             <RequestInfoComponent request={request}/>
 
-            <div className={classes.messagesContainer}>
-                {renderMessages()}
+            <div className={classes.messagesContainerRoot}>
+
+                <div className={classes.messagesContainer}>
+                    {renderMessages()}
+                    <div ref={messagesEndRef}/>
+                </div>
+
             </div>
 
             <ChatInputComponent partnerData={partnerData}
-                                request={request}
-            />
+                                request={request}/>
 
         </div>
 

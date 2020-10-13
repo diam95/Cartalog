@@ -1,16 +1,32 @@
-html{
-  margin: 0;
-  width: 100%;
-  max-width: 100%;
+html {
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
 }
 
-body{
-  margin: 0;
-  width: 100%;
-  height:100vh;
-  max-height:100vh
+body {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh
 }
 
-tr:hover{
+tr:hover {
     background: #eee;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

@@ -24,6 +24,8 @@ const RightSideMenuView = (props) => {
 
         <div className={classes.root}>
 
+            <RequestActions/>
+
             <UserInfoComponent request={request}
                                partnerData={partnerData}
             />

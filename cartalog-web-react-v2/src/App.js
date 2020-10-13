@@ -144,7 +144,7 @@ const App = () => {
 
             }
 
-            requestsRef.limitToFirst(10).once('value', snap => {
+            requestsRef.limitToFirst(30).once('value', snap => {
 
                 if (snap.exists()) {
 
