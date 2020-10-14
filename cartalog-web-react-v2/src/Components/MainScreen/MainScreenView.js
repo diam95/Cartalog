@@ -25,6 +25,7 @@ const MainScreenView = (props) => {
     const requestsDataset = props.requestsDataset
     const partnerData = props.partnerData
     const request = props.request
+    const answeredRequests = props.answeredRequests
 
     const classes = useStyles()
 
@@ -36,15 +37,15 @@ const MainScreenView = (props) => {
 
             <Grid container spacing={0}>
 
-                <Grid item lg={3}>
+                <Grid item lg={3} sm={3} md={3} xl={3} xs={3}>
 
                     <RequestsSidebar requestsDataset={requestsDataset}
-                                     partnerData={partnerData}
+                                     answeredRequests={answeredRequests}
                     />
 
                 </Grid>
 
-                <Grid item lg={6}>
+                <Grid item lg={6} sm={6} md={6} xl={6} xs={6}>
 
                     {request
                         ? <ChatComponent requestsDataset={requestsDataset}
@@ -56,7 +57,7 @@ const MainScreenView = (props) => {
 
                 </Grid>
 
-                <Grid item lg={3}>
+                <Grid item lg={3} sm={3} md={3} xl={3} xs={3}>
 
                     {request
                         ? <RightSideMenu request={request}

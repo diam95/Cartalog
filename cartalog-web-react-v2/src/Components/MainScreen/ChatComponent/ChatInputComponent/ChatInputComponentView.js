@@ -17,13 +17,6 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "space-between",
         alignItems: "center"
     },
-    paperContent: {
-        width:"100%",
-        height: 48,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-end"
-    },
     inputNone: {
         display: `none`,
     }
@@ -38,6 +31,7 @@ const ChatInputComponentView = (props) => {
     const handleInputChange = props.handleInputChange
     const handleAttach = props.handleAttach
     const handleSendMessage = props.handleSendMessage
+    const handleEnterPress = props.handleEnterPress
 
     return (
 
@@ -45,49 +39,44 @@ const ChatInputComponentView = (props) => {
 
             <Divider orientation={"vertical"}/>
 
-            <div className={classes.paperContent}>
-
-                <TextField autoComplete={"off"}
-                           value={messageInput}
-                           autoFocus={false}
-                           id="standard-basic"
-                           placeholder={"Введите сообщение..."}
-                           fullWidth
-                           multiline={true}
-                           margin={"none"}
-                           onChange={e => {
-                               handleInputChange(e)
-                           }}
-                           InputProps={{
-                               style: {
-                                   paddingBottom: 15
-                               },
-                               startAdornment:
-                                   <InputAdornment position="start">
-                                       <div style={{width: 5}}/>
-                                   </InputAdornment>,
-                               endAdornment:
-                                   <InputAdornment position="end">
-                                       <input
-                                           accept="image/*"
-                                           className={classes.inputNone}
-                                           id="contained-button-file"
-                                           multiple
-                                           type="file"
-                                           onChange={handleAttach}
-                                       />
-                                       <label htmlFor="contained-button-file">
-                                           <IconButton>
-                                               <AttachFileIcon/>
-                                           </IconButton>
-                                       </label>
-                                       <IconButton onClick={handleSendMessage}>
-                                           <SendIcon/>
+            <TextField autoComplete={"off"}
+                       value={messageInput}
+                       autoFocus={false}
+                       id="standard-basic"
+                       placeholder={"Введите сообщение..."}
+                       fullWidth
+                       multiline={false}
+                       margin={"none"}
+                       onKeyDown={handleEnterPress}
+                       onChange={e => {
+                           handleInputChange(e)
+                       }}
+                       InputProps={{
+                           disableUnderline: true,
+                           startAdornment:
+                               <InputAdornment position="start">
+                                   <div style={{width: 5}}/>
+                               </InputAdornment>,
+                           endAdornment:
+                               <InputAdornment position="end">
+                                   <input
+                                       accept="image/*"
+                                       className={classes.inputNone}
+                                       id="contained-button-file"
+                                       multiple
+                                       type="file"
+                                       onChange={handleAttach}
+                                   />
+                                   <label htmlFor="contained-button-file">
+                                       <IconButton onClick={handleAttach}>
+                                           <AttachFileIcon/>
                                        </IconButton>
-                                   </InputAdornment>
-                           }}/>
-
-            </div>
+                                   </label>
+                                   <IconButton onClick={handleSendMessage}>
+                                       <SendIcon/>
+                                   </IconButton>
+                               </InputAdornment>
+                       }}/>
 
             <Divider orientation={"vertical"}/>
 

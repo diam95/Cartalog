@@ -1,10 +1,14 @@
 import React from "react";
 import {createStyles, makeStyles} from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme)=>createStyles({
+const useStyles = makeStyles((theme) => createStyles({
 
-    root:{
-
+    root: {
+        width: "100%",
+        background: "white"
+    },
+    container:{
+        padding:theme.spacing(2)
     }
 
 }))
@@ -13,10 +17,13 @@ const RequestActionsView = () => {
 
     const classes = useStyles()
 
-    return(
+    return (
 
         <div className={classes.root}>
-            123
+
+            <div className={classes.container}>
+            </div>
+
         </div>
 
     )

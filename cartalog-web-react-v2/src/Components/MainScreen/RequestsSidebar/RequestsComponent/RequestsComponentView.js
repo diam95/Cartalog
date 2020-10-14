@@ -16,24 +16,19 @@ const useStyles = makeStyles((theme) => ({
 const RequestsComponentView = (props) => {
 
     const requestsDataset = props.requestsDataset
-    const partnerData = props.partnerData
-    const setClickedRequestInd = props.setClickedRequestInd
-    const clickedRequestInd = props.clickedRequestInd
+    const answeredRequests = props.answeredRequests
 
     const classes = useStyles()
 
     const renderRequests = () => {
 
-
         if (requestsDataset.length > 0) {
 
-            return requestsDataset.map((request,id) => {
+            return requestsDataset.map((request) => {
 
                 return <RequestItem request={request}
-                                    partnerData={partnerData}
-                                    id={id}
-                                    clickedRequestInd={clickedRequestInd}
-                                    setClickedRequestInd={setClickedRequestInd}
+                                    answeredRequests={answeredRequests}
+                                    key={request.key}
                 />
 
             })

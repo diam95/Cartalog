@@ -1,12 +1,11 @@
 import React from "react";
-import moment from "moment";
 import {makeStyles} from "@material-ui/core/styles";
-import {useHistory} from "react-router-dom";
+import {useHistory, useLocation} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
 
     requestItemContainer1: {
-        width:`calc(100% - ${2 * theme.spacing(2)}px)`,
+        width: `calc(100% - ${2 * theme.spacing(2)}px)`,
         height: 64,
         paddingLeft: theme.spacing(2),
         paddingRight: theme.spacing(2),
@@ -19,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     requestItemContainer2: {
-        width:`calc(100% - ${2 * theme.spacing(2)}px)`,
+        width: `calc(100% - ${2 * theme.spacing(2)}px)`,
         height: 64,
         paddingLeft: theme.spacing(2),
         paddingRight: theme.spacing(2),
@@ -33,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
         background: "#dedede"
     },
     requestItemContainerClicked: {
-        width:`calc(100% - ${2 * theme.spacing(2)}px)`,
+        width: `calc(100% - ${2 * theme.spacing(2)}px)`,
         height: 64,
         paddingLeft: theme.spacing(2),
         paddingRight: theme.spacing(2),
@@ -43,8 +42,8 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "space-between",
         background: "#a7c1ec"
     },
-    titleContainer:{
-        width:"85%"
+    titleContainer: {
+        width: "85%"
     },
     requestItemTitle: {
         whiteSpace: "nowrap",
@@ -68,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
         height: 15
     },
     timeContainer: {
-        width:"15%",
+        width: "15%",
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-en d",
@@ -76,10 +75,10 @@ const useStyles = makeStyles((theme) => ({
         height: "100%"
     },
     timeText: {
-        textAlign:"right",
-        fontSize:14,
-        fontWeight:500,
-        color:"#808080",
+        textAlign: "right",
+        fontSize: 14,
+        fontWeight: 500,
+        color: "#808080",
         marginTop: theme.spacing(1)
     },
     newMessagesCount: {
@@ -99,18 +98,15 @@ const useStyles = makeStyles((theme) => ({
 const RequestItem = (props) => {
 
     const request = props.request
-    const partnerData = props.partnerData
-    const id = props.id
-    const setClickedRequestInd = props.setClickedRequestInd
-    const clickedRequestInd = props.clickedRequestInd
+    const answeredRequests = props.answeredRequests
 
     const classes = useStyles()
 
     const history = useHistory()
+    const location = useLocation()
 
     const handleUserRequestClick = () => {
 
-        setClickedRequestInd(id)
         history.push(`/request/${request.key}`)
 
     }
@@ -126,43 +122,43 @@ const RequestItem = (props) => {
 
         const getMonth = () => {
 
-            switch (month){
+            switch (month) {
 
                 case 1:
-                    return("янв")
+                    return ("янв")
 
                 case 2:
-                    return("фев")
+                    return ("фев")
 
                 case 3:
-                    return("мар")
+                    return ("мар")
 
                 case 4:
-                    return("апр")
+                    return ("апр")
 
                 case 5:
-                    return("май")
+                    return ("май")
 
                 case 6:
-                    return("июн")
+                    return ("июн")
 
                 case 7:
-                    return("июл")
+                    return ("июл")
 
                 case 8:
-                    return("авг")
+                    return ("авг")
 
                 case 9:
-                    return("сент")
+                    return ("сент")
 
                 case 10:
-                    return("окт")
+                    return ("окт")
 
                 case 11:
-                    return("нояб")
+                    return ("нояб")
 
                 case 12:
-                    return("дек")
+                    return ("дек")
 
                 default:
                     return "мес"
@@ -185,18 +181,19 @@ const RequestItem = (props) => {
 
     const getContainerStyle = () => {
 
-        if(clickedRequestInd===id){
+        const locationArr = location.pathname.split("/")
+
+        if (locationArr[2] === request.key) {
             return classes.requestItemContainerClicked
-        } else {
+        } else if (answeredRequests) {
 
-            if (partnerData.answeredRequests) {
+            const answeredRequestsArr = Object.keys(answeredRequests)
 
-                const answeredRequests = Object.keys(partnerData.answeredRequests)
-                if (answeredRequests.includes(request.key)) {
-                    return classes.requestItemContainer1
-                } else return classes.requestItemContainer2
+            if (answeredRequestsArr.includes(request.key)) {
 
-            }
+                return classes.requestItemContainer1
+
+            } else return classes.requestItemContainer2
 
         }
 
@@ -204,13 +201,13 @@ const RequestItem = (props) => {
 
     const renderOffersCount = () => {
 
-        if (partnerData.answeredRequests) {
+        if (answeredRequests) {
 
-            const answeredRequests = Object.keys(partnerData.answeredRequests)
-            if (answeredRequests.includes(request.key)) {
+            const answeredRequestsArray = Object.keys(answeredRequests)
+            if (answeredRequestsArray.includes(request.key)) {
 
-                const index = answeredRequests.indexOf(request.key)
-                const count = Object.values(partnerData.answeredRequests)[index]
+                const index = answeredRequestsArray .indexOf(request.key)
+                const count = Object.values(answeredRequests)[index]
 
                 if (count !== 0) {
                     return <div className={classes.newMessagesCount}>{count}</div>
@@ -225,7 +222,8 @@ const RequestItem = (props) => {
     return (
         <div className={getContainerStyle()} onClick={handleUserRequestClick}>
             <div className={classes.titleContainer}>
-                <div className={classes.requestItemTitle}>{request.make} {request.model} {request.year}, {request.VIN}</div>
+                <div
+                    className={classes.requestItemTitle}>{request.make} {request.model} {request.year}, {request.VIN}</div>
                 <div className={classes.requestItemSubtitle}>{request.description}</div>
             </div>
 

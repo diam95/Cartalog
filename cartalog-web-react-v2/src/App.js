@@ -11,10 +11,15 @@ import firebase from "firebase/app";
 
 const App = () => {
 
-    const [partnerData, setPartnerData] = useState({});
+    const [partnerData, setPartnerData] = useState(undefined);
     const [requestsDataset, setRequestsDataset] = useState([]);
+    const [answeredRequests, setAnsweredRequests] = useState({});
+    const [newMessages, setNewMessages] = useState([]);
 
-    //AUTH STATE
+    console.log(partnerData)
+    console.log(answeredRequests);
+
+    //AUTH STATE, LOAD PARTNER DATA
     useEffect(() => {
 
         firebase.auth().onAuthStateChanged(user => {
@@ -22,150 +27,200 @@ const App = () => {
             const uid = user.uid
 
             if (user) {
-                setPartnerData({partnerID: uid})
+
+                const partners2Ref = firebase.database().ref('partners2').child(uid)
+
+                partners2Ref.once('value', snap => {
+
+                }).then(r => {
+
+                    if (r.exists()) {
+
+                        const data = r.val()
+
+                        data.info.partnerID = uid
+                        setPartnerData(data)
+
+                    }
+
+                })
             }
 
         })
 
     }, [])
 
-    //LOAD PARTNER DATA
+    //LOAD REQUESTS DATASET
     useEffect(() => {
 
-        if (partnerData.partnerID) {
+        if(partnerData){
 
-            const partners2Ref = firebase.database().ref('partners2').child(partnerData.partnerID)
+            if (partnerData.info) {
 
-            partners2Ref.once('value', snap => {
+                let requestsArray = []
 
-            }).then(r => {
+                const partnerType = partnerData.info.type
+                const city = partnerData.info.city
+                const requestsRef = firebase.database().ref('requests').child(city).child(partnerType).orderByKey()
 
-                if (r.exists()) {
+                const handleNewRequests = () => {
 
-                    const data = r.val()
-                    const partnerID = partnerData.partnerID
-                    data.info = {...data.info, partnerID}
-                    setPartnerData(data)
+                    const startAt = requestsArray[0].key
 
-                }
+                    console.log(startAt)
 
-            })
+                    requestsRef.startAt(startAt).on('child_added', snap => {
 
-        } else if (partnerData.info) {
+                        if (snap.exists()) {
 
-            if (partnerData.info.partnerID) {
+                            if (snap.val().key !== startAt) {
 
-                console.log(partnerData);
+                                requestsArray.unshift(snap.val())
+                                setRequestsDataset([...requestsArray])
 
-                const answeredRequestsKeysArray = Object.keys(partnerData.answeredRequests)
-
-                const index = answeredRequestsKeysArray.length - 1
-                const last = answeredRequestsKeysArray[index]
-
-                const answeredRequestsRef = firebase.database().ref('partners2').child(partnerData.info.partnerID).child("answeredRequests")
-                answeredRequestsRef.orderByKey().startAt(last).on('value', snap => {
-
-                    if (snap.exists()) {
-
-                        const requestID = Object.keys(snap.val())[0]
-
-                        if (last !== requestID) {
-
-                            console.log(snap.val())
-
-                            const newAnswer = snap.val()
-                            const temp = [...partnerData]
-                            temp.answeredRequests = {...temp.answeredRequests, newAnswer}
-
-                            setPartnerData(temp)
+                            }
 
                         }
 
+                    })
+
+                }
+
+                const handleRemovedRequests = () => {
+
+                    requestsRef.on('child_removed', snap => {
+
+                        const removedRequest = snap.val()
+
+                        const requestKey = removedRequest.key
+
+                        requestsArray.forEach((item, ind) => {
+
+                            if (item.key === requestKey) {
+
+                                requestsArray.splice(ind, 1)
+                                setRequestsDataset([...requestsArray])
+
+                            }
+
+                        })
+
+                    })
+
+                }
+
+                requestsRef.limitToLast(30).once('value', snap => {
+
+                    if (snap.exists()) {
+
+                        requestsArray = Object.values(snap.val()).reverse()
+                        setRequestsDataset(requestsArray)
+
                     }
 
+                }).then(r => {
+                    handleNewRequests()
+                    handleRemovedRequests()
                 })
 
-                return answeredRequestsRef.off('value')
+                return () => {
+                    requestsRef.off('child_added')
+                    requestsRef.off('child_removed')
+                }
 
+            }
+
+        }
+
+
+    }, [partnerData])
+
+    //LOAD ANSWERED REQUESTS
+    useEffect(() => {
+
+        if(partnerData){
+
+            if (partnerData.info) {
+
+                if (partnerData.info.partnerID) {
+
+                    const partnerID = partnerData.info.partnerID
+
+                    const answeredRequestsRef = firebase.database().ref('partners2').child(partnerID).child('answeredRequests')
+                    answeredRequestsRef.on('value', snap => {
+
+                        if (snap.exists()) {
+
+                            const data = snap.val()
+
+                            setAnsweredRequests(data)
+
+                        }
+
+                    })
+
+                }
             }
 
         }
 
     }, [partnerData])
 
-    //LOAD REQUESTS DATASET
+    //LOAD NEW MESSAGES
     useEffect(() => {
 
-        if (partnerData.info) {
+        if(partnerData){
 
-            let requestsArray = []
+            if (partnerData.info.partnerID) {
 
-            const partnerType = partnerData.info.type
-            const city = partnerData.info.city
-            const requestsRef = firebase.database().ref('requests').child(city).child(partnerType).orderByChild('timestamp')
+                const partnerID = partnerData.info.partnerID
 
-            const handleNewRequests = () => {
-
-                const startAt = requestsArray[0].timestamp - 1
-
-                console.log(startAt)
-
-                requestsRef.endAt(startAt).on('child_added', snap => {
+                const newMessagesRef = firebase.database().ref("partners2").child(partnerID).child("newMessages")
+                newMessagesRef.on('value', snap => {
 
                     if (snap.exists()) {
-                        requestsArray.unshift(snap.val())
-                        setRequestsDataset([...requestsArray])
+
+                        setNewMessages(snap.val())
+
                     }
 
                 })
 
-            }
-
-            const handleRemovedRequests = () => {
-
-                requestsRef.on('child_removed', snap => {
-
-                    const removedRequest = snap.val()
-
-                    const requestKey = removedRequest.key
-
-                    requestsArray.forEach((item,ind) => {
-
-                        if (item.key === requestKey){
-
-                            requestsArray.splice(ind,1)
-                            setRequestsDataset([...requestsArray])
-
-                        }
-
-                    })
-
+                return (() => {
+                    newMessagesRef.off('value')
                 })
 
             }
 
-            requestsRef.limitToFirst(30).once('value', snap => {
+        }
 
-                if (snap.exists()) {
 
-                    requestsArray = Object.values(snap.val()).reverse()
-                    setRequestsDataset(requestsArray)
+    }, [partnerData])
 
-                }
+    //HANDLE REQUESTS SORTING
+    useEffect(() => {
 
-            }).then(r => {
-                handleNewRequests()
-                handleRemovedRequests()
-            })
+        const getContainerStyle = () => {
 
-            return () => {
-                requestsRef.off('child_added')
-                requestsRef.off('child_removed')
+            const locationArr = location.pathname.split("/")
+
+            if (locationArr[2] === request.key) {
+                return classes.requestItemContainerClicked
+            } else if (answeredRequests) {
+
+                const answeredRequestsArr = Object.keys(answeredRequests)
+
+                if (answeredRequestsArr.includes(request.key)) {
+
+                    return classes.requestItemContainer1
+
+                } else return classes.requestItemContainer2
+
             }
 
         }
 
-    }, [partnerData.info])
+    }, [requestsDataset, answeredRequests])
 
     return (
         <Router>
@@ -179,6 +234,7 @@ const App = () => {
                 <Route path="/">
                     <MainScreen requestsDataset={requestsDataset}
                                 partnerData={partnerData}
+                                answeredRequests={answeredRequests}
                     />
                 </Route>
 

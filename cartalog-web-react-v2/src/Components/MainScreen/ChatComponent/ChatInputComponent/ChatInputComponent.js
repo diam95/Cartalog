@@ -95,11 +95,24 @@ const ChatInputComponent = (props) => {
 
     };
 
+    const handleEnterPress = (event) => {
+
+        if (event.key === `Enter` && event.target.value.length !== 0) {
+
+            handleSendMessage()
+            event.target.value = ""
+            setMessageInput("")
+
+        }
+
+    };
+
     return (
         <ChatInputComponentView messageInput={messageInput}
                                 handleInputChange={handleInputChange}
                                 handleAttach={handleAttach}
                                 handleSendMessage={handleSendMessage}
+                                handleEnterPress={handleEnterPress}
         />
     )
 

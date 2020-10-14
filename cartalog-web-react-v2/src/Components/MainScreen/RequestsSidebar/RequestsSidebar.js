@@ -4,11 +4,11 @@ import RequestsSidebarView from "./RequestsSidebarView";
 const RequestsSidebar = (props) => {
 
     const requestsDataset = props.requestsDataset
-    const partnerData = props.partnerData
+    const answeredRequests = props.answeredRequests
 
     return (
         <RequestsSidebarView requestsDataset={requestsDataset}
-                             partnerData={partnerData}
+                             answeredRequests={answeredRequests}
         />
     )
 

@@ -59,23 +59,30 @@ exports.messageCountForVendors = functions.database
             })
 
             const partners2RefLastMessage = admin.database().ref(`partners2`).child(context.params.vendorID).child(`lastMessage`);
-            partners2RefLastMessage.remove();
-            partners2RefLastMessage.set(change.after.val());
+            allPromises.push(partners2RefLastMessage.remove())
+            allPromises.push(partners2RefLastMessage.set(change.after.val()))
 
             const partners2RefNewMessageCount = admin.database().ref(`partners2`)
-                .child(context.params.vendorID).child(`answeredRequests`).child(context.params.requestKey)
+                .child(context.params.vendorID).child(`newMessages`).child(context.params.requestKey)
 
 
-            partners2RefNewMessageCount.once(`value`, snap => {
+            allPromises.push(partners2RefNewMessageCount.once(`value`, snap => {
 
-                const newMessagesCount = snap.val() + 1;
-                partners2RefNewMessageCount.set(newMessagesCount);
+                if(snap.exists()){
+                    const newMessagesCount = snap.val() + 1;
+                    partners2RefNewMessageCount.set(newMessagesCount);
+                } else {
+                    const newMessagesCount = 1;
+                    partners2RefNewMessageCount.set(newMessagesCount);
+                }
 
-            })
+
+            }))
 
         }
 
         return Promise.all(allPromises);
+
     });
 
 exports.deleteAnsweredRequests = functions.database.ref(`messages/{city}/{requestType}/{requestKey}/{vendorID}`).onDelete((snapshot, context) => {

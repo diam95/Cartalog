@@ -2,6 +2,7 @@ import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import UserInfoComponent from "./UserInfoComponent/UserInfoComponent";
 import PartLinksComponent from "./PartLinksComponent/PartLinksComponent";
+import RequestActions from "./RequestActions/RequestActions";
 
 const useStyles = makeStyles(() => ({
 

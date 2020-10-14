@@ -8,15 +8,11 @@ const useStyles = makeStyles((theme) => createStyles({
 
     root: {
         width: "100%",
-        height: `calc( 100vh - 36px)`,
+        height: `calc( 100vh - 36px)`
     },
     messagesContainerRoot: {
         height: `calc( 100vh - 36px - 56px - 48px )`,
-        width: "100%"
-    },
-    messagesContainer: {
         width: "100%",
-        height: `calc( 100vh - 36px - 56px - 48px )`,
         overflowY:"auto"
     },
     newChat: {
@@ -80,10 +76,8 @@ const ChatComponentView = (props) => {
 
             <div className={classes.messagesContainerRoot}>
 
-                <div className={classes.messagesContainer}>
                     {renderMessages()}
                     <div ref={messagesEndRef}/>
-                </div>
 
             </div>
 

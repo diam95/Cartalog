@@ -7,6 +7,7 @@ const MainScreen = (props) => {
 
     const partnerData = props.partnerData
     const requestsDataset = props.requestsDataset
+    const answeredRequests = props.answeredRequests
 
     const [request, setRequest] = useState(undefined);
 
@@ -40,8 +41,12 @@ const MainScreen = (props) => {
     //CHECK AUTH STATE
     useEffect(() => {
 
-        if (Object.values(partnerData).length === 0) {
-            history.push("/login")
+        if(partnerData){
+
+            if (Object.values(partnerData).length === 0) {
+                history.push("/login")
+            }
+
         }
 
     }, [partnerData, history])
@@ -50,6 +55,7 @@ const MainScreen = (props) => {
         <MainScreenView requestsDataset={requestsDataset}
                         partnerData={partnerData}
                         request={request}
+                        answeredRequests={answeredRequests}
         />
     )
 

@@ -19,7 +19,7 @@ const RequestsSidebarView = (props) => {
     const classes = useStyles()
 
     const requestsDataset = props.requestsDataset
-    const partnerData = props.partnerData
+    const answeredRequests = props.answeredRequests
 
     return (
 
@@ -30,7 +30,7 @@ const RequestsSidebarView = (props) => {
             <Divider/>
 
             <RequestsComponent requestsDataset={requestsDataset}
-                               partnerData={partnerData}
+                               answeredRequests={answeredRequests}
             />
 
         </div>
