@@ -21,9 +21,9 @@ const PartLinksComponent = (props) => {
 
         if (request && partnerData) {
 
-            const city = partnerData.info.city
-            const type = partnerData.info.type
-            const partnerID = partnerData.info.partnerID
+            const city = partnerData.city
+            const type = partnerData.type
+            const partnerID = partnerData.partnerID
 
             const requestKey = request.key
 
@@ -89,9 +89,9 @@ const PartLinksComponent = (props) => {
 
         if (linkInput.length > 0) {
 
-            const city = partnerData.info.city
-            const type = partnerData.info.type
-            const partnerID = partnerData.info.partnerID
+            const city = partnerData.city
+            const type = partnerData.type
+            const partnerID = partnerData.partnerID
 
             const requestKey = request.key
 
@@ -114,9 +114,9 @@ const PartLinksComponent = (props) => {
 
     const handleRemoveLink = (item) => {
 
-        const city = partnerData.info.city
-        const type = partnerData.info.type
-        const partnerID = partnerData.info.partnerID
+        const city = partnerData.city
+        const type = partnerData.type
+        const partnerID = partnerData.partnerID
         const linkKey = item.linkKey
 
         const requestKey = request.key

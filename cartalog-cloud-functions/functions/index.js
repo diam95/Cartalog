@@ -6,9 +6,6 @@ const admin = require("firebase-admin");
 
 admin.initializeApp();
 
-// 1. Define your Firebase Function to listen for deletions on your path
-// Get a database reference to our posts
-
 exports.messageCount = functions.database
     .ref(`messages/{city}/{requestType}/{requestKey}/`)
     .onWrite((change, context) => {
@@ -25,6 +22,21 @@ exports.messageCount = functions.database
         return Promise.all(allPromises);
     });
 
+exports.lastMessageTimestamp = functions.database
+    .ref(`messages/{city}/{requestType}/{requestKey}/{vendorID}/{messageKey}`)
+    .onWrite((change, context) => {
+
+        const allPromises = [];
+
+        const partners2AnsweredRequestsRef = admin.database().ref(`partners2`)
+            .child(context.params.vendorID).child(`answeredRequests`).child(context.params.requestKey)
+
+        allPromises.push(partners2AnsweredRequestsRef.set(admin.database.ServerValue.TIMESTAMP))
+
+        return Promise.all(allPromises)
+
+    })
+
 exports.messageCountForVendors = functions.database
     .ref(`messages/{city}/{requestType}/{requestKey}/{vendorID}/{messageKey}`)
     .onWrite((change, context) => {
@@ -35,45 +47,21 @@ exports.messageCountForVendors = functions.database
 
         if (change.after.val().newWebMessage === 1) {
 
-            let count = 1;
-
-            const newMessagesCountRef = admin.database().ref(`partners2`).child(context.params.vendorID)
-                .child(`newMessagesCount`);
-
-            newMessagesCountRef.once(`value`, (requestSnap) => {
-
-                if (requestSnap.exists()) {
-
-                    count = requestSnap.val();
-                    count = count + 1;
-                    allPromises.push(admin.database().ref(`partners2`).child(context.params.vendorID)
-                        .child(`newMessagesCount`).set(count));
-
-                } else {
-
-                    allPromises.push(admin.database().ref(`partners2`).child(context.params.vendorID)
-                        .child(`newMessagesCount`).set(count));
-
-                }
-
-            })
-
             const partners2RefLastMessage = admin.database().ref(`partners2`).child(context.params.vendorID).child(`lastMessage`);
             allPromises.push(partners2RefLastMessage.remove())
             allPromises.push(partners2RefLastMessage.set(change.after.val()))
 
-            const partners2RefNewMessageCount = admin.database().ref(`partners2`)
+            const partners2RefNewMessageRef = admin.database().ref(`partners2`)
                 .child(context.params.vendorID).child(`newMessages`).child(context.params.requestKey)
 
+            allPromises.push(partners2RefNewMessageRef.once(`value`, snap => {
 
-            allPromises.push(partners2RefNewMessageCount.once(`value`, snap => {
-
-                if(snap.exists()){
+                if (snap.exists()) {
                     const newMessagesCount = snap.val() + 1;
-                    partners2RefNewMessageCount.set(newMessagesCount);
+                    partners2RefNewMessageRef.set(newMessagesCount);
                 } else {
                     const newMessagesCount = 1;
-                    partners2RefNewMessageCount.set(newMessagesCount);
+                    partners2RefNewMessageRef.set(newMessagesCount);
                 }
 
 
@@ -169,16 +157,6 @@ exports.sendNewNotification = functions.database
             });
 
         }
-
-    });
-
-exports.addNewAnsweredRequest = functions.database
-    .ref(`messages/{city}/{requestType}/{requestKey}/{vendorID}`)
-    .onCreate((snapshot, context) => {
-
-        const answeredRequestsRef = admin.database().ref(`partners2/${context.params.vendorID}/answeredRequests/${context.params.requestKey}`)
-
-        return answeredRequestsRef.set(0)
 
     });
 

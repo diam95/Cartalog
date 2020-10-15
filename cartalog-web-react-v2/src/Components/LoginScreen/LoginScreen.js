@@ -14,7 +14,7 @@ const LoginScreen = (props) => {
 
     useEffect(() => {
 
-       if (Object.values(partnerData).length!==0){
+       if (partnerData){
            history.push('/')
        }
 

@@ -13,11 +13,13 @@ const App = () => {
 
     const [partnerData, setPartnerData] = useState(undefined);
     const [requestsDataset, setRequestsDataset] = useState([]);
+    const [sortedDataset, setSortedDataset] = useState([]);
     const [answeredRequests, setAnsweredRequests] = useState({});
     const [newMessages, setNewMessages] = useState([]);
 
     console.log(partnerData)
     console.log(answeredRequests);
+    console.log(newMessages)
 
     //AUTH STATE, LOAD PARTNER DATA
     useEffect(() => {
@@ -28,7 +30,7 @@ const App = () => {
 
             if (user) {
 
-                const partners2Ref = firebase.database().ref('partners2').child(uid)
+                const partners2Ref = firebase.database().ref('partners2').child(uid).child('info')
 
                 partners2Ref.once('value', snap => {
 
@@ -38,7 +40,7 @@ const App = () => {
 
                         const data = r.val()
 
-                        data.info.partnerID = uid
+                        data.partnerID = uid
                         setPartnerData(data)
 
                     }
@@ -53,14 +55,14 @@ const App = () => {
     //LOAD REQUESTS DATASET
     useEffect(() => {
 
-        if(partnerData){
+        if (partnerData) {
 
-            if (partnerData.info) {
+            if (partnerData) {
 
                 let requestsArray = []
 
-                const partnerType = partnerData.info.type
-                const city = partnerData.info.city
+                const partnerType = partnerData.type
+                const city = partnerData.city
                 const requestsRef = firebase.database().ref('requests').child(city).child(partnerType).orderByKey()
 
                 const handleNewRequests = () => {
@@ -74,6 +76,8 @@ const App = () => {
                         if (snap.exists()) {
 
                             if (snap.val().key !== startAt) {
+
+                                console.log(snap.val())
 
                                 requestsArray.unshift(snap.val())
                                 setRequestsDataset([...requestsArray])
@@ -89,6 +93,8 @@ const App = () => {
                 const handleRemovedRequests = () => {
 
                     requestsRef.on('child_removed', snap => {
+
+                        console.log(snap.val())
 
                         const removedRequest = snap.val()
 
@@ -109,7 +115,7 @@ const App = () => {
 
                 }
 
-                requestsRef.limitToLast(30).once('value', snap => {
+                requestsRef.once('value', snap => {
 
                     if (snap.exists()) {
 
@@ -138,13 +144,11 @@ const App = () => {
     //LOAD ANSWERED REQUESTS
     useEffect(() => {
 
-        if(partnerData){
+        if (partnerData) {
 
-            if (partnerData.info) {
+                if (partnerData.partnerID) {
 
-                if (partnerData.info.partnerID) {
-
-                    const partnerID = partnerData.info.partnerID
+                    const partnerID = partnerData.partnerID
 
                     const answeredRequestsRef = firebase.database().ref('partners2').child(partnerID).child('answeredRequests')
                     answeredRequestsRef.on('value', snap => {
@@ -159,30 +163,28 @@ const App = () => {
 
                     })
 
+                    return (() => {
+                        answeredRequestsRef.off('value')
+                    })
+
                 }
             }
-
-        }
 
     }, [partnerData])
 
     //LOAD NEW MESSAGES
     useEffect(() => {
 
-        if(partnerData){
+        if (partnerData) {
 
-            if (partnerData.info.partnerID) {
+            if (partnerData.partnerID) {
 
-                const partnerID = partnerData.info.partnerID
+                const partnerID = partnerData.partnerID
 
                 const newMessagesRef = firebase.database().ref("partners2").child(partnerID).child("newMessages")
                 newMessagesRef.on('value', snap => {
 
-                    if (snap.exists()) {
-
-                        setNewMessages(snap.val())
-
-                    }
+                    setNewMessages(snap.val())
 
                 })
 
@@ -200,27 +202,61 @@ const App = () => {
     //HANDLE REQUESTS SORTING
     useEffect(() => {
 
-        const getContainerStyle = () => {
+        const temp = [...requestsDataset]
 
-            const locationArr = location.pathname.split("/")
+        const handleNewMessagesSort = () => {
 
-            if (locationArr[2] === request.key) {
-                return classes.requestItemContainerClicked
-            } else if (answeredRequests) {
+            if (newMessages) {
 
-                const answeredRequestsArr = Object.keys(answeredRequests)
+                const newMessagesArray = Object.keys(newMessages)
 
-                if (answeredRequestsArr.includes(request.key)) {
+                requestsDataset.forEach((request, ind) => {
 
-                    return classes.requestItemContainer1
+                    if (newMessagesArray.includes(request.key)) {
 
-                } else return classes.requestItemContainer2
+                        temp.splice(ind, 1)
+                        temp.unshift(request)
+                    }
+
+                    if(ind===requestsDataset.length-1){
+                        setSortedDataset(temp)
+                    }
+
+                })
 
             }
 
         }
 
-    }, [requestsDataset, answeredRequests])
+        const handleAnsweredRequestsSort = () => {
+
+            if (answeredRequests) {
+
+                const answeredRequestsKeys = Object.keys(answeredRequests)
+
+                requestsDataset.forEach((request, ind) => {
+
+                    if (!answeredRequestsKeys.includes(request.key)) {
+
+                        temp.splice(ind, 1)
+                        temp.unshift(request)
+
+                    }
+
+                    if (ind === requestsDataset.length - 1) {
+                        handleNewMessagesSort()
+                    }
+
+                })
+
+            }
+
+        }
+
+        handleAnsweredRequestsSort()
+
+
+    }, [requestsDataset, answeredRequests, newMessages])
 
     return (
         <Router>
@@ -233,8 +269,10 @@ const App = () => {
 
                 <Route path="/">
                     <MainScreen requestsDataset={requestsDataset}
+                                sortedDataset={sortedDataset}
                                 partnerData={partnerData}
                                 answeredRequests={answeredRequests}
+                                newMessages={newMessages}
                     />
                 </Route>
 

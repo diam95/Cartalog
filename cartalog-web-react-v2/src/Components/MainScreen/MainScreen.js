@@ -6,8 +6,10 @@ import firebase from "firebase";
 const MainScreen = (props) => {
 
     const partnerData = props.partnerData
+    const sortedDataset = props.sortedDataset
     const requestsDataset = props.requestsDataset
     const answeredRequests = props.answeredRequests
+    const newMessages = props.newMessages
 
     const [request, setRequest] = useState(undefined);
 
@@ -17,17 +19,17 @@ const MainScreen = (props) => {
     useEffect(() => {
 
         const locationArr = location.pathname.split("/")
+        setRequest(undefined)
 
-        if (locationArr[1]==="request"){
+        if (locationArr[1] === "request") {
 
             const requestKey = locationArr[2]
 
             const dbRef = firebase.database().ref(`requests/magadan/autoparts/${requestKey}`)
             dbRef.once('value', snap => {
+            }).then(r => {
 
-            }).then(r =>{
-
-                if (r.exists()){
+                if (r.exists()) {
                     setRequest(r.val())
                 }
 
@@ -35,17 +37,14 @@ const MainScreen = (props) => {
 
         }
 
-
     }, [location])
 
     //CHECK AUTH STATE
     useEffect(() => {
 
-        if(partnerData){
+        if (!partnerData) {
 
-            if (Object.values(partnerData).length === 0) {
-                history.push("/login")
-            }
+            history.push("/login")
 
         }
 
@@ -54,8 +53,10 @@ const MainScreen = (props) => {
     return (
         <MainScreenView requestsDataset={requestsDataset}
                         partnerData={partnerData}
+                        sortedDataset={sortedDataset}
                         request={request}
                         answeredRequests={answeredRequests}
+                        newMessages={newMessages}
         />
     )
 

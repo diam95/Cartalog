@@ -18,9 +18,9 @@ const PartLinkItem = (props) => {
 
         const handleUpdateLink = (linkObj) => {
 
-                const city = partnerData.info.city
-                const type = partnerData.info.type
-                const partnerID = partnerData.info.partnerID
+                const city = partnerData.city
+                const type = partnerData.type
+                const partnerID = partnerData.partnerID
                 const requestKey = request.key
                 const linkKey = item.linkKey
 

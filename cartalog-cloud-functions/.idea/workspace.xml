@@ -20,20 +20,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="486882e7-6db6-4089-beae-82645756e14c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../cartalog-bazon-parser/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cartalog-bazon-parser/parser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/.firebase/hosting.YnVpbGQ.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/.firebase/hosting.cHVibGlj.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/.firebaserc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/firebase.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/public/404.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/LoginScreen/LoginScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/LoginScreen/LoginScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/ChatComponent/ChatComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/ChatComponent/ChatComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/ChatComponent/ChatComponentView.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/ChatComponent/ChatComponentView.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/ChatComponent/ChatInputComponent/ChatInputComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/ChatComponent/ChatInputComponent/ChatInputComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/ChatComponent/ChatInputComponent/ChatInputComponentView.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/ChatComponent/ChatInputComponent/ChatInputComponentView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/MainScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/MainScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/MainScreenView.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/MainScreenView.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RequestsSidebar/RequestsComponent/RequestItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RequestsSidebar/RequestsComponent/RequestItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RequestsSidebar/RequestsComponent/RequestsComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RequestsSidebar/RequestsComponent/RequestsComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RequestsSidebar/RequestsComponent/RequestsComponentView.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RequestsSidebar/RequestsComponent/RequestsComponentView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RightSideMenu/RequestActions/RequestActionsView.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RightSideMenu/RequestActions/RequestActionsView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RightSideMenu/RightSideMenuView.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RightSideMenu/RightSideMenuView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RequestsSidebar/RequestsSidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RequestsSidebar/RequestsSidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RequestsSidebar/RequestsSidebarView.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RequestsSidebar/RequestsSidebarView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RightSideMenu/PartLinksComponent/PartLinkItem/PartLinkItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RightSideMenu/PartLinksComponent/PartLinkItem/PartLinkItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RightSideMenu/PartLinksComponent/PartLinksComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RightSideMenu/PartLinksComponent/PartLinksComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RightSideMenu/UserInfoComponent/UserInfoComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RightSideMenu/UserInfoComponent/UserInfoComponent.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,12 +52,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1Yul37aB7Q2uR9hSzXgG5OVj32j" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -82,6 +93,9 @@
       <workItem from="1602316419661" duration="870000" />
       <workItem from="1602337707141" duration="13000" />
       <workItem from="1602639429840" duration="1619000" />
+      <workItem from="1602720604768" duration="1564000" />
+      <workItem from="1602722379589" duration="230000" />
+      <workItem from="1602722686382" duration="659000" />
     </task>
     <servers />
   </component>
@@ -99,5 +113,8 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

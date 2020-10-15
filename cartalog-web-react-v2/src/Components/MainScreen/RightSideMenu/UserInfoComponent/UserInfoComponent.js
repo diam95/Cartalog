@@ -56,22 +56,26 @@ const UserInfoComponent = (props) => {
 
             if(userRequests.length===0){
 
-                const userID = request.userID
-                const city = partnerData.info.city
-                const type = partnerData.info.type
+                if(partnerData){
 
-                const dbRef = firebase.database().ref('requests').child(city).child(type)
-                dbRef.orderByChild("userID").equalTo(userID).once('value',snap=>{
+                    const userID = request.userID
+                    const city = partnerData.city
+                    const type = partnerData.type
 
-                }).then(r=>{
+                    const dbRef = firebase.database().ref('requests').child(city).child(type)
+                    dbRef.orderByChild("userID").equalTo(userID).once('value',snap=>{
 
-                    if(r.exists()){
+                    }).then(r=>{
 
-                        const requestsArray = Object.values(r.val())
-                        setUserRequests(requestsArray)
-                    }
+                        if(r.exists()){
 
-                })
+                            const requestsArray = Object.values(r.val())
+                            setUserRequests(requestsArray)
+                        }
+
+                    })
+
+                }
 
             }
 

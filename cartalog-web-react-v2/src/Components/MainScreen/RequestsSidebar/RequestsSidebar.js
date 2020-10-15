@@ -3,12 +3,14 @@ import RequestsSidebarView from "./RequestsSidebarView";
 
 const RequestsSidebar = (props) => {
 
-    const requestsDataset = props.requestsDataset
+    const sortedDataset = props.sortedDataset
     const answeredRequests = props.answeredRequests
+    const newMessages = props.newMessages
 
     return (
-        <RequestsSidebarView requestsDataset={requestsDataset}
+        <RequestsSidebarView sortedDataset={sortedDataset}
                              answeredRequests={answeredRequests}
+                             newMessages={newMessages}
         />
     )
 

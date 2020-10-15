@@ -8,6 +8,7 @@ const ChatComponent = (props) => {
 
     const partnerData = props.partnerData
     const request = props.request
+    const answeredRequests = props.answeredRequests
 
     const [messagesData, setMessagesData] = useState([]);
     const [newOffer, setNewOffer] = useState(true);
@@ -24,40 +25,41 @@ const ChatComponent = (props) => {
 
             if (locationArr[2]) {
 
-                if (partnerData.info) {
+                if(partnerData){
 
-                    if (partnerData.info.partnerID) {
+                            const requestKey = locationArr[2]
+                            const partnerID = partnerData.partnerID
+                            const type = partnerData.type
+                            const city = partnerData.city
 
-                        const requestKey = locationArr[2]
-                        const partnerID = partnerData.info.partnerID
-                        const type = partnerData.info.type
-                        const city = partnerData.info.city
+                            const tempDataset = []
 
-                        const tempDataset = []
+                            const messagesRef = firebase.database().ref('messages').child(city).child(type).child(requestKey).child(partnerID)
+                            messagesRef.on('child_added', snap => {
 
-                        const messagesRef = firebase.database().ref('messages').child(city).child(type).child(requestKey).child(partnerID)
-                        messagesRef.on('child_added', snap => {
+                                if (snap.exists()) {
 
-                            if (snap.exists()) {
+                                    console.log(snap.val())
 
-                                const newMessage = snap.val()
-                                tempDataset.push(newMessage)
+                                    const newMessage = snap.val()
+                                    tempDataset.push(newMessage)
 
-                                setMessagesData([...tempDataset])
+                                    setMessagesData([...tempDataset])
 
+                                }
+
+                            })
+
+                            const newMessagesRef = firebase.database().ref("partners2").child(partnerID).child("newMessages").child(requestKey)
+                            newMessagesRef.remove()
+
+                            return ()=>{
+                                messagesRef.off('child_added')
                             }
 
-                        })
-
-                        return ()=>{
-                            messagesRef.off('child_added')
                         }
 
-                    }
-
                 }
-
-            }
 
         }
 
@@ -65,21 +67,21 @@ const ChatComponent = (props) => {
 
     useEffect(() => {
 
-        if (partnerData.answeredRequests) {
+        if(answeredRequests){
 
-            const keys = Object.keys(partnerData.answeredRequests)
+                const keys = Object.keys(answeredRequests)
 
-            if (keys.includes(request.key)) {
+                if (keys.includes(request.key)) {
 
-                setNewOffer(false)
+                    setNewOffer(false)
 
-            }
+                }
+
+            return(()=>{setNewOffer(true)})
 
         }
 
-        return(()=>{setNewOffer(true)})
-
-    }, [partnerData.answeredRequests, request])
+    }, [answeredRequests, request])
 
     return (
 

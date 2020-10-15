@@ -23,9 +23,11 @@ const useStyles = makeStyles(() => ({
 const MainScreenView = (props) => {
 
     const requestsDataset = props.requestsDataset
+    const sortedDataset = props.sortedDataset
     const partnerData = props.partnerData
     const request = props.request
     const answeredRequests = props.answeredRequests
+    const newMessages = props.newMessages
 
     const classes = useStyles()
 
@@ -39,8 +41,9 @@ const MainScreenView = (props) => {
 
                 <Grid item lg={3} sm={3} md={3} xl={3} xs={3}>
 
-                    <RequestsSidebar requestsDataset={requestsDataset}
+                    <RequestsSidebar sortedDataset={sortedDataset}
                                      answeredRequests={answeredRequests}
+                                     newMessages={newMessages}
                     />
 
                 </Grid>
@@ -51,6 +54,7 @@ const MainScreenView = (props) => {
                         ? <ChatComponent requestsDataset={requestsDataset}
                                          partnerData={partnerData}
                                          request={request}
+                                         answeredRequests={answeredRequests}
                         />
                         : <div/>
                     }

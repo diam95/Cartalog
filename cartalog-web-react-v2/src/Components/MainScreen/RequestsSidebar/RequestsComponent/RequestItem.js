@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
-        background: "#a7c1ec"
+        background: "#98e79f"
     },
     titleContainer: {
         width: "85%"
@@ -99,6 +99,7 @@ const RequestItem = (props) => {
 
     const request = props.request
     const answeredRequests = props.answeredRequests
+    const newMessages = props.newMessages
 
     const classes = useStyles()
 
@@ -184,7 +185,9 @@ const RequestItem = (props) => {
         const locationArr = location.pathname.split("/")
 
         if (locationArr[2] === request.key) {
+
             return classes.requestItemContainerClicked
+
         } else if (answeredRequests) {
 
             const answeredRequestsArr = Object.keys(answeredRequests)
@@ -201,13 +204,13 @@ const RequestItem = (props) => {
 
     const renderOffersCount = () => {
 
-        if (answeredRequests) {
+        if (newMessages) {
 
-            const answeredRequestsArray = Object.keys(answeredRequests)
-            if (answeredRequestsArray.includes(request.key)) {
+            const requestKey = request.key
 
-                const index = answeredRequestsArray .indexOf(request.key)
-                const count = Object.values(answeredRequests)[index]
+            if(newMessages[requestKey]){
+
+                const count = newMessages[requestKey]
 
                 if (count !== 0) {
                     return <div className={classes.newMessagesCount}>{count}</div>

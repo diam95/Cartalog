@@ -3,12 +3,14 @@ import RequestsComponentView from "./RequestsComponentView";
 
 const RequestsComponent = (props) => {
 
-    const requestsDataset = props.requestsDataset
+    const sortedDataset = props.sortedDataset
     const answeredRequests = props.answeredRequests
+    const newMessages = props.newMessages
 
     return (
-        <RequestsComponentView requestsDataset={requestsDataset}
+        <RequestsComponentView sortedDataset={sortedDataset}
                                answeredRequests={answeredRequests}
+                               newMessages={newMessages}
         />
     )
 

@@ -15,20 +15,22 @@ const useStyles = makeStyles((theme) => ({
 
 const RequestsComponentView = (props) => {
 
-    const requestsDataset = props.requestsDataset
+    const sortedDataset = props.sortedDataset
     const answeredRequests = props.answeredRequests
+    const newMessages = props.newMessages
 
     const classes = useStyles()
 
     const renderRequests = () => {
 
-        if (requestsDataset.length > 0) {
+        if (sortedDataset.length > 0) {
 
-            return requestsDataset.map((request) => {
+            return sortedDataset.map((request) => {
 
                 return <RequestItem request={request}
                                     answeredRequests={answeredRequests}
                                     key={request.key}
+                                    newMessages={newMessages}
                 />
 
             })

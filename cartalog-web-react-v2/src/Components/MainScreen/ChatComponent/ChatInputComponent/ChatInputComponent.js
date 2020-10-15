@@ -23,9 +23,9 @@ const ChatInputComponent = (props) => {
 
             setMessageInput("")
 
-            const city = partnerData.info.city;
-            const type = partnerData.info.type;
-            const vendorID = partnerData.info.partnerID;
+            const city = partnerData.city;
+            const type = partnerData.type;
+            const vendorID = partnerData.partnerID;
             const userID = request.userID;
             const requestKey = request.key;
             const time = new moment().locale(`ru`);
@@ -55,10 +55,10 @@ const ChatInputComponent = (props) => {
 
     const handleAttach = (event) => {
 
-        const city = partnerData.info.city;
-        const type = partnerData.info.type;
+        const city = partnerData.city;
+        const type = partnerData.type;
         const requestKey = request.key;
-        const vendorID = partnerData.info.partnerID;
+        const vendorID = partnerData.partnerID;
         const file = event.target.files[0];
 
         const storageRef = firebase.storage().ref(`chatImages`).child(city).child(type).child(requestKey).child(vendorID).child(file.name);
