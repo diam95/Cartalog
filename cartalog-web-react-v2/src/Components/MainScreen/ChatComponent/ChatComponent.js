@@ -39,8 +39,6 @@ const ChatComponent = (props) => {
 
                                 if (snap.exists()) {
 
-                                    console.log(snap.val())
-
                                     const newMessage = snap.val()
                                     tempDataset.push(newMessage)
 

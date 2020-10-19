@@ -114,12 +114,33 @@ const RequestItem = (props) => {
 
     const renderTime = (timestamp) => {
 
-        const today = new Date().toLocaleDateString("ru")
-        const date = new Date(timestamp).toLocaleDateString("ru")
-        const time = new Date(timestamp).toLocaleTimeString("ru").slice(0, -3)
+        const answeredRequestsKeys = Object.keys(answeredRequests)
 
-        const day = new Date(timestamp).getDate()
-        const month = new Date(timestamp).getMonth() + 1
+        const getTimestamp = () => {
+
+            if(!answeredRequestsKeys.includes(request.key)){
+                return timestamp
+            } else {
+
+                const index = answeredRequestsKeys.indexOf(request.key)
+                const vals = Object.values(answeredRequests)
+
+                if(vals[index]===0){
+                    return timestamp
+                } else {
+                    return vals[index]
+                }
+
+            }
+
+        }
+
+        const today = new Date().toLocaleDateString("ru")
+        const date = new Date(getTimestamp()).toLocaleDateString("ru")
+        const time = new Date(getTimestamp()).toLocaleTimeString("ru").slice(0, -3)
+
+        const day = new Date(getTimestamp()).getDate()
+        const month = new Date(getTimestamp()).getMonth() + 1
 
         const getMonth = () => {
 
@@ -208,7 +229,7 @@ const RequestItem = (props) => {
 
             const requestKey = request.key
 
-            if(newMessages[requestKey]){
+            if (newMessages[requestKey]) {
 
                 const count = newMessages[requestKey]
 

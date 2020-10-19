@@ -73,20 +73,6 @@ exports.messageCountForVendors = functions.database
 
     });
 
-exports.deleteAnsweredRequests = functions.database.ref(`messages/{city}/{requestType}/{requestKey}/{vendorID}`).onDelete((snapshot, context) => {
-
-    const allPromises = [];
-    const infoRef = admin.database().ref(`partners2`).child(context.params.vendorID).child(`answeredRequests`).child(context.params.requestKey);
-
-    allPromises.push(
-        infoRef.remove()
-    );
-
-    return Promise.all(allPromises);
-
-
-})
-
 exports.sendNewNotification = functions.database
     .ref(`messages/{city}/{requestType}/{requestKey}/{vendorID}/{messageKey}`)
     .onCreate((snapshot, context) => {
@@ -94,12 +80,12 @@ exports.sendNewNotification = functions.database
         if (snapshot.child("viewType").val() === 0 || snapshot.child("viewType").val() === 1) {
 
             const vendorID = context.params.vendorID;
+            const requestType = context.params.requestType;
+            const requestKey = context.params.requestKey;
             const userID = snapshot.child(`userID`).val();
             const message = snapshot.child(`message`).val().toString();
 
             const city = context.params.city;
-            const requestType = context.params.requestType;
-            const requestKey = context.params.requestKey;
 
             var vendorName;
             var requestObject;
@@ -160,95 +146,17 @@ exports.sendNewNotification = functions.database
 
     });
 
-exports.requestAdded = functions.database
-    .ref(`requests/{city}/{type}/{requestKey}`)
-    .onCreate((snapshot, context) => {
-
-        const allPromises = [];
-        const infoRef = admin.database().ref(`info`).child(context.params.city).child(context.params.type).child(`totalRequests`);
-
-        if (snapshot.exists()) {
-
-            infoRef.once(`value`, snap => {
-
-                const count = snap.val();
-
-                allPromises.push(
-                    infoRef.set(count + 1)
-                );
-
-            })
-
-        }
-
-        return Promise.all(allPromises);
-
-    });
-
 exports.requestDeleted = functions.database
     .ref(`requests/{city}/{type}/{requestKey}`)
     .onDelete((snapshot, context) => {
 
         const allPromises = [];
-        const infoRef = admin.database().ref(`info`).child(context.params.city).child(context.params.type).child(`totalRequests`);
-
-        infoRef.once(`value`, snap => {
-
-            const count = snap.val();
-
-            allPromises.push(
-                infoRef.set(count - 1)
-            );
-
-
-        });
 
         const deletedRequestsRef = admin.database().ref(`deletedRequests/${context.params.city}/${context.params.type}/${context.params.requestKey}`)
         allPromises.push(deletedRequestsRef.set(snapshot.val()))
 
-        return Promise.all(allPromises);
-
-    });
-
-exports.countAnsweredRequests1 = functions.database
-    .ref(`partners2/{vendorID}/answeredRequests/{requestKey}/`)
-    .onCreate((snapshot, context) => {
-
-        const allPromises = [];
-
-        const infoRef = admin.database().ref(`partners2`).child(context.params.vendorID).child(`myAnswersCount`);
-
-        infoRef.once(`value`, snap => {
-
-            const count = snap.val();
-
-            allPromises.push(
-                infoRef.set(count + 1)
-            );
-
-        })
-
-        return Promise.all(allPromises);
-
-    });
-
-exports.countAnsweredRequests2 = functions.database
-    .ref(`partners2/{vendorID}/answeredRequests/{requestKey}/`)
-    .onDelete((snapshot, context) => {
-
-        const allPromises = [];
-
-        const infoRef = admin.database().ref(`partners2`).child(context.params.vendorID).child(`myAnswersCount`);
-
-        infoRef.once(`value`, snap => {
-
-            const count = snap.val();
-
-            allPromises.push(
-                infoRef.set(count - 1)
-            );
-
-        })
+        const newMessagesRef = admin.database().ref("partners2").child("SDax1yMalBTrlGdhrbHWheNpSLE2").child("newMessages").child(context.params.requestKey)
+        allPromises.push(newMessagesRef.remove())
 
         return Promise.all(allPromises);
 

@@ -8,6 +8,7 @@ import {
 import MainScreen from "./Components/MainScreen/MainScreen";
 import LoginScreen from "./Components/LoginScreen/LoginScreen";
 import firebase from "firebase/app";
+import BazonSearchScreen from "./Components/BazonSearchScreen/BazonSearchScreen";
 
 const App = () => {
 
@@ -16,10 +17,6 @@ const App = () => {
     const [sortedDataset, setSortedDataset] = useState([]);
     const [answeredRequests, setAnsweredRequests] = useState({});
     const [newMessages, setNewMessages] = useState([]);
-
-    console.log(partnerData)
-    console.log(answeredRequests);
-    console.log(newMessages)
 
     //AUTH STATE, LOAD PARTNER DATA
     useEffect(() => {
@@ -146,29 +143,29 @@ const App = () => {
 
         if (partnerData) {
 
-                if (partnerData.partnerID) {
+            if (partnerData.partnerID) {
 
-                    const partnerID = partnerData.partnerID
+                const partnerID = partnerData.partnerID
 
-                    const answeredRequestsRef = firebase.database().ref('partners2').child(partnerID).child('answeredRequests')
-                    answeredRequestsRef.on('value', snap => {
+                const answeredRequestsRef = firebase.database().ref('partners2').child(partnerID).child('answeredRequests')
+                answeredRequestsRef.on('value', snap => {
 
-                        if (snap.exists()) {
+                    if (snap.exists()) {
 
-                            const data = snap.val()
+                        const data = snap.val()
 
-                            setAnsweredRequests(data)
+                        setAnsweredRequests(data)
 
-                        }
+                    }
 
-                    })
+                })
 
-                    return (() => {
-                        answeredRequestsRef.off('value')
-                    })
+                return (() => {
+                    answeredRequestsRef.off('value')
+                })
 
-                }
             }
+        }
 
     }, [partnerData])
 
@@ -206,25 +203,47 @@ const App = () => {
 
         const handleNewMessagesSort = () => {
 
-            if (newMessages) {
+            const answeredRequestsKeys = Object.keys(answeredRequests)
 
-                const newMessagesArray = Object.keys(newMessages)
+            const newRequestsTemp = []
 
-                requestsDataset.forEach((request, ind) => {
+            temp.forEach((request, ind) => {
 
-                    if (newMessagesArray.includes(request.key)) {
+                if (!answeredRequestsKeys.includes(request.key)) {
 
-                        temp.splice(ind, 1)
-                        temp.unshift(request)
+                    newRequestsTemp.unshift(request)
+
+                }
+
+                if (ind === temp.length - 1) {
+
+                    if(newRequestsTemp.length>0){
+
+                        newRequestsTemp.forEach((newRequest, indexxxx) => {
+
+                            const delInd = temp.indexOf(newRequest)
+
+                            temp.splice(delInd,1)
+                            temp.unshift(newRequest)
+
+                            if (indexxxx === newRequestsTemp.length - 1) {
+
+                                setSortedDataset([...temp])
+
+                            }
+
+                        })
+
+                    } else {
+
+                        setSortedDataset([...temp])
+
                     }
 
-                    if(ind===requestsDataset.length-1){
-                        setSortedDataset(temp)
-                    }
+                }
 
-                })
+            })
 
-            }
 
         }
 
@@ -234,20 +253,51 @@ const App = () => {
 
                 const answeredRequestsKeys = Object.keys(answeredRequests)
 
-                requestsDataset.forEach((request, ind) => {
+                const answeredRequestsValuesTemp = Object.values(answeredRequests)
+                const answeredRequestsValues = Object.values(answeredRequests)
 
-                    if (!answeredRequestsKeys.includes(request.key)) {
+                answeredRequestsValues.sort().reverse()
 
-                        temp.splice(ind, 1)
-                        temp.unshift(request)
+                const sortingIndexes = []
 
+                answeredRequestsValues.forEach((timestamp, ind) => {
+
+                    if (timestamp > 0) {
+                        sortingIndexes.push(answeredRequestsValuesTemp.indexOf(timestamp))
                     }
 
-                    if (ind === requestsDataset.length - 1) {
-                        handleNewMessagesSort()
+                    if (ind === answeredRequestsValues.length - 1) {
+
+                        sortingIndexes.reverse()
+
+                        sortingIndexes.forEach((index, idx) =>{
+
+                            const requestKey = answeredRequestsKeys[index]
+
+                            temp.forEach((request,ind) => {
+
+                                if(request.key === requestKey){
+
+                                    temp.splice(ind,1)
+                                    temp.unshift(request)
+
+                                }
+
+                            })
+
+                            if (idx === sortingIndexes.length - 1) {
+                                handleNewMessagesSort()
+                            }
+
+                        })
+
                     }
 
                 })
+
+            } else {
+
+                handleNewMessagesSort()
 
             }
 
@@ -265,6 +315,10 @@ const App = () => {
 
                 <Route path="/login">
                     <LoginScreen partnerData={partnerData}/>
+                </Route>
+
+                <Route path="/bazonSearch">
+                    <BazonSearchScreen/>
                 </Route>
 
                 <Route path="/">

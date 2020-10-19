@@ -116,7 +116,7 @@ const SearchbarView = (props) => {
             >
                 <OutlinedInput
                     className={classes.input}
-                    placeholder={"Поиск"}
+                    placeholder={"Поиск (пока что не работает)"}
                     value={searchInput}
                     onChange={handleSearchInput}
                     id="outlined-adornment-weight"
