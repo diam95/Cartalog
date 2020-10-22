@@ -55,45 +55,46 @@ const ChatInputComponent = (props) => {
 
     const handleAttach = (event) => {
 
-        const city = partnerData.city;
-        const type = partnerData.type;
-        const requestKey = request.key;
-        const vendorID = partnerData.partnerID;
-        const file = event.target.files[0];
+            const city = partnerData.city;
+            const type = partnerData.type;
+            const requestKey = request.key;
+            const vendorID = partnerData.partnerID;
+            const file = event.target.files[0];
 
-        const storageRef = firebase.storage().ref(`chatImages`).child(city).child(type).child(requestKey).child(vendorID).child(file.name);
+            const storageRef = firebase.storage().ref(`chatImages`).child(city).child(type)
+                .child(requestKey).child(vendorID).child(file.name);
 
-        const task = storageRef.put(event.target.files[0]);
-        task.then((snap) => {
+            const task = storageRef.put(file);
+            task.then((snap) => {
 
-            const messagesRef = firebase.database().ref(`messages`).child(city).child(type).child(requestKey).child(vendorID).push();
+                const messagesRef = firebase.database().ref(`messages`).child(city).child(type).child(requestKey).child(vendorID).push();
 
-            const time = new moment().locale(`ru`).format("HH:mm");
-            const userID = request.userID;
+                const time = new moment().locale(`ru`).format("HH:mm");
+                const userID = request.userID;
 
-            snap.task.snapshot.ref.getDownloadURL().then(result => {
+                snap.task.snapshot.ref.getDownloadURL().then(result => {
 
-                const message = {
-                    key: requestKey,
-                    vendorID: vendorID,
-                    message: result,
-                    viewType: 1,
-                    time: time,
-                    timestamp: firebase.database.ServerValue.TIMESTAMP,
-                    newWebMessage: 0,
-                    newAppMessage: 1,
-                    messageSnackIsShown: 1,
-                    userID: userID
-                };
+                    const message = {
+                        key: requestKey,
+                        vendorID: vendorID,
+                        message: result,
+                        viewType: 1,
+                        time: time,
+                        timestamp: firebase.database.ServerValue.TIMESTAMP,
+                        newWebMessage: 0,
+                        newAppMessage: 1,
+                        messageSnackIsShown: 1,
+                        userID: userID
+                    };
 
-                messagesRef.set(message).then(r => {
+                    messagesRef.set(message).then(r => {
+                    });
+
                 });
 
-            });
+            })
 
-        })
-
-    };
+    }
 
     const handleEnterPress = (event) => {
 

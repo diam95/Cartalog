@@ -1,107 +1,99 @@
 import React, {useEffect, useState} from "react";
 import BazonSearchScreenView from "./BazonSearchScreenView";
-import * as firebase from "firebase";
+import firebase from "firebase/app";
+import "firebase/functions";
+import "firebase/database";
 
 const BazonSearchScreen = () => {
 
-    const [categories, setCategories] = useState([]);
+    const [partNames, setPartNames] = useState([]);
     const [carBrands, setCarBrands] = useState([]);
+    const [carModels, setCarModels] = useState([]);
 
-    const [makeInput, setMakeInput] = useState("");
+    const [brandInput, setBrandInput] = useState("");
     const [modelInput, setModelInput] = useState("");
-    const [categoryInput, setCategoryInput] = useState("");
-    const [categoryHref, setCategoryHref] = useState("");
+    const [partNameInput, setPartNameInput] = useState("");
+
+    console.log({brandInput})
 
     const [url, setUrl] = useState("");
 
-    console.log(makeInput)
-    console.log(carBrands)
-    console.log(categoryInput)
-    console.log(categoryHref)
-
     useEffect(() => {
 
-        if (makeInput.length > 1) {
+        if (brandInput.length > 1) {
 
-            console.log("Search")
+            console.log("Search brands")
 
-            const carBrandsRef = firebase.database().ref('parser').child('carBrands')
-            carBrandsRef.orderByChild('brand')
-                .startAt(makeInput)
-                .endAt(makeInput+"\uf8ff")
+            const carBrandsRef = firebase.database().ref('parser').child('brands')
+            carBrandsRef.orderByKey()
+                .startAt(brandInput)
+                .endAt(brandInput + "\uf8ff")
                 .once('value', snap => {
 
-                }).then(r=>{
-
-                console.log(r.val())
+                }).then(r => {
 
                 if (r.exists()) {
-                    setCarBrands(Object.values(r.val()))
+
+                    console.log(r.val())
+                    setCarBrands(Object.keys(r.val()))
                 }
 
             })
 
         }
 
-    }, [makeInput,modelInput])
+    }, [brandInput])
 
     useEffect(() => {
 
         if (modelInput.length > 1) {
 
-            console.log("Search")
+            console.log("Search model")
 
-            const carBrandsRef = firebase.database().ref('parser').child('carBrands')
-            carBrandsRef.orderByChild('brand')
-                .startAt(modelInput)
-                .endAt(modelInput+"\uf8ff")
+            const carBrandsRef = firebase.database().ref('parser').child('models').child(brandInput.toLowerCase())
+            carBrandsRef.orderByKey()
+                .startAt(modelInput.toUpperCase())
+                .endAt(modelInput.toUpperCase() + "\uf8ff")
                 .once('value', snap => {
 
-                }).then(r=>{
-
-                console.log(r.val())
+                }).then(r => {
 
                 if (r.exists()) {
-                    setCarBrands(Object.values(r.val()))
+                    console.log(r.val())
+                    setCarModels(Object.keys(r.val()))
                 }
 
             })
 
         }
 
-    }, [modelInput])
+    }, [modelInput,brandInput])
 
     useEffect(() => {
 
-        if (categoryInput.length > 1) {
+        if (partNameInput.length > 1) {
 
             console.log("Search")
 
-            const categoriesRef = firebase.database().ref('parser').child('categories')
-            categoriesRef.orderByChild('category')
-                .startAt(categoryInput)
-                .endAt(categoryInput+"\uf8ff")
+            const partNamesRef = firebase.database().ref('parser').child('categories')
+            partNamesRef.orderByChild('category')
+                .startAt(partNameInput)
+                .endAt(partNameInput + "\uf8ff")
                 .once('value', snap => {
 
-                }).then(r=>{
+                }).then(r => {
 
                 console.log(r.val())
 
                 if (r.exists()) {
-                    setCategories(Object.values(r.val()))
+                    setPartNames(Object.values(r.val()))
                 }
 
             })
 
         }
 
-    }, [categoryInput])
-
-    useEffect(()=>{
-
-        const url = `/${makeInput}/${modelInput}/${categoryInput}`
-
-    },[makeInput,modelInput,categoryInput])
+    }, [partNameInput])
 
     const handleInputChange = (id, event) => {
 
@@ -110,42 +102,61 @@ const BazonSearchScreen = () => {
         switch (id) {
 
             case 0:
-                setMakeInput(event.target.value.toUpperCase())
+                setBrandInput(event.target.value.toUpperCase())
                 break;
 
             case 1:
-                setModelInput(event.target.value.toUpperCase())
+                setModelInput(event.target.value)
                 break;
 
             case 2:
-                setCategoryInput(event.target.value)
+                setPartNameInput(event.target.value)
                 break;
 
             case 3:
-                setMakeInput(event.toUpperCase())
+                setBrandInput(event.toUpperCase())
                 break;
 
             case 4:
-                setModelInput(event.toUpperCase())
+                setModelInput(event)
                 break;
 
             case 5:
-                setCategoryInput(event)
+                setPartNameInput(event)
+                break;
+
+            default:
                 break;
 
         }
 
     }
 
+    const handleSearch = () => {
+
+        const search = firebase.functions().httpsCallable('getCarBrandsAndModels')
+        search({URL:"https://1000zp.ru/"}).then(function(result) {
+            console.log(result.data)
+
+            const brandsRef = firebase.database().ref("parser").child("brands")
+            brandsRef.set(result.data.brands)
+            const modelsRef = firebase.database().ref("parser").child("models")
+            modelsRef.set(result.data.models)
+
+        });
+
+    }
 
     return (
         <BazonSearchScreenView carBrands={carBrands}
-                               categories={categories}
+                               carModels={carModels}
+                               partNames={partNames}
                                handleInputChange={handleInputChange}
-                               makeInput={makeInput}
+                               brandInput={brandInput}
                                modelInput={modelInput}
-                               categoryInput={categoryInput}
+                               partNameInput={partNameInput}
                                url={url}
+                               handleSearch={handleSearch}
         />
     )
 

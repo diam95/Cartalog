@@ -21,8 +21,8 @@ const useStyles = makeStyles((theme) => createStyles({
         justifyContent: "flex-start"
     },
     filterContainer: {
-        marginTop:theme.spacing(3),
-        width:"75%",
+        marginTop: theme.spacing(3),
+        width: "75%",
         padding: theme.spacing(3),
         background: "white",
         display: 'flex',
@@ -30,14 +30,14 @@ const useStyles = makeStyles((theme) => createStyles({
         alignItems: "center",
         justifyContent: "center"
     },
-    item:{
-        padding:theme.spacing(2)
+    item: {
+        padding: theme.spacing(2)
     },
-    urlDELETE:{
-        color:"white",
+    urlDELETE: {
+        color: "white",
         marginTop: theme.spacing(3),
-        fontSize:24,
-        fontWeight:500
+        fontSize: 24,
+        fontWeight: 500
     }
 
 }))
@@ -47,10 +47,16 @@ const BazonSearchScreenView = (props) => {
     const classes = useStyles()
 
     const carBrands = props.carBrands
-    const categories = props.categories
+    const carModels = props.carModels
+    const partNames = props.partNames
+
+    const brandInput = props.brandInput
+    const modelInput = props.modelInput
+    const partNameInput = props.partNameInput
+
     const handleInputChange = props.handleInputChange
-    const makeInput = props.makeInput
     const url = props.url
+    const handleSearch = props.handleSearch
 
     return (
 
@@ -65,15 +71,19 @@ const BazonSearchScreenView = (props) => {
                         autoSelect={true}
                         id="combo-box-demo"
                         options={carBrands}
-                        getOptionLabel={(option) => option.brand}
+                        getOptionLabel={(option) => option}
                         style={{width: 300}}
-                        onInputChange={(event,value)=>{handleInputChange(3,value)}}
+                        onInputChange={(event, value) => {
+                            handleInputChange(3, value)
+                        }}
                         renderInput={(params) =>
                             <TextField {...params}
                                        label="Марка"
                                        variant="outlined"
-                                       value={makeInput}
-                                       onChange={(event)=>{handleInputChange(0,event)}}
+                                       value={brandInput}
+                                       onChange={(event) => {
+                                           handleInputChange(0, event)
+                                       }}
                             />
                         }
                     />
@@ -85,16 +95,20 @@ const BazonSearchScreenView = (props) => {
                     <Autocomplete
                         autoSelect={true}
                         id="combo-box-demo"
-                        options={carBrands}
-                        getOptionLabel={(option) => option.brand}
+                        options={carModels}
+                        getOptionLabel={(option) => option}
                         style={{width: 300}}
-                        onInputChange={(event,value)=>{handleInputChange(4,value)}}
+                        onInputChange={(event, value) => {
+                            handleInputChange(4, value)
+                        }}
                         renderInput={(params) =>
                             <TextField {...params}
                                        label="Модель"
                                        variant="outlined"
-                                       value={makeInput}
-                                       onChange={(event)=>{handleInputChange(1,event)}}
+                                       value={modelInput}
+                                       onChange={(event) => {
+                                           handleInputChange(1, event)
+                                       }}
                             />
                         }
                     />
@@ -105,30 +119,33 @@ const BazonSearchScreenView = (props) => {
                     <Autocomplete
                         autoSelect={true}
                         id="combo-box-demo"
-                        options={categories}
+                        options={partNames}
                         getOptionLabel={(option) => option.category}
                         style={{width: 300}}
-                        onInputChange={(event,value)=>{handleInputChange(5,value)}}
+                        onInputChange={(event, value) => {
+                            handleInputChange(5, value)
+                        }}
                         renderInput={(params) =>
                             <TextField {...params}
                                        label="Название детали"
                                        variant="outlined"
-                                       value={makeInput}
-                                       onChange={(event)=>{handleInputChange(2,event)}}
+                                       value={partNameInput}
+                                       onChange={(event) => {
+                                           handleInputChange(2, event)
+                                       }}
                             />
                         }
                     />
 
                 </div>
 
-                <Button variant="contained" color="primary">
+                <Button variant="contained" color="primary" onClick={handleSearch}>
                     найти
                 </Button>
 
             </div>
 
             <div className={classes.urlDELETE}>{url}</div>
-
 
 
         </div>

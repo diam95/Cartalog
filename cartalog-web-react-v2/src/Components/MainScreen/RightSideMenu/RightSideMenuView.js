@@ -2,14 +2,13 @@ import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import UserInfoComponent from "./UserInfoComponent/UserInfoComponent";
 import PartLinksComponent from "./PartLinksComponent/PartLinksComponent";
-import RequestActions from "./RequestActions/RequestActions";
 
 const useStyles = makeStyles(() => ({
 
     root: {
         width: "100%",
         height: `calc(100vh - 36px)`,
-        background:"#cecece"
+        background: "#cecece"
     }
 
 }))
@@ -24,8 +23,6 @@ const RightSideMenuView = (props) => {
     return (
 
         <div className={classes.root}>
-
-            <RequestActions/>
 
             <UserInfoComponent request={request}
                                partnerData={partnerData}

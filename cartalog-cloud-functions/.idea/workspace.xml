@@ -20,17 +20,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="486882e7-6db6-4089-beae-82645756e14c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/BazonSearchScreen/BazonSearchScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/BazonSearchScreen/BazonSearchScreenView.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/functions/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/functions/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/.firebase/hosting.YnVpbGQ.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/.firebase/hosting.YnVpbGQ.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/ChatComponent/ChatComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/ChatComponent/ChatComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/BazonSearchScreen/BazonSearchScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/BazonSearchScreen/BazonSearchScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/BazonSearchScreen/BazonSearchScreenView.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/BazonSearchScreen/BazonSearchScreenView.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/ChatComponent/ChatComponentView.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/ChatComponent/ChatComponentView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/ChatComponent/ChatInputComponent/ChatInputComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/ChatComponent/ChatInputComponent/ChatInputComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/ChatComponent/ChatInputComponent/ChatInputComponentView.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/ChatComponent/ChatInputComponent/ChatInputComponentView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RequestsSidebar/RequestsComponent/RequestItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RequestsSidebar/RequestsComponent/RequestItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RequestsSidebar/Searchbar/SearchbarView.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RequestsSidebar/Searchbar/SearchbarView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/ChatComponent/RequestInfoComponent/RequestInfoComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/ChatComponent/RequestInfoComponent/RequestInfoComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/ChatComponent/RequestInfoComponent/RequestInfoComponentView.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/ChatComponent/RequestInfoComponent/RequestInfoComponentView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RightSideMenu/PartLinksComponent/PartLinksComponentView.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RightSideMenu/PartLinksComponent/PartLinksComponentView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RightSideMenu/RequestActions/RequestActions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RightSideMenu/RequestActions/RequestActionsView.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RightSideMenu/RightSideMenuView.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RightSideMenu/RightSideMenuView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RightSideMenu/UserInfoComponent/UserInfoComponentView.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RightSideMenu/UserInfoComponent/UserInfoComponentView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cartalog-web-react[DEPRECATED]/src/Components/Content/TheTable/Dialogs/DialogChat.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react[DEPRECATED]/src/Components/Content/TheTable/Dialogs/DialogChat.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +62,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cartalog-web-react-v2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -88,6 +96,19 @@
       <workItem from="1603146026647" duration="1570000" />
       <workItem from="1603147645331" duration="2193000" />
       <workItem from="1603149943263" duration="169000" />
+      <workItem from="1603171065316" duration="463000" />
+      <workItem from="1603171603875" duration="7000" />
+      <workItem from="1603241745562" duration="693000" />
+      <workItem from="1603242462066" duration="29000" />
+      <workItem from="1603242497944" duration="806000" />
+      <workItem from="1603244256737" duration="803000" />
+      <workItem from="1603246120364" duration="1327000" />
+      <workItem from="1603322765222" duration="894000" />
+      <workItem from="1603324234893" duration="323000" />
+      <workItem from="1603324570977" duration="4000" />
+      <workItem from="1603324916496" duration="222000" />
+      <workItem from="1603325238077" duration="852000" />
+      <workItem from="1603333858237" duration="600000" />
     </task>
     <servers />
   </component>
@@ -110,9 +131,9 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1603150109979">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1603242489862">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603150109979" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603242489862" />
   </component>
 </project>

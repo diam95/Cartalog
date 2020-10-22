@@ -18,7 +18,7 @@ const App = () => {
     const [answeredRequests, setAnsweredRequests] = useState({});
     const [newMessages, setNewMessages] = useState([]);
 
-    //AUTH STATE, LOAD PARTNER DATA
+    /*//AUTH STATE, LOAD PARTNER DATA
     useEffect(() => {
 
         firebase.auth().onAuthStateChanged(user => {
@@ -306,7 +306,7 @@ const App = () => {
         handleAnsweredRequestsSort()
 
 
-    }, [requestsDataset, answeredRequests, newMessages])
+    }, [requestsDataset, answeredRequests, newMessages])*/
 
     return (
         <Router>

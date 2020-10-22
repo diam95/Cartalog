@@ -238,11 +238,11 @@ export default function DialogChat(props) {
         const vendorID = vendorData.vendorID;
         const file = event.target.files[0];
 
-        const storageRef = firebase.storage().ref(`chatImages`).child(city).child(type).child(requestKey).child(vendorID).child(file.name);
+        const storageRef = firebase.storage().ref(`chatImages`).child(city).child(type)
+            .child(requestKey).child(vendorID).child(file.name);
 
 
         const task = storageRef.put(event.target.files[0]);
-
         task.then((snap) => {
 
             const messagesRef = firebase.database().ref(`messages`).child(city).child(type).child(requestKey).child(vendorID).push();

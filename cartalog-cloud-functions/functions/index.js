@@ -1,4 +1,5 @@
 const functions = require('firebase-functions');
+const puppeteer = require('puppeteer');
 
 Object.defineProperty(exports, "__esModule", {value: true});
 
@@ -22,7 +23,7 @@ exports.messageCount = functions.database
         return Promise.all(allPromises);
     });
 
-exports.lastMessageTimestamp = functions.database
+exports.messageCountForVendors = functions.database
     .ref(`messages/{city}/{requestType}/{requestKey}/{vendorID}/{messageKey}`)
     .onWrite((change, context) => {
 
@@ -30,26 +31,10 @@ exports.lastMessageTimestamp = functions.database
 
         const partners2AnsweredRequestsRef = admin.database().ref(`partners2`)
             .child(context.params.vendorID).child(`answeredRequests`).child(context.params.requestKey)
-
         allPromises.push(partners2AnsweredRequestsRef.set(admin.database.ServerValue.TIMESTAMP))
 
-        return Promise.all(allPromises)
-
-    })
-
-exports.messageCountForVendors = functions.database
-    .ref(`messages/{city}/{requestType}/{requestKey}/{vendorID}/{messageKey}`)
-    .onWrite((change, context) => {
-
-        const allPromises = [];
-
-        console.log(change.after.child(`newWebMessage`).val())
 
         if (change.after.val().newWebMessage === 1) {
-
-            const partners2RefLastMessage = admin.database().ref(`partners2`).child(context.params.vendorID).child(`lastMessage`);
-            allPromises.push(partners2RefLastMessage.remove())
-            allPromises.push(partners2RefLastMessage.set(change.after.val()))
 
             const partners2RefNewMessageRef = admin.database().ref(`partners2`)
                 .child(context.params.vendorID).child(`newMessages`).child(context.params.requestKey)
@@ -169,5 +154,54 @@ exports.getPhoneNumber = functions.https.onCall((data, context) => {
             const phoneNumber = userRecord.phoneNumber;
             return {phoneNumber: phoneNumber}
         })
+
+});
+
+exports.getCarBrandsAndModels = functions.runWith({ memory: '1GB'}).https.onCall(async (data, context) => {
+
+    const URL = data.URL
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto(URL);
+
+    const carBrands = await page.evaluate(() => {
+
+        const result = {
+            brands: {},
+            models: {}
+        }
+
+        Array.from(document
+            .querySelectorAll("div.search-flex div.search-flex_cell ul.search-main li.search-main_item a.search-main__link"))
+            .forEach((brand, id) => {
+
+                if (brand.href.split("/").length === 5) {
+                    const text = brand.innerText.trim().toUpperCase()
+                    result["brands"][`${text}`] = id
+                } else {
+                    const brandName = brand.href.split("/")[3]
+
+                    const model = brand.innerText.trim()
+                    const model2 = model.split('.').join("").toUpperCase()
+
+                    if(result["models"][`${brandName}`]){
+                        result["models"][`${brandName}`][model2]=id
+                    } else {
+                        result["models"][`${brandName}`]={}
+                        result["models"][`${brandName}`][model2]=id
+                    }
+
+                }
+
+            })
+
+        return result
+
+    });
+
+    await browser.close();
+
+    return carBrands
 
 });

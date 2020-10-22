@@ -2,25 +2,25 @@ import React from "react";
 import {createStyles, makeStyles} from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import AddBoxIcon from '@material-ui/icons/AddBox';
-import {IconButton} from "@material-ui/core";
+import {Accordion, AccordionSummary, IconButton} from "@material-ui/core";
 import PartLinkItem from "./PartLinkItem/PartLinkItem";
 import Input from "@material-ui/core/Input";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import AccordionDetails from "@material-ui/core/AccordionDetails";
 
 const useStyles = makeStyles((theme) => createStyles({
 
     root: {
         width: "100%",
-        marginTop: theme.spacing(2),
         background: "white",
     },
-    contentContainer: {
-    },
+    contentContainer: {},
     plusIcon: {
+        marginRight:theme.spacing(1),
         "&:hover": {
             color: "green"
         },
         color: "#808080",
-        marginRight: theme.spacing(1)
     },
     linksContainer: {
         width: "100%",
@@ -32,6 +32,10 @@ const useStyles = makeStyles((theme) => createStyles({
     nothingInHere: {
         fontWeight: 500,
         padding: theme.spacing(3)
+    },
+    accordionSummary:{
+        minHeight:56,
+        fontWeight:"500"
     }
 
 }))
@@ -47,7 +51,6 @@ const PartLinksComponentView = (props) => {
     const request = props.request
 
     const classes = useStyles()
-
 
 
     const renderLinks = () => {
@@ -73,50 +76,63 @@ const PartLinksComponentView = (props) => {
 
     return (
 
-        <div className={classes.root}>
+        <Accordion>
+            <AccordionSummary expandIcon={<ExpandMoreIcon/>}
+                              aria-controls="panel1a-content"
+                              id="panel1a-header"
+                              className={classes.accordionSummary}
+            >
+                <div className={classes.accordionTitleContainer}>Ссылки на запчасти ({linksArray.length})</div>
+            </AccordionSummary>
+            <AccordionDetails style={{padding:0}}>
 
-            <div className={classes.contentContainer}>
+                <div className={classes.root}>
 
-                <Input id="outlined-basic"
-                       placeholder={"Ссылка"}
-                       value={linkInput}
-                       fullWidth={true}
-                       onChange={(event => {
-                           handleInputChange(event)
-                       })}
-                       endAdornment={
-                           <InputAdornment position="end">
-                               <div>
-                                   <IconButton className={classes.plusIcon}
-                                               onClick={() => {
-                                                   handleAddLink(linkInput)
-                                               }}
-                                   >
-                                       <AddBoxIcon/>
-                                   </IconButton>
-                               </div>
-                           </InputAdornment>
-                       }
-                       inputProps={{
-                           style: {
-                               paddingTop: 24,
-                               paddingBottom: 24,
-                               paddingLeft: 16,
-                               paddingRight: 16
-                           }
-                       }}
+                    <div className={classes.contentContainer}>
 
-                />
+                        <Input id="outlined-basic"
+                               placeholder={"Ссылка"}
+                               value={linkInput}
+                               fullWidth={true}
+                               onChange={(event => {
+                                   handleInputChange(event)
+                               })}
+                               endAdornment={
+                                   <InputAdornment position="end">
+                                       <div>
+                                           <IconButton className={classes.plusIcon}
+                                                       onClick={() => {
+                                                           handleAddLink(linkInput)
+                                                       }}
+                                           >
+                                               <AddBoxIcon/>
+                                           </IconButton>
+                                       </div>
+                                   </InputAdornment>
+                               }
+                               inputProps={{
+                                   style: {
+                                       paddingTop: 24,
+                                       paddingBottom: 24,
+                                       paddingLeft: 16,
+                                       paddingRight: 16
+                                   }
+                               }}
 
-                <div className={classes.linksContainer}>
+                        />
 
-                    {renderLinks()}
+                        <div className={classes.linksContainer}>
+
+                            {renderLinks()}
+
+                        </div>
+
+                    </div>
 
                 </div>
 
-            </div>
-
-        </div>
+            </AccordionDetails>
+        </Accordion>
 
     )
 

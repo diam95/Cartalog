@@ -59,18 +59,21 @@ const ChatInputComponentView = (props) => {
                                </InputAdornment>,
                            endAdornment:
                                <InputAdornment position="end">
-                                   <label htmlFor="contained-button-file">
-                                       <IconButton onClick={handleAttach}>
+                                   <IconButton style={{maxHeight:48}}>
+                                       <label htmlFor="contained-button-file">
                                            <input
                                                accept="image/*"
+                                               className={classes.inputNone}
                                                id="contained-button-file"
+                                               multiple
                                                type="file"
                                                onChange={handleAttach}
-                                               className={classes.inputNone}
                                            />
-                                           <AttachFileIcon/>
-                                       </IconButton>
-                                   </label>
+                                           <label htmlFor="contained-button-file">
+                                               <AttachFileIcon style={{transform:"rotate(45deg)",display:"flex",alignItems:"center",justifyContent:"center"}}/>
+                                           </label>
+                                       </label>
+                                   </IconButton>
                                    <IconButton onClick={handleSendMessage}>
                                        <SendIcon/>
                                    </IconButton>

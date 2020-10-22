@@ -72,7 +72,9 @@ const ChatComponentView = (props) => {
 
         <div className={classes.root}>
 
-            <RequestInfoComponent request={request}/>
+            <RequestInfoComponent request={request}
+                                  partnerData={partnerData}
+            />
 
             <div className={classes.messagesContainerRoot}>
 

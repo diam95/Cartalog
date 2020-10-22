@@ -1,6 +1,8 @@
 import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
-import {Divider} from "@material-ui/core";
+import {Divider, IconButton} from "@material-ui/core";
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
+import Tooltip from "@material-ui/core/Tooltip";
 
 const useStyles = makeStyles(() => ({
 
@@ -41,6 +43,7 @@ const RequestInfoComponentView = (props) => {
     const classes = useStyles()
 
     const request = props.request
+    const handleUnseen = props.handleUnseen
 
     return (
 
@@ -59,6 +62,14 @@ const RequestInfoComponentView = (props) => {
                 </div>
 
             </div>
+
+            <Tooltip title={"В непрочитанное"}>
+                <IconButton onClick={handleUnseen}>
+                    <VisibilityOffIcon/>
+                </IconButton>
+            </Tooltip>
+
+
 
             <Divider orientation={"vertical"}/>
 

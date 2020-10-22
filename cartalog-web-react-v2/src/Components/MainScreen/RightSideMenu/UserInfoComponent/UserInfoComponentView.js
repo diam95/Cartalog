@@ -1,15 +1,16 @@
 import React from "react";
-import {makeStyles} from "@material-ui/core/styles";
-import {Divider} from "@material-ui/core";
+import {createStyles, makeStyles} from "@material-ui/core/styles";
+import {Accordion, AccordionSummary, Divider} from "@material-ui/core";
+import AccordionDetails from "@material-ui/core/AccordionDetails";
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => createStyles({
 
     root: {
         width:"100%",
         background:"white"
     },
     contentContainer:{
-        padding: theme.spacing(2)
     },
     titleText: {
         fontWeight: 500,
@@ -23,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
         color: "#6d6d6d"
     },
     requestContainer:{
-        padding: theme.spacing(2),
         "&:hover":{
             background:"#eee"
         }
@@ -45,6 +45,10 @@ const useStyles = makeStyles((theme) => ({
         width:"100%",
         color:"green",
         textAlign:"center"
+    },
+    accordionSummary:{
+        minHeight:56,
+        fontWeight:"500"
     }
 
 }))
@@ -97,36 +101,47 @@ const UserInfoComponentView = (props) => {
 
     return (
 
-        <div className={classes.root}>
+        <Accordion>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}
+                                  aria-controls="panel1a-content"
+                                  id="panel1a-header"
+                                  className={classes.accordionSummary}
+                >
+                    <div className={classes.accordionTitleContainer}>Информация о пользователе</div>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <div className={classes.root}>
 
-            <div className={classes.contentContainer}>
+                        <div className={classes.contentContainer}>
 
-                <div className={classes.subtitleText}>Дата создания заявки:
-                    <span className={classes.titleText}>{renderTime(-request.timestamp)}</span>
-                </div>
-                <div className={classes.subtitleText}>Юзер:
-                    <span className={classes.titleText}>{phoneNumber}</span>
-                </div>
-                <div className={classes.subtitleText}>Был онлайн:
-                    <span className={classes.titleText}>{renderTime(userData.lastOnline)}</span>
-                </div>
-                <div className={classes.subtitleText}>Платформа:
-                    <span className={classes.titleText}>{userData.client}</span>
-                </div>
+                            <div className={classes.subtitleText}>Дата создания заявки:
+                                <span className={classes.titleText}>{renderTime(-request.timestamp)}</span>
+                            </div>
+                            <div className={classes.subtitleText}>Юзер:
+                                <span className={classes.titleText}>{phoneNumber}</span>
+                            </div>
+                            <div className={classes.subtitleText}>Был онлайн:
+                                <span className={classes.titleText}>{renderTime(userData.lastOnline)}</span>
+                            </div>
+                            <div className={classes.subtitleText}>Платформа:
+                                <span className={classes.titleText}>{userData.client}</span>
+                            </div>
 
-            </div>
+                        </div>
 
-            <Divider orientation={"horizontal"}/>
+                        <Divider orientation={"horizontal"}/>
 
-            <div className={classes.requestsContainer}>
+                        <div className={classes.requestsContainer}>
 
-                <div className={classes.requestsCount}>Заявки пользователя ({userRequests.length})</div>
+                            <div className={classes.requestsCount}>Заявки пользователя ({userRequests.length})</div>
 
-                {renderRequests()}
+                            {renderRequests()}
 
-            </div>
+                        </div>
 
-        </div>
+                    </div>
+                </AccordionDetails>
+            </Accordion>
 
     )
 
