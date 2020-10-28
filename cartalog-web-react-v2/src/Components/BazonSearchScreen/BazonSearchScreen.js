@@ -6,50 +6,52 @@ import "firebase/database";
 
 const BazonSearchScreen = () => {
 
-    const [partNames, setPartNames] = useState([]);
-    const [carBrands, setCarBrands] = useState([]);
-    const [carModels, setCarModels] = useState([]);
+    const [carBrands, setCarBrands] = useState([])
+    const [carModels, setCarModels] = useState([])
+    const [partNames, setPartNames] = useState([])
+    const [partHrefs, setPartHrefs] = useState([])
 
-    const [brandInput, setBrandInput] = useState("");
-    const [modelInput, setModelInput] = useState("");
-    const [partNameInput, setPartNameInput] = useState("");
+    const [brandInput, setBrandInput] = useState("")
+    const [modelInput, setModelInput] = useState("")
+    const [partNameInput, setPartNameInput] = useState("")
 
-    console.log({brandInput})
+    const [loadingBrands, setLoadingBrands] = useState(false)
+    const [loadingModels, setLoadingModels] = useState(false)
+    const [loadingParts, setLoadingParts] = useState(false)
 
-    const [url, setUrl] = useState("");
-
-    useEffect(() => {
-
-        if (brandInput.length > 1) {
-
-            console.log("Search brands")
-
-            const carBrandsRef = firebase.database().ref('parser').child('brands')
-            carBrandsRef.orderByKey()
-                .startAt(brandInput)
-                .endAt(brandInput + "\uf8ff")
-                .once('value', snap => {
-
-                }).then(r => {
-
-                if (r.exists()) {
-
-                    console.log(r.val())
-                    setCarBrands(Object.keys(r.val()))
-                }
-
-            })
-
-        }
-
-    }, [brandInput])
+    const [partsList, setPartsList] = useState([])
+    const [url, setUrl] = useState("")
+    console.log(url)
 
     useEffect(() => {
 
-        if (modelInput.length > 1) {
+        setLoadingBrands(true)
+        const carBrandsRef = firebase.database().ref('parser').child('brands')
+        carBrandsRef.orderByKey()
+            .once('value', snap => {
 
-            console.log("Search model")
+            }).then(r => {
 
+            if (r.exists()) {
+
+                console.log(r.val())
+                setCarBrands(Object.keys(r.val()))
+
+            }
+
+            setLoadingBrands(false)
+
+        })
+
+    }, [])
+
+    useEffect(() => {
+
+        console.log("Search model")
+
+        setLoadingModels(true)
+
+        if (brandInput.length > 0) {
             const carBrandsRef = firebase.database().ref('parser').child('models').child(brandInput.toLowerCase())
             carBrandsRef.orderByKey()
                 .startAt(modelInput.toUpperCase())
@@ -63,17 +65,20 @@ const BazonSearchScreen = () => {
                     setCarModels(Object.keys(r.val()))
                 }
 
-            })
+                setLoadingModels(false)
 
+            })
         }
 
-    }, [modelInput,brandInput])
+    }, [modelInput, brandInput])
 
     useEffect(() => {
 
         if (partNameInput.length > 1) {
 
             console.log("Search")
+
+            setLoadingParts(true)
 
             const partNamesRef = firebase.database().ref('parser').child('categories')
             partNamesRef.orderByChild('category')
@@ -86,14 +91,31 @@ const BazonSearchScreen = () => {
                 console.log(r.val())
 
                 if (r.exists()) {
-                    setPartNames(Object.values(r.val()))
+                    const partNamesTemp = Object.values(r.val())
+                    setPartNames(partNamesTemp)
+
+                    const hrefs = partNamesTemp.map(part => {
+                        return part.href
+                    })
+                    setPartHrefs(hrefs)
+
                 }
+
+                setLoadingParts(false)
 
             })
 
         }
 
     }, [partNameInput])
+
+    useEffect(() => {
+
+        const partHref = partHrefs[0]
+
+        setUrl(brandInput.toLowerCase() + "/" + modelInput.toLowerCase() + "/" + partHref)
+
+    }, [brandInput, modelInput, partHrefs, partNameInput, partNames])
 
     const handleInputChange = (id, event) => {
 
@@ -134,15 +156,10 @@ const BazonSearchScreen = () => {
 
     const handleSearch = () => {
 
-        const search = firebase.functions().httpsCallable('getCarBrandsAndModels')
-        search({URL:"https://1000zp.ru/"}).then(function(result) {
+        const getCarParts = firebase.functions().httpsCallable('getCarParts');
+        getCarParts({URL: url}).then(function (result) {
             console.log(result.data)
-
-            const brandsRef = firebase.database().ref("parser").child("brands")
-            brandsRef.set(result.data.brands)
-            const modelsRef = firebase.database().ref("parser").child("models")
-            modelsRef.set(result.data.models)
-
+            setPartsList(Array.from(result.data))
         });
 
     }
@@ -155,8 +172,11 @@ const BazonSearchScreen = () => {
                                brandInput={brandInput}
                                modelInput={modelInput}
                                partNameInput={partNameInput}
-                               url={url}
                                handleSearch={handleSearch}
+                               loadingBrands={loadingBrands}
+                               loadingModels={loadingModels}
+                               loadingParts={loadingParts}
+                               partsList={partsList}
         />
     )
 

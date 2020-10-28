@@ -157,7 +157,7 @@ exports.getPhoneNumber = functions.https.onCall((data, context) => {
 
 });
 
-exports.getCarBrandsAndModels = functions.runWith({ memory: '1GB'}).https.onCall(async (data, context) => {
+exports.getCarBrandsAndModels = functions.runWith({memory: '1GB'}).https.onCall(async (data, context) => {
 
     const URL = data.URL
 
@@ -185,11 +185,11 @@ exports.getCarBrandsAndModels = functions.runWith({ memory: '1GB'}).https.onCall
                     const model = brand.innerText.trim()
                     const model2 = model.split('.').join("").toUpperCase()
 
-                    if(result["models"][`${brandName}`]){
-                        result["models"][`${brandName}`][model2]=id
+                    if (result["models"][`${brandName}`]) {
+                        result["models"][`${brandName}`][model2] = id
                     } else {
-                        result["models"][`${brandName}`]={}
-                        result["models"][`${brandName}`][model2]=id
+                        result["models"][`${brandName}`] = {}
+                        result["models"][`${brandName}`][model2] = id
                     }
 
                 }
@@ -203,5 +203,57 @@ exports.getCarBrandsAndModels = functions.runWith({ memory: '1GB'}).https.onCall
     await browser.close();
 
     return carBrands
+
+});
+
+exports.getCarParts = functions.runWith({memory: '1GB'}).https.onCall(async (data, context) => {
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+
+    const URL = "https://1000zp.ru/" + data.URL
+
+    console.log({URL})
+
+
+    await page.goto(URL);
+
+    const imageSrcs = await page.evaluate(() => {
+
+        return Array.from(document.querySelectorAll("div.pads-box_image img")).map(image => {
+            return image.src
+        })
+
+    });
+
+    const titles = await page.evaluate(() => {
+
+        return Array.from(document.querySelectorAll("div.pads-box__layout a")).map(title => {
+            return title.innerText.trim()
+        })
+
+    });
+
+    const prices = await page.evaluate(() => {
+
+        return Array.from(document.querySelectorAll("span.pads-box__cost")).map(price => {
+            return price.innerText.trim()
+        })
+
+    });
+
+    const result = titles.map((title,id)=>{
+
+        return({
+            imageSrc: imageSrcs[id],
+            title: titles[id],
+            price: prices[id]
+        })
+
+    })
+
+    await browser.close();
+
+    return result
 
 });
