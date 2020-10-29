@@ -1,10 +1,10 @@
 import React from 'react'
-import SearchComponentView from "./SearchComponentView";
+import BlankComponentView from "./BlankComponentView";
 
 const SearchComponent = () => {
 
     return (
-        <SearchComponentView/>
+        <BlankComponentView/>
     )
 
 }
