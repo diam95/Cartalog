@@ -1,70 +1,73 @@
 import React, {useEffect, useState} from 'react'
 import 'fontsource-roboto';
 import {
-  BrowserRouter as Router,Switch,Route
+    BrowserRouter as Router, Switch, Route
 } from "react-router-dom";
 import HomeScreen from "./Screens/HomeScreen/HomeScreen";
 import firebase from "firebase/app";
 import "firebase/database";
 
-const App =() =>{
+const App = () => {
 
-    const [carBrands, setCarBrands] = useState([]);
-    const [carModels, setCarModels] = useState([]);
-    console.log(carBrands)
+    const [filterState, setFilterState] = useState({
+        brands: [],
+        models: {},
+        parts_filter: [],
+        parts_filter_detailed:{}
+    });
+    const [partsState, setPartsState] = useState({});
 
-    useEffect(()=>{
+    console.log({partsState})
+    console.log({filterState})
 
-        const brandsRef = firebase.database().ref("car_brands")
-        brandsRef.once('value', snap => {
+    useEffect(() => {
 
-            console.log(snap.val())
+        const brandsRef = firebase.database().ref('brands_models/brands')
+        const modelsRef = firebase.database().ref('brands_models/models')
 
-            if (snap.exists()) {
+        const partsFilterRef = firebase.database().ref('parts_filter')
 
-                const data = Array.from(Object.keys(snap.val()))
-                setCarBrands(data)
+        const allPromises = []
 
-            }
+        allPromises.push(brandsRef.once('value').then(r => {
+            return r.val()
+        }))
+        allPromises.push(modelsRef.once('value').then(r => {
+            return r.val()
+        }))
+        allPromises.push(partsFilterRef.once('value').then(r => {
+            return r.val()
+        }))
 
-        }).then(r =>{
+        Promise.all(allPromises).then(r => {
+
+            const brand = r[0]
+            const models = r[1]
+            const parts_filter = r[2]
+
+            setFilterState({brands: brand, models: models, parts_filter: parts_filter,parts_filter_detailed: {}})
 
         })
 
-    },[])
-
-    useEffect(()=>{
-
-        const brandsRef = firebase.database().ref("car_models")
-        brandsRef.once('value', snap => {
-
-            if (snap.exists()) {
-
-                setCarModels(snap.val())
-
-            }
-
-        }).then(r =>{
-
-        })
-
-    },[])
+    }, [])
 
     return (
-      <Router>
-        <div>
-          <Switch>
+        <Router>
+            <div>
+                <Switch>
 
-            <Route path="/">
-              <HomeScreen carBrands={carBrands}
-                          carModels={carModels}
-              />
-            </Route>
+                    <Route path="/">
+                        <HomeScreen filterState={filterState}
+                                    setFilterState={setFilterState}
+                                    partsState={partsState}
+                                    setPartsState={setPartsState}
+                        />
+                    </Route>
 
-          </Switch>
-        </div>
-      </Router>
-  );
+                </Switch>
+            </div>
+        </Router>
+    );
 }
 
 export default App;

@@ -1,10 +1,10 @@
 import React from 'react'
 import {createStyles, makeStyles} from "@material-ui/core/styles";
 import HeaderComponent from "../../Components/HeaderComponent/HeaderComponent";
-import Grid from "@material-ui/core/Grid";
-import CarPickerComponent from "../../Components/CarPickerComponent/CarPickerComponent";
-import NavBarComponentView from "../../Components/NavBarComponent/NavBarComponentView";
+import FilterComponent from "../../Components/FilterComponent/FilterComponent";
 import NavBarComponent from "../../Components/NavBarComponent/NavBarComponent";
+import PartsFeedComponent from "../../Components/PartsFeedComponent/PartsFeedComponent";
+import PartNamesComponent from "../../Components/PartNamesComponent/PartNamesComponent";
 
 const useStyles = makeStyles((theme) => createStyles({
 
@@ -21,9 +21,6 @@ const HomeScreenView = (props) => {
 
     const classes = useStyles()
 
-    const carBrands = props.carBrands
-    const carModels = props.carModels
-
     return (
         <div className={classes.root}>
 
@@ -31,8 +28,17 @@ const HomeScreenView = (props) => {
 
             <NavBarComponent/>
 
-            <CarPickerComponent carBrands={carBrands}
-                                carModels={carModels}
+            <FilterComponent filterState={props.filterState}
+                             partsState={props.partsState}
+                             setPartsState={props.setPartsState}
+            />
+
+            <PartNamesComponent filterState={props.filterState}/>
+
+            <PartsFeedComponent partsState={props.partsState}
+                                setFilterState={props.setFilterState}
+                                setPartsState={props.setPartsState}
+                                filterState={props.filterState}
             />
 
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import BlankComponentView from "./BlankComponentView";
 
-const SearchComponent = () => {
+const BlankComponent = () => {
 
     return (
         <BlankComponentView/>
@@ -9,4 +9,4 @@ const SearchComponent = () => {
 
 }
 
-export default SearchComponent
+export default BlankComponent

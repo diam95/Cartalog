@@ -10,8 +10,7 @@ const useStyles = makeStyles((theme) => createStyles({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-evenly",
-        width: "100%",
-        padding:theme.spacing(1)
+        width: "100%"
     },
     titleContainer:{
         display: "flex",
