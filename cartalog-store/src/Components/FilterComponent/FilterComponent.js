@@ -4,60 +4,75 @@ import {useLocation, useHistory} from "react-router-dom";
 
 const FilterComponent = (props) => {
 
+    const matches = props.matches
+
     const locationArray = useLocation().pathname.split("/")
     const history = useHistory()
 
-    const [_height, setHeight] = useState(100);
+    const [_height, setHeight] = useState(0);
 
     useEffect(() => {
 
-        if (locationArray[1].length > 0 && !locationArray[2]) {
+            if (locationArray[1].length > 0 && !locationArray[2]) {
 
-            if (locationArray[1] === "partsFilter") {
+                if (locationArray[1] === "partsFilter") {
 
-            } else {
+                } else {
+
+                    if (props.filterState.models[locationArray[1]]) {
+
+                        if (props.filterState.models[locationArray[1]].length > 0) {
+
+                            if (matches) {
+                                const count = Object.values(props.filterState.models[locationArray[1]]).length * 20
+                                setHeight(count)
+                            } else {
+                                const count = Object.values(props.filterState.models[locationArray[1]]).length * 10
+                                setHeight(count)
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            } else if (locationArray[2]) {
 
                 if (props.filterState.models[locationArray[1]]) {
 
                     if (props.filterState.models[locationArray[1]].length > 0) {
 
-                        const count = props.filterState.models[locationArray[1]].length * 10
+                        if (matches) {
+                            const count = Object.values(props.filterState.brands).length * 20
+                            setHeight(count)
+                        } else {
+                            const count = Object.values(props.filterState.brands).length * 10
+                            setHeight(count)
+                        }
 
+                    }
+
+                }
+
+            } else {
+
+                if (Object.values(props.filterState.brands).length > 0) {
+
+                    if (matches) {
+                        const count = Object.values(props.filterState.brands).length * 18
                         setHeight(count)
-
+                    } else {
+                        const count = Object.values(props.filterState.brands).length * 10
+                        setHeight(count)
                     }
 
                 }
 
             }
 
-        } else if (locationArray[2]) {
-
-            if (props.filterState.models[locationArray[1]]) {
-
-                if (props.filterState.models[locationArray[1]].length > 0) {
-
-                    const count = props.filterState.models[locationArray[1]].length * 10
-
-                    setHeight(count)
-
-                }
-
-            }
-
-        } else {
-
-            if (props.filterState.brands.length > 0) {
-
-                const count = props.filterState.brands.length * 10
-
-                setHeight(count)
-
-            }
-
-        }
-
-    }, [props.filterState, locationArray])
+        }, [props.filterState, locationArray, matches]
+    )
 
     const handleBrandSelect = (brand) => {
 
@@ -93,6 +108,7 @@ const FilterComponent = (props) => {
                              partsState={props.partsState}
                              setPartsState={props.setPartsState}
                              _height={_height}
+                             matches={matches}
 
         />
     )

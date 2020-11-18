@@ -1,10 +1,13 @@
 import React from 'react'
 import NavBarComponentView from "./NavBarComponentView";
 
-const NavBarComponent = () => {
+const NavBarComponent = (props) => {
+
+    console.log("NavBarComponent")
 
     return (
-        <NavBarComponentView/>
+        <NavBarComponentView matches={props.matches}
+        />
     )
 
 }

@@ -1,7 +1,10 @@
 import React from 'react'
 import {createStyles, makeStyles} from "@material-ui/core/styles";
 import logo from "../../assets/logo.png";
-import {Button} from "@material-ui/core";
+import {Button, Typography} from "@material-ui/core";
+import Switch from "@material-ui/core/Switch";
+import Brightness7Icon from "@material-ui/icons/Brightness7";
+import Brightness3Icon from "@material-ui/icons/Brightness3";
 
 const useStyles = makeStyles((theme) => createStyles({
 
@@ -10,29 +13,26 @@ const useStyles = makeStyles((theme) => createStyles({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-evenly",
-        width: "100%"
+        width: "100%",
+        overflow:"auto"
     },
-    titleContainer:{
+    titleContainer: {
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "flex-start",
-        padding:theme.spacing(3),
+        padding: theme.spacing(3),
     },
-    logo:{
-        width:60,
-        height:60,
-        cursor:"pointer"
+    logo: {
+        width: 60,
+        height: 60,
+        cursor: "pointer"
     },
     titleText: {
-        marginLeft:theme.spacing(3),
-        color: "#31313d",
-        fontSize: 36,
-        fontWeight: 500,
-        textAlign:"center",
-        cursor:"pointer"
+        marginLeft: theme.spacing(3),
+        cursor: "pointer"
     },
-    desrContainer:{
+    desrContainer: {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => createStyles({
         fontSize: 20,
         fontWeight: 500
     },
-    contactsContainer:{
+    contactsContainer: {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -53,9 +53,11 @@ const useStyles = makeStyles((theme) => createStyles({
 
 const HeaderComponentView = (props) => {
 
+    console.log("HeaderComponentView")
+
     const classes = useStyles()
 
-    const handleGoToMainPage =props.handleGoToMainPage
+    const handleGoToMainPage = props.handleGoToMainPage
 
     return (
         <div className={classes.root}>
@@ -64,7 +66,8 @@ const HeaderComponentView = (props) => {
 
                 <img src={logo} alt="Карталог логотип" className={classes.logo} onClick={handleGoToMainPage}/>
 
-                <div className={classes.titleText} onClick={handleGoToMainPage}>Cartalog</div>
+                <Typography variant={"h4"} className={classes.titleText}
+                            onClick={handleGoToMainPage}>Cartalog</Typography>
 
             </div>
 
@@ -81,6 +84,15 @@ const HeaderComponentView = (props) => {
             <Button variant={"outlined"} color={"primary"}>
                 Корзина пуста
             </Button>
+
+            <Switch
+                icon={<Brightness7Icon style={{color: "#eccb28", marginTop: -2}}/>}
+                checkedIcon={<Brightness3Icon style={{marginLeft: 0, color: "#afaea6", marginTop: -2}}/>}
+                color={"primary"}
+                checked={props.darkMode}
+                onChange={() => {
+                    props.setDarkMode(!props.darkMode)
+                }}/>
 
         </div>
     )

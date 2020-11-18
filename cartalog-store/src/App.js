@@ -6,6 +6,8 @@ import {
 import HomeScreen from "./Screens/HomeScreen/HomeScreen";
 import firebase from "firebase/app";
 import "firebase/database";
+import {ThemeProvider, createMuiTheme} from "@material-ui/core/styles";
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 const App = () => {
 
@@ -13,9 +15,11 @@ const App = () => {
         brands: [],
         models: {},
         parts_filter: [],
-        parts_filter_detailed:{}
+        parts_filter_detailed: {}
     });
-    const [partsState, setPartsState] = useState({});
+    const [partsState, setPartsState] = useState({
+        all_parts_by_partNames: {}
+    });
 
     console.log({partsState})
     console.log({filterState})
@@ -45,28 +49,44 @@ const App = () => {
             const models = r[1]
             const parts_filter = r[2]
 
-            setFilterState({brands: brand, models: models, parts_filter: parts_filter,parts_filter_detailed: {}})
+            setFilterState({brands: brand, models: models, parts_filter: parts_filter, parts_filter_detailed: {}})
 
         })
 
     }, [])
 
+    const [darkMode, setDarkMode] = useState(false);
+    const theme = React.useMemo(
+        () =>
+            createMuiTheme({
+                palette: {
+                    type: darkMode ? 'dark' : 'light',
+                },
+            }),
+        [darkMode],
+    );
+
     return (
-        <Router>
-            <div>
-                <Switch>
+        <ThemeProvider theme={theme}>
+            <CssBaseline/>
+            <Router>
+                <div>
+                    <Switch>
 
-                    <Route path="/">
-                        <HomeScreen filterState={filterState}
-                                    setFilterState={setFilterState}
-                                    partsState={partsState}
-                                    setPartsState={setPartsState}
-                        />
-                    </Route>
+                        <Route path="/">
+                            <HomeScreen filterState={filterState}
+                                        setFilterState={setFilterState}
+                                        partsState={partsState}
+                                        setPartsState={setPartsState}
+                                        darkMode={darkMode}
+                                        setDarkMode={setDarkMode}
+                            />
+                        </Route>
 
-                </Switch>
-            </div>
-        </Router>
+                    </Switch>
+                </div>
+            </Router>
+        </ThemeProvider>
     );
 }
 

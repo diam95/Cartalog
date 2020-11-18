@@ -1,41 +1,50 @@
 import React, {useEffect, useState} from 'react'
-import PartNamesComponentView from "./PartNamesComponentView";
 import {useLocation} from 'react-router-dom'
+import PartNamesComponentView from "./PartNamesComponentView";
 
 const PartNamesComponent = (props) => {
 
     const filterState = props.filterState
 
     const [parts_filter, setPartsFilter] = useState({});
-    const [_height, setHeight] = useState({height: 2000});
 
+    console.log(parts_filter)
     const location = useLocation()
 
     useEffect(() => {
 
+        console.log(location.pathname)
+
         if (location.pathname.split("/").length === 3) {
 
-            const brand = location.pathname.split("/")[1]
-            const model = location.pathname.split("/")[2]
+            if (location.pathname.split("/")[1] === "partsFilter") {
 
-            if (filterState.parts_filter_detailed[brand]) {
+                setPartsFilter({})
 
-                if (filterState.parts_filter_detailed[brand][model]) {
+            } else {
 
-                    const temp = filterState.parts_filter_detailed[brand][model]
+                const brand = location.pathname.split("/")[1]
+                const model = location.pathname.split("/")[2]
 
-                    const partsFilterTemp = {}
-                    temp.forEach(partName => {
+                if (filterState.parts_filter_detailed[brand]) {
 
-                        const href = Object.keys(filterState.parts_filter)[Object.values(filterState.parts_filter).indexOf(partName)]
-                        partsFilterTemp[href] = partName
+                    if (filterState.parts_filter_detailed[brand][model]) {
 
-                    })
+                        const temp = filterState.parts_filter_detailed[brand][model]
 
-                    setPartsFilter(partsFilterTemp)
+                        const partsFilterTemp = {}
+                        temp.forEach(partName => {
+
+                            const href = Object.keys(filterState.parts_filter)[Object.values(filterState.parts_filter).indexOf(partName)]
+                            partsFilterTemp[href] = partName
+
+                        })
+
+                        setPartsFilter(partsFilterTemp)
+
+                    }
 
                 }
-
             }
 
         } else if (location.pathname.split("/")[1] === "partsFilter") {
@@ -46,15 +55,25 @@ const PartNamesComponent = (props) => {
 
     }, [location, filterState])
 
-    useEffect(() => {
+    const renderContent = () => {
 
-        const count = Object.keys(parts_filter).length * 16
-        setHeight({height: count})
+        if (location.pathname.includes("partsFilter") || location.pathname.split("/").length === 3) {
+            return (
+                <div><PartNamesComponentView parts_filter={parts_filter}
+                                             matches={props.matches}/></div>
 
-    }, [parts_filter])
+            )
+        } else {
+            return <div hidden={true}><PartNamesComponentView parts_filter={parts_filter}
+                                                              matches={props.matches}/></div>
+        }
+
+    }
 
     return (
-        <PartNamesComponentView parts_filter={parts_filter} _height={_height}/>
+        <div style={{width: "100%"}}>
+            {renderContent()}
+        </div>
     )
 
 }

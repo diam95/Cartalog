@@ -1,7 +1,8 @@
-import React from 'react'
-import {createStyles, makeStyles} from "@material-ui/core/styles";
-import {Grid} from "@material-ui/core";
-import {useLocation} from "react-router-dom"
+import React, {useState} from 'react'
+import {createStyles, makeStyles, useTheme} from "@material-ui/core/styles";
+import {Button, Grid} from "@material-ui/core";
+import {useLocation, useHistory} from "react-router-dom"
+import Avatar from "@material-ui/core/Avatar";
 
 const useStyles = makeStyles((theme) => createStyles({
 
@@ -9,22 +10,27 @@ const useStyles = makeStyles((theme) => createStyles({
         width: "100%"
     },
     partTitlesContainer: {
+        marginTop: theme.spacing(2),
+        width: "80%",
+        marginLeft: "10%",
+        display: "flex",
+        flexFlow: "column wrap",
+        justifyContent: "flex-start",
+        alignItems: "flex-start"
+    },
+    partTitlesContainer2: {
+        marginTop: theme.spacing(1),
+        paddingLeft:theme.spacing(1),
+        width: "100%",
         display: "flex",
         flexFlow: "column wrap",
         justifyContent: "flex-start",
         alignItems: "flex-start"
     },
     partLinkContainer: {
-        marginTop: theme.spacing(1)
     },
     partLink: {
-        textDecoration: "none",
-        cursor: "pointer",
-        color: "black",
-        "&:hover": {
-            color: "blue",
-            textDecoration: "underline"
-        }
+        justifyContent: "flex-start"
     },
     letterContainer: {
         background: "#d4d4f6",
@@ -37,30 +43,49 @@ const useStyles = makeStyles((theme) => createStyles({
         fontSize: 18,
         fontWeight: 700,
         color: "#292938",
-        marginBottom: theme.spacing(2)
     },
     letterPartsContainer: {
-        marginTop: theme.spacing(1),
-        padding: theme.spacing(1)
+        marginBottom:theme.spacing(3),
+        display: "flex",
+        flexFlow: "column wrap"
+    },
+    searchContainer: {
+        width: "90%",
+        marginLeft: "5%"
     }
+
 }))
 
 const PartNamesComponentView = (props) => {
+
+    const matches = props.matches
 
     const parts_filter = props.parts_filter
 
     const classes = useStyles()
 
     const location = useLocation()
+    const history = useHistory()
+    const [_height, setHeight] = useState({height: 0});
+
+    console.log(_height)
 
     const getHref = (href) => {
 
         const brand = location.pathname.split('/')[1]
         const model = location.pathname.split('/')[2]
 
-        const result = "/" + brand + "/" + model + "/" + href
+        if (model) {
 
-        return result
+            const result = "/" + brand + "/" + model + "/" + href
+            return result
+
+        } else {
+
+            const result = "/" + brand + "/" + href
+            return result
+
+        }
 
     }
 
@@ -70,14 +95,14 @@ const PartNamesComponentView = (props) => {
 
             const res = {}
 
-            const lettersArray = Array.from(new Set(Object.values(parts_filter).map(part_name => {
-                return part_name[0]
-            }))).sort()
+            const lettersArray = []
 
             const partHrefs = Object.keys(parts_filter)
             const partNames = Object.values(parts_filter)
 
             partNames.forEach((part_name, ind) => {
+
+                lettersArray.push([part_name[0]].toString())
 
                 if (res[part_name[0]]) {
 
@@ -101,15 +126,18 @@ const PartNamesComponentView = (props) => {
 
             const renderPartNames = (letter) => {
 
+                const partNames1 = Object.values(res[letter])
                 const partNames = Object.values(res[letter])
                 const partHrefs = Object.keys(res[letter])
 
-                return partNames.map((part_name, idx) => {
+                return partNames.sort().map((part_name) => {
 
+                    const idx = partNames1.indexOf(part_name)
                     return (
                         <div className={classes.partLinkContainer} key={part_name}>
-                            <a className={classes.partLink}
-                               href={`${getHref(partHrefs[idx])}`}>{part_name}</a>
+                            <Button classes={{root: classes.partLink}} size={"small"} key={part_name} onClick={() => {
+                                history.push(getHref(partHrefs[idx]))
+                            }}>{part_name}</Button>
                         </div>
                     )
 
@@ -117,16 +145,45 @@ const PartNamesComponentView = (props) => {
 
             }
 
-            return lettersArray.map(letter => {
+            const lettersArraySorted = Array.from(new Set(lettersArray)).sort()
+
+            if(matches){
+                const height = {height: lettersArraySorted.length * 72 + partNames.length * 31}
+                if (height.height !== _height.height) {
+                    setHeight(height)
+                }
+            } else {
+                const height = {height: lettersArraySorted.length * 36 + partNames.length * 10}
+                if (height.height !== _height.height) {
+                    setHeight(height)
+                }
+            }
+
+
+
+
+            return lettersArraySorted.map(letter => {
 
                 return (
                     <div className={classes.letterPartsContainer} key={letter}>
-                        <div className={classes.letterContainer}>{letter}</div>
+                        <Avatar style={{background: "#485ab8"}}>{letter.toString()}</Avatar>
+                        <div style={{height: 8}}/>
                         {renderPartNames(letter)}
                     </div>
                 )
 
             })
+
+        }
+
+    }
+
+    const getStyle = () => {
+
+        if (matches) {
+            return classes.partTitlesContainer2
+        } else {
+            return classes.partTitlesContainer
         }
 
     }
@@ -135,13 +192,15 @@ const PartNamesComponentView = (props) => {
         <div className={classes.root}>
             <Grid container spacing={0}>
 
-                <Grid item lg={2} xl={2} sm={0} md={0} xs={0}></Grid>
+                <Grid item lg={2} xl={2} sm={false} md={false} xs={false}></Grid>
 
                 <Grid item lg={8} xl={8} sm={12} md={12} xs={12}>
-                    <div className={classes.partTitlesContainer} style={props._height}>{renderPartNames()}</div>
+
+                    <div className={getStyle()} style={_height}>{renderPartNames()}</div>
+
                 </Grid>
 
-                <Grid item lg={2} xl={2} sm={0} md={0} xs={0}></Grid>
+                <Grid item lg={2} xl={2} sm={false} md={false} xs={false}></Grid>
 
             </Grid>
 

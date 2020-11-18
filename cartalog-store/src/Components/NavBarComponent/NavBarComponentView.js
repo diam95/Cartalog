@@ -1,5 +1,6 @@
 import React from 'react'
 import {createStyles, makeStyles} from "@material-ui/core/styles";
+import {useHistory} from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => createStyles({
 
@@ -10,11 +11,22 @@ const useStyles = makeStyles((theme) => createStyles({
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
-        justifyContent: "space-evenly"
+        justifyContent: "space-evenly",
+        overflowX: "auto "
+    },
+    root2: {
+        width: "100%",
+        background: "#373b50",
+        height: 48,
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "flex-start",
+        overflowX: "auto "
     },
     title: {
-        paddingLeft:theme.spacing(3),
-        paddingRight:theme.spacing(3),
+        paddingLeft: theme.spacing(3),
+        paddingRight: theme.spacing(3),
         textAlign: "center"
     },
     titleContainer: {
@@ -24,37 +36,76 @@ const useStyles = makeStyles((theme) => createStyles({
         justifyContent: "center",
         height: "100%",
         color: "white",
-        "&:hover":{
+        "&:hover": {
             background: "grey"
         },
-        cursor:"pointer"
+        cursor: "pointer"
     }
 
 }))
 
-const NavBarComponentView = () => {
+const NavBarComponentView = (props) => {
+
+    console.log("NavBarComponentView")
+
+    const matches = props.matches
+
+    const getStyle = () => {
+
+        if (matches) {
+            return classes.root2
+        } else {
+            return classes.root
+        }
+    }
 
     const classes = useStyles()
 
-    return (
-        <div className={classes.root}>
+    const history = useHistory()
 
-            <div className={classes.titleContainer}>
-                <div className={classes.title}>Автозапчасти</div>
+    return (
+        <div className={getStyle()}>
+
+            <div className={classes.titleContainer} onClick={() => {
+                history.push("/")
+            }}>
+                <div className={classes.title} onClick={() => {
+                    history.push("/")
+                }}>Автозапчасти
+                </div>
             </div>
-            <div className={classes.titleContainer}>
-                <div className={classes.title}>Оплата</div>
+            <div className={classes.titleContainer} onClick={() => {
+                history.push("/")
+            }}>
+                <div className={classes.title} onClick={() => {
+                    history.push("/")
+                }}>Оплата
+                </div>
             </div>
-            <div className={classes.titleContainer}>
+            <div className={classes.titleContainer} onClick={() => {
+                history.push("/")
+            }}>
                 <div className={classes.title}>Доставка</div>
             </div>
-            <div className={classes.titleContainer}>
-                <div className={classes.title}>Гарантии</div>
+            <div className={classes.titleContainer} onClick={() => {
+                history.push("/")
+            }}>
+                <div className={classes.title} onClick={() => {
+                    history.push("/")
+                }}>Гарантии
+                </div>
             </div>
-            <div className={classes.titleContainer}>
-                <div className={classes.title}>Возврат</div>
+            <div className={classes.titleContainer} onClick={() => {
+                history.push("/")
+            }}>
+                <div className={classes.title} onClick={() => {
+                    history.push("/")
+                }}>Возврат
+                </div>
             </div>
-            <div className={classes.titleContainer}>
+            <div className={classes.titleContainer} onClick={() => {
+                history.push("/")
+            }}>
                 <div className={classes.title}>Получение товара</div>
             </div>
 
