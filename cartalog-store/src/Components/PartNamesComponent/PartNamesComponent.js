@@ -8,14 +8,12 @@ const PartNamesComponent = (props) => {
 
     const [parts_filter, setPartsFilter] = useState({});
 
-    console.log(parts_filter)
     const location = useLocation()
 
     useEffect(() => {
 
-        console.log(location.pathname)
 
-        if (location.pathname.split("/").length === 3) {
+       if (location.pathname.split("/").length === 3) {
 
             if (location.pathname.split("/")[1] === "partsFilter") {
 

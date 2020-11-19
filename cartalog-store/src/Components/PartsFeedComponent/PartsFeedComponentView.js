@@ -1,15 +1,17 @@
 import React from 'react'
-import {createStyles, makeStyles, useTheme} from "@material-ui/core/styles";
+import {createStyles, makeStyles} from "@material-ui/core/styles";
 import {Grid, Typography} from "@material-ui/core";
 import noImage from "../../pics/no-photo.svg"
 import Button from "@material-ui/core/Button";
-import AwesomeSlider from "react-awesome-slider";
+import Paper from "@material-ui/core/Paper";
+import Carousel from "./Carousel/Carousel";
 
 const useStyles = makeStyles((theme) => createStyles({
 
     root: {
         marginTop: theme.spacing(1),
-        width: "100%"
+        width: "100%",
+        overflow: "hidden"
     },
     partCardsContainer: {
         width: "80%",
@@ -26,30 +28,20 @@ const useStyles = makeStyles((theme) => createStyles({
     partCardContainer: {
         width: `calc(50% - ${theme.spacing(1)}px)`,
         [theme.breakpoints.down("md")]: {
-            width: "100%"
+            width: `calc(100% - ${theme.spacing(2)}px)`,
+            marginLeft: theme.spacing(1),
+            marginRight: theme.spacing(1),
+            marginBottom: theme.spacing(1)
         }
     },
     partCard: {
-        marginBottom: theme.spacing(3),
+        marginBottom: theme.spacing(2),
         display: "flex",
-        flexDirection: "column",
-        borderWidth: 1,
-        borderStyle: "solid",
-        borderColor: "#ffffff00",
-        paddingBottom: theme.spacing(3),
-        "&:hover": {
-            borderColor: "#808080"
-        },
-        [theme.breakpoints.down("md")]: {
-            "&:hover": {
-                borderStyle: "none",
-            },
-            borderWidth: 0
-        },
-        cursor: "pointer"
+        flexDirection: "column"
     },
     partCardTitle: {
-        padding: theme.spacing(1),
+        paddingLeft: theme.spacing(1),
+        paddingRight: theme.spacing(1),
         [theme.breakpoints.down("md")]: {
             marginTop: theme.spacing(0)
         },
@@ -81,8 +73,7 @@ const useStyles = makeStyles((theme) => createStyles({
         flexDirection: "column",
         alignItems: "flex-start",
         justifyContent: "space-between",
-        height: "auto",
-        marginTop: theme.spacing(1)
+        height: "auto"
     },
     partCardPriceContainer: {
         marginTop: theme.spacing(2),
@@ -92,7 +83,7 @@ const useStyles = makeStyles((theme) => createStyles({
         width: `calc(100% - ${theme.spacing(2)}px)`,
         marginLeft: theme.spacing(1),
         [theme.breakpoints.down("md")]: {
-            width: `calc(100% - ${theme.spacing(1)}px)`,
+            width: `calc(100% - ${theme.spacing(2)}px)`,
         }
     }
 
@@ -105,6 +96,7 @@ const PartsFeedComponentView = (props) => {
     const classes = useStyles()
 
     console.log(props.availableParts)
+
 
     const availableParts = Object.values(props.availableParts).flat()
 
@@ -153,16 +145,7 @@ const PartsFeedComponentView = (props) => {
 
             if (matches) {
                 return (
-                    <AwesomeSlider bullets={false}
-                                   organicArrows={true}
-                                   buttons={true}
-                    >
-                        {part.images.filter(item => {
-                            return item.includes("https")
-                        }).map(src => {
-                            return <div data-src={src}/>
-                        })}
-                    </AwesomeSlider>
+                    <Carousel carouselImagesList={part.images.filter(item => item.includes("https"))}/>
                 )
             } else {
                 return (<img src={getSrc(part)} alt={part.title} className={classes.partCardImage}/>)
@@ -173,12 +156,12 @@ const PartsFeedComponentView = (props) => {
 
             const getPartStatus = (part) => {
 
-                if (part.status.includes("агадан")) {
-                    return "На складе Магадан"
+                if (part.status.includes("Магадан")) {
+                    return "В наличии"
                 } else if (part.status.includes("адивосток")) {
-                    return "На складе Владивосток"
+                    return "Доставка от 3х дней"
                 } else if (part.status.includes("овосибирск")) {
-                    return "На складе Новосибирск"
+                    return "Доставка от 3х дней"
                 }
 
             }
@@ -186,7 +169,7 @@ const PartsFeedComponentView = (props) => {
             return Object.values(partType).map(part => {
 
                 return (
-                    <div className={classes.partCardContainer} onClick={() => {
+                    <Paper className={classes.partCardContainer} key={part.href} onClick={() => {
                         props.handleItemCLick(part)
                     }}>
                         <div className={classes.partCard}>
@@ -208,7 +191,7 @@ const PartsFeedComponentView = (props) => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </Paper>
                 )
 
             })
@@ -227,11 +210,10 @@ const PartsFeedComponentView = (props) => {
         <div className={classes.root}>
 
             <Grid container spacing={0}>
-                <Grid item lg={2} sm={0}></Grid>
+                <Grid item lg={2} sm={false}></Grid>
                 <Grid item lg={8}>{renderPartCards()}</Grid>
-                <Grid item lg={2} sm={0}></Grid>
+                <Grid item lg={2} sm={false}></Grid>
             </Grid>
-
 
         </div>
     )

@@ -5,6 +5,10 @@ import {Typography} from "@material-ui/core";
 import Switch from "@material-ui/core/Switch";
 import Brightness3Icon from '@material-ui/icons/Brightness3';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import Badge from "@material-ui/core/Badge";
+import IconButton from "@material-ui/core/IconButton";
+import {useHistory} from "react-router-dom"
 
 const useStyles = makeStyles((theme) => createStyles({
 
@@ -22,7 +26,7 @@ const useStyles = makeStyles((theme) => createStyles({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: theme.spacing(1),
+        padding: theme.spacing(1)
     },
     logo: {
         width: 40,
@@ -31,7 +35,8 @@ const useStyles = makeStyles((theme) => createStyles({
     },
     titleText: {
         marginLeft: theme.spacing(1),
-        cursor: "pointer"
+        cursor: "pointer",
+        userSelect:"none"
     },
     descrContainer: {
         display: "flex",
@@ -59,6 +64,8 @@ const HeaderComponentViewMobile = (props) => {
 
     const classes = useStyles()
 
+    const history = useHistory()
+
     const handleGoToMainPage = props.handleGoToMainPage
 
     return (
@@ -72,16 +79,23 @@ const HeaderComponentViewMobile = (props) => {
                     <Typography variant={"h5"} className={classes.titleText}
                                 onClick={handleGoToMainPage}>Cartalog</Typography>
                 </div>
-                <div>
+                <div style={{display: "flex", alignItems: "Center", justifyContent: "center"}}>
                     <Switch
                         icon={<Brightness7Icon style={{color: "#eccb28", marginTop: -2}}/>}
                         checkedIcon={<Brightness3Icon style={{marginLeft: 0, color: "#afaea6", marginTop: -2}}/>}
-                        classes={{root: {margin: 10}}}
                         color={"primary"}
                         checked={props.darkMode}
                         onChange={() => {
                             props.setDarkMode(!props.darkMode)
                         }}/>
+
+                    <IconButton onClick={() => {
+                        history.push("/cart")
+                    }}>
+                        <Badge badgeContent={props.cartState.items.length} color="primary">
+                            <ShoppingCartIcon/>
+                        </Badge>
+                    </IconButton>
 
                 </div>
 

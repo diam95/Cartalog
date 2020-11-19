@@ -12,11 +12,13 @@
     "@testing-library/user-event": "^12.1.10",
     "firebase": "^8.0.0",
     "fontsource-roboto": "^3.0.3",
+    "notistack": "^1.0.1",
     "react": "0.0.0-experimental-4ead6b530",
     "react-awesome-slider": "^4.1.0",
     "react-dom": "0.0.0-experimental-4ead6b530",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
+    "react-slideshow-image": "^3.3.2",
     "react-spring": "^8.0.27",
     "web-vitals": "^0.2.4"
   },

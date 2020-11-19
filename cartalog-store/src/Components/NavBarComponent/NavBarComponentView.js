@@ -27,7 +27,8 @@ const useStyles = makeStyles((theme) => createStyles({
     title: {
         paddingLeft: theme.spacing(3),
         paddingRight: theme.spacing(3),
-        textAlign: "center"
+        textAlign: "center",
+        cursor: "pointer"
     },
     titleContainer: {
         display: "flex",
@@ -39,7 +40,8 @@ const useStyles = makeStyles((theme) => createStyles({
         "&:hover": {
             background: "grey"
         },
-        cursor: "pointer"
+        cursor: "pointer",
+        userSelect:"none"
     }
 
 }))
@@ -74,6 +76,7 @@ const NavBarComponentView = (props) => {
                 }}>Автозапчасти
                 </div>
             </div>
+
             <div className={classes.titleContainer} onClick={() => {
                 history.push("/")
             }}>
@@ -82,6 +85,7 @@ const NavBarComponentView = (props) => {
                 }}>Оплата
                 </div>
             </div>
+
             <div className={classes.titleContainer} onClick={() => {
                 history.push("/")
             }}>

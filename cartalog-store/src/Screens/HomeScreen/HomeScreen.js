@@ -16,6 +16,8 @@ const HomeScreen = (props) => {
                         darkMode={props.darkMode}
                         setDarkMode={props.setDarkMode}
                         matches={matches}
+                        setCartState={props.setCartState}
+                        cartState={props.cartState}
         />
     )
 

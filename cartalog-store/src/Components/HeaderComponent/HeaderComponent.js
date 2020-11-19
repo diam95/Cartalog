@@ -7,7 +7,6 @@ const HeaderComponent = (props) => {
 
     const matches = props.matches
 
-    console.log({matches})
     const history = useHistory()
 
     const handleGoToMainPage = () => {
@@ -20,18 +19,22 @@ const HeaderComponent = (props) => {
 
         if (matches) {
             return <HeaderComponentViewMobile handleGoToMainPage={handleGoToMainPage}
-                                        darkMode={props.darkMode}
-                                        setDarkMode={props.setDarkMode}/>
+                                              darkMode={props.darkMode}
+                                              setDarkMode={props.setDarkMode}
+                                              cartState={props.cartState}
+            />
         } else {
             return <HeaderComponentView handleGoToMainPage={handleGoToMainPage}
                                         darkMode={props.darkMode}
-                                        setDarkMode={props.setDarkMode}/>
+                                        setDarkMode={props.setDarkMode}
+                                        cartState={props.cartState}
+            />
         }
 
     }
 
     return (
-        <div style={{width:"100%"}}>
+        <div style={{width: "100%"}}>
             {renderContent()}
         </div>
 

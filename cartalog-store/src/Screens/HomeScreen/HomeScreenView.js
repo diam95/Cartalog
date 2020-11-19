@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => createStyles({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "flex-start",
         minHeight: "100vh"
     }
 
@@ -30,7 +30,9 @@ const HomeScreenView = (props) => {
 
             <HeaderComponent darkMode={props.darkMode}
                              matches={props.matches}
-                             setDarkMode={props.setDarkMode}/>
+                             setDarkMode={props.setDarkMode}
+                             cartState={props.cartState}
+            />
 
             <NavBarComponent matches={props.matches}
             />
@@ -56,6 +58,8 @@ const HomeScreenView = (props) => {
             <PartDetailedComponent partsState={props.partsState}
                                    setPartsState={props.setPartsState}
                                    matches={props.matches}
+                                   setCartState={props.setCartState}
+                                   cartState={props.cartState}
             />
 
             <FooterComponent/>

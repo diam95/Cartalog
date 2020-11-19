@@ -26,28 +26,20 @@ const useStyles = makeStyles((theme) => createStyles({
         flexDirection: "column",
         justifyContent: "flex-start"
     },
+    selectContainer: {
+    },
     brandsContainer: {
         marginTop: theme.spacing(1),
         display: "flex",
         flexFlow: "column wrap",
-        width: "100%",
-        marginLeft:-theme.spacing(2),
-        [theme.breakpoints.down("md")]:{
-            marginLeft:-theme.spacing(0),
-            marginTop:0
+        justifyContent:"flex-start",
+        [theme.breakpoints.down("md")]: {
+            marginLeft: 0,
+            marginTop: 0,
+            paddingLeft:theme.spacing(1),
+            paddingRight:theme.spacing(1)
         },
-        overflowX:"hidden"
-    },
-    partTitlesContainer: {
-        display: "flex",
-        flexFlow: "column wrap",
-        justifyContent: "flex-start",
-        alignItems: "flex-start",
-        height: 2000
-    },
-    selectContainer: {
-        width: "100%",
-        marginLeft:theme.spacing(1)
+        overflowX: "hidden"
     },
     titleContainer: {
         marginTop: theme.spacing(1)

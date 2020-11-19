@@ -16,7 +16,8 @@ const FilterComponent = (props) => {
             if (locationArray[1].length > 0 && !locationArray[2]) {
 
                 if (locationArray[1] === "partsFilter") {
-
+                    console.log("asdsadasdsa")
+                    setHeight(0)
                 } else {
 
                     if (props.filterState.models[locationArray[1]]) {
@@ -24,11 +25,20 @@ const FilterComponent = (props) => {
                         if (props.filterState.models[locationArray[1]].length > 0) {
 
                             if (matches) {
-                                const count = Object.values(props.filterState.models[locationArray[1]]).length * 20
-                                setHeight(count)
+                                const count = Object.values(props.filterState.models[locationArray[1]]).length * 26
+                                if(count<100){
+                                    setHeight(100)
+                                }else {
+                                    setHeight(count)
+                                }
                             } else {
                                 const count = Object.values(props.filterState.models[locationArray[1]]).length * 10
-                                setHeight(count)
+                                if(count<100){
+                                    setHeight(100)
+                                }else {
+                                    setHeight(count)
+                                }
+
                             }
 
                         }
@@ -45,10 +55,18 @@ const FilterComponent = (props) => {
 
                         if (matches) {
                             const count = Object.values(props.filterState.brands).length * 20
-                            setHeight(count)
+                            if(count<100){
+                                setHeight(100)
+                            }else {
+                                setHeight(count)
+                            }
                         } else {
                             const count = Object.values(props.filterState.brands).length * 10
-                            setHeight(count)
+                            if(count<100){
+                                setHeight(100)
+                            }else {
+                                setHeight(count)
+                            }
                         }
 
                     }
@@ -60,11 +78,19 @@ const FilterComponent = (props) => {
                 if (Object.values(props.filterState.brands).length > 0) {
 
                     if (matches) {
-                        const count = Object.values(props.filterState.brands).length * 18
-                        setHeight(count)
+                        const count = Object.values(props.filterState.brands).length * 26
+                        if(count<100){
+                            setHeight(100)
+                        }else {
+                            setHeight(count)
+                        }
                     } else {
                         const count = Object.values(props.filterState.brands).length * 10
-                        setHeight(count)
+                        if(count<100){
+                            setHeight(100)
+                        }else {
+                            setHeight(count)
+                        }
                     }
 
                 }
@@ -82,7 +108,7 @@ const FilterComponent = (props) => {
 
     const handleModelSelect = (brand, model) => {
 
-        history.push(`/${brand.toLowerCase()}/${model.toLowerCase().replace(" ", "-")}`)
+        history.push(`/${brand.toLowerCase()}/${model.toLowerCase().replace(/ /g, "-")}`)
 
     }
 

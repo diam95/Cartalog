@@ -3,8 +3,8 @@ import {createStyles, makeStyles} from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import {Grid, Typography} from "@material-ui/core";
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
-import AwesomeSlider from "react-awesome-slider";
 import 'react-awesome-slider/dist/styles.css';
+import Carousel from "../PartsFeedComponent/Carousel/Carousel";
 
 const useStyles = makeStyles((theme) => createStyles({
 
@@ -47,6 +47,15 @@ const useStyles = makeStyles((theme) => createStyles({
     },
     price:{
         marginTop:theme.spacing(2)
+    },
+    container:{
+        marginTop:theme.spacing(1),
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "flex-start",
+        width:"100vw",
+        overflow:"hidden"
     }
 
 }))
@@ -56,6 +65,8 @@ const PartDetailedComponentView = (props) => {
     console.log("PartDetailedComponentView")
 
     const matches = props.matches
+
+    const handleAddToCart = props.handleAddToCart
 
     const classes = useStyles()
     console.log(`PartDetailedComponentView`)
@@ -69,7 +80,7 @@ const PartDetailedComponentView = (props) => {
 
                 return part.images.map(imageSrc => {
 
-                    return <img src={imageSrc} alt={part.title} className={classes.image}/>
+                    return <img key={imageSrc} src={imageSrc} alt={part.title} className={classes.image}/>
 
                 })
 
@@ -87,7 +98,7 @@ const PartDetailedComponentView = (props) => {
             return part.captions.map(caption => {
 
                 return (
-                    <div className={classes.captionsContainer}>
+                    <div key={caption.captionValue} className={classes.captionsContainer}>
                         <div>{caption.captionTitle}</div>
                         <Button variant={"contained"} disableElevation
                                 className={classes.partCardCaptionsButton}>{caption.captionValue}</Button>
@@ -104,37 +115,29 @@ const PartDetailedComponentView = (props) => {
 
         if (matches) {
             return (
-                <div className={classes.root}>
+                <div className={classes.container}>
 
-                    <Grid item>
-
-                        <AwesomeSlider bullets={false}
-                                       organicArrows={true}
-                                       buttons={true}
-                        >
-                            {part.images.filter(item=>{return item.includes("https")}).map(src=>{
-                                return <div data-src={src} />
-                            })}
-                        </AwesomeSlider>
+                        <Carousel carouselImagesList={part.images.filter(item => item.includes("https"))}/>
 
                         <div className={classes.partDetailsContainer}>
                             <div>
                                 <Typography variant={"h5"}>{part.title}</Typography>
-                                <Typography variant={"h3"} className={classes.price}>{part.price} ₽</Typography>
+                                <Typography variant={"h3"} className={classes.price}>{parseInt(part.price)} ₽</Typography>
                                 <Button size={"large"}
                                         variant={"contained"}
                                         fullWidth={true}
                                         color={"primary"}
                                         startIcon={<ShoppingCart/>}
                                         style={{marginTop: 16}}
+                                        onClick={handleAddToCart}
                                 >
                                     Добавить в корзину
                                 </Button>
                             </div>
                             <div>{renderCaptions()}</div>
+                            {/*<Typography variant={"subtitle2"} style={{marginTop:16}}>{part.description.length>0?"Дополнительно:":""}</Typography>
+                            <Typography variant={"button"}>{part.description}</Typography>*/}
                         </div>
-                    </Grid>
-
                 </div>
             )
         } else {
@@ -151,17 +154,20 @@ const PartDetailedComponentView = (props) => {
                         <div className={classes.partDetailsContainer}>
                             <div>
                                 <Typography variant={"h5"}>{part.title}</Typography>
-                                <Typography variant={"h3"} style={{marginTop: 8}}>{part.price} ₽</Typography>
+                                <Typography variant={"h3"} style={{marginTop: 8}}>{parseInt(part.price)} ₽</Typography>
                                 <Button size={"large"}
                                         variant={"contained"}
                                         color={"primary"}
                                         startIcon={<ShoppingCart/>}
                                         style={{marginTop: 16}}
+                                        onClick={handleAddToCart}
                                 >
                                     Добавить в корзину
                                 </Button>
                             </div>
                             <div>{renderCaptions()}</div>
+                            {/*<Typography variant={"subtitle2"} style={{marginTop:16}}>{part.description.length>0?"Дополнительно:":""}</Typography>
+                            <Typography variant={"button"}>{part.description}</Typography>*/}
                         </div>
                     </Grid>
 
@@ -179,7 +185,6 @@ const PartDetailedComponentView = (props) => {
             </Grid>
             <Grid item lg={2}></Grid>
         </Grid>
-
     )
 
 }

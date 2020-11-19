@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
-import {createStyles, makeStyles, useTheme} from "@material-ui/core/styles";
+import {createStyles, makeStyles} from "@material-ui/core/styles";
 import {Button, Grid} from "@material-ui/core";
-import {useLocation, useHistory} from "react-router-dom"
+import {useHistory, useLocation} from "react-router-dom"
 import Avatar from "@material-ui/core/Avatar";
 
 const useStyles = makeStyles((theme) => createStyles({
@@ -66,9 +66,7 @@ const PartNamesComponentView = (props) => {
 
     const location = useLocation()
     const history = useHistory()
-    const [_height, setHeight] = useState({height: 0});
-
-    console.log(_height)
+    const [_height, setHeight] = useState(0);
 
     const getHref = (href) => {
 
@@ -77,13 +75,11 @@ const PartNamesComponentView = (props) => {
 
         if (model) {
 
-            const result = "/" + brand + "/" + model + "/" + href
-            return result
+            return "/" + brand + "/" + model + "/" + href
 
         } else {
 
-            const result = "/" + brand + "/" + href
-            return result
+            return "/" + brand + "/" + href
 
         }
 
@@ -148,19 +144,16 @@ const PartNamesComponentView = (props) => {
             const lettersArraySorted = Array.from(new Set(lettersArray)).sort()
 
             if(matches){
-                const height = {height: lettersArraySorted.length * 72 + partNames.length * 31}
-                if (height.height !== _height.height) {
+                const height = lettersArraySorted.length * 72 + partNames.length * 31
+                if(height!==_height){
                     setHeight(height)
                 }
             } else {
-                const height = {height: lettersArraySorted.length * 36 + partNames.length * 10}
-                if (height.height !== _height.height) {
+                const height = lettersArraySorted.length * 36 + partNames.length * 10
+                if(height!==_height){
                     setHeight(height)
                 }
             }
-
-
-
 
             return lettersArraySorted.map(letter => {
 
@@ -188,6 +181,14 @@ const PartNamesComponentView = (props) => {
 
     }
 
+    const getHeight = () => {
+
+        const style = {}
+        style.height = _height
+        return style
+
+    }
+
     return (
         <div className={classes.root}>
             <Grid container spacing={0}>
@@ -196,7 +197,7 @@ const PartNamesComponentView = (props) => {
 
                 <Grid item lg={8} xl={8} sm={12} md={12} xs={12}>
 
-                    <div className={getStyle()} style={_height}>{renderPartNames()}</div>
+                    <div className={getStyle()} style={getHeight()}>{renderPartNames()}</div>
 
                 </Grid>
 
