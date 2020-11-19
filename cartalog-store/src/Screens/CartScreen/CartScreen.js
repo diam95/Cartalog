@@ -17,7 +17,7 @@ const CartScreen = (props) => {
 
             const ind = cartState.items.indexOf(item)
             const temp = {...cartState}
-            temp.items = temp.items.splice(ind, 1)
+            temp.items.splice(ind, 1)
             setCartState(temp)
 
         }

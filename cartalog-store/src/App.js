@@ -13,13 +13,13 @@ import CartScreen from "./Screens/CartScreen/CartScreen";
 
 const App = () => {
 
-    const [filterState, setFilterState] = useState({
+    const [filterState, setFilterState] = useLocalStorage("filterState",{
         brands: [],
         models: {},
         parts_filter: [],
         parts_filter_detailed: {}
     });
-    const [partsState, setPartsState] = useState({
+    const [partsState, setPartsState] = useLocalStorage("partsState",{
         all_parts_by_partNames: {}
     });
 
@@ -96,7 +96,7 @@ const App = () => {
 
         })
 
-    }, [])
+    }, [setFilterState])
 
     const [darkMode, setDarkMode] = useState(false);
     const theme = React.useMemo(
