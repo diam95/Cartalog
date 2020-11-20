@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         margin: 0,
         padding: 0,
-        width: `calc(100vw - ${theme.spacing(2)}px)`
+        width: "100%"
     }
 
 }))

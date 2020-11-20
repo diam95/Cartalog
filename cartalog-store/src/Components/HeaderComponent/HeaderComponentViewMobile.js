@@ -1,14 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {createStyles, makeStyles} from "@material-ui/core/styles";
-import logo from "../../assets/logo.png";
 import {Typography} from "@material-ui/core";
 import Switch from "@material-ui/core/Switch";
-import Brightness3Icon from '@material-ui/icons/Brightness3';
-import Brightness7Icon from '@material-ui/icons/Brightness7';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Badge from "@material-ui/core/Badge";
 import IconButton from "@material-ui/core/IconButton";
 import {useHistory} from "react-router-dom"
+import MenuIcon from "@material-ui/icons/Menu";
+import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
+import NavBarComponent from "../NavBarComponent/NavBarComponent";
+import StyledSwitch from "../FilterComponent/StyledSwitch";
 
 const useStyles = makeStyles((theme) => createStyles({
 
@@ -26,7 +27,8 @@ const useStyles = makeStyles((theme) => createStyles({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: theme.spacing(1)
+        paddingBottom: theme.spacing(1),
+        paddingTop: theme.spacing(1)
     },
     logo: {
         width: 40,
@@ -34,9 +36,12 @@ const useStyles = makeStyles((theme) => createStyles({
         cursor: "pointer",
     },
     titleText: {
+        fontFamily: `Satisfy`,
+        fontWeight: 500,
         marginLeft: theme.spacing(1),
         cursor: "pointer",
-        userSelect:"none"
+        userSelect: "none",
+        fontSize: 32
     },
     descrContainer: {
         display: "flex",
@@ -68,26 +73,52 @@ const HeaderComponentViewMobile = (props) => {
 
     const handleGoToMainPage = props.handleGoToMainPage
 
+    const [state, setState] = useState({
+        top: false,
+        left: false,
+        bottom: false,
+        right: false,
+    });
+
+    const toggleDrawer = (anchor, open) => (event) => {
+        if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+
+        setState({...state, [anchor]: open});
+    };
+
     return (
         <div className={classes.root}>
 
+            <React.Fragment>
+                <SwipeableDrawer
+                    anchor={"left"}
+                    open={state["left"]}
+                    onClose={toggleDrawer("left", false)}
+                    onOpen={toggleDrawer("left", true)}
+                >
+                    <NavBarComponent/>
+                </SwipeableDrawer>
+            </React.Fragment>
+
             <div className={classes.titleContainer}>
 
-                <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-                    <img src={logo} alt="Карталог логотип" className={classes.logo} onClick={handleGoToMainPage}/>
+                <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+
+                    <IconButton onClick={handleGoToMainPage}>
+                        <MenuIcon/>
+                    </IconButton>
 
                     <Typography variant={"h5"} className={classes.titleText}
                                 onClick={handleGoToMainPage}>Cartalog</Typography>
                 </div>
                 <div style={{display: "flex", alignItems: "Center", justifyContent: "center"}}>
-                    <Switch
-                        icon={<Brightness7Icon style={{color: "#eccb28", marginTop: -2}}/>}
-                        checkedIcon={<Brightness3Icon style={{marginLeft: 0, color: "#afaea6", marginTop: -2}}/>}
-                        color={"primary"}
-                        checked={props.darkMode}
-                        onChange={() => {
-                            props.setDarkMode(!props.darkMode)
-                        }}/>
+
+                    <StyledSwitch checked={props.darkMode}
+                                  onChange={() => {
+                                      props.setDarkMode(!props.darkMode)
+                                  }}/>
 
                     <IconButton onClick={() => {
                         history.push("/cart")

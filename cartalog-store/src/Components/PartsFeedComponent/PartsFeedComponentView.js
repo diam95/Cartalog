@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => createStyles({
         }
     },
     partCard: {
-        marginBottom: theme.spacing(2),
+        marginBottom: theme.spacing(1),
         display: "flex",
         flexDirection: "column"
     },
@@ -44,21 +44,24 @@ const useStyles = makeStyles((theme) => createStyles({
         paddingRight: theme.spacing(1),
         [theme.breakpoints.down("md")]: {
             marginTop: theme.spacing(0)
-        },
-
+        }
     },
     partCardImage: {
         width: "100%",
         minHeight: 315,
         maxHeight: 345,
-        objectFit: "contain"
+        objectFit: "cover",
+        [theme.breakpoints.down("md")]:{
+            minHeight: 240,
+            maxHeight: 280,
+        }
     },
     partCardCaptionsContainer: {
         display: "flex",
         flexFlow: "row wrap",
     },
     partCardCaptions: {
-        marginTop: theme.spacing(1),
+        marginTop: theme.spacing(2),
         marginLeft: theme.spacing(1),
     },
     noPadding: {
@@ -73,7 +76,8 @@ const useStyles = makeStyles((theme) => createStyles({
         flexDirection: "column",
         alignItems: "flex-start",
         justifyContent: "space-between",
-        height: "auto"
+        height: "auto",
+        padding: theme.spacing(1)
     },
     partCardPriceContainer: {
         marginTop: theme.spacing(2),
@@ -83,7 +87,7 @@ const useStyles = makeStyles((theme) => createStyles({
         width: `calc(100% - ${theme.spacing(2)}px)`,
         marginLeft: theme.spacing(1),
         [theme.breakpoints.down("md")]: {
-            width: `calc(100% - ${theme.spacing(2)}px)`,
+            width: `calc(100% - ${theme.spacing(2)}px)`
         }
     }
 
@@ -145,7 +149,7 @@ const PartsFeedComponentView = (props) => {
 
             if (matches) {
                 return (
-                    <Carousel carouselImagesList={part.images.filter(item => item.includes("https"))}/>
+                    <img src={getSrc(part)} alt={part.title} className={classes.partCardImage}/>
                 )
             } else {
                 return (<img src={getSrc(part)} alt={part.title} className={classes.partCardImage}/>)

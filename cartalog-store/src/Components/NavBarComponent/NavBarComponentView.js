@@ -10,6 +10,11 @@ const useStyles = makeStyles((theme) => createStyles({
         height: 48,
         display: "flex",
         flexDirection: "row",
+        [theme.breakpoints.down("md")]: {
+            flexDirection: "column",
+            height:"100%",
+            justifyContent: "flex-start"
+        },
         alignItems: "center",
         justifyContent: "space-evenly",
         overflowX: "auto "
@@ -18,8 +23,13 @@ const useStyles = makeStyles((theme) => createStyles({
         width: "100%",
         background: "#373b50",
         height: 48,
-        display: "flex",
         flexDirection: "row",
+        [theme.breakpoints.down("md")]: {
+            flexDirection: "column",
+            height:"100%",
+            justifyContent: "flex-start"
+        },
+        display: "flex",
         alignItems: "center",
         justifyContent: "flex-start",
         overflowX: "auto "
@@ -41,7 +51,7 @@ const useStyles = makeStyles((theme) => createStyles({
             background: "grey"
         },
         cursor: "pointer",
-        userSelect:"none"
+        userSelect: "none"
     }
 
 }))

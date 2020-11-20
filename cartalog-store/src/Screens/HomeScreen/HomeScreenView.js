@@ -34,8 +34,12 @@ const HomeScreenView = (props) => {
                              cartState={props.cartState}
             />
 
-            <NavBarComponent matches={props.matches}
-            />
+            {props.matches
+                ? <div/>
+                : <NavBarComponent matches={props.matches}
+                />
+            }
+
 
             <FilterComponent filterState={props.filterState}
                              partsState={props.partsState}

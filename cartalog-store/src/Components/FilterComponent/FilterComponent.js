@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import FilterComponentView from "./FilterComponentView";
 import {useLocation, useHistory} from "react-router-dom";
 
@@ -10,6 +10,23 @@ const FilterComponent = (props) => {
     const history = useHistory()
 
     const [_height, setHeight] = useState(0);
+
+    function useTraceUpdate(props) {
+        const prev = useRef(props);
+        useEffect(() => {
+            const changedProps = Object.entries(props).reduce((ps, [k, v]) => {
+                if (prev.current[k] !== v) {
+                    ps[k] = [prev.current[k], v];
+                }
+                return ps;
+            }, {});
+            if (Object.keys(changedProps).length > 0) {
+                console.log('Changed props:', changedProps);
+            }
+            prev.current = props;
+        });
+    }
+    useTraceUpdate(props)
 
     useEffect(() => {
 

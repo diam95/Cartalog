@@ -21,23 +21,22 @@ const useStyles = makeStyles((theme) => createStyles({
     },
     root2: {
         width: "100%",
-        marginTop: theme.spacing(1),
+        marginTop: theme.spacing(0),
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start"
     },
-    selectContainer: {
-    },
+    selectContainer: {},
     brandsContainer: {
         marginTop: theme.spacing(1),
         display: "flex",
         flexFlow: "column wrap",
-        justifyContent:"flex-start",
+        justifyContent: "flex-start",
         [theme.breakpoints.down("md")]: {
             marginLeft: 0,
             marginTop: 0,
-            paddingLeft:theme.spacing(1),
-            paddingRight:theme.spacing(1)
+            paddingLeft: theme.spacing(1),
+            paddingRight: theme.spacing(1)
         },
         overflowX: "hidden"
     },
@@ -82,7 +81,7 @@ const useStyles = makeStyles((theme) => createStyles({
         display: "flex",
         marginTop: theme.spacing(1),
         [theme.breakpoints.down("md")]: {
-            marginLeft: 8
+            marginLeft: theme.spacing(1)
         }
     },
     crumbsContainer: {
@@ -90,9 +89,9 @@ const useStyles = makeStyles((theme) => createStyles({
         alignItems: "center",
         justifyContent: "flex-start",
         marginLeft: 0,
-        marginTop: theme.spacing(2),
+        marginTop: theme.spacing(1),
         [theme.breakpoints.down("md")]: {
-            marginLeft: 8
+            marginLeft: theme.spacing(1)
         }
     },
     crumbsContainer2: {
@@ -101,7 +100,7 @@ const useStyles = makeStyles((theme) => createStyles({
         justifyContent: "flex-start",
         marginLeft: 0,
         [theme.breakpoints.down("md")]: {
-            marginLeft: 8
+            marginLeft: theme.spacing(1)
         }
     }
 
@@ -333,11 +332,22 @@ const FilterComponentView = (props) => {
 
     const renderButtonGroup = () => {
 
+        const getButtonGroupVisibility = () => {
+
+            return !locationArray[1].length > 0;
+
+        }
+
         if (matches) {
-            return <ButtonGroup size={"small"} color="primary" aria-label="outlined primary button group">
-                <Button variant={getButtonVariant(0)} onClick={handleClearSelect}>Марки модели</Button>
-                <Button variant={getButtonVariant(1)} onClick={handleShowPartsFilter}>Наименование запчастей</Button>
-            </ButtonGroup>
+
+            if(getButtonGroupVisibility()){
+                return <ButtonGroup size={"small"} color="primary"
+                                    aria-label="outlined primary button group">
+                    <Button variant={getButtonVariant(0)} onClick={handleClearSelect}>Марки модели</Button>
+                    <Button variant={getButtonVariant(1)} onClick={handleShowPartsFilter}>Наименование запчастей</Button>
+                </ButtonGroup>
+            }
+
         } else {
             return <ButtonGroup color="primary" aria-label="outlined primary button group">
                 <Button variant={getButtonVariant(0)} onClick={handleClearSelect}>Марки | модели</Button>

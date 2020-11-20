@@ -126,8 +126,11 @@ const CartScreenView = (props) => {
             />
 
 
-            <NavBarComponent matches={props.matches}
-            />
+            {props.matches
+                ? <div/>
+                : <NavBarComponent matches={props.matches}
+                />
+            }
 
             <Typography variant={"h6"}>Всего товаров: {cartState.items.length}</Typography>
 

@@ -10,20 +10,22 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import HomeScreen from "./Screens/HomeScreen/HomeScreen";
 import { SnackbarProvider} from 'notistack';
 import CartScreen from "./Screens/CartScreen/CartScreen";
+import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
+import Button from "@material-ui/core/Button";
 
 const App = () => {
 
-    const [filterState, setFilterState] = useLocalStorage("filterState",{
+    const [filterState, setFilterState] = useState({
         brands: [],
         models: {},
         parts_filter: [],
         parts_filter_detailed: {}
     });
-    const [partsState, setPartsState] = useLocalStorage("partsState",{
+    const [partsState, setPartsState] = useState({
         all_parts_by_partNames: {}
     });
 
-    const [cartState, setCartState] = useLocalStorage('cartState', {
+    const [cartState, setCartState] = useLocalStorage(`cartState`,{
         items: []
     });
 
@@ -115,6 +117,7 @@ const App = () => {
             <CssBaseline/>
             <Router>
                 <div>
+
                     <Switch>
 
                         <Route path="/cart" exact>
