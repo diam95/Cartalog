@@ -122,7 +122,7 @@ const PartDetailedComponentView = (props) => {
                         <div className={classes.partDetailsContainer}>
                             <div>
                                 <Typography variant={"h5"}>{part.title}</Typography>
-                                <Typography variant={"h3"} className={classes.price}>{parseInt(part.price)} ₽</Typography>
+                                <Typography variant={"h3"} className={classes.price}>{parseInt(part.price)*1.3} ₽</Typography>
                                 <Button size={"large"}
                                         variant={"contained"}
                                         fullWidth={true}

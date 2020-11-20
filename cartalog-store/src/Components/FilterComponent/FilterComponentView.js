@@ -7,7 +7,12 @@ import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
 import {Typography} from "@material-ui/core";
 import ButtonComponent from "./ButtonComponent";
+import Box from "@material-ui/core/Box";
+import Tab from "@material-ui/core/Tab";
+import Tabs from "@material-ui/core/Tabs";
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
+import SwipeableViews from 'react-swipeable-views';
+import {useTheme} from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => createStyles({
 
@@ -23,6 +28,7 @@ const useStyles = makeStyles((theme) => createStyles({
         width: "100%",
         marginTop: theme.spacing(0),
         display: "flex",
+        alignItems: "center",
         flexDirection: "column",
         justifyContent: "flex-start"
     },
@@ -113,6 +119,7 @@ const FilterComponentView = (props) => {
     const matches = props.matches
 
     const classes = useStyles()
+    const theme = useTheme();
 
     const carBrands = Object.values(props.filterState.brands)
     const carModels = props.filterState.models
@@ -121,6 +128,16 @@ const FilterComponentView = (props) => {
     const handleModelSelect = props.handleModelSelect
     const handleClearSelect = props.handleClearSelect
     const handleShowPartsFilter = props.handleShowPartsFilter
+
+    const [value, setValue] = React.useState(0);
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
+
+    const handleChangeIndex = (index) => {
+        setValue(index);
+    };
 
     const history = useHistory()
 
@@ -340,11 +357,12 @@ const FilterComponentView = (props) => {
 
         if (matches) {
 
-            if(getButtonGroupVisibility()){
+            if (getButtonGroupVisibility()) {
                 return <ButtonGroup size={"small"} color="primary"
                                     aria-label="outlined primary button group">
                     <Button variant={getButtonVariant(0)} onClick={handleClearSelect}>Марки модели</Button>
-                    <Button variant={getButtonVariant(1)} onClick={handleShowPartsFilter}>Наименование запчастей</Button>
+                    <Button variant={getButtonVariant(1)} onClick={handleShowPartsFilter}>Наименование
+                        запчастей</Button>
                 </ButtonGroup>
             }
 
@@ -369,6 +387,33 @@ const FilterComponentView = (props) => {
 
     }
 
+    function TabPanel(props) {
+        const {children, value, index, ...other} = props;
+
+        return (
+            <div
+                role="tabpanel"
+                hidden={value !== index}
+                id={`simple-tabpanel-${index}`}
+                aria-labelledby={`simple-tab-${index}`}
+                {...other}
+            >
+                {value === index && (
+                    <Box p={3}>
+                        <Typography>{children}</Typography>
+                    </Box>
+                )}
+            </div>
+        );
+    }
+
+    function a11yProps(index) {
+        return {
+            id: `simple-tab-${index}`,
+            'aria-controls': `simple-tabpanel-${index}`,
+        };
+    }
+
     return (
 
         <Grid container spacing={0}>
@@ -380,6 +425,64 @@ const FilterComponentView = (props) => {
             <Grid item lg={8} xl={8} sm={12} md={12} xs={12}>
 
                 <div className={getRootStyle()}>
+                    <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
+                        <Tab label="Марки / модели" {...a11yProps(0)} />
+                        <Tab label="Названия запчастей" {...a11yProps(1)} />
+                    </Tabs>
+                    <SwipeableViews
+                        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                        index={value}
+                        onChangeIndex={handleChangeIndex}
+                    >
+                        <TabPanel value={value} index={0}>
+                            {locationArray[1].length > 0
+                                ? <div className={classes.crumbsContainer}
+                                       onClick={() => {
+                                           history.push("/")
+                                       }}
+                                >
+                                    <KeyboardBackspaceIcon style={{color: "grey"}}/>
+                                    <Typography
+                                        variant={"subtitle1"} className={classes.allBrands}>Все
+                                        марки</Typography>
+                                </div>
+                                : ""
+                            }
+                            {renderCrumbs()}
+                            <div className={classes.selectContainer}>
+
+                                {renderContent()}
+
+                            </div>
+                        </TabPanel>
+                        <TabPanel value={value} index={1}>
+                            {locationArray[1].length > 0
+                                ? <div className={classes.crumbsContainer}
+                                       onClick={() => {
+                                           history.push("/")
+                                       }}
+                                >
+                                    <KeyboardBackspaceIcon style={{color: "grey"}}/>
+                                    <Typography
+                                        variant={"subtitle1"} className={classes.allBrands}>Все
+                                        марки</Typography>
+                                </div>
+                                : ""
+                            }
+                            {renderCrumbs()}
+
+                            <div className={classes.selectContainer}>
+
+                                {renderContent()}
+
+                            </div>
+                        </TabPanel>
+                    </SwipeableViews>
+                </div>
+
+
+
+                {/*<div className={getRootStyle()}>
 
                     <div className={classes.buttonGroup}>
 
@@ -408,7 +511,7 @@ const FilterComponentView = (props) => {
 
                     </div>
 
-                </div>
+                </div>*/}
 
             </Grid>
 
