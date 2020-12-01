@@ -115,7 +115,6 @@ const App = () => {
             <CssBaseline/>
             <Router>
                 <div>
-
                     <Switch>
 
                         <Route path="/cart" exact>

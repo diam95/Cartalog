@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import {createStyles, makeStyles} from "@material-ui/core/styles";
 import {Button, Grid} from "@material-ui/core";
 import {useHistory, useLocation} from "react-router-dom"
@@ -190,9 +190,10 @@ const PartNamesComponentView = (props) => {
 
     return (
         <div className={classes.root}>
+
             <Grid container spacing={0}>
 
-                <Grid item lg={2} xl={2} sm={false} md={false} xs={false}></Grid>
+                <Grid item lg={2} xl={2} sm={false} md={false} xs={false}/>
 
                 <Grid item lg={8} xl={8} sm={12} md={12} xs={12}>
 
@@ -200,7 +201,7 @@ const PartNamesComponentView = (props) => {
 
                 </Grid>
 
-                <Grid item lg={2} xl={2} sm={false} md={false} xs={false}></Grid>
+                <Grid item lg={2} xl={2} sm={false} md={false} xs={false}/>
 
             </Grid>
 
