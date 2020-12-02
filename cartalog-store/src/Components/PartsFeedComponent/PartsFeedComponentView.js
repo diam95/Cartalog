@@ -8,8 +8,11 @@ import {useHistory} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => createStyles({
 
-    root: {},
+    root: {
+        width: "100%"
+    },
     feedContainer: {
+        width: "100%",
         display: `grid`,
         gridTemplateColumns: `50fr 50fr`,
         gridAutoRows: `1fr`,
@@ -21,26 +24,28 @@ const useStyles = makeStyles((theme) => createStyles({
         }
     },
     partCardContainer: {
-        width: `calc(100%)`,
-        [theme.breakpoints.down("md")]: {
-            width: `calc(100% - ${theme.spacing(2)}px)`,
-            marginLeft: theme.spacing(1)
-        }
+        width: "100%"
     },
     partCard: {
-        marginRight:theme.spacing(1),
+        marginRight: theme.spacing(1),
         marginBottom: theme.spacing(1),
         display: "flex",
         flexDirection: "column",
+        alignItems: "flex-start",
         borderStyle: "solid",
         borderWidth: 1,
         borderColor: "#ffffff00",
         '&:hover': {
             borderColor: "grey"
         },
-        [theme.breakpoints.down("md")]:{
-            marginRight:theme.spacing(0),
+        [theme.breakpoints.down("md")]: {
+            marginRight: theme.spacing(0),
+            borderStyle: "none",
+            borderWidth: 0,
+            borderColor: "#ffffff00",
             '&:hover': {
+                borderStyle: "none",
+                borderWidth: 0,
                 borderColor: "#ffffff00"
             }
         }
@@ -51,9 +56,9 @@ const useStyles = makeStyles((theme) => createStyles({
         alignItems: "flex-start",
         justifyContent: "space-between",
         height: "auto",
-        padding:theme.spacing(1),
-        [theme.breakpoints.down("md")]:{
-            padding:theme.spacing(0)
+        padding: theme.spacing(1),
+        [theme.breakpoints.down("md")]: {
+            padding: theme.spacing(1)
         }
     },
     partCardTitle: {
@@ -77,9 +82,7 @@ const useStyles = makeStyles((theme) => createStyles({
         width: `calc(100% - ${theme.spacing(2)}px)`,
         marginLeft: theme.spacing(1)
     },
-    partCardPrice: {
-
-    },
+    partCardPrice: {},
     partStatus: {
         color: "Green"
     },
@@ -89,8 +92,9 @@ const useStyles = makeStyles((theme) => createStyles({
         maxHeight: 345,
         objectFit: "cover",
         [theme.breakpoints.down("md")]: {
+            width: "100%",
             minHeight: 240,
-            maxHeight: 280,
+            maxHeight: 240
         }
     },
     partCardCaptions: {
@@ -123,7 +127,7 @@ const PartsFeedComponentView = (props) => {
             const partType = part.partType
             const partHref = part.partHref
 
-            history.push("/"+brand+"/"+model+"/"+partType+"/"+partHref)
+            history.push("/" + brand + "/" + model + "/" + partType + "/" + partHref)
 
         }
 
@@ -174,7 +178,7 @@ const PartsFeedComponentView = (props) => {
 
         return Object.values(partsFeedList).map(part => {
             return (
-                <div style={{display: "inline-block"}} key={part.partHref}>
+                <div style={{display: "inline-block",width:"100%"}} key={part.partHref}>
                     <div className={classes.partCardContainer} key={part.href} onClick={() => {
                         handleItemCLick(part)
                     }}>

@@ -4,6 +4,7 @@ import Carousel from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
 import Dots from "./Dots/Dots";
 import Item from "./Item";
+import {Icon} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
 
@@ -33,11 +34,11 @@ const CarouselView = (props) => {
     return (
         <div className={classes.root}>
 
-            <Carousel slidesPerPage={1.1}
-                      offset={4}
+            <Carousel slidesPerPage={1}
+                      offset={0}
                       centered
                       infinite
-                      keepDirectionWhenDragging
+                      keepDirectionWhenDragging={true}
                       onChange={(id) => {
                           setDotID(id)
                       }}

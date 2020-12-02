@@ -19,7 +19,19 @@ const useStyles = makeStyles((theme) => createStyles({
         justifyContent: "flex-start",
         marginTop: theme.spacing(2),
         [theme.breakpoints.down("md")]: {
-            marginTop: theme.spacing(0)
+            marginTop: theme.spacing(0),
+            minHeight: `calc(100vh - 64px)`
+        }
+    },
+    root2: {
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "flex-start",
+        marginTop: theme.spacing(2),
+        [theme.breakpoints.down("md")]: {
+            marginTop: theme.spacing(0),
         }
     },
     tabsContainer: {
@@ -149,7 +161,7 @@ const FilterComponentView = (props) => {
                             }}>{locationArray[1].toUpperCase()}</Typography>
                         </Breadcrumbs>
                     )
-                } else if(locationArray[1].length > 0 && locationArray[1] === "cart"){
+                } else if (locationArray[1].length > 0 && locationArray[1] === "cart") {
                     return (
                         <Breadcrumbs aria-label="breadcrumb" className={classes.crumbContainer}>
                             <Typography className={classes.crumbText} variant={"h6"} onClick={() => {
@@ -196,7 +208,7 @@ const FilterComponentView = (props) => {
 
                             })[0])[0].toUpperCase()
 
-                        }else {
+                        } else {
                             return 2
                         }
 
@@ -240,7 +252,7 @@ const FilterComponentView = (props) => {
 
                             })[0])[0].toUpperCase()
 
-                        }else {
+                        } else {
                             return 2
                         }
 
@@ -275,14 +287,23 @@ const FilterComponentView = (props) => {
 
     }
 
+    const getRootStyle = () => {
+
+        if (locationArray.length >= 3) {
+            return classes.root2
+        } else {
+            return classes.root
+        }
+    }
+
     return (
-        <div className={classes.root}>
+        <div className={getRootStyle()}>
 
             <Grid container spacing={0}>
 
                 <Grid item xl={2} lg={2} md={false} sm={false} xs={false}/>
 
-                <Grid item xl={8} lg={8} md={12} sm={12} xs={12}>
+                <Grid item xl={6} lg={6} md={12} sm={12} xs={12}>
 
                     <div className={classes.tabsContainer}>
 
@@ -299,9 +320,13 @@ const FilterComponentView = (props) => {
 
                         <TabPanel value={getTab()} index={0} dir={theme.direction}>
                             {renderCrumbs()}
-                            <BrandsAndModels filterState={filterState}
-                                             matches={matches}
-                            />
+                            {locationArray[1] !== "cart" && locationArray
+                                ? <BrandsAndModels filterState={filterState}
+                                                   matches={matches}
+                                />
+                                : <></>
+                            }
+
                         </TabPanel>
                         <TabPanel value={getTab()} index={1} dir={theme.direction}>
                             Item Two

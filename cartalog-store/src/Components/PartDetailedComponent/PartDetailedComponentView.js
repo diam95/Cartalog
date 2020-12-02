@@ -54,6 +54,10 @@ const useStyles = makeStyles((theme) => createStyles({
         justifyContent: "flex-start",
         width: "100vw",
         overflow: "hidden"
+    },
+    detailsContainer: {
+        width: "100%",
+        marginBottom: theme.spacing(2)
     }
 
 }))
@@ -119,9 +123,9 @@ const PartDetailedComponentView = (props) => {
 
                     <div className={classes.partDetailsContainer}>
                         <div>
-                            <Typography variant={"h5"}>{part.title}</Typography>
-                            <Typography variant={"h3"}
-                                        className={classes.price}>{parseInt(part.price) * 1.3} ₽</Typography>
+                            <Typography variant={"h6"}>{part.title}</Typography>
+                            <Typography variant={"h4"}
+                                        className={classes.price}>{parseInt(part.price)} ₽</Typography>
                             <Button size={"large"}
                                     variant={"contained"}
                                     color={"primary"}
@@ -133,9 +137,14 @@ const PartDetailedComponentView = (props) => {
                             </Button>
                         </div>
                         <div>{renderCaptions()}</div>
-                        <Typography variant={"subtitle2"}
-                                    style={{marginTop: 16}}>{part.description.length > 0 ? "Дополнительно:" : ""}</Typography>
-                        <Typography variant={"button"}>{part.description}</Typography>
+
+                        <div className={classes.detailsContainer}>
+                            <Typography variant={"subtitle2"}
+                                        style={{marginTop: 24}}>{part.description.length > 0 ? "Дополнительно:" : ""}</Typography>
+                            <Typography variant={"button"}>{part.description}</Typography>
+                        </div>
+
+
                     </div>
                 </div>
             )

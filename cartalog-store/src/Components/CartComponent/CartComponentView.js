@@ -17,7 +17,11 @@ import PaymentWidgetComponent from "../PaymentWidgetComponent/PaymentWidgetCompo
 const useStyles = makeStyles((theme) => createStyles({
 
     root: {
-        width: "100%"
+        width: "100%",
+        minHeight: `calc(100vh - 64px)`
+    },
+    contentContainer: {
+        marginTop: theme.spacing(1)
     },
     cartContainer: {
         width: "100%"
@@ -29,8 +33,10 @@ const useStyles = makeStyles((theme) => createStyles({
         alignItems: "flex-start",
         justifyContent: "center",
         marginBottom: theme.spacing(3),
+        marginLeft:theme.spacing(2),
         [theme.breakpoints.down("md")]: {
             paddingLeft: theme.spacing(2),
+            marginLeft:theme.spacing(0)
         }
     },
     cartItem: {
@@ -40,6 +46,8 @@ const useStyles = makeStyles((theme) => createStyles({
         width: "100%"
     },
     cartItemImg: {
+        width: 90,
+        height: 90,
         [theme.breakpoints.down("md")]: {
             width: 72,
             height: 72
@@ -53,18 +61,19 @@ const useStyles = makeStyles((theme) => createStyles({
         marginLeft: theme.spacing(2)
     },
     emptyCartContainer: {
+
         display: "none",
         [theme.breakpoints.down("md")]: {
-            display:"block"
+            display: "block"
         }
     },
     emptyCartTitle: {
         marginLeft: theme.spacing(2)
     },
     emptyCartTitle2: {
-        color:"#397baf",
+        color: "#397baf",
         marginLeft: theme.spacing(2),
-        textDecoration:"underline"
+        textDecoration: "underline"
     },
     crumb: {
         marginLeft: theme.spacing(2)
@@ -94,6 +103,33 @@ const useStyles = makeStyles((theme) => createStyles({
         [theme.breakpoints.down("md")]: {
             margin: theme.spacing(1),
         }
+    },
+    totalContainer: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-start",
+        marginTop: theme.spacing(2),
+        marginBottom: theme.spacing(1),
+    },
+    total: {
+        display: "inline-block",
+        background: "#808080",
+        padding: theme.spacing(1),
+        fontSize: 16,
+        fontWeight: 600,
+        color: "white",
+        marginLeft: theme.spacing(2),
+        marginRight: theme.spacing(2),
+        borderRadius: 5
+    },
+    checkOutButton: {
+        marginTop: theme.spacing(2),
+        paddingLeft: theme.spacing(2),
+        paddingRight: theme.spacing(2)
+    },
+    nuance: {
+        marginLeft: theme.spacing(2),
+        marginRight: theme.spacing(2)
     }
 
 }))
@@ -193,9 +229,46 @@ const CartComponentView = (props) => {
                 )
 
             })
+
+            const getTotalPrice = () => {
+
+                return cartState.items.reduce((acc, item) => {
+
+                    return parseInt(acc) + parseInt(item.price)
+
+                }, [0])
+
+            }
+
             return (
-                <div>
+                <div className={classes.contentContainer}>
+
                     {items}
+
+                    <Divider variant={"middle"}/>
+
+                    <div className={classes.totalContainer}>
+
+                        <div className={classes.total}>К оплате:</div>
+                        <Typography variant={"h6"}>{getTotalPrice()} ₽*</Typography>
+
+                    </div>
+
+                    <Typography variant={"caption"}
+                                className={classes.nuance}
+                    >
+                        *Доставка оплачивается при получении заказа
+                    </Typography>
+
+                    <div className={classes.checkOutButton}>
+                        <Button fullWidth
+                                variant={"outlined"}
+                                color={"primary"}
+                        >
+                            Оформить заказ
+                        </Button>
+                    </div>
+
                 </div>
             )
 
@@ -213,6 +286,10 @@ const CartComponentView = (props) => {
                 animationData: emptyCart
             });
         }
+
+        return(()=>{
+            lottie.destroy()
+        })
 
     }, [cartState.items]);
 

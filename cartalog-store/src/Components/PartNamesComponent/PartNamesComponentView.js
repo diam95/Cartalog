@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => createStyles({
             columns: "1 auto",
             marginTop: theme.spacing(1)
         },
-        width: "100%",
         columnFill: "auto"
     },
     partLinkContainer: {},
@@ -49,9 +48,14 @@ const useStyles = makeStyles((theme) => createStyles({
         [theme.breakpoints.down("md")]: {
             marginLeft: theme.spacing(2)
         }
+    },
+    gridContent:{
+        width:"100%",
+        background: "red"
     }
 
 }))
+
 
 const PartNamesComponentView = (props) => {
 
@@ -153,7 +157,7 @@ const PartNamesComponentView = (props) => {
 
                 const getSize = () => {
 
-                    return (matches ? "small" : "large")
+                    return (matches ? "small" : "small")
 
                 }
 
@@ -202,14 +206,14 @@ const PartNamesComponentView = (props) => {
 
                 <Grid item xl={2} lg={2} md={false} sm={false} xs={false}/>
 
-                <Grid item xl={8} lg={8} md={12} sm={12} xs={12}>
+                <Grid item xl={8} lg={8} md={12} sm={12} xs={12} className={classes.gridContent}>
 
-                    <div className={classes.partTitlesContainer}>
-                        {locationArray.length === 3
-                            ? renderContent()
-                            : <div/>
-                        }
-                    </div>
+                        <div className={classes.partTitlesContainer}>
+                            {locationArray.length === 3
+                                ? renderContent()
+                                : <div/>
+                            }
+                        </div>
 
                 </Grid>
 

@@ -1,12 +1,20 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {createStyles, makeStyles} from "@material-ui/core/styles";
-import {Typography} from "@material-ui/core";
+import {List, ListItem, ListItemIcon, ListItemText, Typography} from "@material-ui/core";
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Badge from "@material-ui/core/Badge";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import StyledSwitch from "./StyledSwitch";
+import SettingsIcon from '@material-ui/icons/Settings';
+import GroupIcon from '@material-ui/icons/Group';
+import PaymentIcon from '@material-ui/icons/Payment';
+import FlightTakeoffIcon from '@material-ui/icons/FlightTakeoff';
+import ContactPhoneIcon from '@material-ui/icons/ContactPhone';
+import KeyboardReturnIcon from '@material-ui/icons/KeyboardReturn';
+import SecurityIcon from '@material-ui/icons/Security';
+import {useHistory} from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => createStyles({
 
@@ -16,7 +24,8 @@ const useStyles = makeStyles((theme) => createStyles({
         alignItems: "center",
         justifyContent: "flex-start",
         width: "100%",
-        overflow: "auto"
+        overflow: "auto",
+        height: 64
     },
     titleContainer: {
         width: "100%",
@@ -56,6 +65,15 @@ const useStyles = makeStyles((theme) => createStyles({
         justifyContent: "flex-start",
         fontSize: 16,
         fontWeight: 500
+    },
+    cartalog2020: {
+        marginTop: "auto",
+        width: "100%",
+        textAlign: "center",
+        marginBottom: theme.spacing(1)
+    },
+    listRoot: {
+        marginRight: theme.spacing(2)
     }
 
 }))
@@ -83,9 +101,16 @@ const HeaderComponentViewMobile = (props) => {
         if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
         }
-
         setState({...state, [anchor]: open});
     };
+
+    const history = useHistory()
+
+    const handleListItemClick = () => {
+
+        history.push("/services")
+
+    }
 
     return (
         <div className={classes.root}>
@@ -97,9 +122,63 @@ const HeaderComponentViewMobile = (props) => {
                     onClose={toggleDrawer("left", false)}
                     onOpen={toggleDrawer("left", true)}
                 >
-                    <div>
-                        menu
-                    </div>
+                    <List component="nav" aria-label="main mailbox folders" className={classes.listRoot}>
+                        <ListItem button onClick={() => {
+                            history.push("/")
+                        }}>
+                            <ListItemIcon>
+                                <SettingsIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary="Автозапчасти"/>
+                        </ListItem>
+                        <ListItem button onClick={handleListItemClick}>
+                            <ListItemIcon>
+                                <GroupIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary="Услуги"/>
+                        </ListItem>
+                        <ListItem button onClick={() => {
+                            history.push("/payment")
+                        }}>
+                            <ListItemIcon>
+                                <PaymentIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary="Оплата"/>
+                        </ListItem>
+                        <ListItem button onClick={() => {
+                            history.push("/shipping")
+                        }}>
+                            <ListItemIcon>
+                                <FlightTakeoffIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary="Доставка"/>
+                        </ListItem>
+                        <ListItem button onClick={() => {
+                            history.push("/guarantees")
+                        }}>
+                            <ListItemIcon>
+                                <SecurityIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary="Гарантии"/>
+                        </ListItem>
+                        <ListItem button onClick={() => {
+                            history.push("/refund")
+                        }}>
+                            <ListItemIcon>
+                                <KeyboardReturnIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary="Возврат"/>
+                        </ListItem>
+                        <ListItem button onClick={() => {
+                            history.push("/contacts")
+                        }}>
+                            <ListItemIcon>
+                                <ContactPhoneIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary="Контакты"/>
+                        </ListItem>
+                    </List>
+                    <Typography variant={"subtitle2"} className={classes.cartalog2020}>© Cartalog 2020</Typography>
                 </SwipeableDrawer>
             </React.Fragment>
 

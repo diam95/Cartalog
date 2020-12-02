@@ -8,16 +8,17 @@ import PartsFeedComponent from "../../Components/PartsFeedComponent/PartsFeedCom
 import PartDetailedComponent from "../../Components/PartDetailedComponent/PartDetailedComponent";
 import CartComponent from "../../Components/CartComponent/CartComponent";
 import FooterComponent from "../../Components/FooterComponent/FooterComponent";
+import InfoComponent from "../../Components/InfoComponent/InfoComponent";
 
 const useStyles = makeStyles((theme) => createStyles({
 
     root: {
         width: "100%",
         minHeight: "100vh",
-        display:"flex",
-        flexDirection:"column",
-        justifyContent:"flex-start",
-        alignItems:"center"
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        alignItems: "center"
     }
 
 }))
@@ -71,6 +72,8 @@ const HomeScreen = (props) => {
 
             <CartComponent cartState={cartState}
                            setCartState={setCartState}/>
+
+            <InfoComponent/>
 
             <FooterComponent/>
 
