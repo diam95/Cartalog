@@ -14,6 +14,7 @@ const InfoComponent = (props) => {
             locationArray[1] !== "shipping" &&
             locationArray[1] !== "guarantees" &&
             locationArray[1] !== "refund" &&
+            locationArray[1] !== "about" &&
             locationArray[1] !== "contacts"
                 ? <></>
                 : <InfoComponentView/>}

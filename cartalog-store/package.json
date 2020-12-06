@@ -9,6 +9,7 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.2.2",
+    "clipboard-polyfill": "^3.0.1",
     "firebase": "^8.1.1",
     "lottie-web": "^5.7.4",
     "notistack": "^1.0.2",

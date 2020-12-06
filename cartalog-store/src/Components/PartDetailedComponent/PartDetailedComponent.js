@@ -58,19 +58,12 @@ const PartDetailedComponent = (props) => {
 
             }
 
-            const handleSnackClick = () => {
-
-                history.push()
-
-            }
-
             enqueueSnackbar('Товар добавлен в корзину', {
                 variant: "success",
                 anchorOrigin: {
                     vertical: 'bottom',
                     horizontal: 'center',
                 },
-                onClick:handleSnackClick,
                 preventDuplicate: true,
                 action: <Button style={{color: "White"}} onClick={() => {
                     handleRemove()

@@ -1,7 +1,7 @@
 import React from 'react'
 import {createStyles, makeStyles} from "@material-ui/core/styles";
 import {useHistory} from 'react-router-dom'
-import {Typography} from "@material-ui/core";
+import {ListItem, Typography} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => createStyles({
 
@@ -38,31 +38,57 @@ const NavBarComponentView = (props) => {
 
     const classes = useStyles()
 
+    const history = useHistory()
+
     return (
         <div className={classes.root}>
 
-            <div className={classes.container}>
-                <Typography variant={"subtitle2"}>Автозапчасти</Typography>
+            <div className={classes.container} onClick={() => {
+                history.push("/")
+            }}>
+                <Typography variant={"body2"}>Автозапчасти</Typography>
             </div>
 
-            <div className={classes.container}>
-                <Typography variant={"subtitle2"}>Оплата</Typography>
+            <div className={classes.container} onClick={() => {
+                history.push("/services")
+            }}>
+                <Typography variant={"body2"}>Услуги</Typography>
             </div>
 
-            <div className={classes.container}>
-                <Typography variant={"subtitle2"}>Доставка</Typography>
+            <div className={classes.container} onClick={() => {
+                history.push("/payment")
+            }}>
+                <Typography variant={"body2"}>Оплата</Typography>
             </div>
 
-            <div className={classes.container}>
-                <Typography variant={"subtitle2"}>Гарантии</Typography>
+            <div className={classes.container} onClick={() => {
+                history.push("/shipping")
+            }}>
+                <Typography variant={"body2"}>Доставка</Typography>
             </div>
 
-            <div className={classes.container}>
-                <Typography variant={"subtitle2"}>Возврат</Typography>
+            <div className={classes.container} onClick={() => {
+                history.push("/guarantees")
+            }}>
+                <Typography variant={"body2"}>Гарантии</Typography>
             </div>
 
-            <div className={classes.container}>
-                <Typography variant={"subtitle2"}>Контакты</Typography>
+            <div className={classes.container} onClick={() => {
+                history.push("/refund")
+            }}>
+                <Typography variant={"body2"}>Возврат</Typography>
+            </div>
+
+            <div className={classes.container} onClick={() => {
+                history.push("/about")
+            }}>
+                <Typography variant={"body2"}>О нас</Typography>
+            </div>
+
+            <div className={classes.container} onClick={() => {
+                history.push("/contacts")
+            }}>
+                <Typography variant={"body2"}>Контакты</Typography>
             </div>
 
         </div>

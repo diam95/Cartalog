@@ -51,7 +51,6 @@ const useStyles = makeStyles((theme) => createStyles({
     },
     gridContent:{
         width:"100%",
-        background: "red"
     }
 
 }))

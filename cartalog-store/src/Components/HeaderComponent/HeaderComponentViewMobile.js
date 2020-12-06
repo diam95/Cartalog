@@ -15,6 +15,7 @@ import ContactPhoneIcon from '@material-ui/icons/ContactPhone';
 import KeyboardReturnIcon from '@material-ui/icons/KeyboardReturn';
 import SecurityIcon from '@material-ui/icons/Security';
 import {useHistory} from 'react-router-dom';
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 
 const useStyles = makeStyles((theme) => createStyles({
 
@@ -90,25 +91,14 @@ const HeaderComponentViewMobile = (props) => {
 
     const classes = useStyles()
 
-    const [state, setState] = useState({
-        top: false,
-        left: false,
-        bottom: false,
-        right: false,
-    });
-
-    const toggleDrawer = (anchor, open) => (event) => {
-        if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-            return;
-        }
-        setState({...state, [anchor]: open});
-    };
+    const [open, setOpen] = useState(false);
 
     const history = useHistory()
 
-    const handleListItemClick = () => {
+    const handleListItemClick = (url) => {
 
-        history.push("/services")
+        setOpen(false)
+        history.push(`/${url}`)
 
     }
 
@@ -118,65 +108,72 @@ const HeaderComponentViewMobile = (props) => {
             <React.Fragment>
                 <SwipeableDrawer
                     anchor={"left"}
-                    open={state["left"]}
-                    onClose={toggleDrawer("left", false)}
-                    onOpen={toggleDrawer("left", true)}
+                    open={open}
+                    onClose={() => {
+                        setOpen(false)
+                    }}
+                    onOpen={() => {
+                        setOpen(true)
+                    }}
                 >
                     <List component="nav" aria-label="main mailbox folders" className={classes.listRoot}>
-                        <ListItem button onClick={() => {
-                            history.push("/")
-                        }}>
+
+                        <ListItem button onClick={()=>{handleListItemClick("")}}>
                             <ListItemIcon>
                                 <SettingsIcon/>
                             </ListItemIcon>
                             <ListItemText primary="Автозапчасти"/>
                         </ListItem>
-                        <ListItem button onClick={handleListItemClick}>
+
+                        <ListItem button onClick={()=>{handleListItemClick("services")}}>
                             <ListItemIcon>
                                 <GroupIcon/>
                             </ListItemIcon>
                             <ListItemText primary="Услуги"/>
                         </ListItem>
-                        <ListItem button onClick={() => {
-                            history.push("/payment")
-                        }}>
+
+                        <ListItem button onClick={()=>{handleListItemClick("payment")}}>
                             <ListItemIcon>
                                 <PaymentIcon/>
                             </ListItemIcon>
                             <ListItemText primary="Оплата"/>
                         </ListItem>
-                        <ListItem button onClick={() => {
-                            history.push("/shipping")
-                        }}>
+
+                        <ListItem button onClick={()=>{handleListItemClick("shipping")}}>
                             <ListItemIcon>
                                 <FlightTakeoffIcon/>
                             </ListItemIcon>
                             <ListItemText primary="Доставка"/>
                         </ListItem>
-                        <ListItem button onClick={() => {
-                            history.push("/guarantees")
-                        }}>
+
+                        <ListItem button onClick={()=>{handleListItemClick("guarantees")}}>
                             <ListItemIcon>
                                 <SecurityIcon/>
                             </ListItemIcon>
                             <ListItemText primary="Гарантии"/>
                         </ListItem>
-                        <ListItem button onClick={() => {
-                            history.push("/refund")
-                        }}>
+
+                        <ListItem button onClick={()=>{handleListItemClick("refund")}}>
                             <ListItemIcon>
                                 <KeyboardReturnIcon/>
                             </ListItemIcon>
                             <ListItemText primary="Возврат"/>
                         </ListItem>
-                        <ListItem button onClick={() => {
-                            history.push("/contacts")
-                        }}>
+
+                        <ListItem button onClick={()=>{handleListItemClick("about")}}>
+                            <ListItemIcon>
+                                <InfoOutlinedIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary="О нас"/>
+                        </ListItem>
+
+                        <ListItem button onClick={()=>{handleListItemClick("contacts")}}>
                             <ListItemIcon>
                                 <ContactPhoneIcon/>
                             </ListItemIcon>
                             <ListItemText primary="Контакты"/>
                         </ListItem>
+
                     </List>
                     <Typography variant={"subtitle2"} className={classes.cartalog2020}>© Cartalog 2020</Typography>
                 </SwipeableDrawer>
@@ -186,7 +183,9 @@ const HeaderComponentViewMobile = (props) => {
 
                 <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
 
-                    <IconButton onClick={toggleDrawer("left", true)}>
+                    <IconButton onClick={() => {
+                        setOpen(true)
+                    }}>
                         <MenuIcon/>
                     </IconButton>
 
