@@ -8,7 +8,13 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 const useStyles = makeStyles((theme) => createStyles({
 
-    root: {},
+    root: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+        justifyContent: "flex-start",
+        width: "100%"
+    },
     partTitlesContainer: {
         columns: "4 auto",
         marginTop: theme.spacing(2),
@@ -49,8 +55,8 @@ const useStyles = makeStyles((theme) => createStyles({
             marginLeft: theme.spacing(2)
         }
     },
-    gridContent:{
-        width:"100%",
+    gridContent: {
+        width: "100%",
     }
 
 }))
@@ -67,6 +73,7 @@ const PartNamesComponentView = (props) => {
     const [partNamesArray, setPartNamesArray] = useState([]);
     const classes = useStyles()
 
+    console.log({partNamesArray})
     useEffect(() => {
 
         if (locationArray.length === 3) {
@@ -117,12 +124,8 @@ const PartNamesComponentView = (props) => {
 
             const lettersArray = []
 
-            const partHrefs = partNamesArray.map(part => {
-                return Object.keys(part)[0]
-            })
-            const partNames = partNamesArray.map(part => {
-                return Object.values(part)[0]
-            })
+            const partHrefs = Object.keys(partNamesArray)
+            const partNames = Object.values(partNamesArray)
 
             partNames.forEach((part_name, ind) => {
 
@@ -207,12 +210,12 @@ const PartNamesComponentView = (props) => {
 
                 <Grid item xl={8} lg={8} md={12} sm={12} xs={12} className={classes.gridContent}>
 
-                        <div className={classes.partTitlesContainer}>
-                            {locationArray.length === 3
-                                ? renderContent()
-                                : <div/>
-                            }
-                        </div>
+                    <div className={classes.partTitlesContainer}>
+                        {locationArray.length === 3
+                            ? renderContent()
+                            : <div/>
+                        }
+                    </div>
 
                 </Grid>
 

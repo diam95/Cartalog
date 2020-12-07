@@ -17,7 +17,7 @@ const FilterComponent = (props) => {
 
         if (filterState.all_brands.length === 0) {
 
-            const allBrandsRef = firebase.database().ref('brands_models').child("brands")
+            const allBrandsRef = firebase.database().ref('all_brands')
             allBrandsRef.once("value").then(r => {
 
                 if (r.exists()) {
@@ -36,7 +36,7 @@ const FilterComponent = (props) => {
 
             if (!filterState.all_models[brand]) {
 
-                const allModelsRef = firebase.database().ref('brands_models').child("models").child(brand)
+                const allModelsRef = firebase.database().ref('all_models').child(brand)
                 allModelsRef.once("value").then(r => {
 
                     if (r.exists()) {

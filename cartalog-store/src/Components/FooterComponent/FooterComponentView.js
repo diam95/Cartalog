@@ -25,10 +25,6 @@ const useStyles = makeStyles((theme) => createStyles({
     divider: {
         width: "100%"
     },
-    dividerMiddle: {
-        width: "100%",
-        marginTop: theme.spacing(1)
-    },
     copyrightContainer: {
         width: "100%",
         display: "flex",
@@ -64,19 +60,11 @@ const useStyles = makeStyles((theme) => createStyles({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        marginTop: theme.spacing(1),
-        marginLeft: -theme.spacing(1)
     },
     propsContainer: {
         marginTop: theme.spacing(1),
         display: "flex",
         flexDirection: "column"
-    },
-    download: {
-        marginTop: theme.spacing(1),
-        color: "#2a4d93",
-        textDecoration: "underline",
-        cursor: "pointer"
     },
     number: {
         cursor: "pointer",
@@ -99,13 +87,14 @@ const FooterComponentView = (props) => {
     const handleNumberClick = async (number) => {
 
         await clipboard.writeText(number).then(r => {
-            enqueueSnackbar('Номер скопирован', {
+            enqueueSnackbar(`Номер скопирован`, {
                 variant: "info",
                 anchorOrigin: {
                     vertical: 'bottom',
                     horizontal: 'center',
                 },
                 preventDuplicate: true,
+                autoHideDuration:2000,
                 action: <Button style={{color: "White"}} onClick={() => {
                     handleCall()
                 }}>
@@ -147,63 +136,6 @@ const FooterComponentView = (props) => {
                         handleNumberClick(`+79140390623`).then()
                     }}>ТЕХ. ПОДДЕРЖКА: +7(914)-039-0623</Typography>
 
-                </div>
-
-                <Divider className={classes.dividerMiddle}/>
-
-
-                <div>
-
-                    <Typography variant={"button"} className={classes.propsContainer}>Реквизиты</Typography>
-
-                    <div>
-                        <Typography className={classes.propsContainer} variant={"body2"}>ИП Крижановский Александр
-                            Игоревич
-                        </Typography>
-                    </div>
-
-                    <div>
-                        <Typography variant={"body2"}>Российская Федерация, 685000
-                        </Typography>
-                    </div>
-
-                    <div>
-                        <Typography variant={"body2"}>Магаданская обл., Г. Магадан
-                        </Typography>
-                    </div>
-
-                    <div>
-                        <Typography variant={"body2"}>ИНН 490913635792
-                        </Typography>
-                    </div>
-
-                    <div>
-                        <Typography variant={"body2"}>ОГРНИП 320491000005249
-                        </Typography>
-                    </div>
-
-                    <div>
-                        <Typography variant={"body2"}>РС 40802810300001723607
-                        </Typography>
-                    </div>
-
-                    <div>
-                        <Typography variant={"body2"}>ОГРН 320491000005249
-                        </Typography>
-                    </div>
-
-                    <div>
-                        <Typography variant={"body2"}>АО «Тинькофф Банк»
-                        </Typography>
-                    </div>
-
-                </div>
-
-                <div className={classes.download}
-                     onClick={() => {
-                         openInNewTab("https://firebasestorage.googleapis.com/v0/b/cartalog-store.appspot.com/o/output.pdf?alt=media&token=7d645ec2-146d-48ca-9f18-923efb1b188b")
-                     }}>
-                    Реквизиты в pdf
                 </div>
 
                 <div className={classes.logosContainer}>

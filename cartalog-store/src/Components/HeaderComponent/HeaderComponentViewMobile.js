@@ -74,7 +74,6 @@ const useStyles = makeStyles((theme) => createStyles({
         marginBottom: theme.spacing(1)
     },
     listRoot: {
-        marginRight: theme.spacing(2)
     }
 
 }))
@@ -122,7 +121,7 @@ const HeaderComponentViewMobile = (props) => {
                             <ListItemIcon>
                                 <SettingsIcon/>
                             </ListItemIcon>
-                            <ListItemText primary="Автозапчасти"/>
+                            <ListItemText primary="Автозапчасти" style={{marginRight:16}}/>
                         </ListItem>
 
                         <ListItem button onClick={()=>{handleListItemClick("services")}}>

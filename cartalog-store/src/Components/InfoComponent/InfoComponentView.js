@@ -7,6 +7,8 @@ import onlinePay from "../../assets/36521-online-payment-animation.json";
 import shipping from "../../assets/33369-sailing-ship.json";
 import guarantees from "../../assets/37463-sign-contract-contract-approved.json";
 import refund from "../../assets/23035-nfc-payment.json";
+import team from "../../assets/38281-team.json";
+import contacts from "../../assets/39997-landing-page-contact-us.json";
 import {List, ListItem, ListItemAvatar, ListItemText, Typography} from "@material-ui/core";
 import ImportantDevicesIcon from '@material-ui/icons/ImportantDevices';
 import AirplanemodeActiveIcon from '@material-ui/icons/AirplanemodeActive';
@@ -18,6 +20,9 @@ import LocalAtmIcon from '@material-ui/icons/LocalAtm';
 import BuildOutlinedIcon from '@material-ui/icons/BuildOutlined';
 import ship from '../../assets/ocean-transportation.png';
 import LocalShippingOutlinedIcon from '@material-ui/icons/LocalShippingOutlined';
+import * as clipboard from "clipboard-polyfill/text";
+import Button from "@material-ui/core/Button";
+import {useSnackbar} from "notistack";
 
 const useStyles = makeStyles((theme) => createStyles({
 
@@ -33,17 +38,27 @@ const useStyles = makeStyles((theme) => createStyles({
             justifyContent: "flex-start"
         }
     },
-    paymentAnimation: {},
+    paymentAnimation: {
+        width:"100%"
+    },
     servicesAnimation: {
+        width: "100%",
         marginBottom: theme.spacing(2),
         marginTop: theme.spacing(2),
     },
     shippingAnimation: {
+        width:"100%",
         marginBottom: -theme.spacing(2),
         marginTop: -theme.spacing(5),
     },
-    emptyCartContainer: {},
+    aboutAnimation: {
+        width: "100%"
+    },
+    emptyCartContainer: {
+        width: "100%"
+    },
     infoContainer: {
+        width: "100%",
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
@@ -53,7 +68,13 @@ const useStyles = makeStyles((theme) => createStyles({
         textAlign: "justify"
     },
     marginTop1: {
-        marginTop: theme.spacing(1)
+        marginBottom: theme.spacing(1)
+    },
+    download: {
+        marginTop: theme.spacing(1),
+        color: "#2a4d93",
+        textDecoration: "underline",
+        cursor: "pointer"
     }
 
 }))
@@ -63,6 +84,7 @@ const InfoComponentView = (props) => {
     const classes = useStyles()
 
     const locationArray = useLocation().pathname.split("/")
+    const {enqueueSnackbar, closeSnackbar} = useSnackbar()
 
     useEffect(() => {
 
@@ -105,7 +127,6 @@ const InfoComponentView = (props) => {
                 });
                 break;
 
-
             case "refund":
                 lottie.loadAnimation({
                     container: document.querySelector("#react-logo"),
@@ -115,19 +136,23 @@ const InfoComponentView = (props) => {
                 });
                 break;
 
-
             case "about":
-                /* lottie.loadAnimation({
-                     container: document.querySelector("#react-logo"),
-                     renderer: 'svg',
-                     loop: true,
-                     animationData: refund
-                 });*/
+                lottie.loadAnimation({
+                    container: document.querySelector("#react-logo"),
+                    renderer: 'svg',
+                    loop: true,
+                    animationData: team
+                })
                 break;
 
             case "contacts":
-                return ("contacts")
-
+                lottie.loadAnimation({
+                    container: document.querySelector("#react-logo"),
+                    renderer: 'svg',
+                    loop: true,
+                    animationData: contacts
+                })
+                break;
 
         }
 
@@ -137,6 +162,11 @@ const InfoComponentView = (props) => {
         })
 
     }, [locationArray[1]]);
+
+    const openInNewTab = (url) => {
+        const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+        if (newWindow) newWindow.opener = null
+    }
 
     const renderContent = () => {
 
@@ -275,6 +305,8 @@ const InfoComponentView = (props) => {
 
                         </List>
 
+                        <div id="react-logo" className={getAnimationRootStyle()}/>
+
                     </div>
                 )
 
@@ -353,6 +385,46 @@ const InfoComponentView = (props) => {
 
                         </List>
 
+                        <div>
+
+                            <Typography variant={"h6"} className={classes.propsContainer}>Реквизиты</Typography>
+
+                            <Typography className={classes.propsContainer} variant={"body2"}>ИП Крижановский Александр
+                                Игоревич
+                            </Typography>
+
+                            <Typography variant={"body2"}>Российская Федерация, 685000
+                            </Typography>
+
+                            <Typography variant={"body2"}>Магаданская обл., Г. Магадан
+                            </Typography>
+
+                            <Typography variant={"body2"}>ИНН 490913635792
+                            </Typography>
+
+                            <Typography variant={"body2"}>ОГРНИП 320491000005249
+                            </Typography>
+
+                            <Typography variant={"body2"}>РС 40802810300001723607
+                            </Typography>
+
+                            <Typography variant={"body2"}>ОГРН 320491000005249
+                            </Typography>
+
+                            <Typography variant={"body2"}>АО «Тинькофф Банк»
+                            </Typography>
+
+                        </div>
+
+                        <div className={classes.download}
+                             onClick={() => {
+                                 openInNewTab("https://firebasestorage.googleapis.com/v0/b/cartalog-store.appspot.com/o/output.pdf?alt=media&token=7d645ec2-146d-48ca-9f18-923efb1b188b")
+                             }}>
+                            Реквизиты в pdf
+                        </div>
+
+                        <div id="react-logo" className={getAnimationRootStyle()}/>
+
                     </div>
                 )
 
@@ -429,6 +501,8 @@ const InfoComponentView = (props) => {
                             </ListItem>
 
                         </List>
+
+                        <div id="react-logo" className={getAnimationRootStyle()}/>
 
                     </div>
                 )
@@ -532,15 +606,143 @@ const InfoComponentView = (props) => {
                             решение в любой ситуации!
                         </Typography>
 
+                        <div id="react-logo" className={getAnimationRootStyle()}/>
+
                     </div>
                 )
-
 
             case "refund":
                 return (
                     <div className={classes.infoContainer}>
 
-                        <Typography variant={"h6"}></Typography>
+                        <Typography variant={"h6"}>Возврат</Typography>
+
+                        <Typography variant={"body2"}>В нашем магазине установлены следующие правила возврата
+                            товара:</Typography>
+
+                        <Typography variant={"h6"}
+                                    style={{marginTop: 8}}
+                        >ДВС</Typography>
+
+                        <Typography
+                            component="span"
+                            variant="body2"
+                            color="textPrimary"
+                        >
+                            Приобретая двигатель, помните, что он уже эксплуатировался в
+                            Японии, является бывшим в употреблении и давать 100% гарантию
+                            на безупречную и безотказную работу агрегата мы не можем.
+                            Замена двигателя должна производится только технически
+                            грамотными специалистами в специализированных автосервисах.
+                        </Typography>
+
+                        <Typography
+                            component="span"
+                            variant="body2"
+                            color="textPrimary"
+                            style={{marginTop: 8}}
+                        >
+                            Возврат двигателя по гарантии производится в течение 5-7 дней
+                            с момента получения только в случае обнаружения скрытых
+                            механических дефектов, не выявленных при внешнем осмотре:
+                            внутренних трещин, прогара поршней и т.д., которые требуют
+                            замены основных деталей и узлов двигателя: головки блока,
+                            коленвала, шатунно-поршневой группы. Износ прокладки,
+                            вкладышей и других быстро изнашивающихся деталей не является
+                            основанием для замены двигателя. При этом запрещается
+                            разбирать двигатель, производить механическое вмешательство,
+                            нарушать метки продавца.
+                        </Typography>
+
+                        <Typography variant={"h6"} style={{color: "red", marginTop: 8, marginBottom: 8}}>Все претензии
+                            клиента оговариваются при
+                            осмотре и до вывоза двигателя
+                            со склада.
+                        </Typography>
+
+                        <Typography variant={"body2"}>
+                            В случае просрочки времени свыше 7 дней с момента получения клиентом двигателя, а также
+                            самостоятельной разборке двигателя или нарушения меток продавца – претензии не принимаются.
+                        </Typography>
+
+
+                        <Typography variant={"h6"} style={{marginTop: 8}}>
+                            Остальные запчасти
+                        </Typography>
+
+                        <Typography variant={"body2"}>
+                            Возврат возможен только в случае обнаружения скрытых дефектов, которые невозможно выявить
+                            при внешнем осмотре.
+                        </Typography>
+
+                        <List>
+                            <ListItem>
+                                <ListItemText primary={"КПП"}
+                                              secondary={
+                                                  <React.Fragment>
+                                                      <Typography
+                                                          component="span"
+                                                          variant="body2"
+                                                          color="textPrimary"
+                                                      >
+                                                          5 дней
+                                                      </Typography>
+                                                  </React.Fragment>
+                                              }
+                                >
+                                </ListItemText>
+                            </ListItem>
+                            <ListItem>
+                                <ListItemText primary={"Стартеры, генераторы"}
+                                              secondary={
+                                                  <React.Fragment>
+                                                      <Typography
+                                                          component="span"
+                                                          variant="body2"
+                                                          color="textPrimary"
+                                                      >
+                                                          2 дня
+                                                      </Typography>
+                                                  </React.Fragment>
+                                              }
+                                >
+                                </ListItemText>
+                            </ListItem>
+                            <ListItem>
+                                <ListItemText primary={"Остальные запчасти"}
+                                              secondary={
+                                                  <React.Fragment>
+                                                      <Typography
+                                                          component="span"
+                                                          variant="body2"
+                                                          color="textPrimary"
+                                                      >
+                                                          3 дня
+                                                      </Typography>
+                                                  </React.Fragment>
+                                              }
+                                >
+                                </ListItemText>
+                            </ListItem>
+                            <ListItem>
+                                <ListItemText primary={"Возврату не подлежат"}
+                                              secondary={
+                                                  <React.Fragment>
+                                                      <Typography
+                                                          component="span"
+                                                          variant="body2"
+                                                          color="textPrimary"
+                                                      >
+                                                          Элементы салона, кузова, оптика и электронные датчики
+                                                      </Typography>
+                                                  </React.Fragment>
+                                              }
+                                >
+                                </ListItemText>
+                            </ListItem>
+                        </List>
+
+                        <div id="react-logo" className={getAnimationRootStyle()}/>
 
                     </div>
                 )
@@ -549,7 +751,11 @@ const InfoComponentView = (props) => {
                 return (
                     <div className={classes.infoContainer}>
 
-                        <Typography variant={"body1"}>
+                        <Typography variant={"h6"}>
+                            О нас
+                        </Typography>
+
+                        <Typography variant={"body1"} className={classes.marginTop1}>
                             «Cartalog» — это интернет-магазин запчастей для иномарок, созданный в Магадане и работающий
                             с 2019 года.
                         </Typography>
@@ -575,11 +781,89 @@ const InfoComponentView = (props) => {
                             предложение в городе!
                         </Typography>
 
+                        <div id="react-logo" className={getAnimationRootStyle()}/>
+
                     </div>
                 )
 
             case "contacts":
-                return ("contacts")
+                const handleNumberClick = async (number) => {
+
+                    await clipboard.writeText(number).then(r => {
+                        enqueueSnackbar(`Номер скопирован`, {
+                            variant: "info",
+                            anchorOrigin: {
+                                vertical: 'bottom',
+                                horizontal: 'center',
+                            },
+                            preventDuplicate: true,
+                            autoHideDuration: 2000,
+                            action: <Button style={{color: "White"}} onClick={() => {
+                                handleCall()
+                            }}>
+                                Позвонить
+                            </Button>
+                        })
+                    });
+
+                    const handleCall = () => {
+
+                        window.open(`tel:${number}`)
+
+                    }
+
+                }
+                return (
+                    <div className={classes.infoContainer}>
+
+                        <Typography variant={"h6"}>
+                            Контакты
+                        </Typography>
+
+                        <List>
+                            <ListItem onClick={() => {
+                                handleNumberClick(`+7(914)-030-6366`)
+                            }}>
+                                <ListItemText primary={"Отдел продаж"}
+                                              secondary={
+                                                  <React.Fragment>
+                                                      <Typography
+                                                          component="span"
+                                                          variant="body2"
+                                                          color="textPrimary"
+                                                      >
+                                                          +7(914)-030-6366
+                                                      </Typography>
+                                                  </React.Fragment>
+                                              }
+                                >
+                                </ListItemText>
+                            </ListItem>
+                            <ListItem onClick={() => {
+                                handleNumberClick(`+7(914)-039-0623`)
+                            }}>
+                                <ListItemText primary={"Техническая поддержка"}
+                                              secondary={
+                                                  <React.Fragment>
+                                                      <Typography
+                                                          component="span"
+                                                          variant="body2"
+                                                          color="textPrimary"
+                                                      >
+                                                          +7(914)-039-0623
+                                                      </Typography>
+                                                  </React.Fragment>
+                                              }
+                                >
+                                </ListItemText>
+                            </ListItem>
+
+                        </List>
+
+                        <div id="react-logo" className={getAnimationRootStyle()}/>
+
+                    </div>
+                )
 
 
         }
@@ -599,6 +883,9 @@ const InfoComponentView = (props) => {
             case "shipping":
                 return classes.shippingAnimation
 
+            case "about":
+                return classes.aboutAnimation
+
             default:
                 return classes.emptyCartContainer
 
@@ -609,7 +896,6 @@ const InfoComponentView = (props) => {
     return (
         <div className={classes.root}>
             {renderContent()}
-            <div id="react-logo" className={getAnimationRootStyle()}/>
         </div>
     )
 
