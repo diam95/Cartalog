@@ -8,6 +8,7 @@ import {Grid} from "@material-ui/core";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import PartNamesComponent from "../PartNamesComponent/PartNamesComponent";
 
 const useStyles = makeStyles((theme) => createStyles({
 
@@ -19,8 +20,7 @@ const useStyles = makeStyles((theme) => createStyles({
         justifyContent: "flex-start",
         marginTop: theme.spacing(2),
         [theme.breakpoints.down("md")]: {
-            marginTop: theme.spacing(0),
-            minHeight: `calc(100vh - 64px)`
+            marginTop: theme.spacing(0)
         }
     },
     root2: {
@@ -150,6 +150,35 @@ const FilterComponentView = (props) => {
     const renderCrumbs = () => {
 
         const locationArray = location.pathname.split("/")
+
+        const getPartName = () => {
+
+            if (filterState.parts_filter_detailed[locationArray[1]]) {
+
+                if (filterState.parts_filter_detailed[locationArray[1]][locationArray[2]]) {
+
+                    return filterState.parts_filter_detailed[locationArray[1]][locationArray[2]][locationArray[3]].toUpperCase()
+
+                } else {
+
+                    return 2
+
+                }
+
+            } else if (locationArray[1] === "partsFilter") {
+
+                if (filterState.all_part_names) {
+                    return filterState.all_part_names[locationArray[2]].toUpperCase()
+                } else {
+                    return <CircularProgress size={18}/>
+                }
+
+            } else {
+                return <CircularProgress size={18}/>
+            }
+
+        }
+
         switch (locationArray.length) {
 
             case 2:
@@ -169,54 +198,64 @@ const FilterComponentView = (props) => {
                             }}>Корзина</Typography>
                         </Breadcrumbs>
                     )
+                } else if (locationArray[1].length === 0) {
+                    return (
+                        <Breadcrumbs aria-label="breadcrumb" className={classes.crumbContainer}>
+                            <Typography className={classes.crumbText} variant={"h6"}>
+                                Выберите марку автомобиля
+                            </Typography>
+                        </Breadcrumbs>
+                    )
+                } else if (locationArray[1] === "partsFilter") {
+                    return (
+                        <Breadcrumbs aria-label="breadcrumb" className={classes.crumbContainer}>
+                            <Typography className={classes.crumbText} variant={"h6"}>
+                                Выберите запчасть
+                            </Typography>
+                        </Breadcrumbs>
+                    )
+                } else {
+                    break;
+                }
+
+            case 3:
+
+                if (locationArray[1] === "partsFilter") {
+                    return (
+                        <Breadcrumbs aria-label="breadcrumb" className={classes.crumbContainer}>
+
+                            <Typography className={classes.crumbText} variant={"h6"} onClick={() => {
+                                handleCrumbClick(0)
+                            }}>НАИМЕНОВАНИЯ ЗАПЧАСТЕЙ
+                            </Typography>
+
+                            <Typography className={classes.crumbText} variant={"h6"} onClick={() => {
+                                handleCrumbClick(1)
+                            }}>{getPartName()}
+                            </Typography>
+
+                        </Breadcrumbs>
+                    )
                 } else {
                     return (
                         <Breadcrumbs aria-label="breadcrumb" className={classes.crumbContainer}>
-                            <Typography className={classes.crumbText} variant={"h6"}>Выберите марку
-                                автомобиля</Typography>
+
+                            <Typography className={classes.crumbText} variant={"h6"} onClick={() => {
+                                handleCrumbClick(0)
+                            }}>{locationArray[1].toUpperCase()}
+                            </Typography>
+
+                            <Typography className={classes.crumbText} variant={"h6"} onClick={() => {
+                                handleCrumbClick(1)
+                            }}>{locationArray[2].toUpperCase().replace(/-/g, " ")}
+                            </Typography>
+
                         </Breadcrumbs>
                     )
                 }
 
-            case 3:
-                return (
-                    <Breadcrumbs aria-label="breadcrumb" className={classes.crumbContainer}>
-
-                        <Typography className={classes.crumbText} variant={"h6"} onClick={() => {
-                            handleCrumbClick(0)
-                        }}>{locationArray[1].toUpperCase()}
-                        </Typography>
-
-                        <Typography className={classes.crumbText} variant={"h6"} onClick={() => {
-                            handleCrumbClick(1)
-                        }}>{locationArray[2].toUpperCase().replace(/-/g, " ")}
-                        </Typography>
-
-                    </Breadcrumbs>
-                )
 
             case 4:
-
-                const getPartName = () => {
-
-                    if (filterState.parts_filter_detailed[locationArray[1]]) {
-                        if (filterState.parts_filter_detailed[locationArray[1]][locationArray[2]]) {
-
-                            return Object.values(filterState.parts_filter_detailed[locationArray[1]][locationArray[2]].filter(part => {
-
-                                return Object.keys(part)[0] === locationArray[3]
-
-                            })[0])[0].toUpperCase()
-
-                        } else {
-                            return 2
-                        }
-
-                    } else {
-                        return <CircularProgress size={18}/>
-                    }
-
-                }
 
                 return (
                     <Breadcrumbs aria-label="breadcrumb" className={classes.crumbContainer}>
@@ -241,27 +280,6 @@ const FilterComponentView = (props) => {
 
             case 5:
 
-                const getPartName2 = () => {
-
-                    if (filterState.parts_filter_detailed[locationArray[1]]) {
-                        if (filterState.parts_filter_detailed[locationArray[1]][locationArray[2]]) {
-
-                            return Object.values(filterState.parts_filter_detailed[locationArray[1]][locationArray[2]].filter(part => {
-
-                                return Object.keys(part)[0] === locationArray[3]
-
-                            })[0])[0].toUpperCase()
-
-                        } else {
-                            return 2
-                        }
-
-                    } else {
-                        return <CircularProgress size={18}/>
-                    }
-
-                }
-
                 return (
                     <Breadcrumbs aria-label="breadcrumb" className={classes.crumbContainer}>
 
@@ -277,7 +295,7 @@ const FilterComponentView = (props) => {
 
                         <Typography className={classes.crumbText} variant={"h6"} onClick={() => {
                             handleCrumbClick(2)
-                        }}>{getPartName2()}
+                        }}>{getPartName()}
                         </Typography>
 
                     </Breadcrumbs>
@@ -320,7 +338,7 @@ const FilterComponentView = (props) => {
 
                         <TabPanel value={getTab()} index={0} dir={theme.direction}>
                             {renderCrumbs()}
-                            {locationArray[1] !== "cart" && locationArray
+                            {locationArray[1] !== "cart" && locationArray[1] !== "partsFilter"
                                 ? <BrandsAndModels filterState={filterState}
                                                    matches={matches}
                                 />
@@ -329,7 +347,7 @@ const FilterComponentView = (props) => {
 
                         </TabPanel>
                         <TabPanel value={getTab()} index={1} dir={theme.direction}>
-                            Item Two
+                            {renderCrumbs()}
                         </TabPanel>
 
                     </div>

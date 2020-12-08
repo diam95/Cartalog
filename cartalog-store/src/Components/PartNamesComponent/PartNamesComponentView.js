@@ -5,6 +5,7 @@ import Avatar from "@material-ui/core/Avatar";
 import {useHistory} from "react-router-dom";
 import {Grid} from "@material-ui/core";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import firebase from "firebase";
 
 const useStyles = makeStyles((theme) => createStyles({
 
@@ -73,7 +74,6 @@ const PartNamesComponentView = (props) => {
     const [partNamesArray, setPartNamesArray] = useState([]);
     const classes = useStyles()
 
-    console.log({partNamesArray})
     useEffect(() => {
 
         if (locationArray.length === 3) {
@@ -88,6 +88,14 @@ const PartNamesComponentView = (props) => {
                     setPartNamesArray(filterState.parts_filter_detailed[brand][model])
 
                 }
+
+            }
+
+        } else if (locationArray[1] === "partsFilter") {
+
+            if (filterState.all_part_names) {
+
+                setPartNamesArray(filterState.all_part_names)
 
             }
 
@@ -195,7 +203,9 @@ const PartNamesComponentView = (props) => {
 
             })
 
-        } else {
+        } else if (locationArray[1] === "partsFilter" && locationArray.length === 2) {
+            return <CircularProgress className={classes.progress}/>
+        } else if(locationArray[1] !=="partsFilter" && locationArray.length===3){
             return <CircularProgress className={classes.progress}/>
         }
 
@@ -211,7 +221,7 @@ const PartNamesComponentView = (props) => {
                 <Grid item xl={8} lg={8} md={12} sm={12} xs={12} className={classes.gridContent}>
 
                     <div className={classes.partTitlesContainer}>
-                        {locationArray.length === 3
+                        {locationArray.length === 3 || locationArray[1] === "partsFilter"
                             ? renderContent()
                             : <div/>
                         }

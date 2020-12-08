@@ -67,6 +67,7 @@ const FilterComponent = (props) => {
             locationArray[1] !== "contacts"
                 ? <FilterComponentView matches={matches}
                                        filterState={filterState}
+                                       setFilterState={setFilterState}
                 />
                 : <></>
             }

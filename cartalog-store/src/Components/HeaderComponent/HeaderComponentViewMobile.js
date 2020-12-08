@@ -80,8 +80,6 @@ const useStyles = makeStyles((theme) => createStyles({
 
 const HeaderComponentViewMobile = (props) => {
 
-    console.log("HeaderComponentViewMobile")
-
     const handleGoToMainPage = props.handleGoToMainPage
     const handleGoToCart = props.handleGoToCart
     const darkMode = props.darkMode

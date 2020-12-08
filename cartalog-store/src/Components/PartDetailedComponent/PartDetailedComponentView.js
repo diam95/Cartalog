@@ -1,9 +1,10 @@
 import React from 'react'
 import {createStyles, makeStyles} from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import {Grid, Typography} from "@material-ui/core";
+import {Grid, Paper, Typography} from "@material-ui/core";
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
-import Carousel from "./Carousel/Carousel";
+import Carousel from "react-material-ui-carousel";
+import bcgr from "../../assets/bcgr.png";
 
 const useStyles = makeStyles((theme) => createStyles({
 
@@ -58,20 +59,29 @@ const useStyles = makeStyles((theme) => createStyles({
     detailsContainer: {
         width: "100%",
         marginBottom: theme.spacing(2)
+    },
+    carouselImage: {
+        width: "100%",
+        minWidth: "100%",
+        objectFit: "cover",
+        height: 240
+    },
+    carouselRoot: {
+        width: "100%",
+        backgroundImage:`url(${bcgr})`,
+        backgroundSize:"contain",
+        backgroundRepeat:"no-repeat"
     }
 
 }))
 
 const PartDetailedComponentView = (props) => {
 
-    console.log("PartDetailedComponentView")
-
     const matches = props.matches
 
     const handleAddToCart = props.handleAddToCart
 
     const classes = useStyles()
-    console.log(`PartDetailedComponentView`)
     const part = props.part
 
     const renderImages = () => {
@@ -113,13 +123,33 @@ const PartDetailedComponentView = (props) => {
 
     }
 
+    const Item = (props) => {
+
+        return (
+                <img src={props.item} alt={"img"} className={classes.carouselImage}/>
+        )
+
+    }
+
     const getGridContent = () => {
 
         if (matches) {
+
             return (
                 <div className={classes.container}>
 
-                    <Carousel carouselImagesList={part.images.filter(item => item.includes("https"))}/>
+                    <Carousel autoPlay={false}
+                              className={classes.carouselRoot}
+                              indicators={true}
+                              animation={"fade"}
+                              navButtonsAlwaysVisible={true}
+
+                    >
+                        {
+                            part.images.filter(item => item.includes("https")).map((item, i) => <Item key={i}
+                                                                                                      item={item}/>)
+                        }
+                    </Carousel>
 
                     <div className={classes.partDetailsContainer}>
                         <div>

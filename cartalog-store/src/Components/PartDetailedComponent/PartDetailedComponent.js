@@ -102,7 +102,6 @@ const PartDetailedComponent = (props) => {
 
         if (location.pathname.split("/").length === 5) {
 
-            console.log(location.pathname)
             const brand = location.pathname.split("/")[1]
             const model = location.pathname.split("/")[2]
             const partType = location.pathname.split("/")[3]

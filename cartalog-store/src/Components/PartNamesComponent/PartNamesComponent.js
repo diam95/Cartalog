@@ -34,7 +34,6 @@ const PartNamesComponent = (props) => {
                             temp.parts_filter_detailed[brand][model] = r.val()
                             setFilterState(temp)
                         }
-
                     }
 
                 })
@@ -55,8 +54,27 @@ const PartNamesComponent = (props) => {
             }
 
         }
+        if (locationArray[1] === "partsFilter") {
 
-    }, [locationArray])
+            const temp = {...filterState}
+
+            if(!temp.all_part_names){
+                const partsDetailedRef = firebase.database().ref('all_part_names')
+                partsDetailedRef.once('value').then(r => {
+
+                    if (r.exists()) {
+
+                        temp.all_part_names=r.val()
+                        setFilterState(temp)
+
+                    }
+
+                })
+            }
+
+        }
+
+    }, [locationArray, filterState])
 
     return (
         <PartNamesComponentView filterState={filterState}

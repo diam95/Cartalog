@@ -86,13 +86,58 @@ const PartsFeedComponent = (props) => {
                 setPartsFeedList([])
             })
 
+        } else if (locationArray.length === 3 && locationArray[1] === "partsFilter") {
+
+            const dbRef = firebase.database().ref('all_parts_by_part_names').child(locationArray[2])
+            const temp = {...partsState}
+
+            if (temp.all_parts_by_part_names) {
+
+                if (!temp.all_parts_by_part_names[locationArray[2]]) {
+
+                    dbRef.once('value').then(r => {
+
+                        if (r.exists()) {
+
+                            temp.all_parts_by_part_names[locationArray[2]] = r.val()
+                            setPartsState(temp)
+
+                        }
+
+                    })
+
+                } else {
+                    setPartsFeedList(partsState.all_parts_by_part_names[locationArray[2]])
+                }
+
+            } else {
+
+                temp.all_parts_by_part_names = {}
+
+                dbRef.once('value').then(r => {
+
+                    if (r.exists()) {
+
+                        temp.all_parts_by_part_names[locationArray[2]] = r.val()
+                        setPartsState(temp)
+
+                    }
+
+                })
+
+            }
+
+            return (() => {
+                setPartsFeedList([])
+            })
+
         }
 
     }, [locationArray, partsState, setPartsState])
 
     return (
         <>
-            {locationArray.length === 4
+            {locationArray.length === 4 || (locationArray.length===3 && locationArray[1]==="partsFilter")
                 ? <PartsFeedComponentView partsFeedList={partsFeedList}
                                           matches={matches}
                 />

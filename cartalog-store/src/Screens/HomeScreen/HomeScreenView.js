@@ -5,10 +5,10 @@ import NavBarComponent from "../../Components/NavBarComponent/NavBarComponent";
 import FilterComponent from "../../Components/FilterComponent/FilterComponent";
 import PartNamesComponent from "../../Components/PartNamesComponent/PartNamesComponent";
 import PartsFeedComponent from "../../Components/PartsFeedComponent/PartsFeedComponent";
-import PartDetailedComponent from "../../Components/PartDetailedComponent/PartDetailedComponent";
 import CartComponent from "../../Components/CartComponent/CartComponent";
 import FooterComponent from "../../Components/FooterComponent/FooterComponent";
 import InfoComponent from "../../Components/InfoComponent/InfoComponent";
+import PartDetailedComponent from "../../Components/PartDetailedComponent/PartDetailedComponent";
 
 const useStyles = makeStyles((theme) => createStyles({
 
