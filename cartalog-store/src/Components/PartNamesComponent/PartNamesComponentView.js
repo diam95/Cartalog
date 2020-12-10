@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => createStyles({
         marginTop: theme.spacing(2),
         [theme.breakpoints.down("md")]: {
             columns: "1 auto",
-            marginTop: theme.spacing(1)
+            marginTop: theme.spacing(0)
         },
         columnFill: "auto"
     },

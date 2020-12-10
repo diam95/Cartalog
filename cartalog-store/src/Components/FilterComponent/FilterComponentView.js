@@ -254,7 +254,6 @@ const FilterComponentView = (props) => {
                     )
                 }
 
-
             case 4:
 
                 return (

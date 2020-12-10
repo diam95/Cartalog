@@ -11,7 +11,8 @@ const useStyles = makeStyles((theme) => createStyles({
         background:theme.palette.background.default,
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-around"
+        justifyContent: "space-around",
+        zIndex:100
     },
     container:{
         height: "100%",

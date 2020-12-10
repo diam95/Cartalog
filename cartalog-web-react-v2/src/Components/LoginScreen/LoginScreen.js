@@ -32,6 +32,8 @@ const LoginScreen = (props) => {
 
     const handleLogin = () => {
 
+        console.log(`login button has been clicked`)
+
         firebase.auth().signInWithEmailAndPassword(loginInput, passwordInput).catch(er => {
             alert(er)
         })

@@ -2,6 +2,7 @@ import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import UserInfoComponent from "./UserInfoComponent/UserInfoComponent";
 import PartLinksComponent from "./PartLinksComponent/PartLinksComponent";
+import QuickMessagesComponent from "./QuickMessagesComponent/QuickMessagesComponent";
 
 const useStyles = makeStyles(() => ({
 
@@ -30,6 +31,10 @@ const RightSideMenuView = (props) => {
 
             <PartLinksComponent partnerData={partnerData}
                                 request={request}
+            />
+
+            <QuickMessagesComponent partnerData={partnerData}
+                                    request={request}
             />
 
         </div>

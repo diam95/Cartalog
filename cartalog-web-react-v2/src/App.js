@@ -18,7 +18,6 @@ const App = () => {
     const [answeredRequests, setAnsweredRequests] = useState({});
     const [newMessages, setNewMessages] = useState([]);
 
-    /*//AUTH STATE, LOAD PARTNER DATA
     useEffect(() => {
 
         firebase.auth().onAuthStateChanged(user => {
@@ -29,19 +28,21 @@ const App = () => {
 
                 const partners2Ref = firebase.database().ref('partners2').child(uid).child('info')
 
-                partners2Ref.once('value', snap => {
+                partners2Ref.on('value', snap => {
 
-                }).then(r => {
+                    if (snap.exists()) {
 
-                    if (r.exists()) {
-
-                        const data = r.val()
+                        const data = snap.val()
 
                         data.partnerID = uid
                         setPartnerData(data)
 
                     }
 
+                })
+
+                return(()=>{
+                    partners2Ref.off('value')
                 })
             }
 
@@ -306,7 +307,7 @@ const App = () => {
         handleAnsweredRequestsSort()
 
 
-    }, [requestsDataset, answeredRequests, newMessages])*/
+    }, [requestsDataset, answeredRequests, newMessages])
 
     return (
         <Router>

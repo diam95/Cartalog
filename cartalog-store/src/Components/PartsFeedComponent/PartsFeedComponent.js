@@ -140,6 +140,7 @@ const PartsFeedComponent = (props) => {
             {locationArray.length === 4 || (locationArray.length===3 && locationArray[1]==="partsFilter")
                 ? <PartsFeedComponentView partsFeedList={partsFeedList}
                                           matches={matches}
+                                          filterState={props.filterState}
                 />
                 : <></>
             }
