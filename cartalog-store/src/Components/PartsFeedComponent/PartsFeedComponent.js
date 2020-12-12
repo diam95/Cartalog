@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import PartsFeedComponentView from "./PartsFeedComponentView";
-import {useLocation} from "react-router-dom";
 import firebase from "firebase";
 
 const PartsFeedComponent = (props) => {
@@ -8,16 +7,18 @@ const PartsFeedComponent = (props) => {
     const partsState = props.partsState
     const setPartsState = props.setPartsState
     const matches = props.matches
+    const setFilterState = props.setFilterState
 
-    const locationArray = useLocation().pathname.split("/")
+    const locationArray = props.locationArray
+    const history = props.history
 
     const [partsFeedList, setPartsFeedList] = useState([]);
-
-    console.log(partsFeedList)
+    const [partsFeedListForFilter, setPartsFeedListForFilter] = useState([]);
+    const [partsFeedListForPartsFeed, setPartsFeedListForPartsFeed] = useState([]);
 
     useEffect(() => {
 
-        if (locationArray.length === 4) {
+        if (locationArray.length > 3) {
 
             const temp = {...partsState}
             const brand = locationArray[1]
@@ -135,12 +136,53 @@ const PartsFeedComponent = (props) => {
 
     }, [locationArray, partsState, setPartsState])
 
+    useEffect(() => {
+
+        console.log({partsFeedList})
+
+        setPartsFeedListForPartsFeed(partsFeedList)
+        setPartsFeedListForFilter(partsFeedList)
+
+    }, [locationArray, partsFeedList])
+
+    const renderCase = () => {
+
+        if (locationArray.length === 6) {
+
+            if (locationArray[1] !== "partsFilter" && locationArray[1] !== "allBrands") {
+
+                if (locationArray[2] !== "allModels") {
+
+                    if (locationArray[3] !== "allParts") {
+                        return true
+                    } else {
+                        return false
+                    }
+
+                } else return false
+
+            } else return false
+
+        } else if (locationArray.length === 3 && locationArray[1] === "partsFilter") {
+            return true
+        } else if (locationArray.length === 3 && locationArray[1] !== "partsFilter") {
+            return false
+        } else if (locationArray.length === 4 && locationArray[1] !== "partsFilter") {
+            return true
+        } else return false
+
+    }
+
     return (
         <>
-            {locationArray.length === 4 || (locationArray.length===3 && locationArray[1]==="partsFilter")
-                ? <PartsFeedComponentView partsFeedList={partsFeedList}
+            {renderCase()
+                ? <PartsFeedComponentView partsFeedListForPartsFeed={partsFeedListForPartsFeed}
+                                          partsFeedListForFilter={partsFeedListForFilter}
                                           matches={matches}
                                           filterState={props.filterState}
+                                          setFilterState={props.setFilterState}
+                                          locationArray={locationArray}
+                                          history={history}
                 />
                 : <></>
             }

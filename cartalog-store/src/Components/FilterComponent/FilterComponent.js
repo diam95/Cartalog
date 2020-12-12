@@ -2,7 +2,6 @@ import React, {useEffect} from 'react'
 import FilterComponentView from "./FilterComponentView";
 import firebase from "firebase/app"
 import "firebase/database"
-import {useLocation} from "react-router-dom"
 
 const FilterComponent = (props) => {
 
@@ -10,8 +9,8 @@ const FilterComponent = (props) => {
     const filterState = props.filterState
     const setFilterState = props.setFilterState
 
-    const location = useLocation()
-    const locationArray = location.pathname.split("/")
+    const locationArray = props.locationArray
+    const history = props.history
 
     useEffect(() => {
 
@@ -30,9 +29,9 @@ const FilterComponent = (props) => {
 
         }
 
-        const brand = location.pathname.split("/")[1]
+        const brand = locationArray[1]
 
-        if (brand.length > 0 && location.pathname.split("/")[1] !== "partsFilter") {
+        if (brand.length > 0 && locationArray[1] !== "partsFilter") {
 
             if (!filterState.all_models[brand]) {
 
@@ -53,7 +52,7 @@ const FilterComponent = (props) => {
 
         }
 
-    }, [filterState, location])
+    }, [filterState, locationArray, setFilterState])
 
     return (
         <>
@@ -68,6 +67,8 @@ const FilterComponent = (props) => {
                 ? <FilterComponentView matches={matches}
                                        filterState={filterState}
                                        setFilterState={setFilterState}
+                                       locationArray={locationArray}
+                                       history={history}
                 />
                 : <></>
             }

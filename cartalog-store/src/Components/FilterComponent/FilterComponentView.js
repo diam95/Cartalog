@@ -2,13 +2,11 @@ import React from 'react'
 import {makeStyles, createStyles, useTheme} from '@material-ui/core/styles';
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import {useHistory, useLocation} from 'react-router-dom';
 import BrandsAndModels from "./BrandsAndModels";
 import {Grid} from "@material-ui/core";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import Typography from "@material-ui/core/Typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import PartNamesComponent from "../PartNamesComponent/PartNamesComponent";
 
 const useStyles = makeStyles((theme) => createStyles({
 
@@ -63,9 +61,8 @@ const FilterComponentView = (props) => {
     const classes = useStyles()
     const theme = useTheme();
 
-    const history = useHistory();
-    const location = useLocation();
-    const locationArray = location.pathname.split("/")
+    const history = props.history
+    const locationArray = props.locationArray
 
     const matches = props.matches
     const filterState = props.filterState
@@ -139,7 +136,7 @@ const FilterComponentView = (props) => {
 
     const getTab = () => {
 
-        if (location.pathname.split("/")[1] === "partsFilter") {
+        if (locationArray[1] === "partsFilter") {
             return 1
         } else {
             return 0
@@ -148,8 +145,6 @@ const FilterComponentView = (props) => {
     }
 
     const renderCrumbs = () => {
-
-        const locationArray = location.pathname.split("/")
 
         const getPartName = () => {
 

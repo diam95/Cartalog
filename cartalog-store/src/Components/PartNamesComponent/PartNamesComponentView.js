@@ -105,7 +105,7 @@ const PartNamesComponentView = (props) => {
             setPartNamesArray([])
         })
 
-    }, [locationArray, filterState.parts_filter_detailed])
+    }, [locationArray, filterState.parts_filter_detailed, filterState.all_part_names])
 
     const renderContent = () => {
 
@@ -205,8 +205,32 @@ const PartNamesComponentView = (props) => {
 
         } else if (locationArray[1] === "partsFilter" && locationArray.length === 2) {
             return <CircularProgress className={classes.progress}/>
-        } else if(locationArray[1] !=="partsFilter" && locationArray.length===3){
+        } else if (locationArray[1] !== "partsFilter" && locationArray.length === 3) {
             return <CircularProgress className={classes.progress}/>
+        }
+
+    }
+
+    const renderCase = () => {
+
+        if (locationArray.length === 6) {
+
+            if (locationArray[1] !== "allBrands") {
+
+                if (locationArray[2] !== "allModels") {
+
+                    if (locationArray[3] === "allParts") {
+                        return true
+                    }
+
+                }
+
+            }
+
+        } else if (locationArray.length === 2 && locationArray[1] === "partsFilter") {
+            return true
+        } else if (locationArray.length === 3 && locationArray[1] !== "partsFilter") {
+            return true
         }
 
     }
@@ -221,7 +245,7 @@ const PartNamesComponentView = (props) => {
                 <Grid item xl={8} lg={8} md={12} sm={12} xs={12} className={classes.gridContent}>
 
                     <div className={classes.partTitlesContainer}>
-                        {locationArray.length === 3 || locationArray[1] === "partsFilter"
+                        {renderCase()
                             ? renderContent()
                             : <div/>
                         }

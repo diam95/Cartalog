@@ -4,7 +4,6 @@ import {Grid, Typography} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import noImage from "../../assets/no-photo.svg";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import {useHistory} from "react-router-dom";
 import FeedFilter from "./FeedFilter/FeedFilter";
 
 const useStyles = makeStyles((theme) => createStyles({
@@ -113,11 +112,13 @@ const useStyles = makeStyles((theme) => createStyles({
 
 const PartsFeedComponentView = (props) => {
 
-    const partsFeedList = props.partsFeedList
+    const partsFeedListForPartsFeed = props.partsFeedListForPartsFeed
+    const setFilterState = props.setFilterState
 
     const classes = useStyles()
 
-    const history = useHistory()
+    const locationArray = props.locationArray
+    const history = props.history
 
     const renderPartCards = () => {
 
@@ -158,26 +159,7 @@ const PartsFeedComponentView = (props) => {
 
         }
 
-        const renderCaptions = (captions) => {
-
-            const captionsArray = []
-
-            captionsArray.push(
-                <Button variant={"contained"} disableElevation
-                        className={classes.partCardCaptions}>{captions[1].captionValue}</Button>
-            )
-            if (captions[2]) {
-                captionsArray.push(
-                    <Button variant={"contained"} disableElevation
-                            className={classes.partCardCaptions}>{captions[2].captionValue}</Button>
-                )
-            }
-
-            return captionsArray
-
-        }
-
-        return Object.values(partsFeedList).map(part => {
+        return Object.values(partsFeedListForPartsFeed).map(part => {
             return (
                 <div style={{display: "inline-block", width: "100%"}} key={part.partHref}>
                     <div className={classes.partCardContainer} key={part.href} onClick={() => {
@@ -211,7 +193,6 @@ const PartsFeedComponentView = (props) => {
 
     }
 
-
     return (
         <div className={classes.root}>
 
@@ -221,9 +202,13 @@ const PartsFeedComponentView = (props) => {
                     <div className={classes.feedContainer}>
                         <FeedFilter matches={props.matches}
                                     filterState={props.filterState}
+                                    partsFeedListForFilter={props.partsFeedListForFilter}
+                                    setFilterState={setFilterState}
+                                    locationArray={locationArray}
+                                    history={history}
                         />
                         {renderPartCards()}
-                        {partsFeedList.length === 0 ? <CircularProgress className={classes.progress}/> : <></>}
+                        {partsFeedListForPartsFeed.length === 0 ? <CircularProgress className={classes.progress}/> : <></>}
                     </div>
                 </Grid>
                 <Grid item xl={2} lg={2} md={false} sm={false} xs={false}/>

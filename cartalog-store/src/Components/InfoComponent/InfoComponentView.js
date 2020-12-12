@@ -23,6 +23,8 @@ import LocalShippingOutlinedIcon from '@material-ui/icons/LocalShippingOutlined'
 import * as clipboard from "clipboard-polyfill/text";
 import Button from "@material-ui/core/Button";
 import {useSnackbar} from "notistack";
+import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
+import HeadsetMicIcon from '@material-ui/icons/HeadsetMic';
 
 const useStyles = makeStyles((theme) => createStyles({
 
@@ -723,7 +725,6 @@ const InfoComponentView = (props) => {
                                 >ДВС</Typography>
 
                                 <Typography
-                                    component="span"
                                     variant="body2"
                                     color="textPrimary"
                                 >
@@ -735,10 +736,9 @@ const InfoComponentView = (props) => {
                                 </Typography>
 
                                 <Typography
-                                    component="span"
                                     variant="body2"
                                     color="textPrimary"
-                                    style={{marginTop: 8}}
+                                    style={{ marginTop: 8}}
                                 >
                                     Возврат двигателя по гарантии производится в течение 5-7 дней
                                     с момента получения только в случае обнаружения скрытых
@@ -865,32 +865,32 @@ const InfoComponentView = (props) => {
                                     О нас
                                 </Typography>
 
-                                <Typography variant={"body1"} className={classes.marginTop1}>
+                                <Typography variant={"body2"} className={classes.marginTop1}>
                                     «Cartalog» — это интернет-магазин запчастей для иномарок, созданный в Магадане и
                                     работающий
-                                    с 2019 года.
+                                    с 2019 года. Наша главная задача - предоставить лучший сервис для наших клиентов!
                                 </Typography>
 
-                                <Typography variant={"body1"} className={classes.marginTop1}>
+                                <Typography variant={"body2"} className={classes.marginTop1}>
                                     Наша команда предлагает Вам более 1 млн. позиций контрактных запчастей из Японии без
                                     пробега
                                     по РФ!
                                 </Typography>
 
-                                <Typography variant={"body1"} className={classes.marginTop1}>
+                                <Typography variant={"body2"} className={classes.marginTop1}>
                                     Если Вы не смогли найти нужную Вам запчасть или Вы не знаете как правильно подбирать
                                     запчасти, мы с радостью все сделаем за вас!
                                 </Typography>
 
-                                <Typography variant={"body1"} className={classes.marginTop1}>
+                                <Typography variant={"body2"} className={classes.marginTop1}>
                                     Перестаньте тратить свое время на поиск запчастей. Обезопасьте себя от риска стать
                                     жертвой
                                     мошенников или
                                     покупки неподходящей запчасти.
                                 </Typography>
 
-                                <Typography variant={"body1"} className={classes.marginTop1}>
-                                    Скачайте мобильное приложение Cartalog, создайте завяку на поиск запчасти и получите
+                                <Typography variant={"body2"} className={classes.marginTop1}>
+                                    <a href={"https://cartalog-promo.web.app"}>Скачайте мобильное приложение Cartalog</a>, создайте завяку на поиск запчасти и получите
                                     лучшее
                                     предложение в городе!
                                 </Typography>
@@ -934,15 +934,19 @@ const InfoComponentView = (props) => {
                 return (
                     <div className={classes.infoContainer}>
 
-                        <Typography variant={"h6"}>
-                            Контакты
-                        </Typography>
-
                         <div className={classes.infoContainer2}>
+
+                            <Typography variant={"h6"}>
+                                Контакты
+                            </Typography>
+
                             <List className={classes.listRoot}>
                                 <ListItem onClick={() => {
                                     handleNumberClick(`+7(914)-030-6366`)
                                 }}>
+                                    <ListItemAvatar>
+                                        <PeopleOutlineIcon/>
+                                    </ListItemAvatar>
                                     <ListItemText primary={"Отдел продаж"}
                                                   secondary={
                                                       <React.Fragment>
@@ -961,6 +965,9 @@ const InfoComponentView = (props) => {
                                 <ListItem onClick={() => {
                                     handleNumberClick(`+7(914)-039-0623`)
                                 }}>
+                                    <ListItemAvatar>
+                                        <HeadsetMicIcon/>
+                                    </ListItemAvatar>
                                     <ListItemText primary={"Техническая поддержка"}
                                                   secondary={
                                                       <React.Fragment>

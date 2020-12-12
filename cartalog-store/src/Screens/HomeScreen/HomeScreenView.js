@@ -9,6 +9,7 @@ import CartComponent from "../../Components/CartComponent/CartComponent";
 import FooterComponent from "../../Components/FooterComponent/FooterComponent";
 import InfoComponent from "../../Components/InfoComponent/InfoComponent";
 import PartDetailedComponent from "../../Components/PartDetailedComponent/PartDetailedComponent";
+import {useLocation,useHistory} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => createStyles({
 
@@ -36,6 +37,9 @@ const HomeScreen = (props) => {
     const partsState = props.partsState
     const setPartsState = props.setPartsState
 
+    const locationArray = useLocation().pathname.split("/")
+    const history = useHistory()
+
     return (
         <div className={classes.root}>
 
@@ -50,6 +54,8 @@ const HomeScreen = (props) => {
             <FilterComponent matches={matches}
                              filterState={filterState}
                              setFilterState={setFilterState}
+                             locationArray={locationArray}
+                             history={history}
             />
 
             <PartNamesComponent filterState={filterState}
@@ -60,7 +66,11 @@ const HomeScreen = (props) => {
             <PartsFeedComponent matches={matches}
                                 filterState={filterState}
                                 partsState={partsState}
-                                setPartsState={setPartsState}/>
+                                setFilterState={setFilterState}
+                                setPartsState={setPartsState}
+                                locationArray={locationArray}
+                                history={history}
+            />
 
             <PartDetailedComponent matches={matches}
                                    partsState={partsState}

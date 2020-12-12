@@ -75,7 +75,6 @@ const App = () => {
     );
 
     const matches = useMediaQuery(theme.breakpoints.down('md'), {noSsr: true});
-    console.log({matches})
     return (
         <div>
             <ThemeProvider theme={theme}>
