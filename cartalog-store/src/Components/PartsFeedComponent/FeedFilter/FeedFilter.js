@@ -21,6 +21,7 @@ const FeedFilter = (props) => {
 
     const [partNamesArray, setPartNamesArray] = useState([]);
     const [partName, setPartName] = useState(undefined);
+    console.log({partName})
 
     const [frameNumbersArray, setFrameNumbersArray] = useState([]);
     const [frameNumber, setFrameNumber] = useState(undefined);
@@ -34,40 +35,123 @@ const FeedFilter = (props) => {
             setBrandsArray(filterState.all_brands)
         }
 
-        if(brand){
+        if (brand) {
             if (filterState.all_models[brandsArray[brand]]) {
                 setModelsArray(filterState.all_models[brandsArray[brand]])
-            }else {
+            } else {
 
-                const modelsRef = firebase.database().ref
+                if (brandsArray[brand]) {
+                    const modelsRef = firebase.database().ref("all_models").child(brandsArray[brand])
+                    modelsRef.once('value').then(r => {
+                        if (r.exists()) {
+                            const temp = {...filterState}
+                            temp.all_models[brandsArray[brand]] = r.val()
+                            setFilterState(temp)
+                        }
+                    })
+                }
 
             }
         } else {
             if (filterState.all_models[locationArray[1]]) {
                 setModelsArray(filterState.all_models[locationArray[1]])
-            } 
+            }
         }
 
-        if (filterState.parts_filter_detailed[locationArray[1]]) {
+        if (model && brand) {
 
-            if (filterState.parts_filter_detailed[locationArray[1]][locationArray[2]]) {
+            if (modelsArray.length > 0 && brandsArray.length > 0) {
 
-                const partNames = Object.values(filterState.parts_filter_detailed[locationArray[1]][locationArray[2]])
-                const partHrefs = Object.keys(filterState.parts_filter_detailed[locationArray[1]][locationArray[2]])
+                if (filterState.parts_filter_detailed[brandsArray[brand]]) {
 
-                const tempArray = partHrefs.map((href, ind) => {
+                    if (filterState.parts_filter_detailed[brandsArray[brand]][modelsArray[model]]) {
 
-                    return {
-                        partHref: href,
-                        partName: partNames[ind]
+                        const partNames = Object.values(filterState.parts_filter_detailed[brandsArray[brand]][modelsArray[model]])
+                        const partHrefs = Object.keys(filterState.parts_filter_detailed[brandsArray[brand]][modelsArray[model]])
+
+                        const tempArray = partHrefs.map((href, ind) => {
+
+                            return {
+                                partHref: href,
+                                partName: partNames[ind]
+                            }
+
+                        })
+
+                        setPartNamesArray(tempArray)
+
+                    } else {
+
+                        if (brandsArray[brand] && modelsArray[model]) {
+
+                            const partNamesRef = firebase.database().ref('parts_filter_detailed').child(brandsArray[brand]).child(modelsArray[model])
+                            partNamesRef.once('value').then(r => {
+                                if (r.exists()) {
+                                    const partNames = Object.values(r.val())
+                                    const partHrefs = Object.keys(r.val())
+
+                                    const tempArray = partHrefs.map((href, ind) => {
+
+                                        return {
+                                            partHref: href,
+                                            partName: partNames[ind]
+                                        }
+
+                                    })
+
+                                    setPartNamesArray(tempArray)
+                                }
+                            })
+
+                        }
+
                     }
 
-                })
+                } else {
 
-                setPartNamesArray(tempArray)
+                    if (brandsArray[brand] && modelsArray[model]) {
+
+                        const partNamesRef = firebase.database().ref('parts_filter_detailed').child(brandsArray[brand]).child(modelsArray[model])
+                        partNamesRef.once('value').then(r => {
+                            if (r.exists()) {
+                                const partNames = Object.values(r.val())
+                                const partHrefs = Object.keys(r.val())
+
+                                const tempArray = partHrefs.map((href, ind) => {
+
+                                    return {
+                                        partHref: href,
+                                        partName: partNames[ind]
+                                    }
+
+                                })
+
+                                setPartNamesArray(tempArray)
+                            }
+                        })
+
+                    }
+
+                }
 
             }
 
+        } else {
+            if (filterState.parts_filter_detailed[locationArray[1]]) {
+                if (filterState.parts_filter_detailed[locationArray[1]][locationArray[2]]) {
+                    const partNames = Object.values(filterState.parts_filter_detailed[locationArray[1]][locationArray[2]])
+                    const partHrefs = Object.keys(filterState.parts_filter_detailed[locationArray[1]][locationArray[2]])
+                    const tempArray = partHrefs.map((href, ind) => {
+
+                        return {
+                            partHref: href,
+                            partName: partNames[ind]
+                        }
+
+                    })
+                    setPartNamesArray(tempArray)
+                }
+            }
         }
 
         if (Object.values(partsFeedListForFilter).length > 0) {
@@ -114,7 +198,7 @@ const FeedFilter = (props) => {
 
         }
 
-    }, [locationArray, filterState, partsFeedListForFilter, brand])
+    }, [locationArray, filterState, partsFeedListForFilter, brand, brandsArray, setFilterState, model, modelsArray])
 
     useEffect(() => {
 
@@ -133,21 +217,37 @@ const FeedFilter = (props) => {
                 locationArray[2] !== "allModels" &&
                 locationArray[3] !== "allParts"
             ) {
-                const ind = Object.keys(filterState.parts_filter_detailed[locationArray[1]][locationArray[2]]).indexOf(locationArray[3])
-                setPartName(ind)
+
+                if(filterState.parts_filter_detailed[locationArray[1]]){
+                    if(filterState.parts_filter_detailed[locationArray[1]][locationArray[2]]){
+                        const ind = Object.keys(filterState.parts_filter_detailed[locationArray[1]][locationArray[2]]).indexOf(locationArray[3])
+                        setPartName(ind)
+                    }
+                }
+
             }
 
         }
 
-        if (frameNumbersArray.length > 0 && !frameNumber) {
+        if (frameNumbersArray.length > 0 && !frameNumber && locationArray[4] && locationArray[4] !== "allFrames") {
             setFrameNumber(frameNumbersArray.indexOf(locationArray[4]))
         }
 
-        if (enginesArray.length > 0 && !engine) {
+        if (enginesArray.length > 0 && !engine && locationArray[5] && locationArray[5] !== "allEngines") {
+            console.log("setEngine")
             setEngine(enginesArray.indexOf(locationArray[5]))
         }
 
     }, [brandsArray, brand, locationArray, modelsArray, model, partNamesArray.length, partName, partNamesArray, filterState.parts_filter_detailed, frameNumbersArray, frameNumber, enginesArray, engine])
+
+    useEffect(() => {
+
+        if (locationArray[2] !== modelsArray[model]) {
+            setPartNamesArray([])
+            setPartName(undefined)
+        }
+
+    }, [locationArray, model, modelsArray])
 
     const handleChange = (type, event) => {
 
@@ -201,14 +301,13 @@ const FeedFilter = (props) => {
             setPartName(ind)
         }
 
-        if (locationArray[4] && frameNumbersArray.length > 0) {
-            console.log(frameNumbersArray)
-            console.log(frameNumbersArray.indexOf(locationArray[4]));
+        if (frameNumbersArray.length > 0 && !frameNumber && locationArray[4] && locationArray[4] !== "allFrames") {
             setFrameNumber(frameNumbersArray.indexOf(locationArray[4]))
         }
 
-        if (locationArray[5] && enginesArray.length > 0) {
-            setFrameNumber(enginesArray.indexOf(locationArray[5]))
+        if (enginesArray.length > 0 && !engine && locationArray[5] && locationArray[5] !== "allEngines") {
+            console.log("setEngine")
+            setEngine(enginesArray.indexOf(locationArray[5]))
         }
 
         setFilterDialogIsOpen(false)
@@ -242,7 +341,6 @@ const FeedFilter = (props) => {
             if (partName) {
                 if (partNamesArray[partName]) {
                     return `/${partNamesArray[partName].partHref}`
-
                 } else return "/allParts"
             } else {
                 return "/allParts"
@@ -269,6 +367,8 @@ const FeedFilter = (props) => {
             }
 
         }
+
+        console.log(getPartNameHref())
 
         history.push(getBrandHref() + getModelHref() + getPartNameHref() + getFrameHref() + getEngineHref())
         handleClose()

@@ -144,7 +144,7 @@ const PartDetailedComponentView = (props) => {
                               animation={"fade"}
                               navButtonsAlwaysVisible={true}
 
-                    >
+                                                  >
                         {
                             part.images.filter(item => item.includes("https")).map((item, i) => <Item key={i}
                                                                                                       item={item}/>)

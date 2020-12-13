@@ -74,6 +74,8 @@ const PartNamesComponentView = (props) => {
     const [partNamesArray, setPartNamesArray] = useState([]);
     const classes = useStyles()
 
+    console.log(partNamesArray)
+
     useEffect(() => {
 
         if (locationArray.length === 3) {
@@ -97,6 +99,17 @@ const PartNamesComponentView = (props) => {
 
                 setPartNamesArray(filterState.all_part_names)
 
+            }
+
+        } else if (locationArray.length === 6 &&
+            locationArray[1] !== "allBrands" &&
+            locationArray[2] !== "allModels" &&
+            locationArray[3] === "allParts") {
+
+            if(filterState.parts_filter_detailed[locationArray[1]]){
+                if(filterState.parts_filter_detailed[locationArray[1]][locationArray[2]]){
+                    setPartNamesArray(filterState.parts_filter_detailed[locationArray[1]][locationArray[2]])
+                }
             }
 
         }

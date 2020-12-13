@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {
+    CircularProgress,
     Dialog,
     DialogActions,
     DialogContent,
@@ -119,17 +120,23 @@ const FeedFilterView = (props) => {
 
             case "model":
 
-                return (
-                    <>
-                        {modelsArray.map((model, ind) => {
+                if (modelsArray.length > 0) {
+                    return (
+                        <>
+                            {modelsArray.map((model, ind) => {
 
-                            return (
-                                <option value={ind} key={model + ind}>{model.toUpperCase()}</option>
-                            )
+                                return (
+                                    <option value={ind} key={model + ind}>{model.toUpperCase()}</option>
+                                )
 
-                        })}
-                    </>
-                )
+                            })}
+                        </>
+                    )
+
+                } else {
+                    return <CircularProgress/>
+                }
+
 
             case "partName":
 
@@ -182,25 +189,25 @@ const FeedFilterView = (props) => {
 
     const renderEmptyOption = (type) => {
 
-        switch (type){
+        switch (type) {
 
             case "brand":
-                if(locationArray[1]==="partsFilter"){
+                if (locationArray[1] === "partsFilter") {
                     return <option value={undefined}>Все марки</option>
                 }
-            break
+                break
 
             case "model":
-                if(locationArray[1]==="partsFilter"){
+                if (locationArray[1] === "partsFilter") {
                     return <option value={undefined}>Все модели</option>
                 }
-            break
+                break
 
             case "partName":
-                if(locationArray[1]==="partsFilter"){
-                    return <option value={undefined}>Все модели</option>
+                if (locationArray[1] === "partsFilter") {
+                    return <option value={undefined}>Любая деталь</option>
                 }
-            break
+                break
 
             default:
                 break
