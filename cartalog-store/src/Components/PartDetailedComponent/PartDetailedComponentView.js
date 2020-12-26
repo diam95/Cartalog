@@ -24,12 +24,14 @@ const useStyles = makeStyles((theme) => createStyles({
         paddingRight: theme.spacing(3)
     },
     partDetailsContainer: {
+        width:"100%",
         display: "flex",
         flexDirection: "column",
+        alignItems:"flex-start",
+        justifyContent:"flex-start",
         [theme.breakpoints.down("md")]: {
             paddingLeft: theme.spacing(2),
-            paddingRight: theme.spacing(2),
-            paddingTop: theme.spacing(1)
+            paddingRight: theme.spacing(2)
         }
     },
     image: {
@@ -67,6 +69,7 @@ const useStyles = makeStyles((theme) => createStyles({
         height: 240
     },
     carouselRoot: {
+        marginTop:theme.spacing(1),
         width: "100%",
         backgroundImage:`url(${bcgr})`,
         backgroundSize:"contain",

@@ -3,9 +3,9 @@ import {makeStyles, createStyles} from '@material-ui/core/styles';
 import Button from "@material-ui/core/Button";
 import Avatar from "@material-ui/core/Avatar";
 import {useHistory} from "react-router-dom";
-import {Grid} from "@material-ui/core";
+import {Grid, TextField} from "@material-ui/core";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import firebase from "firebase";
+import Autocomplete from '@material-ui/lab/Autocomplete';
 
 const useStyles = makeStyles((theme) => createStyles({
 
@@ -34,6 +34,13 @@ const useStyles = makeStyles((theme) => createStyles({
         display: "inline-block",
         width: "100%"
     },
+    contentContainer: {
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+        justifyContent: "flex-start"
+    },
     letterPartsContainer: {
         marginBottom: theme.spacing(3),
         display: "flex",
@@ -58,6 +65,16 @@ const useStyles = makeStyles((theme) => createStyles({
     },
     gridContent: {
         width: "100%",
+    },
+    autocomplete: {
+        width: "100%",
+        [theme.breakpoints.down("md")]: {
+            width: `calc(100% - ${theme.spacing(4)}px)`,
+            marginBottom: theme.spacing(2),
+            marginLeft: theme.spacing(2),
+            marginRight: theme.spacing(2),
+            marginTop: theme.spacing(1)
+        }
     }
 
 }))
@@ -74,7 +91,8 @@ const PartNamesComponentView = (props) => {
     const [partNamesArray, setPartNamesArray] = useState([]);
     const classes = useStyles()
 
-    console.log(partNamesArray)
+    const partsNameArrayLol = Object.values(partNamesArray)
+    const partsNameHrefs = Object.keys(partNamesArray)
 
     useEffect(() => {
 
@@ -106,8 +124,8 @@ const PartNamesComponentView = (props) => {
             locationArray[2] !== "allModels" &&
             locationArray[3] === "allParts") {
 
-            if(filterState.parts_filter_detailed[locationArray[1]]){
-                if(filterState.parts_filter_detailed[locationArray[1]][locationArray[2]]){
+            if (filterState.parts_filter_detailed[locationArray[1]]) {
+                if (filterState.parts_filter_detailed[locationArray[1]][locationArray[2]]) {
                     setPartNamesArray(filterState.parts_filter_detailed[locationArray[1]][locationArray[2]])
                 }
             }
@@ -184,7 +202,7 @@ const PartNamesComponentView = (props) => {
 
                 }
 
-                return partNames.sort().map((part_name) => {
+                return partNames.map((part_name) => {
 
                     const idx = partNames1.indexOf(part_name)
                     return (
@@ -202,7 +220,7 @@ const PartNamesComponentView = (props) => {
 
             const lettersArraySorted = Array.from(new Set(lettersArray)).sort()
 
-            return lettersArraySorted.map(letter => {
+            const result = lettersArraySorted.map(letter => {
 
                 return (
                     <div className={classes.container} key={letter}>
@@ -215,6 +233,28 @@ const PartNamesComponentView = (props) => {
                 )
 
             })
+
+            return (
+                <div className={classes.contentContainer}>
+
+                    <Autocomplete
+                        id="combo-box-demo"
+                        options={partsNameArrayLol}
+                        getOptionLabel={(option) => option}
+                        blurOnSelect
+                        onChange={handleChange}
+                        loading={partsNameArrayLol.length === 0}
+                        className={classes.autocomplete}
+                        renderInput={(params) => <TextField margin={"dense"} {...params}
+                                                            label="Поиск по названию запчасти" variant="outlined"/>}
+                    />
+
+                    <div className={classes.partTitlesContainer}>
+                        {result}
+                    </div>
+
+                </div>
+            )
 
         } else if (locationArray[1] === "partsFilter" && locationArray.length === 2) {
             return <CircularProgress className={classes.progress}/>
@@ -248,16 +288,22 @@ const PartNamesComponentView = (props) => {
 
     }
 
+    const handleChange = (event, value) => {
+
+        history.push(`/partsFilter/${partsNameHrefs[partsNameArrayLol.indexOf(value)]}`)
+
+    }
+
     return (
         <div className={classes.root}>
 
             <Grid container spacing={0}>
 
-                <Grid item xl={2} lg={2} md={false} sm={false} xs={false}/>
+                <Grid item xl={3} lg={3} md={false} sm={false} xs={false}/>
 
-                <Grid item xl={8} lg={8} md={12} sm={12} xs={12} className={classes.gridContent}>
+                <Grid item xl={6} lg={6} md={12} sm={12} xs={12} className={classes.gridContent}>
 
-                    <div className={classes.partTitlesContainer}>
+                    <div>
                         {renderCase()
                             ? renderContent()
                             : <div/>
@@ -266,7 +312,7 @@ const PartNamesComponentView = (props) => {
 
                 </Grid>
 
-                <Grid item xl={2} lg={2} md={false} sm={false} xs={false}/>
+                <Grid item xl={3} lg={3} md={false} sm={false} xs={false}/>
 
             </Grid>
 

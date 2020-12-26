@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {
     CircularProgress,
@@ -20,9 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
     filterButtonStyle: {
         width: `calc(100% - ${theme.spacing(4)}px)`,
-        marginLeft: theme.spacing(2),
-        marginBottom: theme.spacing(2),
-        marginRight: theme.spacing(2)
+        margin: theme.spacing(2)
     },
     formControl: {
         margin: theme.spacing(1),
@@ -38,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
-
 
 const FeedFilterView = (props) => {
 
@@ -75,6 +72,7 @@ const FeedFilterView = (props) => {
             return (
                 <Button variant={"outlined"}
                         color={"primary"}
+                        size={"small"}
                         className={classes.filterButtonStyle}
                         startIcon={<FilterListIcon/>}
                         onClick={handleOpen}

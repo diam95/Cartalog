@@ -58,11 +58,13 @@ const PartNamesComponent = (props) => {
 
             const temp = {...filterState}
 
-            if(!temp.all_part_names){
+            if (!temp.all_part_names) {
                 const partsDetailedRef = firebase.database().ref('all_part_names')
                 partsDetailedRef.once('value').then(r => {
 
                     if (r.exists()) {
+
+                        console.log(r.val())
 
                         temp.all_part_names=r.val()
                         setFilterState(temp)
@@ -74,7 +76,7 @@ const PartNamesComponent = (props) => {
 
         }
 
-    }, [locationArray, filterState])
+    }, [locationArray, filterState, setFilterState])
 
     return (
         <PartNamesComponentView filterState={filterState}

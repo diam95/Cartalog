@@ -34,7 +34,10 @@ const useStyles = makeStyles((theme) => createStyles({
         flexDirection: "row",
         alignItems: "flex-start",
         justifyContent: "center",
+        marginTop: theme.spacing(3),
         [theme.breakpoints.down("md")]: {
+            minHeight:`calc(100vh - 120px)`,
+            marginTop: theme.spacing(0),
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "flex-start"
@@ -53,39 +56,69 @@ const useStyles = makeStyles((theme) => createStyles({
         }
     },
     paymentAnimation: {
+        display: "none",
+        [theme.breakpoints.down("md")]: {
+            display: "block",
+        },
         width: "100%"
     },
     guaranteesAnimation: {
         width: "150%",
+        display: "none",
         [theme.breakpoints.down("md")]: {
-            width: "100%"
+            display: "block",
+            width: "100%",
+            marginTop: theme.spacing(3),
+            marginBottom: theme.spacing(4),
         }
     },
     refundAnimation: {
         width: "400%",
+        display: "none",
         [theme.breakpoints.down("md")]: {
-            width: "100%"
-        },
-        marginLeft: theme.spacing(2)
+            display: "block",
+            width: "100%",
+            marginBottom: theme.spacing(-4),
+            marginTop: theme.spacing(-8)
+        }
     },
     servicesAnimation: {
         width: "80%",
-        marginBottom: theme.spacing(2),
-        marginTop: theme.spacing(2),
+        display: "none",
         [theme.breakpoints.down("md")]: {
+            display: "block",
             width: "100%"
         }
     },
     shippingAnimation: {
         width: "100%",
-        marginBottom: -theme.spacing(2),
-        marginTop: -theme.spacing(22),
+        display: "none",
         [theme.breakpoints.down("md")]: {
-            marginTop: -theme.spacing(5),
+            display: "block",
+            width: "100%",
+            marginTop: theme.spacing(-10),
+            marginBottom: theme.spacing(-3),
+        }
+    },
+    contactsAnimation: {
+        width: "100%",
+        display: "none",
+        [theme.breakpoints.down("md")]: {
+            display: "block",
+            width: "100%",
+            marginTop: theme.spacing(-6),
+            marginBottom: theme.spacing(-4)
         }
     },
     aboutAnimation: {
-        width: "100%"
+        width: "100%",
+        display: "none",
+        [theme.breakpoints.down("md")]: {
+            display: "block",
+            width: "100%",
+            marginTop:theme.spacing(1),
+            marginBottom:theme.spacing(3)
+        }
     },
     emptyCartContainer: {
         width: "100%"
@@ -97,8 +130,6 @@ const useStyles = makeStyles((theme) => createStyles({
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "flex-start",
-        paddingLeft: theme.spacing(2),
-        paddingRight: theme.spacing(2),
         textAlign: "justify"
     },
     marginTop1: {
@@ -115,12 +146,19 @@ const useStyles = makeStyles((theme) => createStyles({
         width: "100%",
         height: "100%",
         display: "flex",
-        flexDirection: "row",
-        alignItems: "flex-start",
+        flexDirection: "column",
+        alignItems: "center",
         justifyContent: "flex-start",
         [theme.breakpoints.down("md")]: {
-            flexDirection: "column"
+            flexDirection: "column",
+            alignItems: "flex-start",
+            justifyContent: "flex-start",
         }
+    },
+    infoContainer3: {
+        width: `calc(100% - ${theme.spacing(4)}px)`,
+        marginLeft: theme.spacing(2),
+        marginRight: theme.spacing(2)
     }
 
 }))
@@ -222,10 +260,9 @@ const InfoComponentView = (props) => {
                 return (
                     <div className={classes.infoContainer}>
 
-
                         <div className={classes.infoContainer2}>
 
-                            <div>
+                            <div className={classes.infoContainer3}>
                                 <Typography variant={"h6"}>Услуги</Typography>
                                 <List className={classes.listRoot}>
 
@@ -362,7 +399,6 @@ const InfoComponentView = (props) => {
 
                         </div>
 
-
                     </div>
                 )
 
@@ -372,7 +408,7 @@ const InfoComponentView = (props) => {
 
                         <div className={classes.infoContainer2}>
 
-                            <div>
+                            <div className={classes.infoContainer3}>
 
                                 <Typography variant={"h6"}>Оплата</Typography>
 
@@ -482,6 +518,13 @@ const InfoComponentView = (props) => {
                                                     <Typography variant={"body2"}>АО «Тинькофф Банк»
                                                     </Typography>
 
+                                                    <div className={classes.download}
+                                                         onClick={() => {
+                                                             openInNewTab("https://firebasestorage.googleapis.com/v0/b/cartalog-store.appspot.com/o/output.pdf?alt=media&token=7d645ec2-146d-48ca-9f18-923efb1b188b")
+                                                         }}>
+                                                        Реквизиты в pdf
+                                                    </div>
+
                                                 </React.Fragment>
                                             }
                                         />
@@ -496,13 +539,6 @@ const InfoComponentView = (props) => {
 
                         </div>
 
-                        <div className={classes.download}
-                             onClick={() => {
-                                 openInNewTab("https://firebasestorage.googleapis.com/v0/b/cartalog-store.appspot.com/o/output.pdf?alt=media&token=7d645ec2-146d-48ca-9f18-923efb1b188b")
-                             }}>
-                            Реквизиты в pdf
-                        </div>
-
                     </div>
                 )
 
@@ -512,7 +548,7 @@ const InfoComponentView = (props) => {
 
                         <div className={classes.infoContainer2}>
 
-                            <div>
+                            <div className={classes.infoContainer3}>
                                 <Typography variant={"h6"}>Доставка</Typography>
 
                                 <Typography variant={"body2"}>На выбор доступны следущие варианты доставки:</Typography>
@@ -598,10 +634,9 @@ const InfoComponentView = (props) => {
                 return (
                     <div className={classes.infoContainer}>
 
-
                         <div className={classes.infoContainer2}>
 
-                            <div>
+                            <div className={classes.infoContainer3}>
                                 <Typography variant={"h6"}>Гарантии</Typography>
 
                                 <Typography variant={"body2"}>Приобретая контрактные автозапчасти, следует помнить, что
@@ -714,7 +749,8 @@ const InfoComponentView = (props) => {
 
                         <div className={classes.infoContainer2}>
 
-                            <div>
+                            <div className={classes.infoContainer3}>
+
                                 <Typography variant={"h6"}>Возврат</Typography>
 
                                 <Typography variant={"body2"}>В нашем магазине установлены следующие правила возврата
@@ -738,7 +774,7 @@ const InfoComponentView = (props) => {
                                 <Typography
                                     variant="body2"
                                     color="textPrimary"
-                                    style={{ marginTop: 8}}
+                                    style={{marginTop: 8}}
                                 >
                                     Возврат двигателя по гарантии производится в течение 5-7 дней
                                     с момента получения только в случае обнаружения скрытых
@@ -859,7 +895,7 @@ const InfoComponentView = (props) => {
 
                         <div className={classes.infoContainer2}>
 
-                            <div>
+                            <div className={classes.infoContainer3}>
 
                                 <Typography variant={"h6"}>
                                     О нас
@@ -890,7 +926,8 @@ const InfoComponentView = (props) => {
                                 </Typography>
 
                                 <Typography variant={"body2"} className={classes.marginTop1}>
-                                    <a href={"https://cartalog-promo.web.app"}>Скачайте мобильное приложение Cartalog</a>, создайте завяку на поиск запчасти и получите
+                                    <a href={"https://cartalog-promo.web.app"}>Скачайте мобильное приложение
+                                        Cartalog</a>, создайте завяку на поиск запчасти и получите
                                     лучшее
                                     предложение в городе!
                                 </Typography>
@@ -936,62 +973,69 @@ const InfoComponentView = (props) => {
 
                         <div className={classes.infoContainer2}>
 
-                            <Typography variant={"h6"}>
-                                Контакты
-                            </Typography>
+                            <div className={classes.infoContainer3}>
 
-                            <List className={classes.listRoot}>
-                                <ListItem onClick={() => {
-                                    handleNumberClick(`+7(914)-030-6366`)
-                                }}>
-                                    <ListItemAvatar>
-                                        <PeopleOutlineIcon/>
-                                    </ListItemAvatar>
-                                    <ListItemText primary={"Отдел продаж"}
-                                                  secondary={
-                                                      <React.Fragment>
-                                                          <Typography
-                                                              component="span"
-                                                              variant="body2"
-                                                              color="textPrimary"
-                                                          >
-                                                              +7(914)-030-6366
-                                                          </Typography>
-                                                      </React.Fragment>
-                                                  }
-                                    >
-                                    </ListItemText>
-                                </ListItem>
-                                <ListItem onClick={() => {
-                                    handleNumberClick(`+7(914)-039-0623`)
-                                }}>
-                                    <ListItemAvatar>
-                                        <HeadsetMicIcon/>
-                                    </ListItemAvatar>
-                                    <ListItemText primary={"Техническая поддержка"}
-                                                  secondary={
-                                                      <React.Fragment>
-                                                          <Typography
-                                                              component="span"
-                                                              variant="body2"
-                                                              color="textPrimary"
-                                                          >
-                                                              +7(914)-039-0623
-                                                          </Typography>
-                                                      </React.Fragment>
-                                                  }
-                                    >
-                                    </ListItemText>
-                                </ListItem>
+                                <Typography variant={"h6"}>
+                                    Контакты
+                                </Typography>
 
-                            </List>
+                                <List className={classes.listRoot}>
+                                    <ListItem onClick={() => {
+                                        handleNumberClick(`+7(914)-030-6366`)
+                                    }}>
+                                        <ListItemAvatar>
+                                            <PeopleOutlineIcon/>
+                                        </ListItemAvatar>
+                                        <ListItemText primary={"Отдел продаж"}
+                                                      secondary={
+                                                          <React.Fragment>
+                                                              <Typography
+                                                                  component="span"
+                                                                  variant="body2"
+                                                                  color="textPrimary"
+                                                              >
+                                                                  +7(914)-030-6366
+                                                              </Typography>
+                                                          </React.Fragment>
+                                                      }
+                                        >
+                                        </ListItemText>
+                                    </ListItem>
+                                    <ListItem onClick={() => {
+                                        handleNumberClick(`+7(914)-039-0623`)
+                                    }}>
+                                        <ListItemAvatar>
+                                            <HeadsetMicIcon/>
+                                        </ListItemAvatar>
+                                        <ListItemText primary={"Техническая поддержка"}
+                                                      secondary={
+                                                          <React.Fragment>
+                                                              <Typography
+                                                                  component="span"
+                                                                  variant="body2"
+                                                                  color="textPrimary"
+                                                              >
+                                                                  +7(914)-039-0623
+                                                              </Typography>
+                                                          </React.Fragment>
+                                                      }
+                                        >
+                                        </ListItemText>
+                                    </ListItem>
 
-                            <div id="react-logo" className={getAnimationRootStyle()}/>
+                                </List>
+
+                            </div>
+
+                            <div id="react-logo" className={classes.contactsAnimation}/>
 
                         </div>
 
                     </div>
                 )
+
+            default:
+                break;
 
         }
 
@@ -1029,11 +1073,11 @@ const InfoComponentView = (props) => {
     return (
         <div className={classes.root}>
             <Grid container>
-                <Grid item xl={2} lg={2} md={false} sm={false} xs={false}/>
-                <Grid item xl={8} lg={8} md={12} sm={12} xs={12}>
+                <Grid item xl={3} lg={3} md={false} sm={false} xs={false}/>
+                <Grid item xl={6} lg={6} md={12} sm={12} xs={12}>
                     {renderContent()}
                 </Grid>
-                <Grid item xl={2} lg={2} md={false} sm={false} xs={false}/>
+                <Grid item xl={3} lg={3} md={false} sm={false} xs={false}/>
             </Grid>
         </div>
     )

@@ -295,6 +295,9 @@ const FilterComponentView = (props) => {
                     </Breadcrumbs>
                 )
 
+            default:
+                break;
+
         }
 
     }
@@ -313,7 +316,7 @@ const FilterComponentView = (props) => {
 
             <Grid container spacing={0}>
 
-                <Grid item xl={2} lg={2} md={false} sm={false} xs={false}/>
+                <Grid item xl={3} lg={3} md={false} sm={false} xs={false}/>
 
                 <Grid item xl={6} lg={6} md={12} sm={12} xs={12}>
 
@@ -332,7 +335,7 @@ const FilterComponentView = (props) => {
 
                         <TabPanel value={getTab()} index={0} dir={theme.direction}>
                             {renderCrumbs()}
-                            {locationArray[1] !== "cart" && locationArray[1] !== "partsFilter"
+                            {locationArray[1] !== "cart" && locationArray[1] !== "partsFilter" && locationArray.length < 3
                                 ? <BrandsAndModels filterState={filterState}
                                                    matches={matches}
                                 />
@@ -340,6 +343,7 @@ const FilterComponentView = (props) => {
                             }
 
                         </TabPanel>
+
                         <TabPanel value={getTab()} index={1} dir={theme.direction}>
                             {renderCrumbs()}
                         </TabPanel>
@@ -348,7 +352,7 @@ const FilterComponentView = (props) => {
 
                 </Grid>
 
-                <Grid item xl={2} lg={2} md={false} sm={false} xs={false}/>
+                <Grid item xl={3} lg={3} md={false} sm={false} xs={false}/>
 
             </Grid>
 

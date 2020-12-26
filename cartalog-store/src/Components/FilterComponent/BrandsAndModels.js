@@ -8,11 +8,12 @@ const useStyles = makeStyles((theme) => createStyles({
 
     root: {
         marginTop: theme.spacing(1),
+        minHeight:`calc(100vh - 240px)`,
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
         justifyContent: "flex-start",
-        overflow: "hidden"
+        marginBottom: theme.spacing(2)
     },
     buttonsContainer: {
         columns: "6 auto",
@@ -47,7 +48,7 @@ const BrandsAndModels = (props) => {
 
                 return (
                     <div className={classes.buttonsContainer}>
-                        {filterState.all_brands.sort().map(brand => {
+                        {filterState.all_brands.map(brand => {
 
                             return <Button key={brand} size={"large"} className={classes.button} onClick={() => {
                                 history.push(`/${brand}`)
@@ -67,7 +68,7 @@ const BrandsAndModels = (props) => {
 
                 return (
                     <div className={classes.buttonsContainer}>
-                        {filterState.all_models[locationArray[1]].sort().map(model => {
+                        {filterState.all_models[locationArray[1]].map(model => {
 
                             return <Button key={model} size={"large"} className={classes.button} onClick={() => {
                                 history.push(`/${locationArray[1].replace(/ /g, "-")}/${model.replace(/ /g, "-")}`)
