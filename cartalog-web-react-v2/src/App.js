@@ -296,6 +296,10 @@ const App = () => {
 
                 })
 
+                if(answeredRequestsValues.length===0){
+                    setSortedDataset([...temp])
+                }
+
             } else {
 
                 handleNewMessagesSort()

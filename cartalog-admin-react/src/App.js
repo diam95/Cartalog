@@ -21,8 +21,6 @@ function App() {
 
                 if (user) {
 
-
-
                     firebase.database().ref().once('value', snap => {
 
                         setStore(snap.val())

@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5735df5-e4c4-499d-baaf-1c06b8e408c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../cartalog-store/.firebase/hosting.YnVpbGQ.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-store/.firebase/hosting.YnVpbGQ.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cartalog-store/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-store/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cartalog-store/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-store/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cartalog-store/src/Components/PartNamesComponent/PartNamesComponentView.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-store/src/Components/PartNamesComponent/PartNamesComponentView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cartalog-store/src/Components/PartsFeedComponent/FeedFilter/FeedFilterView.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-store/src/Components/PartsFeedComponent/FeedFilter/FeedFilterView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/.firebase/hosting.YnVpbGQ.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/.firebase/hosting.YnVpbGQ.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/MainScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/MainScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RequestsSidebar/RequestsSidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../cartalog-web-react-v2/src/Components/MainScreen/RequestsSidebar/RequestsSidebar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +33,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../MERN Test/mern-test-frontend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../BBHub" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -86,6 +85,8 @@
       <workItem from="1586481993378" duration="160000" />
       <workItem from="1608275733509" duration="143000" />
       <workItem from="1608282661421" duration="16000" />
+      <workItem from="1616404937858" duration="156000" />
+      <workItem from="1616408782634" duration="15000" />
     </task>
     <servers />
   </component>

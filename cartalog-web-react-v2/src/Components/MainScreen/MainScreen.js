@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import MainScreenView from "./MainScreenView";
-import {useHistory, useLocation} from "react-router-dom"
+import { useHistory, useLocation } from "react-router-dom"
 import firebase from "firebase";
 
 const MainScreen = (props) => {
@@ -21,11 +21,10 @@ const MainScreen = (props) => {
         const locationArr = location.pathname.split("/")
         setRequest(undefined)
 
-        if (locationArr[1] === "request") {
+        if (locationArr[1] === "request" && partnerData && partnerData.type) {
 
             const requestKey = locationArr[2]
-
-            const dbRef = firebase.database().ref(`requests/magadan/autoparts/${requestKey}`)
+            const dbRef = firebase.database().ref(`requests/magadan/${partnerData.type}/${requestKey}`)
             dbRef.once('value', snap => {
             }).then(r => {
 
@@ -37,7 +36,7 @@ const MainScreen = (props) => {
 
         }
 
-    }, [location])
+    }, [partnerData, location])
 
     //CHECK AUTH STATE
     useEffect(() => {
